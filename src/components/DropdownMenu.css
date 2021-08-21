@@ -1,0 +1,61 @@
+.dropdown {
+  position: absolute;
+  top: 66px;
+  width: 300px;
+  transform: translateX(-80%);
+  background-color: var(--bg);
+  border: var(--border);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  overflow: hidden;
+  font-size: 18px;
+}
+
+.dropdown-item {
+  color: white;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: var(--border-radius);
+  transition: background var(--speed);
+}
+
+.dropdown-item-user {
+  color: white;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius);
+  transition: background var(--speed);
+  border-bottom: var(--border);
+}
+
+.dropdown-item:hover {
+  background-color: lightslategray;
+}
+
+.dropdown-username {
+  margin-left: 0.5rem;
+}
+
+.dropdown-right-icon {
+  margin-left: auto;
+}
+
+.dropdown-logout {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.wallet-balances {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.eViralLogo-Dropdown {
+  height: 85%;
+  margin-left: 0.7rem;
+}

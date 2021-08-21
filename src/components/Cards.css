@@ -1,37 +1,29 @@
-.cards {
-  padding: 4rem;
-  background: #fff;
-}
-
-h1 {
-  text-align: center;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-}
-
 .cards__container {
   display: flex;
   flex-flow: column;
   align-items: center;
-  max-width: 1120px;
-  width: 90%;
-  margin: 0 auto;
+  justify-content: center;
+  width: 100%;
 }
 
 .cards__wrapper {
-  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   margin: 50px 0 45px;
 }
 
 .cards__items {
-  margin-bottom: 24px;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
 }
 
 .cards__item {
   display: flex;
-  flex: 1;
   margin: 0 1rem;
   border-radius: 10px;
+  width: 90%;
 }
 
 .cards__item__link {
@@ -103,14 +95,11 @@ h1 {
 
 @media only screen and (min-width: 1200px) {
   .content__blog__container {
-    width: 84%;
+    width: 184%;
   }
 }
 
 @media only screen and (min-width: 1024px) {
-  .cards__items {
-    display: flex;
-  }
 }
 
 @media only screen and (max-width: 1024px) {

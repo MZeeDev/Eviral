@@ -1,0 +1,6 @@
+.each-project-container {
+  display: flex;
+  flex: 1;
+  margin: 0 1rem;
+  border-radius: 10px;
+}

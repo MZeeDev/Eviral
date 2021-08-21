@@ -1,0 +1,250 @@
+.page-container {
+  position: relative;
+  background-color: whitesmoke;
+}
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  height: 70%;
+  width: 100%;
+  background-image: linear-gradient(to bottom, lightgrey, whitesmoke, white);
+}
+.profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+}
+.sub-profile-container {
+  display: flex;
+  justify-content: center;
+  height: 70%;
+  width: 100%;
+  background-color: ghostwhite;
+}
+
+.sub-profile-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90%;
+  height: 100%;
+}
+
+.aboutme-container {
+  display: flex;
+  align-items: flex-start;
+  width: 25%;
+}
+
+.aboutme-wrapper {
+  margin: 1rem 0.5rem;
+  padding: 1.5rem;
+  background-color: white;
+  border: 3px solid lightgrey;
+  width: 100%;
+}
+
+.profile-location {
+  margin-bottom: 0;
+}
+
+.profile-action-container {
+  display: flex;
+  align-items: flex-start;
+  width: 75%;
+  height: 100rem;
+}
+
+.profile-action-wrapper {
+  margin: 1rem 0.5rem;
+  padding: 1.5rem;
+  background-color: white;
+  border: 3px solid lightgrey;
+  width: 100%;
+  height: 100%;
+}
+
+.profile-background {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.landscape-pic {
+  width: 100%;
+  max-height: 25rem;
+  object-fit: cover;
+  transition: all 0.2s linear;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+
+.landscape-pic:hover {
+}
+
+.profile-header {
+  display: flex;
+  justify-content: center;
+  width: 87%;
+  transform: translateY(-5rem);
+  padding-bottom: 1rem;
+  border-bottom: 3px solid lightgrey;
+}
+
+.profile-pic-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.1rem;
+}
+
+.projects {
+  width: 100%;
+}
+
+.hr {
+  border-bottom: 3px;
+}
+
+.profile-pic {
+  height: 15rem;
+  width: 15rem;
+  border-radius: 50%;
+  border: 0.3rem solid white;
+  box-shadow: 0px 0.5rem 0.7rem lightgrey;
+}
+
+.update-profile-img-wrapper {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  transform: translate(-85%, 0%);
+}
+
+.update-profile-img {
+  background-color: lightgrey;
+  border-radius: 50%;
+  display: flex;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.update-profile-img:hover {
+  background-color: darkgray;
+}
+
+.profile-summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 90%;
+}
+
+.profile-story-title {
+  padding-bottom: 2px;
+  border-bottom: 3px solid lightgrey;
+}
+
+.edit-profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 63%;
+}
+
+.profile-page-balances {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.profile-balances-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-size: 1.2rem;
+  height: 3.3rem;
+  background-color: royalblue;
+  border-radius: 0.7rem;
+  padding-left: 1rem;
+  margin: 1rem 0 0.5rem 0;
+}
+.profile-header-btns {
+  display: flex;
+}
+
+.edit-profile-button,
+.create-project-button {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 0.3rem;
+}
+
+.profile-heading-socials {
+  display: flex;
+  justify-content: center;
+}
+
+.fas.fa-pen,
+.fas.fa-puzzle-piece {
+  margin: 0 0.5rem 0 0;
+}
+
+.social-icon > i,
+.update-socials > i {
+  font-size: 2rem;
+  margin: 1rem;
+  color: deepskyblue;
+}
+
+.update-container {
+  border: 3px solid grey;
+  border-radius: 15px;
+  margin: 2rem 1rem 2rem 2rem;
+  width: 50%;
+}
+
+.update-container-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 1rem;
+  width: 70%;
+}
+
+.change-profile-pic-footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input-container {
+  display: flex;
+  flex-direction: column;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.change-photo {
+  display: inline-block;
+}
+
+.form-label {
+  margin: 1rem 0 0.5rem 0;
+}
