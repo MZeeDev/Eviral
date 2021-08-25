@@ -5,9 +5,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Home from './components/pages/home'
 import Partners from './components/pages/partners';
-import Users from './components/pages/users';
+import MyProfile from './components/pages/myprofile';
 import Projects from './components/pages/projects';
 import User from './components/pages/user';
+import ProjectPage from './components/ProjectData';
 
 function App() {
   
@@ -19,8 +20,11 @@ function App() {
           <Route path='/' exact component={Home} />
           <Route path='/partners' exact component={Partners} />
           <Route path='/projects' exact component={Projects} />
-          <Route path='/users' exact component={Users} />
-          <Route path='/users/:repo' component={ User } />
+          <Route path='/projects/:title'>
+            <ProjectPage />
+          </Route>
+          <Route path='/myprofile' exact component={MyProfile} />
+          <Route path='/users/:username' component={ User } />
         </Switch>
       <Footer />
       </Router>

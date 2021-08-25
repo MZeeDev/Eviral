@@ -1,11 +1,11 @@
 import React from 'react';
-import Project from '../Project.js';
+import ProjectsList from '../Projects.js';
 import '../../App.css';
 
 function Projects() {
     return (
         <div>
-            <Project />
+            <ProjectsList />
         </div>
     )
 }

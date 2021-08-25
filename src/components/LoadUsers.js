@@ -26,6 +26,7 @@ function LoadUsers() {
 
     return (           
       <>
+      <button onClick={LoadUsers}>LOAD</button>
         <React.Fragment>
           <div className="cards">
             <h3 className="my-projects-title">New Members</h3>

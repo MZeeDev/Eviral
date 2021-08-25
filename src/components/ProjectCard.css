@@ -94,6 +94,14 @@ h1 {
   color: #1f98f4;
 }
 
+.far.fa-heart {
+  color: crimson;
+}
+
+.fas.fa-heart {
+  color: red;
+}
+
 .project-img {
   display: flex;
   height: 100%;

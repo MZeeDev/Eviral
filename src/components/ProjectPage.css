@@ -1,0 +1,96 @@
+.project-page {
+  padding: 3rem;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  background: whitesmoke;
+}
+
+.project-page-container {
+  border: 0.3rem solid lightslategray;
+  border-radius: 2.5%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
+.project-page-header {
+  display: flex;
+  align-items: center;
+  background: lightgray;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  height: 4rem;
+}
+
+.bkmrk {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 2.5rem;
+  font-size: 2rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 50%;
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+.project-page-body {
+  width: 100%;
+  display: flex;
+}
+.project-page-project-container {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem;
+  width: 70%;
+  height: auto;
+}
+
+.profileThumb {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+.project-page-title {
+  border-bottom: 0.1rem solid lightgray;
+}
+.project-page-summary {
+  margin: 0.5rem 0 1rem 0;
+}
+.project-page-photo {
+  display: flex;
+  justify-content: center;
+  border: 0.1rem solid lightgray;
+  background: whitesmoke;
+}
+
+.project-page-photo > img {
+  height: auto;
+  max-height: 427px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.project-page-creator {
+}
+.project-page-description {
+  margin-top: 1.5rem;
+  border-bottom: 0.1rem solid lightgray;
+}
+
+.project-page-description > h3 {
+  border-bottom: 0.1rem solid lightgray;
+}
+.project-page-creator-container {
+  margin: 5rem 2rem 0 0;
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  height: auto;
+}
+.project-page-creator-wrapper {
+  width: 100%;
+}

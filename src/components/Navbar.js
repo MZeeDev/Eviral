@@ -98,8 +98,8 @@ function Navbar() {
                             </Link>
                         </li>
                         <li className='nav-item'>
-                            <Link to='/partners' className='nav-links-mobile' onClick={closeMobileMenu}>
-                                Platform
+                            <Link to='/partners' className='nav-links' onClick={closeMobileMenu}>
+                                <i class="fas fa-toolbox"></i>
                             </Link>
                         </li>
                     </ul>
@@ -140,7 +140,7 @@ function Navbar() {
                                         </span>
                                         My Projects
                                     </Link>
-                                    <Link to="/users" className="dropdown-item">
+                                    <Link to="/myprofile" className="dropdown-item">
                                         <span className="dropdown-icon">
                                         <i class="far fa-user"></i>
                                         </span>

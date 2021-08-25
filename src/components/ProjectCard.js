@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, useRouteMatch } from 'react-router-dom';
 
 /*
 For project pages add description, for address to rank/review and then average that rating, links to project socials/github/website,
@@ -8,6 +8,7 @@ request collaboration
 
 
 function ProjectCard(props) {
+    const { url } = useRouteMatch();
 
     const [bookmark, setBookmark] = useState(true);
 
@@ -18,7 +19,7 @@ function ProjectCard(props) {
     return (
         <>
             <div className="card-container">                
-                    <Link className="cards-link" to={props.path} target="_blank">
+                    <Link className="cards-link" to={`${url}/${props.path}`}>
                         <figure className='card-pic-wrap' category={props.label}>
                             <img className="project-img" src={props.src}></img>
                         </figure>
@@ -47,7 +48,7 @@ function ProjectCard(props) {
                     </div>
                
             </div>
-        
+            
         </>
     )
 }
