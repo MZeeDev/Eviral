@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import { Link, Route, useRouteMatch } from 'react-router-dom';
+import Bookmark from './Bookmark';
+import Rating from './Rating';
 
 /*
 For project pages add description, for address to rank/review and then average that rating, links to project socials/github/website,
@@ -9,12 +11,6 @@ request collaboration
 
 function ProjectCard(props) {
     const { url } = useRouteMatch();
-
-    const [bookmark, setBookmark] = useState(true);
-
-    const saveProject = () => {
-        setBookmark(!bookmark);
-    }
 
     return (
         <>
@@ -29,7 +25,7 @@ function ProjectCard(props) {
                             <h4>{props.title}</h4>
                         </div>
                         <div className="project-creator">
-                            Created by{" "}<img  src={props.creatorProfilePic}  className="creator-profile-pic"/>{" "}{props.username}{" on "}{props.createdOn}
+                           <img  src={props.creatorProfilePic}  className="creator-profile-pic"/>{" "}{props.username}{"   -   "}{props.createdOn}
                         </div>
                         <div className="project-summary">
                             {props.summary}
@@ -37,14 +33,11 @@ function ProjectCard(props) {
                     </div>
                     <div className="hl"></div>
                     <div className="card-footer">
-                        <div className="rating">
-                            <i class="fas fa-star"></i>
-                            <span className="rating">{props.rating}</span>
-                            <span className="review-count">{" "}({props.reviewCount})</span>
-                        </div>
-                        <div className="bookmark" onClick={saveProject}>
-                            {bookmark ? <i class="far fa-bookmark"></i> : <i class="fas fa-bookmark"></i>}
-                        </div>
+                        <Rating          
+                        />
+                        <Bookmark 
+                        projectTitle = {props.projectTitle}  
+                        />
                     </div>
                
             </div>

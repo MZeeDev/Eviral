@@ -1,41 +1,17 @@
-.cards {
-  padding: 3rem;
-  background: #fff;
+.profile-card-container {
   display: flex;
   flex-direction: column;
-}
-
-.cards-background {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  overflow: hidden;
-}
-
-h1 {
-  text-align: center;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-}
-
-.card-container {
-  display: flex;
-  flex-flow: column;
-  flex-direction: column;
-  flex-wrap: initial;
   height: auto;
-  width: 100%;
-  box-shadow: 0 6px 20px rgba(39, 39, 39, 0.17);
-  filter: drop-shadow(0 6px 20px rgba(39, 39, 39, 0.017));
-  border-radius: 10px;
+  max-width: 15rem;
+  box-shadow: 0 6px 20px rgba(61, 61, 61, 0.17);
+  filter: drop-shadow(0 6px 20px rgba(61, 61, 61, 0.017));
   overflow: hidden;
   text-decoration: none;
 }
 
-.cards-link {
+.profile-cards-link {
   display: flex;
   justify-content: center;
-  align-items: center;
   max-height: 333px;
   height: 100%;
   width: auto;
@@ -43,38 +19,64 @@ h1 {
   background: whitesmoke;
 }
 
-.card-pic-wrap {
+.profile-card-pic-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 100%;
+  width: auto;
   height: 100%;
   overflow: hidden;
 }
 
-.project-img {
+.profile-card-img {
   display: flex;
   max-height: 100%;
   max-width: 100%;
-  object-fit: cover;
+  height: auto;
+  width: 100%;
+  object-fit: contain;
   transition: all 0.2s linear;
+  border-radius: 50%;
 }
 
-.card-body {
+.profile-card-img:hover {
+  transform: scale(1.15);
+}
+
+.profile-card-body {
   display: flex;
   flex-direction: column;
-  height: 40%;
+  justify-content: center;
+  height: auto;
 }
 
-.project-creator {
-  margin: 0.5rem 0 0.5rem 0;
+.profile-card-title {
+  display: flex;
+  justify-content: center;
+}
+.profile-card-title > h4 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  resize: both;
 }
 
 .creator-profile-pic {
   height: 2.7rem;
   width: 2.7rem;
   border-radius: 100%;
+}
+
+.profile-summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.profile-summary > p {
+  text-align: center;
+  width: 100%;
 }
 
 .card-footer {
@@ -99,16 +101,12 @@ h1 {
   align-items: center;
 }
 
-.bookmark {
+.saveProfile {
   width: 100%;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-end;
   color: mediumturquoise;
-}
-
-.far.fa-bookmark {
-  color: #1f98f4;
 }
 
 .far.fa-heart {
@@ -117,10 +115,6 @@ h1 {
 
 .fas.fa-heart {
   color: red;
-}
-
-.project-img:hover {
-  transform: scale(1.15);
 }
 
 .each-project-container {

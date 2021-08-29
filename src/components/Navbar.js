@@ -7,7 +7,10 @@ import roundLogo from '../img/roundlogo.png';
 import eViralLogo from "../img/eViralLogo2.png";
 import beViralLogo from "../img/beviral.png";
 import avatar from '../img/defaultProfile.png';
+import mmLogo from '../img/metamask.png';
+import wcLogo from '../img/walletconnect.png';
 import './DropdownMenu.css';
+import './NavbarConnectMenu.css';
 
 function Navbar() {
     const { authenticate, isAuthenticated, user, logout, Moralis} = useMoralis();
@@ -21,16 +24,29 @@ function Navbar() {
     const [username, setUsername] = useState("Username");
     const [displayConnect, setDisplayConnect] = useState(true);
 
+    const [ connectMenu, setOpenConnectMenu ] = useState(false);
+
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
 
-    const authenticateUser = async () =>{
-        setDisplayConnect(!displayConnect);
+    const authenticateUserMM = async () =>{        
         if(!isAuthenticated){
-        await authenticate();
+            await authenticate();
+            renderBalance();     
+        }        
+        setOpenConnectMenu(!connectMenu);
+        setDisplayConnect(!displayConnect);   
+    }
+
+    const authenticateUserWC = async () =>{
+        if(!isAuthenticated){
+        await authenticate({ provider: "walletconnect" });
         renderBalance();
         }
+        setOpenConnectMenu(!connectMenu);
+        setDisplayConnect(!displayConnect);
     }
+
     const logoutUser = async () => {
         await logout();
         setDisplayConnect(!displayConnect);
@@ -93,12 +109,17 @@ function Navbar() {
                             </Link>
                         </li>
                         <li className='nav-item'>
-                            <Link to='/partners' className='nav-links' onClick={closeMobileMenu}>
+                            <Link to='/profiles' className='nav-links' onClick={closeMobileMenu}>
                                 <i class="fas fa-people-arrows"></i>
                             </Link>
                         </li>
                         <li className='nav-item'>
-                            <Link to='/partners' className='nav-links' onClick={closeMobileMenu}>
+                            <Link to='/platform' className='nav-links' onClick={closeMobileMenu}>
+                                <i class="far fa-comments"></i>
+                            </Link>
+                        </li>
+                        <li className='nav-item'>
+                            <Link to='/platform' className='nav-links' onClick={closeMobileMenu}>
                                 <i class="fas fa-toolbox"></i>
                             </Link>
                         </li>
@@ -134,20 +155,43 @@ function Navbar() {
                                             </div>
                                         </div>                                     
                                     </li>                                
-                                    <Link className="dropdown-item">
-                                        <span className="dropdown-icon">
-                                        <i class="fas fa-tools"></i>
-                                        </span>
-                                        My Projects
-                                    </Link>
                                     <Link to="/myprofile" className="dropdown-item">
                                         <span className="dropdown-icon">
                                         <i class="far fa-user"></i>
                                         </span>
                                         My Profile
                                     </Link>
+                                    <Link className="dropdown-item">
+                                        <span className="dropdown-icon">
+                                        <i class="fas fa-tools"></i>
+                                        </span>
+                                        My Projects
+                                    </Link>
+                                    <Link className="dropdown-item">
+                                        <span className="dropdown-icon">
+                                        <i class="fas fa-comments"></i>
+                                        </span>
+                                        Messages
+                                    </Link>
+                                    <Link className="dropdown-item">
+                                        <span className="dropdown-icon">
+                                        <i class="far fa-bookmark"></i>
+                                        </span>
+                                        Bookmarks
+                                    </Link>
+                                    <Link className="dropdown-item">
+                                        <span className="dropdown-icon">
+                                        <i class="fas fa-user-check"></i>
+                                        </span>
+                                        Saved Profiles
+                                    </Link>
                                     <li className="dropdown-logout">
-                                        <button className="btn2" onClick={() => logoutUser()}>Log Out<i class="fas fa-sign-out-alt"></i></button>
+                                            <button className="btn1" onClick={() => {setDropdown(!dropdown)}}>Close</button>
+                                            <button className="btn2 logout-btn" onClick={() => logoutUser()}>
+                                                <Link to="/" >Log&nbsp;Out</Link>
+                                                <i class="fas fa-sign-out-alt"></i>
+                                            </button>
+                                        
                                     </li>
                                 </ul>                                 
                                 }
@@ -155,9 +199,28 @@ function Navbar() {
                         </div>
                     }
                     </li>                                                 
-                    { displayConnect && <button className='btn1'  onClick={() => authenticateUser()}>
+                    { displayConnect && <button className='btn1'  onClick={() => setOpenConnectMenu(true)}>
                         Connect
-                    </button>  }                                      
+                    </button>  } 
+                    { connectMenu &&
+                    <div className="connectMenu-background">
+                        <div className="connectMenu-container">
+                            <div className="connectMenu-wrapper">
+                                <h3>Connect with Web3</h3>
+                                <div className="connectMenu-metamask">
+                                    <img className="metamask-logo" src={mmLogo} />
+                                    <button className='btn2'  onClick={() => authenticateUserMM()}>MetaMask</button>
+                                </div>
+                                <div className="connectMenu-walletConnect">
+                                    <img className="walletconnect-logo" src={wcLogo} />
+                                    <button className='btn2'  onClick={() => authenticateUserWC()}>Wallet Connect</button>
+                                </div>
+                                <button className='btn1 closeMenu' onClick={() => setOpenConnectMenu(!connectMenu)}>Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                    }                                     
                 </ul>
                                           
             </nav>

@@ -3,16 +3,14 @@ import './User.css';
 import { useMoralis, useMoralisFile } from "react-moralis";
 import eViralLogo from "../img/eViralLogo2.png";
 import beViralLogo from "../img/beviral.png";
-import UpdateProfile from './UpdateProfile.js';
-import CreateProject from './CreateProject.js';
 
 function Profile(props) {
 
     const { user, Moralis } = useMoralis();   
     const { error, isUploading, moralisFile, saveFile, } = useMoralisFile();
 
-    const [profilePic, setProfilePic] = useState();
-    const [landscape, setLandscape] = useState();
+    const [profilePic, setProfilePic] = useState("");
+    const [landscape, setLandscape] = useState("");
     
     const [balance, setBalance] = useState(0);
     const [balanceBSC, setBalanceBSC] = useState(0);
@@ -74,8 +72,8 @@ function Profile(props) {
                     </div>                        
                     <div className="profile-summary">
                         <h2 className="profile-username"> {user.attributes?.username} </h2>
-                        <p className="profile-bio">Bio: {user.attributes?.bio}</p>
-                        <p className="profile-skills">Skills: {user.attributes?.skills} </p>
+                        <p className="profile-bio">{user.attributes?.bio}</p>
+                        <p className="profile-skills">{user.attributes?.skills} </p>
                     </div>
                     <div className="edit-profile-wrapper">
                         <div className="profile-page-balances">

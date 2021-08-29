@@ -1,15 +1,13 @@
 import React from 'react';
 import '../../App.css';
-import Cards from '../Cards.js';
 import LoadUsers from '../LoadUsers';
 
-function Partners () {
+function Profiles () {
     return (
         <>
             <LoadUsers />
-            <Cards />
         </>
     );    
 }
 
-export default Partners;
+export default Profiles;

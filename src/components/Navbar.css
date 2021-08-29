@@ -29,6 +29,31 @@
   margin: 1rem;
 }
 
+.fas.fa-sign-out-alt {
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+.dropdown-logout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+}
+
+.btn2.logout-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: dodgerblue;
+  color: white;
+  border-radius: 0.7rem;
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
 .nav-menu {
   max-width: 100%;
   height: 100%;

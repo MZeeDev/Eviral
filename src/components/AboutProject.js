@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './User.css';
 import { useMoralis } from "react-moralis";
 
-function AboutMe() {
+function AboutMe(props) {
 
     const { user } = useMoralis(); 
 

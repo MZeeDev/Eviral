@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useMoralis } from 'react-moralis';
 import ProjectDisplay from "./ProjectPage";
 
-const ProjectPage = ({ data }) => {
+const ProjectData = ({ data }) => {
     
   const { Moralis } = useMoralis();  
   const { title } = useParams();
@@ -12,9 +12,11 @@ const ProjectPage = ({ data }) => {
   let init = 0;
 
   const loadProject = async() => {
-    const params = { projectTitle: title }
+    const params = { projectTitle: title };
     const project = await Moralis.Cloud.run("projectData", params);
     setProjectLoaded(project);
+    console.log(project);
+    
   }
 
   useEffect(() => {
@@ -23,9 +25,14 @@ const ProjectPage = ({ data }) => {
     [init],
   );
 
+  const log = () => {
+    console.log(projectLoaded);
+  }
 
+    
   return (
       <>
+            <button onClick={() => log()}>Log</button>
           {projectLoaded.map(project => (            
             <div key={project.title} className="project-page">                            
                 <ProjectDisplay
@@ -37,8 +44,10 @@ const ProjectPage = ({ data }) => {
                   bio={project.bio}
                   createdOn = {project.createdOn}
                   label={project.username}
-                  description={project.description}
+                  description={project.description}  
+                  projectTitle = {project.title}                
                 />
+                
             </div>
           ))}        
       </>
@@ -46,4 +55,4 @@ const ProjectPage = ({ data }) => {
   );
 };
 
-export default ProjectPage;
+export default ProjectData;

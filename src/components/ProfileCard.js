@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { Link, Route, useRouteMatch } from 'react-router-dom';
 
+import './ProfileCard.css';
 /*
 For project pages add description, for address to rank/review and then average that rating, links to project socials/github/website,
 request collaboration
@@ -18,18 +19,18 @@ function ProfileCard(props) {
 
     return (
         <>
-            <div className="card-container">                
-                    <Link className="cards-link" to={`${url}/${props.path}`}>
-                        <figure className='card-pic-wrap' category={props.label}>
-                            <img className="project-img" src={props.src}></img>
+            <div className="profile-card-container">                
+                    <Link className="profile-cards-link" to={`${url}/${props.path}`}>
+                        <figure className='profile-card-pic-wrap' category={props.label}>
+                            <img className="profile-card-img" src={props.src}></img>
                         </figure>
                     </Link>
-                    <div className="card-body">
-                        <div>
+                    <div className="profile-card-body">
+                        <div className="profile-card-title">
                             <h4>{props.title}</h4>
                         </div>                        
-                        <div className="project-summary">
-                            <h5>hello{props.bio}</h5>
+                        <div className="profile-summary">
+                            <p>{props.bio}</p>
                         </div>
                     </div>
                     <div className="hl"></div>
@@ -39,7 +40,7 @@ function ProfileCard(props) {
                             <span className="rating">{props.rating}</span>
                             <span className="review-count">{" "}({props.reviewCount})</span>
                         </div>
-                        <div className="bookmark" onClick={saveProject}>
+                        <div className="saveProfile" onClick={saveProject}>
                             {bookmark ? <i class="far fa-heart"></i> : <i class="fas fa-heart"></i>}
                         </div>
                     </div>

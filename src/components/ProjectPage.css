@@ -3,12 +3,11 @@
   background: #fff;
   display: flex;
   justify-content: center;
-  background: whitesmoke;
+  background-image: linear-gradient(to bottom, whitesmoke, white);
 }
 
 .project-page-container {
-  border: 0.3rem solid lightslategray;
-  border-radius: 2.5%;
+  border: 2px solid lightslategray;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -18,10 +17,10 @@
 .project-page-header {
   display: flex;
   align-items: center;
-  background: lightgray;
+  background-image: linear-gradient(to bottom, whitesmoke, white);
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-  height: 4rem;
+  height: 2rem;
 }
 
 .bkmrk {
@@ -55,8 +54,16 @@
   border-radius: 50%;
 }
 .project-page-title {
+  display: flex;
+  align-items: center;
   border-bottom: 0.1rem solid lightgray;
 }
+.project-page-title > h2 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
 .project-page-summary {
   margin: 0.5rem 0 1rem 0;
 }
@@ -69,7 +76,7 @@
 
 .project-page-photo > img {
   height: auto;
-  max-height: 427px;
+  max-height: 360px;
   width: 100%;
   object-fit: contain;
 }

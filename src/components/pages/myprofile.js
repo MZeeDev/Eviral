@@ -29,12 +29,12 @@ function MyProfile() {
                                 <AboutMe />
                             </div>
                         </div>                    
-                    <div className="profile-action-container">
-                        <div className="profile-action-wrapper">
-                            <LoadMyProjects />
-                        </div>                        
+                        <div className="profile-action-container">
+                            <div className="profile-action-wrapper">
+                                <LoadMyProjects />
+                            </div>                        
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>            
             <div className="projects">
