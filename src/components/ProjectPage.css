@@ -1,5 +1,5 @@
 .project-page {
-  padding: 3rem;
+  padding: 1rem;
   background: #fff;
   display: flex;
   justify-content: center;
@@ -20,7 +20,19 @@
   background-image: linear-gradient(to bottom, whitesmoke, white);
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-  height: 2rem;
+  height: 1rem;
+}
+
+.edit-project-btn-wrapper {
+  display: flex;
+  margin-top: 0.7rem;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.edit-project-btn {
+  width: 100%;
+  max-width: 15rem;
 }
 
 .bkmrk {
@@ -56,12 +68,14 @@
 .project-page-title {
   display: flex;
   align-items: center;
+
   border-bottom: 0.1rem solid lightgray;
 }
 .project-page-title > h2 {
   display: flex;
   align-items: center;
   width: 100%;
+  margin-left: 0.5rem;
 }
 
 .project-page-summary {
@@ -70,8 +84,10 @@
 .project-page-photo {
   display: flex;
   justify-content: center;
-  border: 0.1rem solid lightgray;
   background: whitesmoke;
+  box-shadow: 0 6px 20px rgb(61 61 61 / 17%);
+  filter: drop-shadow(0 6px 20px rgba(61, 61, 61, 0.017));
+  border: 2px solid rgba(0, 0, 0, 0.25);
 }
 
 .project-page-photo > img {
@@ -83,14 +99,17 @@
 
 .project-page-creator {
 }
-.project-page-description {
+.project-page-description,
+.project-page-review-container {
   margin-top: 1.5rem;
   border-bottom: 0.1rem solid lightgray;
 }
 
-.project-page-description > h3 {
+.project-page-description > h3,
+.project-page-review-container > h3 {
   border-bottom: 0.1rem solid lightgray;
 }
+
 .project-page-creator-container {
   margin: 5rem 2rem 0 0;
   display: flex;
@@ -100,4 +119,44 @@
 }
 .project-page-creator-wrapper {
   width: 100%;
+}
+
+.verify-request-button {
+  padding: 0.5rem 1rem;
+  box-shadow: 0 6px 20px rgb(61 61 61 / 17%);
+  width: 100%;
+  max-width: 15rem;
+  margin: 1rem 0 0 0;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+.send-msg-button {
+  padding: 0.5rem 1rem;
+  box-shadow: 0 6px 20px rgb(61 61 61 / 17%);
+  width: 100%;
+  max-width: 15rem;
+  margin: 1rem 0 0 0;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+.fas.fa-star {
+  margin: 0rem;
+}
+.fas.fa-clipboard-check {
+  color: deepskyblue;
+  margin-right: 0.3rem;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 4px 7px rgb(61 61 61 / 17%);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.project-page-links {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.website-link.fas.fa-link {
+  color: black;
 }

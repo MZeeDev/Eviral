@@ -1,0 +1,39 @@
+.project-page-reviewList {
+  padding: 0.5rem 0;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-image: linear-gradient(to bottom, whitesmoke, white);
+}
+
+.project-page-review {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.review-container {
+  margin: 1rem 1rem;
+}
+.review-profile > .creator-profile-pic {
+  margin-right: 0.3rem;
+}
+.review-title,
+.review-date {
+  margin: 0.3rem 0;
+}
+
+.review-title.fas.fa-star {
+  margin: 0.2rem;
+  color: red;
+}
+.review-date {
+  color: gray;
+}
+.review-review {
+  color: dimgray;
+  width: 70%;
+}
+
+.fa-star {
+  margin: 0;
+}

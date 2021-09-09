@@ -11,6 +11,7 @@ import mmLogo from '../img/metamask.png';
 import wcLogo from '../img/walletconnect.png';
 import './DropdownMenu.css';
 import './NavbarConnectMenu.css';
+import Alert from './Alert';
 
 function Navbar() {
     const { authenticate, isAuthenticated, user, logout, Moralis} = useMoralis();
@@ -23,6 +24,7 @@ function Navbar() {
     const [profilePic, setProfilePic] = useState(avatar);
     const [username, setUsername] = useState("Username");
     const [displayConnect, setDisplayConnect] = useState(true);
+    
 
     const [ connectMenu, setOpenConnectMenu ] = useState(false);
 
@@ -40,8 +42,8 @@ function Navbar() {
 
     const authenticateUserWC = async () =>{
         if(!isAuthenticated){
-        await authenticate({ provider: "walletconnect" });
-        renderBalance();
+            await authenticate({ provider: "walletconnect" });
+            renderBalance();
         }
         setOpenConnectMenu(!connectMenu);
         setDisplayConnect(!displayConnect);
@@ -58,8 +60,8 @@ function Navbar() {
         const beViralBalance = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
         const eBalance = eViralBalance.balance/(10**18);
         const bBalance = beViralBalance.balance/(10**18);
-        const balance = (eBalance.toFixed(3) + " Bil " + " ");
-        const bvBalance = (bBalance.toFixed(3) + " Bil " + " ");
+        const balance = (eBalance.toFixed(3) + " Bil");
+        const bvBalance = (bBalance.toFixed(3) + " Bil");
         setBalance(balance);
         setBalanceBSC(bvBalance);
     }
@@ -70,11 +72,12 @@ function Navbar() {
         } else {
             setButton(true);
         }
-    };           
+    };
+    
+
 
     useEffect(() => {
         showButton();
-        renderBalance();
         if (user) {
             setProfilePic(user.attributes?.profilePic?._url);
             setUsername(user.attributes.username);
@@ -113,16 +116,16 @@ function Navbar() {
                                 <i class="fas fa-people-arrows"></i>
                             </Link>
                         </li>
-                        <li className='nav-item'>
-                            <Link to='/platform' className='nav-links' onClick={closeMobileMenu}>
+                        <li className='nav-item' onClick={closeMobileMenu}>
+                            <Link to='/chat' className='nav-links' >
                                 <i class="far fa-comments"></i>
                             </Link>
                         </li>
-                        <li className='nav-item'>
+                        {/* <li className='nav-item'>
                             <Link to='/platform' className='nav-links' onClick={closeMobileMenu}>
                                 <i class="fas fa-toolbox"></i>
                             </Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </ul>
                     
@@ -155,25 +158,25 @@ function Navbar() {
                                             </div>
                                         </div>                                     
                                     </li>                                
-                                    <Link to="/myprofile" className="dropdown-item">
+                                    <Link to="/myprofile" className="dropdown-item" >
                                         <span className="dropdown-icon">
                                         <i class="far fa-user"></i>
                                         </span>
                                         My Profile
                                     </Link>
-                                    <Link className="dropdown-item">
+                                    {/* <Link className="dropdown-item">
                                         <span className="dropdown-icon">
                                         <i class="fas fa-tools"></i>
                                         </span>
                                         My Projects
-                                    </Link>
-                                    <Link className="dropdown-item">
+                                    </Link> */}
+                                    <Link to="/chat" className="dropdown-item">
                                         <span className="dropdown-icon">
                                         <i class="fas fa-comments"></i>
                                         </span>
                                         Messages
                                     </Link>
-                                    <Link className="dropdown-item">
+                                    {/* <Link className="dropdown-item">
                                         <span className="dropdown-icon">
                                         <i class="far fa-bookmark"></i>
                                         </span>
@@ -184,7 +187,7 @@ function Navbar() {
                                         <i class="fas fa-user-check"></i>
                                         </span>
                                         Saved Profiles
-                                    </Link>
+                                    </Link> */}
                                     <li className="dropdown-logout">
                                             <button className="btn1" onClick={() => {setDropdown(!dropdown)}}>Close</button>
                                             <button className="btn2 logout-btn" onClick={() => logoutUser()}>
@@ -206,24 +209,29 @@ function Navbar() {
                     <div className="connectMenu-background">
                         <div className="connectMenu-container">
                             <div className="connectMenu-wrapper">
-                                <h3>Connect with Web3</h3>
-                                <div className="connectMenu-metamask">
-                                    <img className="metamask-logo" src={mmLogo} />
-                                    <button className='btn2'  onClick={() => authenticateUserMM()}>MetaMask</button>
+                                <div className="connectMenu-title">
+                                    <h3>Connect with Web3</h3>
                                 </div>
-                                <div className="connectMenu-walletConnect">
-                                    <img className="walletconnect-logo" src={wcLogo} />
-                                    <button className='btn2'  onClick={() => authenticateUserWC()}>Wallet Connect</button>
+                                <div className="connectMenu-options">
+                                    <div className="connectMenu-metamask">
+                                        
+                                        <button  className="connectMenu-btn"onClick={() => authenticateUserMM()}><img className="metamask-logo" src={mmLogo} /></button>
+                                    </div>
+                                    <div className="connectMenu-walletConnect">
+                                        <button className="connectMenu-btn"  onClick={() => authenticateUserWC()}><img className="walletconnect-logo" src={wcLogo} /></button>
+                                    </div>
                                 </div>
-                                <button className='btn1 closeMenu' onClick={() => setOpenConnectMenu(!connectMenu)}>Close</button>
+                                <div className="connectMenu-footer">
+                                    <button  onClick={() => setOpenConnectMenu(!connectMenu)}>CLOSE</button>
+                                </div>
                             </div>
-                        </div>
-
+                        </div>                        
                     </div>
                     }                                     
                 </ul>
                                           
             </nav>
+            
         </>
     )
 }

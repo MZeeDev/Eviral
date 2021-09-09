@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
+import SocialIconBar from './SocialIconBar';
 import './User.css';
 
 function AboutUser(props) {
@@ -8,6 +9,7 @@ function AboutUser(props) {
         <div className="profile-aboutme-container">
             <div className="profile-aboutme-wrapper">
             <p className="profile-location"><i class="fas fa-map-marker-alt"></i>{props.userLocation} </p>
+            <Link className="profile-website" to={{ pathname: (props.website) }} target="_blank" aria-label='Website'><i class="fas fa-link"></i>{props.website}</Link>
 
                 <div className="profile-story">
                     <h5 className="profile-story-title">My Story</h5>
@@ -18,6 +20,7 @@ function AboutUser(props) {
                     <p className="profile-story-description">{props.skills}</p>
                 </div>                
             </div>            
+            <SocialIconBar />
         </div>
     )
 }

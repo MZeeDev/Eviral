@@ -8,6 +8,8 @@
 .cards-background {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
   overflow: hidden;
 }
@@ -25,11 +27,20 @@ h1 {
   flex-wrap: initial;
   height: auto;
   width: 100%;
+  max-width: 256px;
   box-shadow: 0 6px 20px rgba(39, 39, 39, 0.17);
   filter: drop-shadow(0 6px 20px rgba(39, 39, 39, 0.017));
   border-radius: 10px;
   overflow: hidden;
   text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.project-cards__wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 1rem 0 1rem;
 }
 
 .cards-link {
@@ -47,7 +58,6 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -64,7 +74,16 @@ h1 {
 .card-body {
   display: flex;
   flex-direction: column;
-  height: 40%;
+  height: max-content;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-top: 2px solid rgba(0, 0, 0, 0.25);
+}
+
+.project-card-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
 }
 
 .project-creator {
@@ -83,8 +102,20 @@ h1 {
   display: flex;
 }
 
+.my-projects-date {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
 .fa-star {
+  margin: 0.5rem;
   color: gold;
+}
+
+.rating {
+  margin-right: 0.2rem;
 }
 .img-body {
   display: flex;
@@ -109,14 +140,12 @@ h1 {
 
 .far.fa-bookmark {
   color: #1f98f4;
+  font-size: 2rem;
 }
 
-.far.fa-heart {
-  color: crimson;
-}
-
-.fas.fa-heart {
-  color: red;
+.fas.fa-bookmark {
+  color: mediumturquoise;
+  font-size: 2rem;
 }
 
 .project-img:hover {

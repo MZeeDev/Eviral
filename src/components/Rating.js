@@ -1,22 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import { useMoralis } from "react-moralis";
 
-function Rating() {
+function Rating(props) {
+    const { user, Moralis } = useMoralis();
+    const title = (props.title);
 
-    const [rating, setRating] = useState("");
+
+    const [rating, setRating] = useState(0);
     const [reviewCount, setReviewCount] = useState( 0 );
 
-    const checkRating = async() => {
-        // const user = Moralis.User.current();
-        // const relation = user.relation("bookmarkedProjects");     
-        // const query = relation.query();
-        // query.equalTo("title", (props.projectTitle));
-        // query.select("attributes.title")
-        // const results = await query.find();
-        // if(typeof results[0].attributes.title !== 'undefined') {
-        //     setBookmark(true);
-        // } 
-    }
+    const checkRating = async(props) => {
+        const params = { projectTitle: title};
+        const projectRating = await Moralis.Cloud.run("loadProjectRating", params);
+        if (typeof projectRating !== 'undefined') {
+            setReviewCount(projectRating[0]);
+            setRating(projectRating[1]);    
+        }
+     }
 
     useEffect(() => {
         checkRating();
@@ -26,7 +26,9 @@ function Rating() {
       
     return (
         <div className="rating">
-            <i class="fas fa-star"></i>
+            {[...Array(1)].map( star => {
+                return <i class="fas fa-star"></i>
+            })}
             <span className="rating">{rating}</span>
             <span className="review-count">{" "}({reviewCount})</span>
         </div>

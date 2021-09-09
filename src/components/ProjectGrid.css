@@ -1,0 +1,278 @@
+.background {
+  background-color: rgba(0, 0, 0, 0.85);
+
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.foreground {
+  background: white;
+  backdrop-filter: blur(5px);
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+/* Projects (profiles are below) */
+
+.project-section-title {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  padding-left: 3rem;
+  border-bottom: 3px solid lightgray;
+}
+.project-grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.project-grid-wrapper {
+  display: grid;
+  grid-template: repeat(2, 25rem) / repeat(3, 22rem);
+  grid-auto-columns: minmax(225px, auto);
+  width: 100%;
+  gap: 2rem;
+  padding: 3rem 0;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  resize: both;
+  overflow: hidden;
+}
+
+.project-grid-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: auto;
+  max-width: 427px;
+  box-shadow: 0 6px 20px rgba(39, 39, 39, 0.17);
+  filter: drop-shadow(0 5px 100px rgba(39, 39, 39, 0.017));
+  text-decoration: none;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: linear-gradient(to bottom, lightgray, whitesmoke);
+}
+.project-grid-box-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: auto;
+}
+
+.project-card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45%;
+  width: auto;
+}
+
+.project-url-link {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-card-img {
+  display: flex;
+  height: 100%;
+  width: auto;
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  transition: all 0.2s linear;
+}
+
+.project-card-img:hover {
+  transform: scale(1.15);
+}
+
+.project-card-body {
+  display: flex;
+  flex-direction: column;
+  height: 45%;
+  width: auto;
+  padding: 0.7rem 0.5rem 0.5rem;
+  background: white;
+}
+
+.project-card-title {
+  display: flex;
+  height: 20%;
+  width: auto;
+  padding-left: 0.5rem;
+  padding-bottom: 0.7rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+.project-card-badge {
+  transform: translateY(-0.5rem);
+}
+.fas.fa-clipboard-check {
+  margin: 0;
+}
+.project-card-creator {
+  display: flex;
+  align-items: center;
+  height: 15%;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.project-card-summary {
+  padding: 0 0.5rem;
+}
+
+.project-card-footer {
+  display: flex;
+  height: 12%;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 1rem;
+}
+
+.project-card-profilepic {
+  height: 2.2rem;
+  width: 2.2rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.bookmark {
+  width: max-content;
+  height: max-content;
+}
+
+.fas.fa-bookmark,
+.far.fa-bookmark {
+  margin-right: 0;
+}
+
+@media only screen and (max-width: 1200px) {
+  .project-grid-wrapper {
+    display: grid;
+    grid-template: repeat(3, 25rem) / repeat(2, 22rem);
+    grid-auto-columns: minmax(225px, auto);
+    width: 100%;
+    gap: 2rem;
+    padding: 3rem 0;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    resize: both;
+    overflow: hidden;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .project-grid-wrapper {
+    display: grid;
+    grid-template: repeat(6, 25rem) / repeat(1, 22rem);
+    grid-auto-columns: minmax(225px, auto);
+    width: 100%;
+    gap: 2rem;
+    padding: 3rem 0;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    resize: both;
+    overflow: hidden;
+  }
+}
+
+/* Profiles */
+
+.profile-box-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45%;
+  border-bottom: 3px solid lightgrey;
+}
+
+.profile-box-body {
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  padding: 0.7rem 0.5rem 0.5rem;
+  background: white;
+}
+.profile-box-creator {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: 60%;
+  font-size: 1.3rem;
+}
+
+.profile-box-profilepic {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  width: 100%;
+  transform: translateY(-4rem);
+}
+
+.profile-box-profile-img {
+  height: 8rem;
+  width: 8rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  border: 3px solid white;
+}
+
+.profile-box-summary {
+  display: flex;
+  height: 50%;
+  transform: translateY(-4rem);
+  margin: 0 0.5rem;
+}
+
+.profile-box-footer {
+  display: flex;
+  height: 15%;
+  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 1rem;
+}
+
+@media only screen and (max-width: 1200px) {
+  .project-grid-wrapper {
+    display: grid;
+    grid-template: repeat(3, 25rem) / repeat(2, 22rem);
+    grid-auto-columns: minmax(225px, auto);
+    width: 100%;
+    gap: 2rem;
+    padding: 3rem 0;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    resize: both;
+    overflow: hidden;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .project-grid-wrapper {
+    display: grid;
+    grid-template: repeat(6, 25rem) / repeat(1, 22rem);
+    grid-auto-columns: minmax(225px, auto);
+    width: 100%;
+    gap: 2rem;
+    padding: 3rem 0;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    resize: both;
+    overflow: hidden;
+  }
+}

@@ -4,6 +4,7 @@ import { useMoralis } from "react-moralis";
 function Bookmark(props) {
     const { user, Moralis } = useMoralis();
     const [bookmark, setBookmark] = useState(false);
+    const init = null;
 
     const saveProject = async() => {
         setBookmark(true);
@@ -22,6 +23,7 @@ function Bookmark(props) {
         setBookmark(false);
         const Project = Moralis.Object.extend("Projects"); 
         const query = new Moralis.Query(Project);
+        query.exists("title");
         query.equalTo("title", props.projectTitle);
         const project = await query.find();
         const currentUser = await Moralis.User.current();
@@ -37,8 +39,14 @@ function Bookmark(props) {
         const query = relation.query();
         query.equalTo("title", (props.projectTitle));
         query.select("attributes.title")
-        const results = await query.find();
-        if(typeof results[0].attributes.title !== 'undefined') {
+        const queryResults = await query.find();
+        const results = [];
+        for (let i = 0; i < queryResults.length; ++i) {
+              results.push({
+              "title": queryResults[i].attributes.title,    
+              });
+            };
+        if(results[0]) {
             setBookmark(true);
         } 
     }
@@ -46,7 +54,7 @@ function Bookmark(props) {
     useEffect(() => {
         checkBookmark();
         },
-        [null],
+        [init],
       );
 
     return (

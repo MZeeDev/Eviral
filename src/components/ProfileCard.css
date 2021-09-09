@@ -1,22 +1,26 @@
 .profile-card-container {
   display: flex;
   flex-direction: column;
-  height: auto;
+  height: 20rem;
   max-width: 15rem;
   box-shadow: 0 6px 20px rgba(61, 61, 61, 0.17);
   filter: drop-shadow(0 6px 20px rgba(61, 61, 61, 0.017));
   overflow: hidden;
   text-decoration: none;
+  justify-content: flex-end;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  background: linear-gradient(to bottom, lightgray, whitesmoke);
 }
 
 .profile-cards-link {
   display: flex;
   justify-content: center;
+  align-items: center;
   max-height: 333px;
-  height: 100%;
+  height: 60%;
   width: auto;
   text-decoration: none;
-  background: whitesmoke;
 }
 
 .profile-card-pic-wrap {
@@ -27,6 +31,7 @@
   width: auto;
   height: 100%;
   overflow: hidden;
+  margin: 0;
 }
 
 .profile-card-img {
@@ -49,6 +54,8 @@
   flex-direction: column;
   justify-content: center;
   height: auto;
+  background-color: white;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
 }
 
 .profile-card-title {
@@ -73,10 +80,22 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding: 0.3rem;
 }
-.profile-summary > p {
-  text-align: center;
+.profile-summary > p,
+h2 {
+  text-align: left;
   width: 100%;
+  margin-bottom: 0;
+}
+
+.profile-social-icon-wrapper {
+  width: 100%;
+}
+.profile-social-icon {
+  font-size: 2rem;
+  margin: 0 0.5rem;
+  color: deepskyblue;
 }
 
 .card-footer {
@@ -85,15 +104,20 @@
   display: flex;
 }
 
-.fa-star {
-  color: gold;
-}
 .img-body {
   display: flex;
   justify-content: center;
   position: relative;
   height: 24rem;
   overflow: hidden;
+}
+
+.profile-card-footer {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .rating {
@@ -111,10 +135,12 @@
 
 .far.fa-heart {
   color: crimson;
+  font-size: 2rem;
 }
 
 .fas.fa-heart {
   color: red;
+  font-size: 2rem;
 }
 
 .each-project-container {

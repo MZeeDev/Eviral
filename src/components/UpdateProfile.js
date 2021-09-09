@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useMoralis, useMoralisFile } from "react-moralis";
 import './User.css';
 import './UpdateProfile.css';
+import Alert from './Alert';
 
 function UpdateProfile(props) {
 
     const { user, setUserData, Moralis } = useMoralis();
     const { error, isUploading, moralisFile, saveFile, } = useMoralisFile();
-    
-    const [username, setUsername] = useState();
+
+    const [alertVisible, setAlertVisible] = useState(false);
+    const [alertContents, setAlertContents] = useState();    
     
     const [landscapeFile, setLandscapeFile] = useState();    
     const [landscapeFileName, setLandscapeFileName] = useState();  
@@ -25,17 +27,35 @@ function UpdateProfile(props) {
     const [linkedIn, setLinkedIn] = useState();
     const [youtube, setYoutube] = useState();
     const [twitch, setTwitch] = useState();
+
+    const checkProfileCreated = () => {
+        const profileCreated = (user.attributes?.profileCreated);
+        if(profileCreated){
+            setLandscapePic(user.attributes?.landscapePic?._url);
+            setUserLocation(user.attributes?.userLocation);
+            setStory(user.attributes?.story);
+            setSkills(user.attributes?.skills);
+            setBio(user.attributes?.bio);
+            setWebsite(user.attributes?.website);
+            setTwitter(user.attributes?.twitter);
+            setTelegram(user.attributes?.telegram);
+            setLinkedIn(user.attributes?.linkedIn);
+            setDiscord(user.attributes?.discord);
+            setYoutube(user.attributes?.youtube);
+            setTwitch(user.attributes?.twitch);
+
+        }
+    }
     
     useEffect(() => {
         if (user) {
-            setLandscapePic(user.attributes?.landscapePic?._url);
+            checkProfileCreated();
         }
       }, [user]);
 
 
-    const handleSave = () => {
-        setUserData({            
-            username: username === "" ? undefined : username,
+    const handleSave = async() => {
+        await setUserData({            
             userLocation: userLocation === "" ? undefined : userLocation, 
             story: story === "" ? undefined : story ,
             skills: skills === "" ? undefined : skills ,
@@ -46,8 +66,12 @@ function UpdateProfile(props) {
             discord: discord === "" ? undefined : discord,     
             linkedIn: linkedIn === "" ? undefined : linkedIn,     
             youtube: youtube === "" ? undefined : youtube,     
-            twitch: twitch === "" ? undefined : twitch,     
+            twitch: twitch === "" ? undefined : twitch,  
+            profileCreated: true   
         });
+        setAlertContents("Profile Updated!");
+        setAlertVisible(true);
+        (props.closeEditProfileMenu(false));
     };
 
     const onChangeLandscape = e => {
@@ -82,10 +106,8 @@ function UpdateProfile(props) {
                                     <label htmlFor="landscapePic" className="form-label">Choose a Landscape (recommended 1500px X 500px)</label>
                                     <input className="form-control" type="file" accept="image/*" multiple="false" id="landscapePic" onChange={onChangeLandscape} />
                                 </div>
-                                <input type="button" value="Upload" className="upload-button btn2" onClick={onSubmitLandscape} />
+                                <button className="updateProfile-btn2-upload" onClick={onSubmitLandscape}>Upload</button>
                             </form>
-                            <label className="form-label">Username</label>
-                            <input className="form-input" placeholder="Enter a Username" value={username} onChange={(event) =>setUsername(event.currentTarget.value)}/>
                             <label className="form-label">Location</label>
                             <input className="form-input" placeholder="City, Country" value={userLocation} onChange={(event) =>setUserLocation(event.currentTarget.value)}/>
                             <label className="form-label">Website</label>
@@ -99,39 +121,63 @@ function UpdateProfile(props) {
                         </form>
                         <div className="update-socials">
                             <div className="social-link-item">
-                                <i className="fab fa-twitter"></i>
-                                <input value={twitter} placeholder=" twitter" onChange={(event) =>setTwitter(event.currentTarget.value)}/>
+                                <div className="social-input-box-group">
+                                    <i className="fab fa-twitter update"></i>
+                                    <span className="social-link-at-box">@</span>
+                                    <input className="input-social-text-box" value={twitter} placeholder=" @username" onChange={(event) =>setTwitter(event.currentTarget.value)}/>
+                                </div>
                             </div>
                             <div className="social-link-item">
-                                <i className="fab fa-telegram"></i>
-                                <input value={telegram} placeholder=" telegram" onChange={(event) =>setTelegram(event.currentTarget.value)}/>
+                                <div className="social-input-box-group">
+                                    <i className="fab fa-telegram update"></i>
+                                    <span className="social-link-at-box">@</span>
+                                    <input className="input-social-text-box" value={telegram} placeholder=" t.me/  LINK" onChange={(event) =>setTelegram(event.currentTarget.value)}/>
+                                </div>
                             </div>
                             <div className="social-link-item">
-                                <i className="fab fa-discord"></i>
-                                <input value={discord} placeholder=" discord" onChange={(event) =>setDiscord(event.currentTarget.value)}/>
+                                <div className="social-input-box-group">
+                                    <i className="fab fa-discord update"></i>
+                                    <span className="social-link-at-box">@</span>
+                                    <input  className="input-social-text-box"value={discord} placeholder=" discord.gg/ LINK" onChange={(event) =>setDiscord(event.currentTarget.value)}/>
+                                </div>
                             </div>
                             <div className="social-link-item">
-                                <i className="fab fa-linkedin"></i>
-                                <input value={linkedIn} placeholder=" linkedin" onChange={(event) =>setLinkedIn(event.currentTarget.value)}/>
+                                <div className="social-input-box-group">
+                                    <i className="fab fa-linkedin update"></i>
+                                    <span className="social-link-at-box">@</span>
+                                    <input className="input-social-text-box" value={linkedIn} placeholder=" linkedin.com/in/ Profile URL" onChange={(event) =>setLinkedIn(event.currentTarget.value)}/>
+                                </div>
                             </div>
                             <div className="social-link-item">
-                                <i className="fab fa-youtube"></i>
-                                <input value={youtube} placeholder=" youtube" onChange={(event) =>setYoutube(event.currentTarget.value)}/>
+                                <div className="social-input-box-group">
+                                    <i className="fab fa-youtube update"></i>
+                                    <span className="social-link-at-box">@</span>
+                                    <input className="input-social-text-box" value={youtube} placeholder=" youtube.com/c/ channel URL" onChange={(event) =>setYoutube(event.currentTarget.value)}/>
+                                </div>
                             </div>
                             <div className="social-link-item">
-                                <i className="fab fa-twitch"></i>
-                                <input value={twitch} placeholder=" twitch" onChange={(event) =>setTwitch(event.currentTarget.value)}/>
+                                <div className="social-input-box-group">
+                                    <i className="fab fa-twitch update"></i>
+                                    <span className="social-link-at-box">@</span>
+                                    <input className="input-social-text-box" value={twitch} placeholder=" twitch.tv/ channel URL" onChange={(event) =>setTwitch(event.currentTarget.value)}/>
+                                </div>
                             </div>
-                        </div>
+                            </div>
                         <div className="submit">
                             <button className="btn1" onClick={() => {props.closeEditProfileMenu(false)}}>Close Menu</button>
                             
-                            <button className="btn2" onClick={handleSave}>Save Changes</button>
+                            <button className="updateProfile-btn2 btn2" onClick={handleSave}>Save Changes</button>
                         </div>
                 
                     </div>
                 </div>
             </div>
+            {alertVisible &&
+            <Alert 
+            visible={setAlertVisible}
+            content={alertContents}            
+            />
+            }
         </>
     )
 };

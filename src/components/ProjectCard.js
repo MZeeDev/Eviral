@@ -11,6 +11,7 @@ request collaboration
 
 function ProjectCard(props) {
     const { url } = useRouteMatch();
+    const verified = (props.isVerified);
 
     return (
         <>
@@ -21,8 +22,13 @@ function ProjectCard(props) {
                         </figure>
                     </Link>
                     <div className="card-body">
-                        <div>
+                        <div className="project-card-title">                            
                             <h4>{props.title}</h4>
+                            { verified && 
+                                <div>
+                                    <i class="fas fa-clipboard-check">Pro</i>
+                                </div>
+                            }
                         </div>
                         <div className="project-creator">
                            <img  src={props.creatorProfilePic}  className="creator-profile-pic"/>{" "}{props.username}{"   -   "}{props.createdOn}
@@ -33,13 +39,13 @@ function ProjectCard(props) {
                     </div>
                     <div className="hl"></div>
                     <div className="card-footer">
-                        <Rating          
+                        <Rating
+                         title = {props.title}          
                         />
                         <Bookmark 
                         projectTitle = {props.projectTitle}  
                         />
-                    </div>
-               
+                    </div>               
             </div>
             
         </>

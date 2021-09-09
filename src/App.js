@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Home from './components/pages/home';
@@ -10,6 +10,7 @@ import Projects from './components/pages/projects';
 import ProjectData from './components/ProjectData';
 import Profiles from './components/pages/profiles';
 import UserProfilePage from './components/UserProfileData';
+import ChatPage from './components/ChatPage';
 
 
 function App() {
@@ -30,9 +31,11 @@ function App() {
             <UserProfilePage />
           </Route>
           <Route path='/myprofile' exact component={MyProfile} />
-          
-        </Switch>
-      <Footer />
+          <Route path='/myprofile/projects/:title'>
+            <ProjectData />
+          </Route>
+          <Route path='/chat' exact component={ChatPage} />
+        </Switch>      
       </Router>
       
     </>    

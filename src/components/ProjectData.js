@@ -15,8 +15,6 @@ const ProjectData = ({ data }) => {
     const params = { projectTitle: title };
     const project = await Moralis.Cloud.run("projectData", params);
     setProjectLoaded(project);
-    console.log(project);
-    
   }
 
   useEffect(() => {
@@ -32,9 +30,8 @@ const ProjectData = ({ data }) => {
     
   return (
       <>
-            <button onClick={() => log()}>Log</button>
           {projectLoaded.map(project => (            
-            <div key={project.title} className="project-page">                            
+            <div key={project.title} className="background">                            
                 <ProjectDisplay
                   title={project.title}
                   summary={project.summary}
@@ -45,9 +42,17 @@ const ProjectData = ({ data }) => {
                   createdOn = {project.createdOn}
                   label={project.username}
                   description={project.description}  
-                  projectTitle = {project.title}                
-                />
-                
+                  projectTitle = {project.title}
+                  website={project.website}                
+                  twitter={project.twitter}
+                  telegram={project.telegram}
+                  discord={project.discord}
+                  linkedIn={project.linkedIn}
+                  youtube={project.youtube}
+                  twitch={project.twitch}
+                  objectId = {project.objectId}  
+                  isVerified = {project.isVerified}              
+                />                
             </div>
           ))}        
       </>

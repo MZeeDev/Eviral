@@ -11,9 +11,9 @@
 .profile-container {
   display: flex;
   justify-content: center;
-  height: 70%;
+  height: 30%;
   width: 100%;
-  background-image: linear-gradient(to bottom, lightgrey, whitesmoke, white);
+  background: linear-gradient(to bottom, lightgrey, whitesmoke, white);
 }
 .profile-wrapper {
   display: flex;
@@ -21,7 +21,8 @@
   justify-content: center;
   align-items: center;
   width: 90%;
-  height: 100%;
+  height: 80%;
+  margin-bottom: -4rem;
 }
 .sub-profile-container {
   display: flex;
@@ -43,12 +44,14 @@
 .aboutme-container {
   display: flex;
   align-items: flex-start;
+  flex-direction: column;
   width: 25%;
+  margin-right: 1rem;
 }
 
 .aboutme-wrapper {
-  margin: 1rem 0.5rem;
-  padding: 1.5rem;
+  margin: 1rem 0 0 0;
+  padding: 0.5rem;
   background-color: white;
   border: 3px solid lightgrey;
   width: 100%;
@@ -62,12 +65,12 @@
   display: flex;
   align-items: flex-start;
   width: 75%;
-  height: 100rem;
+  height: max-content;
 }
 
 .profile-action-wrapper {
   margin: 1rem 0.5rem;
-  padding: 1.5rem;
+  padding: 0.5rem;
   background-color: white;
   border: 3px solid lightgrey;
   width: 100%;
@@ -99,18 +102,37 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  width: 87%;
+  width: 93%;
   transform: translateY(-5rem);
   padding-bottom: 1rem;
   border-bottom: 3px solid lightgrey;
 }
-
+.profile-page-summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
 .profile-pic-container {
   display: flex;
-  justify-content: center;
-  margin-top: 1.5rem;
+  justify-content: flex-start;
   margin-bottom: 0.5rem;
   padding-bottom: 0.1rem;
+  width: 100fr;
+  height: 100fr;
+  max-width: 10rem;
+  transform: translateX(-0.5rem);
+}
+
+.profile-pic {
+  height: 100%;
+  min-height: 10rem;
+  min-width: 10rem;
+  width: 100%;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0px 0.5rem 0.7rem lightgrey;
+  object-fit: fill;
 }
 
 .projects {
@@ -119,14 +141,6 @@
 
 .hr {
   border-bottom: 3px;
-}
-
-.profile-pic {
-  height: 15rem;
-  width: 15rem;
-  border-radius: 50%;
-  border: 0.3rem solid white;
-  box-shadow: 0px 0.5rem 0.7rem lightgrey;
 }
 
 .update-profile-img-wrapper {
@@ -166,29 +180,74 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
-  width: 63%;
+  width: 25%;
   max-height: 12rem;
 }
 
 .profile-page-balances {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 156px;
+  background-color: royalblue;
+  border-radius: 0.7rem;
+  padding: 0.25rem;
 }
 
 .profile-balances-wrapper {
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  font-size: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 80%;
+  font-size: 1rem;
   height: 3.3rem;
-  background-color: royalblue;
-  border-radius: 0.7rem;
-  padding-left: 1rem;
-  margin: 1rem 0 0.5rem 0;
+  margin: 0.2rem 0;
 }
+
+.showProfileBalance,
+.showProfileBalanceBSC {
+  color: rgb(58, 228, 103);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-decoration: none;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.showProfileBalance {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 2px;
+  margin-bottom: 3px;
+}
+
+.showProfileBalanceBSC {
+  color: gold;
+}
+
+.showProfileBalance > p,
+.showProfileBalanceBSC > p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.logo-balance-display {
+  margin-left: 0.3rem;
+  height: 1.5rem;
+}
+
 .profile-header-btns {
   display: flex;
+  flex-direction: column;
 }
 
 .edit-profile-button,
@@ -254,4 +313,13 @@
 
 .form-label {
   margin: 1rem 0 0.5rem 0;
+}
+
+.my-projects-cards {
+  width: 100%;
+  height: max-content;
+}
+
+.my-projects-title {
+  margin: 0.5rem 0 0 1rem;
 }
