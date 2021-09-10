@@ -228,15 +228,15 @@ function ChatPage() {
             <div className="chat-container">
                 <div className="chat-sidebar">
                     <div className="chat-messaging-header-left">                       
-                        <button className="btn2" onClick={() => CheckInboxClick()}><h5>Messages</h5></button>
-                        <button className="btn2"onClick={() => CheckRequestsClick()}><h5>Requests</h5></button>
+                        <button className="btn2 header-left-btn-msg" onClick={() => CheckInboxClick()}><h5>Messages</h5></button>
+                        <button className="btn2 header-left-btn-req"onClick={() => CheckRequestsClick()}><h5>Requests</h5></button>
                     </div>
                     <div className="chat-messaging-sidebar-content">
                         { showInbox &&
                         <ul className="chat-messaging-sidebar-from">
                             {noUsers && <div className="chat-messaging-header-left">Empty</div>}
                             {inboxUsers.map(profile => (                          
-                            <button key={profile.username} className="chat-messaging-profiles" onClick={() => loadInboxMessage(profile.chatId)}>                                                   
+                            <div key={profile.username} className="chat-messaging-profiles" onClick={() => loadInboxMessage(profile.chatId)}>                                                   
                                 <ProfileMessageCard
                                     username={profile.username}
                                     profilePic={profile.profilePic}
@@ -244,7 +244,7 @@ function ChatPage() {
                                     updatedAt={profile.date}
                                     lastAction={profile.projectName}                                
                                 />                            
-                            </button>
+                            </div>
                             ))}
                         </ul>
                         }
@@ -252,7 +252,7 @@ function ChatPage() {
                         <ul className="chat-messaging-sidebar-from">
                         {noUsers && <div className="chat-messaging-header-left">Empty</div>}
                         {requestsUsers.map(profile => (                          
-                          <button key={profile.username} className="chat-messaging-profiles" onClick={() => loadRequestMessage(profile.chatId, profile.permission)}>                                                   
+                          <div key={profile.username} className="chat-messaging-profiles" onClick={() => loadRequestMessage(profile.chatId, profile.permission)}>                                                   
                               <ProfileMessageCard
                                 username={profile.username}
                                 profilePic={profile.profilePic}
@@ -260,7 +260,7 @@ function ChatPage() {
                                 updatedAt={profile.date}
                                 lastAction={profile.projectName}                                
                               />                            
-                          </button>
+                          </div>
                         ))}
                         </ul>
                         }

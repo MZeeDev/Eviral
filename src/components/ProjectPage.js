@@ -99,7 +99,7 @@ function ProjectDisplay(props) {
                   {props.summary}
                 </div>
                 <div className="project-page-photo">
-                  <img src={props.src} />
+                  <img  className="project-page-photo-img" src={props.src} />
                 </div>
           
                 <div className="project-page-description">
@@ -117,21 +117,28 @@ function ProjectDisplay(props) {
                     />
                   </div>
           
-                  <h5>Created by {""} <img className="profileThumb"src={props.creatorProfilePic} />{props.creator} on {""} {props.createdOn}</h5>
+                  <h5><img className="profileThumb"src={props.creatorProfilePic} />{" "} {props.creator}{" "} {props.createdOn}</h5>
                   <p>{props.description}</p>
                 </div>
-                <Reviews
-                title = {props.title}
-                />
+                <div className="ratingReviews">
+                  <Reviews 
+                  title = {props.title}
+                  />
+                </div>
               </div>
               <div className="project-page-creator-container">
                 <div className="project-page-creator-wrapper">
-                  <h4>Project Creator</h4>
-                  <ProfileCard
-                    username={props.creator}
-                    src={props.creatorProfilePic}
-                    bio={props.bio}
-                  />
+                  <div className="project-page-creator-profile-wrapper">
+                    <h4>Project Creator</h4>
+                    { !owner &&
+                    <button className="send-msg-button btn2" onClick={() => userCheck()}> Send Message</button>
+                    }
+                    <ProfileCard
+                      username={props.creator}
+                      src={props.creatorProfilePic}
+                      bio={props.bio}
+                    />
+                  </div>
                 {owner &&
                 
                     <div className="edit-project-btn-wrapper">
@@ -147,11 +154,9 @@ function ProjectDisplay(props) {
                 { (owner && !verified) &&
                   <button className="verify-request-button btn2"> Get Verified</button>
                 }
-                { !owner &&                  
-                  <button className="send-msg-button btn2" onClick={() => userCheck()}> Send Message</button>
-                }
+                
                 {!owner &&
-                  <RatingProject
+                  <RatingProject 
                   projectName={props.title}
                   />
                 }

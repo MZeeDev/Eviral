@@ -1,26 +1,68 @@
 :root {
   --bg: #242526;
   --bg-accent: #484a4d;
-  --text-color: #dadce1;
-  --nav-size: 70px;
-  --border: 1px solid #474a4d;
+  --text-color: #dadce1cd;
+  --border: 2px solid #474a4d;
   --speed: 500ms;
 }
+
 .navbar {
+  height: var(--nav-size);
+  background-color: var(--bg);
+  border-bottom: var(--border);
+  display: flex;
+  width: 100%;
   background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
   height: 67px;
   position: sticky;
   top: 0;
   z-index: 10;
+  padding: 0rem;
+}
+
+.navbar-nav {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.navbar-user {
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.roundLogo {
+  height: 80%;
+  margin-left: 3px;
 }
 
 .navbar-logo {
-  color: rgb(37, 189, 130);
   display: flex;
   align-items: center;
   justify-self: flex-start;
   max-width: 100%;
   height: 100%;
+}
+
+.avatarPic-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+}
+
+.avatarPic {
+  height: 80%;
+  border-radius: 50%;
 }
 
 .fas,
@@ -31,14 +73,15 @@
 
 .fas.fa-sign-out-alt {
   margin: 0 0.5rem 0 0.5rem;
+  font-size: 1rem;
 }
 
 .dropdown-logout {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  width: 90%;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .btn2.logout-btn {
@@ -47,11 +90,24 @@
   align-items: center;
   background-color: dodgerblue;
   color: white;
-  border-radius: 0.7rem;
+  border-radius: 0.3rem;
   outline: none;
   border: none;
   padding: 0.5rem;
   margin: 0.5rem;
+  width: 50%;
+}
+
+.btn1.logout-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.3rem;
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  width: 50%;
 }
 
 .nav-menu {
@@ -131,11 +187,6 @@
   background-color: darkgrey;
 }
 
-.roundLogo {
-  height: 65%;
-  margin-left: 3px;
-}
-
 .eViralLogo {
   height: 42%;
   margin-left: 0.7rem;
@@ -157,18 +208,7 @@
 
 .menu-icon {
   display: none;
-}
-
-.avatarPic-wrapper {
-  height: 77%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.avatarPic {
-  height: 100%;
-  border-radius: 50%;
+  color: #e7e7e7;
 }
 
 ul {
@@ -181,28 +221,53 @@ a {
   text-decoration: none;
 }
 
-.navbar {
-  height: var(--nav-size);
-  background-color: var(--bg);
-  padding: 0 1rem;
-  border-bottom: var(--border);
-  display: flex;
-  justify-content: space-between;
-}
+@media only screen and (max-width: 650px) {
+  .menu-icon {
+    display: flex;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    position: absolute;
+    margin-left: 5rem;
+  }
+  .fas.fa-times,
+  .fas.fa-bars {
+    font-size: 2rem;
+    margin: 0px;
+  }
 
-.navbar-nav {
-  max-width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.navbar-user {
-  max-width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-right: 0.5rem;
+  .navbar {
+    padding: 00rem;
+  }
+  .nav-menu {
+    display: none;
+  }
+  .nav-menu.active {
+    display: flex;
+    height: 7rem;
+    width: 100%;
+    position: absolute;
+    justify-content: space-evenly;
+    top: 67px;
+    left: 0;
+    background: linear-gradient(
+      90deg,
+      rgb(28, 27, 27) 0%,
+      rgb(26, 23, 23) 100%
+    );
+    border-bottom: var(--border);
+  }
+  .navbar-nav {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+  }
+  .nav-links {
+    margin: 1rem;
+  }
 }

@@ -2,7 +2,7 @@
   position: absolute;
   top: 66px;
   width: 300px;
-  transform: translateX(-80%);
+  transform: translateX(-85%);
   background-color: var(--bg);
   border: var(--border);
   border-radius: var(--border-radius);

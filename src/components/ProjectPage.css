@@ -76,6 +76,7 @@
   align-items: center;
   width: 100%;
   margin-left: 0.5rem;
+  font-size: 1.2rem;
 }
 
 .project-page-summary {
@@ -159,4 +160,56 @@
 
 .website-link.fas.fa-link {
   color: black;
+}
+
+.ratingReviews {
+  margin-top: 1rem;
+}
+
+.ratingProject {
+  margin-top: 1rem;
+}
+
+.project-page-creator-profile-wrapper h4 {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+.project-page-creator-profile-wrapper button {
+  margin: 0.5rem 0;
+}
+
+@media only screen and (max-width: 850px) {
+  .project-page-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-page-creator-container {
+    width: 90%;
+    margin: 1rem 0.5rem;
+  }
+  .project-page-project-container {
+    width: 90%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .project-page-photo {
+    width: 100%;
+    background: gainsboro;
+  }
+  .project-page-photo img {
+    width: 80%;
+  }
+
+  .project-page-creator-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: flex-end;
+  }
+  .rating-project-container {
+    margin: 0 1rem 0 0;
+  }
 }

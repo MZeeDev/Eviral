@@ -90,13 +90,13 @@ function Navbar() {
     return (
         <>
             <nav className="navbar">
+                <div className="navbar-nav">
                 <ul className="navbar-logo">
                     <Link to="/" className="navbar-logo">                         
                         <img className="roundLogo" src={roundLogo} alt="" />                  
                     </Link>                                      
                 </ul>
 
-                <ul className="navbar-nav">
                     <div className='menu-icon' onClick={handleClick}>
                         <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
                     </div>                        
@@ -127,19 +127,20 @@ function Navbar() {
                             </Link>
                         </li> */}
                     </ul>
-                </ul>
+                
                     
-                <ul className="navbar-user">
+                <div className="navbar-user">
                     <li className='nav-item'>                        
                         <div className="avatarPic-wrapper">
                             <img className="avatarPic" src={profilePic}/>
                         </div>                                                
                     </li>
                     <li className='nav-item'>
-                        { !displayConnect && <div className="caret">
+                        { !displayConnect && 
+                        <div className="caret">
                             <i class="fas fa-caret-down" onClick={() => {setDropdown(!dropdown)}}>
                                 {dropdown && 
-                                <ul className="dropdown">
+                                <div className="dropdown">
                                     <li className="dropdown-item-user">
                                         <span className="dropdown-icon"></span>
                                         <img className="avatarPic" src={profilePic}/>
@@ -164,44 +165,27 @@ function Navbar() {
                                         </span>
                                         My Profile
                                     </Link>
-                                    {/* <Link className="dropdown-item">
-                                        <span className="dropdown-icon">
-                                        <i class="fas fa-tools"></i>
-                                        </span>
-                                        My Projects
-                                    </Link> */}
+                                    
                                     <Link to="/chat" className="dropdown-item">
                                         <span className="dropdown-icon">
                                         <i class="fas fa-comments"></i>
                                         </span>
                                         Messages
                                     </Link>
-                                    {/* <Link className="dropdown-item">
-                                        <span className="dropdown-icon">
-                                        <i class="far fa-bookmark"></i>
-                                        </span>
-                                        Bookmarks
-                                    </Link>
-                                    <Link className="dropdown-item">
-                                        <span className="dropdown-icon">
-                                        <i class="fas fa-user-check"></i>
-                                        </span>
-                                        Saved Profiles
-                                    </Link> */}
+                                    
                                     <li className="dropdown-logout">
-                                            <button className="btn1" onClick={() => {setDropdown(!dropdown)}}>Close</button>
+                                        <button className="btn1  logout-btn" onClick={() => {setDropdown(!dropdown)}}>Close</button>                                            
                                             <button className="btn2 logout-btn" onClick={() => logoutUser()}>
-                                                <Link to="/" >Log&nbsp;Out</Link>
-                                                <i class="fas fa-sign-out-alt"></i>
-                                            </button>
-                                        
+                                            Log&nbsp;Out
+                                            <i class="fas fa-sign-out-alt"></i>
+                                        </button>                                        
                                     </li>
-                                </ul>                                 
+                                </div>                                 
                                 }
                             </i>
                         </div>
-                    }
-                    </li>                                                 
+                        }
+                    </li>
                     { displayConnect && <button className='btn1'  onClick={() => setOpenConnectMenu(true)}>
                         Connect
                     </button>  } 
@@ -228,7 +212,8 @@ function Navbar() {
                         </div>                        
                     </div>
                     }                                     
-                </ul>
+                </div>                                                 
+                </div>
                                           
             </nav>
             
