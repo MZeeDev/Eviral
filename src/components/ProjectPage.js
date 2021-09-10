@@ -138,22 +138,19 @@ function ProjectDisplay(props) {
                       src={props.creatorProfilePic}
                       bio={props.bio}
                     />
+                    {owner &&                
+                        <div className="edit-project-btn-wrapper">
+                          <button className= "edit-project-btn btn1" onClick={()=> setOpenEditProjectMenu(true)}>
+                            <i class="fas fa-puzzle-piece"></i>
+                            <span>Edit&nbsp;Project</span>
+                          </button>                      
+                        </div>                
+                    }
+              
+                    { (owner && !verified) &&
+                      <button className="verify-request-button btn2"> Get Verified</button>
+                    }
                   </div>
-                {owner &&
-                
-                    <div className="edit-project-btn-wrapper">
-                      <button className= "edit-project-btn btn1" onClick={()=> setOpenEditProjectMenu(true)}>
-                        <i class="fas fa-puzzle-piece"></i>
-                        <span>Edit&nbsp;Project</span>
-                      </button>
-                      
-                    </div>
-                
-              }
-          
-                { (owner && !verified) &&
-                  <button className="verify-request-button btn2"> Get Verified</button>
-                }
                 
                 {!owner &&
                   <RatingProject 
