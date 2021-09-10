@@ -110,49 +110,54 @@ function Profile(props) {
 
     return (
         <>
-            <div className="profile-wrapper">
-                <div className="profile-background">
-                    <img className='landscape-pic' src={landscape} alt=""/>   
-                </div>
-                <div className="profile-header">                        
-                    <div className="profile-pic-container">
-                        <img className="profile-pic" src={profilePic} alt="" id="profilePic"/>
-                        <div className="update-profile-img-wrapper">
-                            <div className="update-profile-img" onClick={() => setOpenChangeProfilePicMenu(true)}>
-                                <i class="fas fa-camera-retro"></i>
+        
+            <div className="profile-container-wrapper">
+                <div className="profile-wrapper">
+                    <div className="profile-background">
+                        <img className='landscape-pic' src={landscape} alt=""/>
+                    </div>
+                    <div className="profile-header">
+                        <div className="profile-pic-container">
+                            <img className="profile-pic" src={profilePic} alt="" id="profilePic"/>
+                            <div className="update-profile-img-wrapper">
+                                <div className="update-profile-img" onClick={() => setOpenChangeProfilePicMenu(true)}>
+                                    <i class="fas fa-camera-retro"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>                        
-                    <div className="profile-page-summary">
-                        <h2 className="profile-username"> {user.attributes?.username} </h2>
-                        <p className="profile-bio">{user.attributes?.bio}</p>
-                        
+                        <div className="profile-page-summary">
+                            <h2 className="profile-username"> {user.attributes?.username} </h2>
+                            <p className="profile-bio">{user.attributes?.bio}</p>
+                
+                        </div>
+                
                     </div>
-                    <div className="edit-profile-wrapper">
-                        <div className="profile-page-balances">
-                            <div className="profile-balances-wrapper">
-                                <div className="showProfileBalance">
-                                    <p>{balanceETH}&nbsp;Bil</p>
-                                    <img className="logo-balance-display" src={eViralLogo} alt="" ></img>
-                                </div>
-                                <div className="showProfileBalanceBSC">
-                                    <p>{balanceBSC}&nbsp;Bil</p>
-                                    <img className="logo-balance-display" src={beViralLogo} alt="" ></img>
-                                </div>
-                            </div>    
+                </div>
+                 <div className="edit-profile-wrapper">
+                    <div className="profile-page-balances">
+                        <div className="profile-balances-wrapper">
+                            <div className="showProfileBalance">
+                                <p>{balanceETH}&nbsp;Bil</p>
+                                <img className="logo-balance-display" src={eViralLogo} alt="" ></img>
+                            </div>
+                            <div className="showProfileBalanceBSC">
+                                <p>{balanceBSC}&nbsp;Bil</p>
+                                <img className="logo-balance-display" src={beViralLogo} alt="" ></img>
+                            </div>
                         </div>
-                        <div className="profile-header-btns">                            
-                            <button className="create-project-button btn1" onClick={createProjectCheck}>
-                            <i class="fas fa-puzzle-piece"></i>
-                                <span>Create&nbsp;Project</span>
-                            </button>
-                            <button className="edit-profile-button btn2" onClick={editProfileCheck}>   
-                            <i class="fas fa-pen"></i>
-                                <span>Edit&nbsp;Profile</span>
-                            </button>
-                        </div>
-                    </div>                     
-                </div>                
+                    </div>
+                    <div className="profile-header-btns">
+                        <button className="create-project-button btn1" onClick={createProjectCheck}>
+                        <i class="fas fa-puzzle-piece"></i>
+                            <span>Create&nbsp;Project</span>
+                        </button>
+                        <button className="edit-profile-button btn2" onClick={editProfileCheck}>
+                        <i class="fas fa-pen"></i>
+                            <span>Edit&nbsp;Profile</span>
+                        </button>
+                    </div>
+                    
+                </div>
             </div>
             {changeProfilePicMenu &&
             <div className="update-profile-background">
@@ -180,6 +185,7 @@ function Profile(props) {
                     </div>
                 </div>
             </div>
+            
             }
             {alertVisible &&
             <Alert 
@@ -187,7 +193,6 @@ function Profile(props) {
             content={alertContents}            
             />
             }
-            
         </>
     )
 }

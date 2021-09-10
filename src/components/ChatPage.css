@@ -329,8 +329,19 @@
 
   .btn2.header-left-btn-msg {
     margin: 0.5rem 0 0 0;
+    width: 80%;
   }
   .btn2.header-left-btn-req {
     margin: 0.6rem 0 0 0;
+    width: 80%;
+  }
+  .btn2.header-left-btn-msg h5,
+  .btn2.header-left-btn-req h5 {
+    font-size: 0.8rem;
+  }
+  .chat-messaging-welcome-user h5,
+  .chat-messaging-header-right h5,
+  .chat-messaging-content-message-text p {
+    font-size: 0.9rem;
   }
 }
