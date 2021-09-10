@@ -81,6 +81,8 @@ function Navbar() {
         if (user) {
             setProfilePic(user.attributes?.profilePic?._url);
             setUsername(user.attributes.username);
+            setDisplayConnect(false);
+            renderBalance();
           }
         }, [user]);
 
