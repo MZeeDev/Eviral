@@ -30,16 +30,16 @@ function ProjectsList({match}) {
     console.log(projectsList);
   };
 
-  const PagPrev = async() => {
+  const PagPrev = () => {
     if(pageNumber == 0) {
       return;
     }
     let prevPageNumber = pageNumber - 1;
-    await setPageNumber(prevPageNumber);
+    setPageNumber(prevPageNumber);
   }
-  const PagNext = async() => {
+  const PagNext = () => {
     let nextPageNumber = pageNumber + 1;    
-    await setPageNumber(nextPageNumber);
+    setPageNumber(nextPageNumber);
   }
 
 

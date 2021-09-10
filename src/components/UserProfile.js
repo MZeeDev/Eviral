@@ -16,8 +16,8 @@ function UserProfile(props) {
                         <img className="profile-pic" src={props.profilePic} alt=""/>                        
                     </div>                        
                     <div className="profile-summary">
-                        <h2 className="profile-username">{props.username} </h2>
-                        <p className="profile-bio">{props.bio}</p>
+                        <h2 className="profile-page-username">{props.username} </h2>
+                        <p className="profile-page-bio">{props.bio}</p>
                                           
                     </div>
                     <div className="edit-profile-wrapper">

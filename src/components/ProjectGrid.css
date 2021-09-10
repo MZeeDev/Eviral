@@ -43,6 +43,20 @@
   overflow: hidden;
 }
 
+.my-project-grid-wrapper {
+  display: grid;
+  grid-template: repeat(1, 25rem) / repeat(3, 22rem);
+  grid-auto-columns: minmax(225px, auto);
+  width: 100%;
+  gap: 1rem;
+  padding: 3rem 0;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  resize: both;
+  overflow: hidden;
+}
+
 .project-grid-box {
   display: flex;
   flex-direction: column;
@@ -259,9 +273,20 @@
     resize: both;
     overflow: hidden;
   }
+  .my-project-grid-wrapper {
+    display: grid;
+    grid-template: repeat(1, 25rem) / repeat(2, 22rem);
+  }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 1000px) {
+  .my-project-grid-wrapper {
+    display: grid;
+    grid-template: repeat(1, 25rem) / repeat(1, 22rem);
+  }
+}
+
+@media only screen and (max-width: 900px) {
   .project-grid-wrapper {
     display: grid;
     grid-template: repeat(6, 25rem) / repeat(1, 22rem);
@@ -274,5 +299,9 @@
     align-items: center;
     resize: both;
     overflow: hidden;
+  }
+  .my-project-grid-wrapper {
+    display: grid;
+    grid-template: repeat(1, 25rem) / repeat(1, 22rem);
   }
 }

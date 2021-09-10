@@ -81,12 +81,11 @@
 .profile-summary {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   padding: 0.3rem;
 }
-.profile-summary > p,
-.profile-summary h2 {
+.profile-summary > p {
   text-align: left;
   width: 100%;
   margin-bottom: 0;

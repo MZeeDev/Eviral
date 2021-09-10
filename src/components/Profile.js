@@ -126,8 +126,8 @@ function Profile(props) {
                             </div>
                         </div>
                         <div className="profile-page-summary">
-                            <h2 className="profile-username"> {user.attributes?.username} </h2>
-                            <p className="profile-bio">{user.attributes?.bio}</p>
+                            <h2 className="profile-page-username"> {user.attributes?.username} </h2>
+                            <p className="profile-page-bio">{user.attributes?.bio}</p>
                 
                         </div>
                 

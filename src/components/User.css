@@ -189,6 +189,10 @@
   width: 90%;
 }
 
+.profile-page-username h2 {
+  font-size: 1rem;
+}
+
 .profile-story-title {
   padding-bottom: 2px;
   border-bottom: 3px solid lightgrey;

@@ -31,10 +31,11 @@
 
 .carousel-content > * {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
   flex-shrink: 0;
   flex-grow: 1;
+  min-width: 300px;
 }
 
 .left-arrow,
@@ -49,16 +50,16 @@
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
-  background-color: rgb(202, 202, 202);
+  background-color: rgba(202, 202, 202, 0.537);
   border: 1px solid #ddd;
 }
 
 .left-arrow {
-  left: 0.5rem;
+  left: 0.1rem;
 }
 
 .right-arrow {
-  right: 0.5rem;
+  right: 0.1rem;
 }
 
 .left-arrow:hover,

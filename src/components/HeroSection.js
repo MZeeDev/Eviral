@@ -15,7 +15,7 @@ function HeroSection() {
             <video src="/videos/eViral.mp4" classname="background-mp4" autoPlay loop muted />
                 <div className='hero-container'>
                     <div className="homepage-welcome">
-                        <h1> Welcome to EVIRAL </h1>
+                        <h1> Viral Crypto </h1>
                         <p className="hero-text">Connecting Innovators and Influencers in DeFI</p>
                     </div>
                 <div className="tokenIframes">

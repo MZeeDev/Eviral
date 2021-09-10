@@ -7,6 +7,7 @@ import ProjectCard from "./ProjectCard";
 import Carousel from "./Carousel";
 import SendMessagePopUp from "./SendMessagePopUp";
 import Alert from "./Alert";
+import ProjectGridBox from "./ProjectGridBox";
 
 
 const UserProfilePage = ({ data }) => {
@@ -22,29 +23,45 @@ const UserProfilePage = ({ data }) => {
   const [alertVisible, setAlertVisible] = useState(false);
   const [alertContents, setAlertContents] = useState();
   
+  const [pageNumber, setPageNumber] = useState(0);
+  
   let init = 0;
   
   const loadProfile = async() => {
     const params = { userUsername: username };
     const profile = await Moralis.Cloud.run("userProfileData", params);    
-    setProfileLoaded(profile);
-    const projectsList = await Moralis.Cloud.run("renderUserProjects", params);
-    setProjects(projectsList);
-    console.log(projectsList);
+    setProfileLoaded(profile);    
     checkUserPage();
   };
+
+  const loadProfileProjects = async() => {
+    const params = { userUsername: username, skipAmount : pageNumber };
+    const projectsList = await Moralis.Cloud.run("renderUserProjects", params);
+    setProjects(projectsList);
+  }
+
+  
+  const PagPrev = () => {
+    if(pageNumber == 0) {
+      return;
+    }
+    let prevPageNumber = pageNumber - 1;
+    setPageNumber(prevPageNumber);
+  }
+
+  const PagNext = () => {
+    let nextPageNumber = pageNumber + 1;    
+    setPageNumber(nextPageNumber);
+  }
     
   const checkUserPage = () => {
     const userLoaded =profileLoaded[0].username; 
     const userVisiter = user.attributes?.username;
-    console.log(profileLoaded[0].username);
-    console.log(user.attributes?.username);
     if(userLoaded == userVisiter) {
       setUserPage(true);
     } else {
       setUserPage(false);
     }
-    console.log(userPage);
   }
 
   const userCheck = async() => {
@@ -79,11 +96,16 @@ const UserProfilePage = ({ data }) => {
 
 
   useEffect(() => {
-    loadProfile();
-    
+    loadProfile();    
     },
     [init],
   );
+
+  useEffect(() => {
+    loadProfileProjects();
+    },
+    [pageNumber]
+  );  
 
 
   return (
@@ -137,34 +159,34 @@ const UserProfilePage = ({ data }) => {
                         </div>                    
                         <div className="profile-action-container">
                             <div className="profile-action-wrapper">
-                            <div className="cards-background">
-                              <div className='cards__container'>
-                              <h5>Projects by {username}</h5>
-                                  <div className='cards__wrapper'>
-                                    <div className='cards__items'>
-                                    <Carousel
-                                      show={3}
-                                      loop={true}
-                                      >  
-                                        {projects.map(project => (                                          
-                                          <div key={project.title} className="cards__item">                            
-                                              <ProjectCard
-                                              title={project.title}
-                                              summary={project.summary}
-                                              src={project.projectPhoto}
-                                              username={project.username}
-                                              creatorProfilePic={project.profilePic}
-                                              createdOn = {project.createdOn}
-                                              label={project.username}
-                                              path={project.title}
-                                              />
-                                          </div>
-                                        ))}
-                                        </Carousel>
+                            <div className="project-section-title">
+                                    <h3>{username}'s Projects</h3>               
+                                </div>
+                            <div className="project-grid-container">
+                              <div className="my-project-grid-wrapper">
+                                  {projects.map(listItem => (
+                                      <div key={listItem.title} className="project-grid-box">
+                                        <ProjectGridBox
+                                        title={listItem.title}
+                                        summary={listItem.summary}
+                                        src={listItem.projectPhoto}
+                                        username={listItem.username}
+                                        creatorProfilePic={listItem.profilePic}
+                                        createdOn = {listItem.createdOn}
+                                        label={listItem.username}
+                                        path={listItem.title}
+                                        isVerified = {listItem.isVerified}
+                                        />
                                     </div>
+                                    ))}
                                   </div>
+                                <div className="pagination">
+                                  <button className="pagination-prev" onClick={() => PagPrev()}><i class="fas fa-caret-square-left"></i>PREV</button>              
+                                  <button className="pagination-next" onClick={() => PagNext()}>NEXT<i class="fas fa-caret-square-right"></i></button>
+                                </div>
                               </div>
-                            </div>                        
+                            
+                            
                         </div>
                     </div>
                 </div>

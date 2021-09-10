@@ -118,5 +118,6 @@
   }
   .cards__item {
     width: 60%;
+    min-width: 300px;
   }
 }
