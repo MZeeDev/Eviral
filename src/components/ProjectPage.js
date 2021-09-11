@@ -195,6 +195,7 @@ function ProjectDisplay(props) {
         linkedIn={props.linkedIn}
         youtube={props.youtube}
         twitch={props.twitch}
+        isOwner={owner}
         
         />}
           

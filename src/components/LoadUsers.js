@@ -36,7 +36,8 @@ function LoadUsers() {
 
 
   const LoadUsers = async() => {
-    const params = { skipAmount: pageNumber};
+    console.group(pageNumber);
+    const params = { pageNum: pageNumber};
     const userList = await Moralis.Cloud.run("loadUsers", params);
     setUsers(userList);
   };
@@ -61,8 +62,9 @@ function LoadUsers() {
   useEffect(() => {
     LoadUsers();
     },
-    [initLoad]
+    [pageNumber]
   );  
+
   useEffect(() => {
     SavedProfiles();
     },

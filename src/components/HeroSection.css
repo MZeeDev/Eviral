@@ -27,13 +27,13 @@ video {
   flex-direction: column;
   align-items: center;
   margin-bottom: 5rem;
-  margin-top: 7rem;
+  margin-top: 5rem;
   width: 80%;
 }
 
 .homepage-welcome > h1 {
   color: rgb(219, 255, 238);
-  font-size: 70px;
+  font-size: 2rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   text-shadow: 2px 3px 3px black;
@@ -44,7 +44,7 @@ video {
   color: white;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  font-size: 24px;
+  font-size: 2rem;
   margin-top: 24px;
 }
 
@@ -99,11 +99,16 @@ video {
 }
 
 @media screen and (max-width: 1080px) {
+  .homepage-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
   .homepage-welcome > h1 {
-    font-size: 50px;
+    font-size: 2.5rem;
   }
   .hero-text {
-    font-size: 20px;
+    font-size: 2.5rem;
   }
 }
 
@@ -113,14 +118,23 @@ video {
     flex-direction: column;
     width: 90%;
   }
+  .homepage-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .homepage-welcome > h1 {
-    font-size: 35px;
+    font-size: 2rem;
   }
   .hero-text {
-    font-size: 15px;
+    font-size: 2rem;
+  }
+  .homepage-welcome {
+    display: flex;
+    align-items: center;
   }
 }
 

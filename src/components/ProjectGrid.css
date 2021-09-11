@@ -31,8 +31,8 @@
 }
 .project-grid-wrapper {
   display: grid;
-  grid-template: repeat(2, 25rem) / repeat(3, 22rem);
-  grid-auto-columns: minmax(225px, auto);
+  grid-template: repeat(3, 25rem) / repeat(3, 22rem);
+  /* grid-auto-columns: minmax(225px, auto); */
   width: 100%;
   gap: 2rem;
   padding: 3rem 0;
@@ -45,15 +45,12 @@
 
 .my-project-grid-wrapper {
   display: grid;
-  grid-template: repeat(1, 25rem) / repeat(3, 22rem);
-  grid-auto-columns: minmax(225px, auto);
+  grid-template: repeat(2, 25rem) / repeat(3, 22rem);
   width: 100%;
-  gap: 1rem;
-  padding: 3rem 0;
-  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem 0;
   justify-items: center;
   align-items: center;
-  resize: both;
   overflow: hidden;
 }
 
@@ -170,38 +167,6 @@
   margin-right: 0;
 }
 
-@media only screen and (max-width: 1200px) {
-  .project-grid-wrapper {
-    display: grid;
-    grid-template: repeat(3, 25rem) / repeat(2, 22rem);
-    grid-auto-columns: minmax(225px, auto);
-    width: 100%;
-    gap: 2rem;
-    padding: 3rem 0;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    resize: both;
-    overflow: hidden;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  .project-grid-wrapper {
-    display: grid;
-    grid-template: repeat(6, 25rem) / repeat(1, 22rem);
-    grid-auto-columns: minmax(225px, auto);
-    width: 100%;
-    gap: 2rem;
-    padding: 3rem 0;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    resize: both;
-    overflow: hidden;
-  }
-}
-
 /* Profiles */
 
 .profile-box-header {
@@ -259,7 +224,7 @@
   margin: 0 1rem;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1600px) {
   .project-grid-wrapper {
     display: grid;
     grid-template: repeat(3, 25rem) / repeat(2, 22rem);
@@ -283,6 +248,8 @@
   .my-project-grid-wrapper {
     display: grid;
     grid-template: repeat(1, 25rem) / repeat(1, 22rem);
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -303,5 +270,7 @@
   .my-project-grid-wrapper {
     display: grid;
     grid-template: repeat(1, 25rem) / repeat(1, 22rem);
+    align-items: center;
+    justify-content: center;
   }
 }

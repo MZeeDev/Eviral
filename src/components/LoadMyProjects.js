@@ -1,3 +1,4 @@
+
 import React, {useState, useEffect} from 'react';
 import ProjectCard from './ProjectCard';
 import './ProjectCard.css';
@@ -14,12 +15,13 @@ function LoadMyProject() {
 
   const [ projects, setProjects ] = useState([""]);
   const [pageNumber, setPageNumber] = useState(0);
-  const initLoad = 0; // change later to accomodate refresh/sorting data
 
   const LoadProjects = async() => {
-    const params = { skipAmount : pageNumber};
+    const params = { page : pageNumber};
     const results = await Moralis.Cloud.run("renderMyProjects", params);
     setProjects(results);
+    console.log(pageNumber);
+    console.log(results);
   };
 
   const PagPrev = () => {

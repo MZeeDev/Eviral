@@ -19,6 +19,8 @@ function EditProject(props) {  ///set input variables as required, add other att
     const [linkedIn, setLinkedIn] = useState(props.linkedIn);
     const [youtube, setYoutube] = useState(props.youtube);
     const [twitch, setTwitch] = useState(props.twitch);
+    const [isOwner, setIsOwner] = useState(props.isOwner);
+
 
     const [alertVisible, setAlertVisible] = useState(false);
     const [alertContents, setAlertContents] = useState();
@@ -27,6 +29,30 @@ function EditProject(props) {  ///set input variables as required, add other att
     const [photoFile, setPhotoFile] = useState();    
     const [photoFileName, setPhotoFileName] = useState();  
     const [ projectPhotoPreview, setProjectPhotoPreview] = useState(props.projectPhoto);
+
+    const deletePopUp = async () => {
+        setAlertContents(
+            <div className="verify-delete-popup">
+                Are you sure you want to delete this project?
+                <button className="submit-form btn3" onClick={deleteProject}>Delete Project</button>
+            </div>
+        );
+        setAlertVisible(true);
+    }
+
+    const deleteProject = async() => {
+        const params = { projectTitle: (props.title) }; 
+        console.log(params);
+        const project = await Moralis.Cloud.run("getProjectByName", params);
+        console.log(project);
+        
+        const currentProject = project;
+        currentProject.destroy().then((object) => {
+            alert("You can always create something new!");
+        }, (error) => {
+            alert(error)
+        });
+    }
 
 
     const editProject = async () => {
@@ -155,8 +181,9 @@ function EditProject(props) {  ///set input variables as required, add other att
                             </div>
                             </div>
                         <div className="form-button-wrapper">
-                            <button className="btn1" onClick={()=>{props.closeCreateProjectMenu(false)}}>Close Menu</button>
+                            <button className="submit-form btn1" onClick={()=>{props.closeCreateProjectMenu(false)}}>Close Menu</button>
                             <button className="submit-form btn2" onClick={editProject}>Sumbit Changes</button>
+                            {isOwner && <button className="submit-form btn3" onClick={deletePopUp}>Delete Project</button>}
                         </div>
                     </div>
                 </div>

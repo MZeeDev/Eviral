@@ -15,7 +15,7 @@ function ProjectGridBox(props) {
             <div className="project-card-header">
                 <Link
                     className="project-url-link"
-                    to={`${url}/${props.path}`}
+                    to={`/projects/${props.path}`}
                     >
                         <img className="project-card-img" src={props.src}></img>
                 </Link>

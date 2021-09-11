@@ -16,12 +16,6 @@ function Cards() {
                         path={{ pathname: "https://www.kyubi.world"}} 
                         />
                         <CardItem 
-                        src='images/cgt.png'
-                        text='Cryptos Got Talent - Put your skills on display'
-                        label='Talent'
-                        path={{ pathname: "https://cryptosgot.io"}} 
-                        />
-                        <CardItem 
                         src='images/basedevlogo.png'
                         text='BaseDev - Get Ahead in BlockChain Technology'
                         label='Dev/Ed'

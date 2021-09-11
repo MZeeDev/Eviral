@@ -22,7 +22,7 @@ function ProfileCard(props) {
         <>
             <div className="profile-card-container">                
                     <div className="profile-card-wrapper">
-                        <Link className="profile-cards-link" to={`${url}/${props.username}`}>
+                        <Link className="profile-cards-link" to={`/profiles/${props.username}`}>
                             <figure className='profile-card-pic-wrap' category={props.label}>
                                 <img className="profile-card-img" src={props.src}></img>
                             </figure>

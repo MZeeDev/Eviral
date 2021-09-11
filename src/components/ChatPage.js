@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom';
 import Alert from './Alert';
 import './ChatPage.css';
 import ProfileMessageCard from './ProfileMessageCard';
+import ScrollableFeed from 'react-scrollable-feed';
 
 
 function ChatPage() {
@@ -19,9 +20,55 @@ function ChatPage() {
     const [ processRequest, setProcessRequet] = useState(false);
     const [ reply, setReply] = useState("");
     const [noUsers, setNoUsers] = useState(false);
+    const [sidebarBtn, setSideBarBtn] = useState(false);
     
     const [alertVisible, setAlertVisible] = useState(false);
     const [alertContents, setAlertContents] = useState();
+
+    const deletePopUp = async () => {
+        setAlertContents(
+            <div className="verify-delete-popup">
+                Delete this chat history?
+                <button className="submit-form btn3" onClick={deleteChat}>Delete </button>
+            </div>
+        );
+        setAlertVisible(true);
+    }
+
+    const deleteChat = async() => {
+        // try{
+            const Conversation = Moralis.Object.extend('Conversation');
+            const findConversation = new Moralis.Query(Conversation);
+            findConversation.equalTo('objectId', activeChatId)
+            const conversationFound = await findConversation.find();
+            const conversation = conversationFound[0];
+            if(conversation.attributes.requestAccepted == false) {
+                conversation.destroy().then((object) => {
+                    alert("Chat deleted.");
+                }, (error) => {
+                    alert(error)
+                });                
+            } else {
+            conversation.set('requestAccepted', false);
+            await conversation.save();
+            alert('Message removed.');
+            await loadInboxProfiles();
+    } 
+
+
+
+        const params = { projectTitle: (1) }; 
+        console.log(params);
+        const project = await Moralis.Cloud.run("getProjectByName", params);
+        console.log(project);
+        
+        const currentProject = project;
+        currentProject.destroy().then((object) => {
+            alert("You can always create something new!");
+        }, (error) => {
+            alert(error)
+        });
+    }
 
     const userCheck = async() => {
         const eViral = await Moralis.Web3.getERC20({tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
@@ -58,6 +105,18 @@ function ChatPage() {
     }
 
     const init = 0;
+
+    const showButton = () => {
+        if(window.innerWidth <=650) {
+            setSideBarBtn(false);
+        } else {
+            setSideBarBtn(true);
+        }
+    };
+
+    window.addEventListener('resize', showButton);
+
+
 
     const CheckInboxClick = async() => {
         const auth = await userCheck();
@@ -268,6 +327,9 @@ function ChatPage() {
                 </div>
                 <div className="chat-messaging">   
                     <div className="chat-messaging-header-right">
+                        {/* <div className="show-chat-sidebar">
+                            <button className="show-chat-sidebar-btn">SideBar</button>
+                        </div> */}
                         <h5>Welcome </h5>
                             <div className="chat-messaging-welcome-user">
                                 <img className="chat-messaging-welcome-user-profilePic" src={user.attributes?.profilePic?._url} />
@@ -278,22 +340,24 @@ function ChatPage() {
                             { chatDisplay && 
                                 <div className="chat-messaging-content-messageList">                                                               
                                     <div className="chat-messaging-content-message-wrapper">
-                                        {chatContent.map(message => (
-                                        <div key={message.username} className="chat-messaging-content-messageLoaded">
-                                                {/* <p>{message.projectName}</p> */}
-                                                <div className="chat-messaging-content-message">
-                                                    <div className="chat-messaging-content-profilePic-wrapper">
-                                                        <img className="chat-messaging-content-profilePic" src={message.fromProfilePic} />
+                                        <ScrollableFeed forceScroll={true}  >                                            
+                                            {chatContent.map(message => (
+                                            <div key={message.username} className="chat-messaging-content-messageLoaded">
+                                                    {/* <p>{message.projectName}</p> */}
+                                                    <div className="chat-messaging-content-message">
+                                                        <div className="chat-messaging-content-profilePic-wrapper">
+                                                            <img className="chat-messaging-content-profilePic" src={message.fromProfilePic} />
+                                                        </div>
+                                                        <div className="chat-messaging-content-message-text">
+                                                            <p>{message.message}</p>
+                                                        </div>
                                                     </div>
-                                                    <div className="chat-messaging-content-message-text">
-                                                        <p>{message.message}</p>
+                                                    <div className="chat-messaging-content-message-time">
+                                                        <p>{message.date}, {message.time}</p>
                                                     </div>
-                                                </div>
-                                                <div className="chat-messaging-content-message-time">
-                                                    <p>{message.date}, {message.time}</p>
-                                                </div>
-                                        </div>
-                                        ))}
+                                            </div>
+                                            ))}
+                                        </ScrollableFeed>
                                     </div>
                                 </div>
                             }   
@@ -314,6 +378,10 @@ function ChatPage() {
                             <div className="chat-messaging-reply-button">
                                 <i class="fas fa-paper-plane" onClick={() => sendReply()}></i>
                             </div>
+                            <div className="chat-messaging-trash-button">
+                                <i class="fas fa-trash-alt" onClick={() => deletePopUp()}></i>
+                            </div>
+                            
                         </>
                         }
                         { (showRequests && chatDisplay) &&
