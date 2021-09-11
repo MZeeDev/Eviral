@@ -32,12 +32,19 @@ video {
 }
 
 .homepage-welcome > h1 {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
   color: rgb(219, 255, 238);
   font-size: 2rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   text-shadow: 2px 3px 3px black;
   animation: mymove 5s infinite;
+}
+
+.homepage-welcome > p {
+  font-size: 4rem;
 }
 
 .hero-text {

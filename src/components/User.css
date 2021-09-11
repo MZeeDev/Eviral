@@ -14,6 +14,7 @@
   height: auto;
   width: 100%;
   background: linear-gradient(to bottom, lightgrey, whitesmoke, white);
+  min-height: 300px;
 }
 
 .profile-container-wrapper {
@@ -110,11 +111,22 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  width: 93%;
-  transform: translateY(-5rem);
+  width: 100%;
+  transform: translateY(0rem);
   padding-bottom: 0.3rem;
   border-bottom: 3px solid lightgrey;
 }
+
+.edit-profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-height: 12rem;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0.5rem;
+}
+
 .profile-page-summary {
   padding-left: 1rem;
   display: flex;
@@ -158,7 +170,8 @@
   justify-content: flex-end;
   align-items: flex-end;
   position: relative;
-  transform: translate(-50%, 0%);
+  position: absolute;
+  transform: translate(270%, 250%);
 }
 
 .update-profile-img {
@@ -372,5 +385,13 @@
     max-height: 12rem;
     align-items: center;
     justify-content: space-evenly;
+    margin-top: 0.5rem;
+  }
+
+  .profile-page-summary {
+  }
+
+  .profile-page-summary h2 {
+    font-size: 1.3rem;
   }
 }

@@ -132,7 +132,6 @@ function Profile(props) {
                         </div>
                 
                     </div>
-                </div>
                  <div className="edit-profile-wrapper">
                     <div className="profile-page-balances">
                         <div className="profile-balances-wrapper">
@@ -155,8 +154,8 @@ function Profile(props) {
                         <i class="fas fa-pen"></i>
                             <span>Edit&nbsp;Profile</span>
                         </button>
-                    </div>
-                    
+                    </div>                    
+                </div>
                 </div>
             </div>
             {changeProfilePicMenu &&
