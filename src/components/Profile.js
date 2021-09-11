@@ -56,8 +56,14 @@ function Profile(props) {
     }
 
     const editProfileCheck = async() => {
-        if( (balanceETH<100) && (balanceBSC<100) ) {
-            setAlertContents("You'll need to own EViral or BEVIRAL to create a profile!");
+        if( (balanceETH == 0) && (balanceBSC == 0) ) {
+            setAlertContents( 
+                <>
+                <div className="alert-popup-contents">
+                You'll need to own either eViral or beViral to access this feature.
+                <Link to='/'><button className="btn2">Buy from Home Page</button></Link>
+                </div>
+                </>);
             setAlertVisible(true);
         } else {
             props.openEditProfileMenu(true);
