@@ -16,7 +16,8 @@ function HeroSection() {
                 <div className='hero-container'>
                     <div className="homepage-welcome">
                         <h1> Viral Crypto </h1>
-                        <p className="hero-text">Connecting Innovators and Influencers in DeFI</p>
+                        <h2 className="hero-text">Connecting Innovators and Influencers in DeFI</h2>
+                        <p className="hero-text">Own EViral or BeViral and join the network of independent blockchain creators.</p>
                     </div>
                 <div className="tokenIframes">
                     <div className="tokenIframes-wrapper">
