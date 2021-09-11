@@ -109,7 +109,7 @@
 
 .profile-header {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-end;
   width: 100%;
   transform: translateY(0rem);
@@ -128,7 +128,7 @@
 }
 
 .profile-page-summary {
-  padding-left: 1rem;
+  padding-left: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -388,10 +388,12 @@
     margin-top: 0.5rem;
   }
 
-  .profile-page-summary {
+  .profile-page-username h2 {
+    overflow-wrap: break-word;
   }
 
   .profile-page-summary h2 {
     font-size: 1.3rem;
+    overflow-wrap: break-word;
   }
 }
