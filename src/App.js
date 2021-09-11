@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
 import './App.css';
 import Home from './components/pages/home';
 import Platform from './components/pages/platform';
@@ -14,10 +14,11 @@ import ChatPage from './components/ChatPage';
 
 
 function App() {
+  const history = useHistory();
   
   return (
     <>
-      <Router>
+      <Router history= {history}>
       <Navbar />
         <Switch>
           <Route path='/' exact component={Home} />

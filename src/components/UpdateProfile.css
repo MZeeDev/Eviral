@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   height: 100%;
   width: 100vw;
@@ -19,19 +19,37 @@
   border: 0.3rem solid lightgray;
   border-radius: 1rem;
   background-color: whitesmoke;
-  width: 70vw;
+  width: 95%;
 }
 
 .update-profile-header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  width: 100%;
+}
+
+.update-profilepic-container-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1rem;
+  width: 85%;
+}
+
+.upload-profilePic-button {
+  padding: 0.5rem 1rem;
+  box-shadow: 0 6px 20px rgb(61 61 61 / 17%);
+  width: 100%;
+  margin: 1rem 0 0 0;
+  border: 1px solid rgba(0, 0, 0, 0.35);
 }
 
 .update-profile-title {
   display: flex;
   color: dodgerblue;
-  width: 80%;
+  width: 100%;
   justify-content: center;
   align-items: center;
   margin-bottom: 0;

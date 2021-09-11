@@ -16,6 +16,7 @@ function UpdateProfile(props) {
     const [landscapeFileName, setLandscapeFileName] = useState();  
     const [landscapePic, setLandscapePic] = useState();
 
+    const [username, setUsername] = useState();
     const [userLocation, setUserLocation] = useState();
     const [story, setStory] = useState();
     const [skills, setSkills] = useState();
@@ -27,10 +28,12 @@ function UpdateProfile(props) {
     const [linkedIn, setLinkedIn] = useState();
     const [youtube, setYoutube] = useState();
     const [twitch, setTwitch] = useState();
+    const init = 0;
 
     const checkProfileCreated = () => {
         const profileCreated = (user.attributes?.profileCreated);
         if(profileCreated){
+            setUsername(user.attributes?.username);
             setLandscapePic(user.attributes?.landscapePic?._url);
             setUserLocation(user.attributes?.userLocation);
             setStory(user.attributes?.story);
@@ -51,11 +54,15 @@ function UpdateProfile(props) {
         if (user) {
             checkProfileCreated();
         }
-      }, [user]);
+      }, [init]);
 
 
     const handleSave = async() => {
-        await setUserData({            
+        if( (username === "") ) { 
+            return;
+        }
+        await setUserData({
+            username: username === "" ? undefined : username,            
             userLocation: userLocation === "" ? undefined : userLocation, 
             story: story === "" ? undefined : story ,
             skills: skills === "" ? undefined : skills ,
@@ -70,22 +77,27 @@ function UpdateProfile(props) {
             profileCreated: true   
         });
         setAlertContents("Profile Updated!");
-        setAlertVisible(true);
-        (props.closeEditProfileMenu(false));
+        setAlertVisible(true);        
     };
 
-    const onChangeLandscape = e => {
+    const onChangeLandscape = e => {        
         setLandscapeFile(e.target.files[0]);
         setLandscapeFileName(e.target.files[0].name);
     };
 
-      const onSubmitLandscape = async (e) => {
+      const onSubmitLandscape = async () => {
+        try{
         const file = landscapeFile;
         const name = landscapeFileName;
+        console.log(1);
         let fileIpfs = await saveFile(name, file, { saveIPFS: true });
+        console.log(2);
         user.set("landscapePic", fileIpfs);
         await user.save();
         setLandscapePic(user.attributes.landscapePic._url);
+        } catch (error) {
+            console.log(error)
+        }
       };
 
     return (
@@ -106,8 +118,10 @@ function UpdateProfile(props) {
                                     <label htmlFor="landscapePic" className="form-label">Choose a Landscape (recommended 1500px X 500px)</label>
                                     <input className="form-control" type="file" accept="image/*" multiple="false" id="landscapePic" onChange={onChangeLandscape} />
                                 </div>
-                                <button className="updateProfile-btn2-upload" onClick={onSubmitLandscape}>Upload</button>
+                                <input type="button" value="Upload" className="updateProfile-btn2-upload" onClick={onSubmitLandscape} />
                             </form>
+                            <label className="form-label">Username</label>
+                            <input className="form-input" placeholder="Choose a name" value={username} required onChange={(event) =>setUsername(event.currentTarget.value)}/>
                             <label className="form-label">Location</label>
                             <input className="form-input" placeholder="City, Country" value={userLocation} onChange={(event) =>setUserLocation(event.currentTarget.value)}/>
                             <label className="form-label">Website</label>
@@ -115,10 +129,10 @@ function UpdateProfile(props) {
                             <label className="form-label">Skills</label>
                             <input className="form-input" placeholder="List skills as keywords (ie Artist, Programmer, Model)" maxLength={50} value={skills} onChange={(event) =>setSkills(event.currentTarget.value)}/>
                             <label className="form-label">Bio</label>
-                            <textarea rows={3} className="form-control" placeholder="Brief bio (<150 characters)" maxLength={150} value={bio} onChange={(event) =>setBio(event.currentTarget.value)}/>
+                            <textarea rows={3} className="form-control" required placeholder="Brief bio (<150 characters)" maxLength={150} value={bio} onChange={(event) =>setBio(event.currentTarget.value)}/>
                             <label className="form-label">Story</label>
                             <textarea rows={5} className="form-control" placeholder="What should other know about you? (<450)" maxLength={450} value={story} onChange={(event) =>setStory(event.currentTarget.value)}/>
-                        </form>
+
                         <div className="update-socials">
                             <div className="social-link-item">
                                 <div className="social-input-box-group">
@@ -164,11 +178,10 @@ function UpdateProfile(props) {
                             </div>
                             </div>
                         <div className="submit">
-                            <button className="btn1" onClick={() => {props.closeEditProfileMenu(false)}}>Close Menu</button>
-                            
-                            <button className="updateProfile-btn2 btn2" onClick={handleSave}>Save Changes</button>
+                            <button className="btn1" onClick={() => {props.closeEditProfileMenu(false)}}>Close Menu</button>                            
+                            <input className="updateProfile-btn2 btn2" onClick={handleSave} type="button" value="Save Changes"/>
                         </div>
-                
+                        </form>
                     </div>
                 </div>
             </div>

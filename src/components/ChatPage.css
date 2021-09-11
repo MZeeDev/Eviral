@@ -26,16 +26,29 @@
   background: transparent;
 }
 
+.chat-messaging-header-left-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3rem;
+  border-bottom: 1px solid rgba(39, 39, 39);
+  color: white;
+  background: rgba(220, 220, 220, 0.095);
+  width: 80%;
+}
+
 .chat-messaging-header-left button {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 40%;
   height: 2rem;
   margin: 1rem 0;
   padding: 0.3rem 0.5rem;
   border-radius: 0.5rem;
   background: dodgerblue;
 }
+
 .chat-messaging-header-left h5 {
   display: flex;
   align-items: center;
@@ -234,6 +247,8 @@
 
 .chat-messaging-sidebar-from {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .chat-messaging-sidebar-from:hover {
   box-shadow: 0 0px 15px rgba(13, 65, 117, 0.5);
@@ -378,5 +393,31 @@
   .chat-messaging-header-right h5,
   .chat-messaging-content-message-text p {
     font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .chat-container {
+    flex-direction: column;
+  }
+  .chat-sidebar {
+    width: 100%;
+  }
+  .chat-messaging {
+    width: 100%;
+  }
+  .chat-messaging-header-left {
+    flex-direction: row;
+  }
+
+  .btn2.header-left-btn-msg,
+  .btn2.header-left-btn-req {
+    width: 40%;
+    margin: 0.75rem 0.5rem;
+    height: 2.5rem;
+  }
+
+  .chat-messaging-header-right {
+    justify-content: center;
   }
 }

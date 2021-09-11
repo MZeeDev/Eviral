@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './Navbar.css';
 import { Button } from './Button';
 import { useMoralis } from "react-moralis";
@@ -53,6 +53,8 @@ function Navbar() {
         await logout();
         setDisplayConnect(!displayConnect);
         setProfilePic(avatar);
+        const goHome = () => {window.location.href="/"};
+        goHome();
     }
     
     const renderBalance = async () => {

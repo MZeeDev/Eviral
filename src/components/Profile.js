@@ -28,6 +28,7 @@ function Profile(props) {
 
     const [alertVisible, setAlertVisible] = useState(false);
     const [alertContents, setAlertContents] = useState();
+    const init = 0;
     
     const onChangePhoto = e => {
         setPhotoFile(e.target.files[0]);
@@ -111,7 +112,7 @@ function Profile(props) {
           
           renderBalance();
         }
-      }, [user]);
+      }, [init]);
 
 
     return (
@@ -132,8 +133,8 @@ function Profile(props) {
                             </div>
                         </div>
                         <div className="profile-page-summary">
-                            <h2 className="profile-page-username"> {user.attributes?.username} </h2>
-                            <p className="profile-page-bio">{user.attributes?.bio}</p>
+                            <h2 className="profile-page-username"> {user?.attributes?.username} </h2>
+                            <p className="profile-page-bio">{user?.attributes?.bio}</p>
                 
                         </div>
                 
@@ -167,7 +168,7 @@ function Profile(props) {
             {changeProfilePicMenu &&
             <div className="update-profile-background">
                 <div className="update-container">
-                    <div className="update-container-wrapper">
+                    <div className="update-profilepic-container-wrapper">
                     <div className="update-profile-header">
                         <h3 className="update-profile-title">Choose a Profile Picture</h3>
                         <span className="exitMenu" onClick={() => {setOpenChangeProfilePicMenu(false)}}><i class="far fa-times-circle"></i></span>
@@ -183,7 +184,7 @@ function Profile(props) {
                                 </div>
                                 <div className="change-profile-pic-footer">
                                     <button className="btn1" onClick={()=>{setOpenChangeProfilePicMenu(false)}}>Cancel</button>
-                                    <input type="button" value="Upload" className="upload-button btn2" onClick={onSubmitPhoto} />
+                                    <input type="button" value="Upload" className="upload-profilePic-button btn2" onClick={onSubmitPhoto} />
                                 </div>
                             </form>
                         </form>

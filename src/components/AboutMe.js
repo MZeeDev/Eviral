@@ -10,16 +10,16 @@ function AboutMe() {
     return (
         <div className="profile-aboutme-container">
             <div className="profile-aboutme-wrapper">
-            <p className="profile-location"><i class="fas fa-map-marker-alt"></i>{user.attributes?.userLocation} </p>
-            <Link className="profile-website" to={{ pathname: (user.attributes?.website) }} target="_blank" aria-label='Website'><i class="fas fa-link"></i>{user.attributes?.website}</Link>
+            <p className="profile-location"><i class="fas fa-map-marker-alt"></i>{user?.attributes?.userLocation} </p>
+            <Link className="profile-website" to={{ pathname: (user?.attributes?.website) }} target="_blank" aria-label='Website'><i class="fas fa-link"></i>{user?.attributes?.website}</Link>
 
                 <div className="profile-story">
                     <h5 className="profile-story-title">My Story</h5>
-                    <p className="profile-story-description">{user.attributes?.story}</p>
+                    <p className="profile-story-description">{user?.attributes?.story}</p>
                 </div>
                 <div className="profile-story">
                     <h5 className="profile-story-title">Skills</h5>
-                    <p className="profile-story-description">{user.attributes?.skills}</p>
+                    <p className="profile-story-description">{user?.attributes?.skills}</p>
                 </div>
                 <div className="profile-story">
                     <h5 className="profile-story-title">Social Media</h5>

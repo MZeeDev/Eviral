@@ -195,6 +195,7 @@ function ChatPage() {
         // await activateChatListener(chatId);
         setChatDisplay(true);
         setActiveChatId(chatId);
+        setShowInbox(false);
     }
 
     // const activateChatListener = async(chatId) => {        
@@ -293,7 +294,7 @@ function ChatPage() {
                     <div className="chat-messaging-sidebar-content">
                         { showInbox &&
                         <ul className="chat-messaging-sidebar-from">
-                            {noUsers && <div className="chat-messaging-header-left">Empty</div>}
+                            {noUsers && <div className="chat-messaging-header-left-empty" onClick={() => setShowInbox(false)}>No Messages</div>}
                             {inboxUsers.map(profile => (                          
                             <div key={profile.username} className="chat-messaging-profiles" onClick={() => loadInboxMessage(profile.chatId)}>                                                   
                                 <ProfileMessageCard
@@ -309,7 +310,7 @@ function ChatPage() {
                         }
                         { showRequests &&
                         <ul className="chat-messaging-sidebar-from">
-                        {noUsers && <div className="chat-messaging-header-left">Empty</div>}
+                        {noUsers && <div className="chat-messaging-header-left-empty">No Requests</div>}
                         {requestsUsers.map(profile => (                          
                           <div key={profile.username} className="chat-messaging-profiles" onClick={() => loadRequestMessage(profile.chatId, profile.permission)}>                                                   
                               <ProfileMessageCard
