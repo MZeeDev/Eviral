@@ -1,8 +1,9 @@
 .cards {
-  padding: 3rem;
+  padding: 1rem;
   background: #fff;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .cards-background {

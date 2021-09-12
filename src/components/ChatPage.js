@@ -13,6 +13,7 @@ function ChatPage() {
     const [inboxUsers, setInboxUsers] = useState();
     const [requestsUsers, setRequestsUsers] = useState();
     const [ showInbox, setShowInbox] = useState(false);
+    const [ showReply, setShowReply] = useState(false);
     const [ showRequests, setShowRequests] = useState(false);
     const [chatContent, setChatContent] = useState();
     const [ chatDisplay, setChatDisplay] = useState(false);
@@ -156,6 +157,7 @@ function ChatPage() {
         if(profileCards !== 'undefined') {
         setInboxUsers(profileCards);
         setShowInbox(true);
+        setShowReply(true);
         }
         console.log(profileCards);
         if(profileCards.length == 0) {
@@ -169,6 +171,7 @@ function ChatPage() {
         if(profileCards !== 'undefined') {
         setRequestsUsers(profileCards);
         setShowRequests(true);
+        setShowReply(false);
         }
         console.log(profileCards);
         if(profileCards.length == 0) {
@@ -196,6 +199,7 @@ function ChatPage() {
         setChatDisplay(true);
         setActiveChatId(chatId);
         setShowInbox(false);
+        setShowReply(true);
     }
 
     // const activateChatListener = async(chatId) => {        
@@ -310,7 +314,7 @@ function ChatPage() {
                         }
                         { showRequests &&
                         <ul className="chat-messaging-sidebar-from">
-                        {noUsers && <div className="chat-messaging-header-left-empty">No Requests</div>}
+                        {noUsers && <div className="chat-messaging-header-left-empty " onClick={() => setShowRequests(false)}>No Requests</div>}
                         {requestsUsers.map(profile => (                          
                           <div key={profile.username} className="chat-messaging-profiles" onClick={() => loadRequestMessage(profile.chatId, profile.permission)}>                                                   
                               <ProfileMessageCard
@@ -365,7 +369,7 @@ function ChatPage() {
                         
                     </div>
                     <div className="chat-messaging-footer">
-                        {showInbox &&
+                        {showReply &&
                         <>
                             <input 
                                 type="text" 

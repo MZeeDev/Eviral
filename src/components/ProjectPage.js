@@ -47,7 +47,7 @@ function ProjectDisplay(props) {
     const beViral = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
     const balanceETH = eViral.balance;
     const balanceBSC = beViral.balance;
-    if( (balanceETH < 100) && (balanceBSC < 100) ) {
+    if( (balanceETH == 0) && (balanceBSC == 0) ) {
       setAlertContents(
           <>
           <div className="alert-popup-contents">

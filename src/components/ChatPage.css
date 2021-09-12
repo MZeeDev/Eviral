@@ -413,11 +413,24 @@
   .btn2.header-left-btn-msg,
   .btn2.header-left-btn-req {
     width: 40%;
-    margin: 0.75rem 0.5rem;
+    margin: 0.5rem 0.5rem 0 0.5rem;
     height: 2.5rem;
   }
 
   .chat-messaging-header-right {
-    justify-content: center;
+    display: none;
+  }
+
+  .chat-messaging-content-container {
+  }
+  .chat-messaging-footer {
+    padding: 0.5rem;
+    height: 4rem;
+  }
+
+  .chat-messaging-sidebar-content {
+    z-index: 0;
+    background: rgba(84, 84, 84, 0.95);
+    height: auto;
   }
 }
