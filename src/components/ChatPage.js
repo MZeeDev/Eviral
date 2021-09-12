@@ -18,7 +18,7 @@ function ChatPage() {
     const [chatContent, setChatContent] = useState();
     const [ chatDisplay, setChatDisplay] = useState(false);
     const [ activeChatId, setActiveChatId] = useState();
-    const [ processRequest, setProcessRequet] = useState(false);
+    const [ processRequest, setProcessRequest] = useState(false);
     const [ reply, setReply] = useState("");
     const [noUsers, setNoUsers] = useState(false);
     const [sidebarBtn, setSideBarBtn] = useState(false);
@@ -166,7 +166,8 @@ function ChatPage() {
     }
     ///////////////////////////////////////////////////// profiles that have sent messages to!
     const loadRequestsProfiles = async() => { 
-        setNoUsers(false);       
+        setNoUsers(false); 
+        setShowInbox(false);      
         const profileCards = await Moralis.Cloud.run("loadRequestsProfiles");
         if(profileCards !== 'undefined') {
         setRequestsUsers(profileCards);
@@ -181,13 +182,15 @@ function ChatPage() {
 
     const loadRequestMessage = async(chatId, permission) => {
         setActiveChatId(0);
+        console.log(chatId);
         const params = { chatId: chatId};
         const requestMessage =  await Moralis.Cloud.run("loadRequestMessage", params);
         setChatContent(requestMessage);
         console.log(requestMessage);
-        setProcessRequet(permission);
+        setProcessRequest(permission);
         setChatDisplay(true);
         setActiveChatId(chatId);
+
     }
 
     const loadInboxMessage = async(chatId) => {  //rename to load conversation and adjust to show all messages associated with conversation from new to old
@@ -195,38 +198,62 @@ function ChatPage() {
         const params = { chatId: chatId};
         const requestMessage =  await Moralis.Cloud.run("loadInboxMessage", params);
         setChatContent(requestMessage);        
-        // await activateChatListener(chatId);
+        await activateChatListener(chatId);
         setChatDisplay(true);
         setActiveChatId(chatId);
-        setShowInbox(false);
+        setShowInbox(false); 
         setShowReply(true);
+        console.log("here is message");
+        console.log(requestMessage);
+        console.log(chatContent);
     }
 
-    // const activateChatListener = async(chatId) => {        
-        
-    //     let query = new Moralis.Query('Messages');
-    //     let subscription = await query.subscribe();
-    //     subscription.on('create', (object) => {
-    //         if(object.get('parent.id') == chatId){
-    //             loadInboxMessage(activeChatId);
-    //         }
-    //     });
-    // }
+    
+    const activateChatListener = async(chatId) => {   
+        let query = new Moralis.Query('Messages');
+        let subscription = await query.subscribe();
+        console.log("new subscription");
+        subscription.on('create', (object) => {
+            const parent = object.get('parent');            
+            const parentId = parent.id;
+            const fromUser = object.get('from');
+            const objProfilePic = fromUser.attributes?.profilePic._url;
+            console.log("massive");
+            console.log(objProfilePic);
+            const objDate = object.get('date');
+            const objMessage = object.get('message');
+            console.log(objMessage);
+            const objTime = object.get('time');
+            console.log(chatId);
+            console.log(object); 
+            console.log(parentId);
+            if(parentId == chatId) {
+                console.log("chat is live!");
+                setChatContent(prev => [...prev, 
+                    {
+                        date: objDate,
+                        fromProfilePic: objProfilePic,
+                        time: objTime,
+                        message: objMessage
+                    }]);
+                }             
+        });
+    }
 
     const acceptRequest = async() => {
         try{
-        const Conversation = Moralis.Object.extend('Conversation');
-        const findConversation = new Moralis.Query(Conversation);
-        findConversation.equalTo('objectId', activeChatId)
-        const conversationFound = await findConversation.find();
-        const conversation = conversationFound[0];
-        conversation.set('requestAccepted', true);
-        conversation.set('notifyUser2', false);
-        await conversation.save();
-        alert("Request accpeted! Conversation moved to inbox.");
-        setChatDisplay(false);
-        setShowRequests(false);
-        await loadRequestsProfiles();
+            const Conversation = Moralis.Object.extend('Conversation');
+            const findConversation = new Moralis.Query(Conversation);
+            findConversation.equalTo('objectId', activeChatId)
+            const conversationFound = await findConversation.find();
+            const conversation = conversationFound[0];
+            conversation.set('requestAccepted', true);
+            conversation.set('notifyUser2', false);
+            await conversation.save();
+            alert("Request accpeted! Conversation moved to inbox.");
+            setChatDisplay(false);
+            setShowRequests(false);
+            await loadRequestsProfiles();
         } catch (error) {
             alert(error)
         } 
@@ -234,18 +261,18 @@ function ChatPage() {
 
     const declineRequest = async() => {
         try{
-        const Conversation = Moralis.Object.extend('Conversation');
-        const findConversation = new Moralis.Query(Conversation);
-        findConversation.equalTo('objectId', activeChatId)
-        const conversationFound = await findConversation.find();
-        const conversation = conversationFound[0];
-        conversation.set('requestAccepted', false);
-        conversation.set('notifyUser2', false);
-        await conversation.save();
-        alert("Request declined and removed."); 
-        setChatDisplay(false);
-        setShowRequests(false);
-        await loadRequestsProfiles(); 
+            const Conversation = Moralis.Object.extend('Conversation');
+            const findConversation = new Moralis.Query(Conversation);
+            findConversation.equalTo('objectId', activeChatId)
+            const conversationFound = await findConversation.find();
+            const conversation = conversationFound[0];
+            conversation.set('requestAccepted', false);
+            conversation.set('notifyUser2', false);
+            await conversation.save();
+            alert("Request declined and removed."); 
+            setChatDisplay(false);
+            setShowRequests(false);
+            await loadRequestsProfiles(); 
         } catch (error) {
             alert(error)
         } 
@@ -257,29 +284,24 @@ function ChatPage() {
             const findConversation = new Moralis.Query(Conversation);
             findConversation.equalTo('objectId', activeChatId)
             const conversationFound = await findConversation.find();
-            const conversation = conversationFound[0];
-            console.log(conversation.attributes?.user2.attributes?.username);
-            
+            const conversation = conversationFound[0];           
             let toUser;
             if (conversation.attributes?.user1.id == user.id) {
                 toUser = conversation.attributes?.user2.id;
             } else {
                 toUser = conversation.attributes?.user1.id;
-            }
-            console.log(toUser);
+            }            
             const msgDate = new Date().toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'});
             const msgTime = new Date().toLocaleTimeString('en-US');
             const params = { from: user.attributes?.username, to: toUser, date: msgDate, time: msgTime, message: reply, chatId: conversation.id};        
-            const message = await Moralis.Cloud.run("sendReply", params);        
-            
+            const message = await Moralis.Cloud.run("sendReply", params); 
             const relation = conversation.relation("messages");
             relation.add(message);
             await conversation.save();   
-            setReply("");   
-            
-             } catch (error) {
-                 alert(error)
-             } 
+            setReply("");               
+        } catch (error) {
+            alert(error)
+        } 
     }
 
     useEffect(() => {
@@ -347,8 +369,7 @@ function ChatPage() {
                                     <div className="chat-messaging-content-message-wrapper">
                                         <ScrollableFeed forceScroll={true}  >                                            
                                             {chatContent.map(message => (
-                                            <div key={message.username} className="chat-messaging-content-messageLoaded">
-                                                    {/* <p>{message.projectName}</p> */}
+                                                <div key={message.username} className="chat-messaging-content-messageLoaded">
                                                     <div className="chat-messaging-content-message">
                                                         <div className="chat-messaging-content-profilePic-wrapper">
                                                             <img className="chat-messaging-content-profilePic" src={message.fromProfilePic} />

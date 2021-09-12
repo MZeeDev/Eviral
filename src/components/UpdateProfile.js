@@ -131,7 +131,7 @@ function UpdateProfile(props) {
                             <label className="form-label">Bio</label>
                             <textarea rows={3} className="form-control" required placeholder="Brief bio (<150 characters)" maxLength={150} value={bio} onChange={(event) =>setBio(event.currentTarget.value)}/>
                             <label className="form-label">Story</label>
-                            <textarea rows={5} className="form-control" placeholder="What should other know about you? (<450)" maxLength={450} value={story} onChange={(event) =>setStory(event.currentTarget.value)}/>
+                            <textarea rows={5} className="form-control" placeholder="What should others know about you? (<2000 characters)" maxLength={2000} value={story} onChange={(event) =>setStory(event.currentTarget.value)}/>
 
                         <div className="update-socials">
                             <div className="social-link-item">

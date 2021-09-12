@@ -22,13 +22,6 @@ function SendMessagePopUp(props) {
     }    
   }
 
-//   const getConversationId = async() => {
-//     const params = { from: user.attributes?.username, to: (props.creatorName) };
-//     const chatId = await Moralis.Cloud.run("getChatId", params);
-//     return chatId;
-//   }
-
-
     return (
         <>
         <div className="send-msg-background">

@@ -112,7 +112,7 @@ function CreateNewProject(props) {  ///set input variables as required, add othe
                                 </div>
                                 <div className="form-text-component">
                                     <label className="form-label">Description<span style={{color:"red"}}> *</span></label>
-                                    <textarea rows={3} className="form-control" placeholder="Please describe your project in more detail, up to 550 characters" maxLength={550} value={description} required onChange={(event) =>setDescription(event.currentTarget.value)}/>
+                                    <textarea rows={3} className="form-control" placeholder="Please describe your project in more detail, up to 2000 characters" maxLength={2000} value={description} required onChange={(event) =>setDescription(event.currentTarget.value)}/>
                                 </div>
                                 <div className="form-text-component">
                                     <label className="form-label">Website</label>
