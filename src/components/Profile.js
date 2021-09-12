@@ -72,7 +72,7 @@ function Profile(props) {
     }
 
     const createProjectCheck = () => {
-        if( (balanceETH < 100) && (balanceBSC < 100) ) {
+        if( (balanceETH == 0) && (balanceBSC == 0) ) {
             setAlertContents(
                 <>
                 <div className="alert-popup-contents">
