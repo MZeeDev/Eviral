@@ -125,11 +125,9 @@ function Profile(props) {
                     </div>
                     <div className="profile-header">
                         <div className="profile-pic-container">
-                            <img className="profile-pic" src={profilePic} alt="" id="profilePic"/>
-                            <div className="update-profile-img-wrapper">
-                                <div className="update-profile-img" onClick={() => setOpenChangeProfilePicMenu(true)}>
-                                    <i class="fas fa-camera-retro"></i>
-                                </div>
+                            <img className="profile-pic" src={profilePic} alt="" id="profilePic" onClick={() => setOpenChangeProfilePicMenu(true)}/>
+                            <div className="middle-of-profilePic">                                
+                                    <i class="fas fa-camera-retro"></i>                                
                             </div>
                         </div>
                         <div className="profile-page-summary">

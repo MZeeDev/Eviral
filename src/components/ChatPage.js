@@ -21,7 +21,6 @@ function ChatPage() {
     const [ processRequest, setProcessRequest] = useState(false);
     const [ reply, setReply] = useState("");
     const [noUsers, setNoUsers] = useState(false);
-    const [sidebarBtn, setSideBarBtn] = useState(false);
     
     const [alertVisible, setAlertVisible] = useState(false);
     const [alertContents, setAlertContents] = useState();
@@ -29,8 +28,9 @@ function ChatPage() {
     const deletePopUp = async () => {
         setAlertContents(
             <div className="verify-delete-popup">
-                Delete this chat history?
-                <button className="submit-form btn3" onClick={deleteChat}>Delete </button>
+                Are you sure you want to delete this chat history?
+                <button className="submit-form btn3" onClick={deleteChat}>Yes. Delete </button>
+                <button className="submit-form btn2" onClick={setAlertVisible(false)}>Close </button>
             </div>
         );
         setAlertVisible(true);
@@ -54,7 +54,7 @@ function ChatPage() {
             await conversation.save();
             alert('Message removed.');
             await loadInboxProfiles();
-    } 
+            } 
 
 
 
@@ -107,22 +107,8 @@ function ChatPage() {
 
     const init = 0;
 
-    const showButton = () => {
-        if(window.innerWidth <=650) {
-            setSideBarBtn(false);
-        } else {
-            setSideBarBtn(true);
-        }
-    };
-
-    window.addEventListener('resize', showButton);
-
-
-
     const CheckInboxClick = async() => {
         const auth = await userCheck();
-        console.log(auth);
-        console.log(showInbox);
         if(auth) {
             if(showInbox) {
                 setChatDisplay(false);
@@ -131,7 +117,6 @@ function ChatPage() {
                 setShowRequests(false);
                 loadInboxProfiles();
                 setChatDisplay(false);
-                console.log("showInbox");
             }
         }
     }
@@ -146,7 +131,6 @@ function ChatPage() {
                 setShowInbox(false);
                 loadRequestsProfiles();
                 setChatDisplay(false);
-                console.log("showRequests");
             }
         }
     }
@@ -159,7 +143,6 @@ function ChatPage() {
         setShowInbox(true);
         setShowReply(true);
         }
-        console.log(profileCards);
         if(profileCards.length == 0) {
             setNoUsers(true);
         }
@@ -174,7 +157,6 @@ function ChatPage() {
         setShowRequests(true);
         setShowReply(false);
         }
-        console.log(profileCards);
         if(profileCards.length == 0) {
             setNoUsers(true);
         }
@@ -182,15 +164,12 @@ function ChatPage() {
 
     const loadRequestMessage = async(chatId, permission) => {
         setActiveChatId(0);
-        console.log(chatId);
         const params = { chatId: chatId};
         const requestMessage =  await Moralis.Cloud.run("loadRequestMessage", params);
         setChatContent(requestMessage);
-        console.log(requestMessage);
         setProcessRequest(permission);
         setChatDisplay(true);
         setActiveChatId(chatId);
-
     }
 
     const loadInboxMessage = async(chatId) => {  //rename to load conversation and adjust to show all messages associated with conversation from new to old
@@ -203,31 +182,20 @@ function ChatPage() {
         setActiveChatId(chatId);
         setShowInbox(false); 
         setShowReply(true);
-        console.log("here is message");
-        console.log(requestMessage);
-        console.log(chatContent);
     }
 
     
     const activateChatListener = async(chatId) => {   
         let query = new Moralis.Query('Messages');
-        let subscription = await query.subscribe();
-        
-        console.log("new subscription");
-        subscription.on('create', async(object) => {
-            
+        let subscription = await query.subscribe(); 
+        subscription.on('create', async(object) => {            
             const parent = object.get('parent');            
             const parentId = parent.id;
             let objProfilePic = object.get('fromProfilePic');   
             const objDate = object.get('date');
             const objMessage = object.get('message');
-            console.log(objMessage);
             const objTime = object.get('time');
-            console.log(chatId);
-            console.log(object); 
-            console.log(parentId);
             if(parentId == chatId) {
-                console.log("chat is live!");
                 setChatContent(prev => [...prev, 
                     {
                         date: objDate,

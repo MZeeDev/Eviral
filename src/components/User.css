@@ -113,9 +113,10 @@
   justify-content: flex-start;
   align-items: flex-end;
   width: 100%;
-  transform: translateY(0rem);
+  transform: translateY(-2rem);
   padding-bottom: 0.3rem;
   border-bottom: 3px solid lightgrey;
+  padding-left: 3rem;
 }
 
 .edit-profile-wrapper {
@@ -125,7 +126,6 @@
   max-height: 12rem;
   align-items: center;
   justify-content: space-evenly;
-  margin: 0.5rem;
 }
 
 .profile-page-summary {
@@ -137,25 +137,53 @@
 }
 .profile-pic-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   margin-bottom: 0.5rem;
-  padding-bottom: 0.1rem;
-  width: auto;
-  height: 100%;
-  max-width: 10rem;
-  transform: translateX(-0.5rem);
+  width: 100%;
+  height: auto;
+  max-width: 12rem;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  background: lightgray;
+  border: 3px solid white;
+  box-shadow: 0px 0.5rem 0.7rem lightgrey;
+}
+
+.profile-pic-container:hover .profile-pic {
+  opacity: 0.5;
+  cursor: pointer;
+}
+.profile-pic-container:hover .middle-of-profilePic {
+  opacity: 1;
+  cursor: pointer;
 }
 
 .profile-pic {
-  height: 100%;
-  min-height: 5rem;
+  height: auto;
+  width: 100%;
+  min-height: 10rem;
   min-width: 5rem;
-  max-height: 132px;
-  width: auto;
   border-radius: 50%;
-  border: 3px solid white;
-  box-shadow: 0px 0.5rem 0.7rem lightgrey;
   object-fit: cover;
+  opacity: 1;
+  display: block;
+  transition: 0.3s ease;
+  backface-visibility: hidden;
+}
+.middle-of-profilePic {
+  transition: 0.3s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.fas.fa-camera-retro {
+  font-size: 3rem;
 }
 
 .projects {
@@ -185,10 +213,6 @@
   align-items: center;
   font-size: 1rem;
   cursor: pointer;
-}
-
-.fas.fa-camera-retro {
-  margin: 0.5rem;
 }
 
 .update-profile-img:hover {
@@ -356,6 +380,13 @@
 }
 
 @media only screen and (max-width: 850px) {
+  .profile-header {
+    padding-left: 0.5rem;
+  }
+
+  .profile-page-bio {
+    font-size: 0.7rem;
+  }
   .sub-profile-wrapper {
     display: flex;
     flex-direction: column;
@@ -394,7 +425,7 @@
   }
 
   .profile-page-summary h2 {
-    font-size: 1.3rem;
+    font-size: calc(1.325rem + 0.9vw);
     overflow-wrap: break-word;
   }
 }

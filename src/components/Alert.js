@@ -3,6 +3,7 @@ import Logo from '../img/roundlogo.png';
 import './Alert.css';
 
 function Alert(props) {
+    const notVisible = (visble) => props.visible(false);
     return (
         <>
             <div className="alert-background">
@@ -16,7 +17,7 @@ function Alert(props) {
                             {props.content}
                         </div>
                         <div className="alert-footer">
-                            <button  onClick={() => {props.visible(false)}}>OKAY</button>
+                            <button  onClick={() => {props.visible(false)}}>CLOSE</button>
                         </div>
                     </div>
                 </div>
