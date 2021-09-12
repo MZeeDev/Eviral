@@ -212,14 +212,13 @@ function ChatPage() {
     const activateChatListener = async(chatId) => {   
         let query = new Moralis.Query('Messages');
         let subscription = await query.subscribe();
+        
         console.log("new subscription");
-        subscription.on('create', (object) => {
+        subscription.on('create', async(object) => {
+            
             const parent = object.get('parent');            
             const parentId = parent.id;
-            const fromUser = object.get('from');
-            const objProfilePic = fromUser.attributes?.profilePic._url;
-            console.log("massive");
-            console.log(objProfilePic);
+            let objProfilePic = object.get('fromProfilePic');   
             const objDate = object.get('date');
             const objMessage = object.get('message');
             console.log(objMessage);
@@ -293,7 +292,7 @@ function ChatPage() {
             }            
             const msgDate = new Date().toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'});
             const msgTime = new Date().toLocaleTimeString('en-US');
-            const params = { from: user.attributes?.username, to: toUser, date: msgDate, time: msgTime, message: reply, chatId: conversation.id};        
+            const params = { from: user.attributes?.username, fromProfilePic: user.attributes?.profilePic?._url, to: toUser, date: msgDate, time: msgTime, message: reply, chatId: conversation.id};        
             const message = await Moralis.Cloud.run("sendReply", params); 
             const relation = conversation.relation("messages");
             relation.add(message);
