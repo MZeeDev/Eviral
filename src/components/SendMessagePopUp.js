@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react';
 import './SendMessagePopUp.css';
 import { useMoralis } from 'react-moralis';
-import { useState } from 'react/cjs/react.development';
 
 function SendMessagePopUp(props) {
     const { user, Moralis } = useMoralis();
 
-    const [ msg, setMsg ] = useState("");
+    const [ msg, setMessage ] = useState();
+
     
   const SendMessage = async() => {
     const msgDate = new Date().toLocaleDateString('en-US', {year: 'numeric', month: 'long', day: 'numeric'});
@@ -27,6 +27,7 @@ function SendMessagePopUp(props) {
 //     const chatId = await Moralis.Cloud.run("getChatId", params);
 //     return chatId;
 //   }
+
 
     return (
         <>
@@ -51,7 +52,7 @@ function SendMessagePopUp(props) {
                             </div>
                         </div>
                         <div className="send-msg-text">
-                            <textarea placeholder="Enter message. Max length: 500 characters" value={msg} maxLength="500" onChange={(event) =>setMsg(event.currentTarget.value)}></textarea>
+                            <textarea placeholder="Enter message. Max length: 500 characters" value={msg} maxLength="500" onChange={(event) =>setMessage(event.currentTarget.value)}></textarea>
                         </div>
                     </div>
                     <div className="send-msg-footer">
