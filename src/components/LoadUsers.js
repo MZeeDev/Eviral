@@ -9,7 +9,7 @@ import ProfileGridBox from './ProfileGridBox';
 
 function LoadUsers() {
 
-  const { Moralis } = useMoralis();
+  const { user, Moralis } = useMoralis();
   const [ users, setUsers ] = useState([""]);
   const [ usersSaved, setUsersSaved ] = useState([""]);  
   const [ queryProfile, setQueryProfile] = useState("");
@@ -64,7 +64,9 @@ function LoadUsers() {
   );  
 
   useEffect(() => {
+    if(user){
     SavedProfiles();
+    }
     },
     [initLoad]
   );  

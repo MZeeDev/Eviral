@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../App.css';
 import { Button } from './Button';
 import './HeroSection.css';
@@ -18,6 +19,10 @@ function HeroSection() {
                         <h1> Viral Crypto </h1>
                         <h2 className="hero-text">Connecting Innovators and Influencers in DeFI</h2>
                         <p className="hero-text">Own eViral or BeViral and join the network of independent blockchain creators.</p>
+                    </div>
+                    <div className="homepage-buttons">
+                        <Link to='/projects' className="homepage-button btn2">Discover&nbsp;Projects</Link>
+                        <Link to='/profiles' className="homepage-button btn2">Find&nbsp;Profiles</Link>
                     </div>
                 <div className="tokenIframes">
                     <div className="tokenIframes-wrapper">

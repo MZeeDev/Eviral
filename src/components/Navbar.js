@@ -137,11 +137,13 @@ function Navbar() {
                                 <i class="fas fa-people-arrows"></i>
                             </Link>
                         </li>
+                        {user &&
                         <li className='nav-item' onClick={closeMobileMenu}>
                             <Link to='/chat' className='nav-links' >
                                 <i class="far fa-comments"></i>
                             </Link>
                         </li>
+                        }
                         {/* <li className='nav-item'>
                             <Link to='/platform' className='nav-links' onClick={closeMobileMenu}>
                                 <i class="fas fa-toolbox"></i>

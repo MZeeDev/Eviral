@@ -26,7 +26,7 @@ video {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   margin-top: 5rem;
   width: 80%;
 }
@@ -60,6 +60,39 @@ video {
 
 .hero-btns {
   margin-top: 20px;
+}
+
+.homepage-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80%;
+}
+.homepage-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.15rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 6px 20px rgb(61 61 61 / 17%);
+  width: 40%;
+  height: 100%;
+  border-radius: 0.3rem;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  margin: 0 2rem 2rem 0;
+  background: linear-gradient(
+    to left,
+    rgba(3, 121, 160, 0.7),
+    rgba(43, 150, 118, 0.7)
+  );
+  cursor: pointer;
+}
+
+.homepage-button:hover {
+  background: linear-gradient(to left, rgba(3, 121, 160), rgba(43, 150, 118));
+  box-shadow: 0 0 20px rgb(161 161 161 / 57%);
+  color: white;
 }
 
 .tokenIframes {
@@ -154,5 +187,12 @@ video {
   50% {
     color: rgb(160, 252, 255);
     opacity: 0.6;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .homepage-button {
+    font-size: 0.9rem;
+    width: 40%;
   }
 }

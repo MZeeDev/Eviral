@@ -42,7 +42,9 @@ function SaveProfile(props) {
     }
 
     useEffect(() => {
+        if(user){
         checkSavedProfile();
+        }
         },
         [null],
       );

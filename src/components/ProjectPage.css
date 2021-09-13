@@ -175,6 +175,7 @@
 }
 .project-page-creator-profile-wrapper button {
   margin: 0.5rem 0;
+  max-width: 15rem;
 }
 
 @media only screen and (max-width: 850px) {

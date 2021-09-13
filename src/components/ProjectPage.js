@@ -31,9 +31,11 @@ function ProjectDisplay(props) {
   const verified = (props.isVerified);
 
   const checkOwnership = async() => {
+    if(user) {
     const username = user.attributes?.username;
     if( username == props.creator) {
       setOwnerProject(true);
+    }
     }
   }
 
