@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useMoralis, useMoralisFile } from "react-moralis";
+import { Link } from 'react-router-dom';
+import Alert from './Alert';
 import './RatingProject.css'
 
 function RatingProject(props) {
@@ -9,6 +11,9 @@ function RatingProject(props) {
     const [stars, setStars] = useState(0);
     const [reviewTitle, setReviewTitle] = useState();
     const [ prevTitle, setPrevTitle] = useState("Review Title");
+    
+    const [alertVisible, setAlertVisible] = useState(false);
+    const [alertContents, setAlertContents] = useState();
     const init=0;
 
     const [hasReview, setHasReview] = useState(false);
@@ -32,58 +37,103 @@ function RatingProject(props) {
             setPrevTitle(title);
             setHasReview(true);
             console.log(hasReview);
+        } else {
+            setAlertContents(
+                <>
+                <div className="alert-popup-contents">
+                No review found.
+                </div>
+                </>
+                );
+            setAlertVisible(true);
         }
     }
     
     const postProjectRating = async() => {    
-        if(stars < 1) {
-            throw alert('Please choose a star.');
-        }
-        if (typeof review === 'undefined') {
-            throw alert('Please leave a review.');
-        }
-        if(hasReview){
-            const params = { projectTitle: (props.projectName) }; 
-            const currentProject = await Moralis.Cloud.run("getProjectByName", params);
-            const projectRelation = currentProject.relation("reviews")
-            const query = projectRelation.query();
-            query.equalTo('username', user.attributes?.username)
-            const queryResults = await query.find();
-            const userReview = queryResults[0];
-            userReview.set("stars", stars);
-            userReview.set('review', review);
-            userReview.set('reviewTitle', reviewTitle)
-            await userReview.save();
-            alert("Review updated!")
-        }  else {
-            const userReview = Moralis.Object.extend("Reviews");
-            const newReview = new userReview();
-            const currentUser = await Moralis.User.current();
-            const username = currentUser.attributes.username;
-            const profilePic = currentUser.attributes.profilePic._url;
-            const params = { projectTitle: (props.projectName) };
-            const currentProject = await Moralis.Cloud.run("getProjectByName", params);
-            newReview.set("stars", stars);
-            newReview.set("review", review);
-            newReview.set('reviewer', currentUser);
-            newReview.set("username", username);
-            newReview.set('reviewerPic', profilePic);
-            newReview.set('project', currentProject);            
-            await newReview.save();
-            const relation = currentUser.relation("reviews");
-            relation.add(newReview);
-            user.save();
-            const projectRelation = currentProject.relation("reviews")
-            projectRelation.add(newReview);
-            currentProject.save();
-            alert("Thank you for your review!")
+        const canPost = await userCheck();
+        if (canPost) {
+            if(stars < 1) {
+                throw alert('Please choose a star.');
+            }
+            if (typeof review === 'undefined') {
+                throw alert('Please leave a review.');
+            }
+            if(hasReview){
+                const params = { projectTitle: (props.projectName) }; 
+                const currentProject = await Moralis.Cloud.run("getProjectByName", params);
+                const projectRelation = currentProject.relation("reviews")
+                const query = projectRelation.query();
+                query.equalTo('username', user.attributes?.username)
+                const queryResults = await query.find();
+                const userReview = queryResults[0];
+                userReview.set("stars", stars);
+                userReview.set('review', review);
+                userReview.set('reviewTitle', reviewTitle)
+                await userReview.save();
+                alert("Review updated!")
+            }  else {
+                const userReview = Moralis.Object.extend("Reviews");
+                const newReview = new userReview();
+                const currentUser = await Moralis.User.current();
+                const username = currentUser.attributes.username;
+                const profilePic = currentUser.attributes.profilePic._url;
+                const params = { projectTitle: (props.projectName) };
+                const currentProject = await Moralis.Cloud.run("getProjectByName", params);
+                newReview.set("stars", stars);
+                newReview.set("review", review);
+                newReview.set('reviewer', currentUser);
+                newReview.set("username", username);
+                newReview.set('reviewerPic', profilePic);
+                newReview.set('project', currentProject);            
+                await newReview.save();
+                const relation = currentUser.relation("reviews");
+                relation.add(newReview);
+                user.save();
+                const projectRelation = currentProject.relation("reviews")
+                projectRelation.add(newReview);
+                currentProject.save();
+                alert("Thank you for your review!")
+            }
         }
     }
+
+    const userCheck = async() => {
+        console.log(user);
+        const eViral = await Moralis.Web3.getERC20({tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
+        const beViral = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
+        const balanceETH = eViral.balance;
+        const balanceBSC = beViral.balance;
+        if( (balanceETH == 0) && (balanceBSC == 0) ) {
+          setAlertContents(
+              <>
+              <div className="alert-popup-contents">
+              You'll need to own either eViral or beViral to access this feature.
+              <Link to='/'><button className="btn2">Buy from Home Page</button></Link>
+              </div>
+              </>
+              );
+          setAlertVisible(true);
+          return false;
+        }  else if (!user.attributes?.profileCreated) {
+          setAlertContents(
+              <>
+          <div className="alert-popup-contents">
+          You'll need to set up a Profile to access this feature.                
+          </div>
+          </>
+          ) 
+          setAlertVisible(true);
+          return false;
+        } else {
+            return true;
+        }
+      }
 
     useEffect(() => {  
     })
 
     return (
+        <>
         <div className="rating-project-container">
             <div className="rating-project-wrapper">
                 <h4>Your Review</h4>
@@ -116,6 +166,13 @@ function RatingProject(props) {
                 </div>
             </div>   
         </div>
+        {alertVisible &&
+            <Alert 
+            visible={setAlertVisible}
+            content={alertContents}            
+            />
+        } 
+        </>
     )
 }
 
