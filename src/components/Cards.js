@@ -15,12 +15,6 @@ function Cards() {
                         label='Kyubi World'
                         path={{ pathname: "https://www.kyubi.world"}} 
                         />
-                        <CardItem 
-                        src='images/basedevlogo.png'
-                        text='BaseDev - Get Ahead in BlockChain Technology'
-                        label='Dev/Ed'
-                        path={{ pathname: "https://www.basedev.app/"}} 
-                        />
                     </ul>
                 </div>
             </div>
