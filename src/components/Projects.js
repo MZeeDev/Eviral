@@ -73,6 +73,8 @@ function ProjectsList({match}) {
     [initLoad],
   );  
 
+  window.onload(()=>LoadProjects());
+
     return (           
       <>
         <div className="background">
