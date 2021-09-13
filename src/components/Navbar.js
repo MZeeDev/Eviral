@@ -14,7 +14,7 @@ import './NavbarConnectMenu.css';
 import Alert from './Alert';
 
 function Navbar() {
-    const { authenticate, isAuthenticated, user, logout, Moralis} = useMoralis();
+    const { authenticate, isAuthenticated, user, logout, auth, Moralis} = useMoralis();
 
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
@@ -31,27 +31,46 @@ function Navbar() {
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
 
-    const authenticateUserMM = async () =>{        
+    const authenticateUserMM = async () =>{ 
+        console.log(1);
         if(!isAuthenticated){
-            await authenticate();
-            renderBalance();     
-        }        
+            try{
+                await authenticate();
+            } catch (error) {
+                alert(error);
+            }
+            finally {
+                if(isAuthenticated){
+                    renderBalance();               
+                    setProfilePic(user.attributes?.profilePic?._url);
+                    setUsername(user.attributes?.username);  
+                }
+            }                  
+        }
         setOpenConnectMenu(!connectMenu);
-        setDisplayConnect(!displayConnect);   
     }
 
     const authenticateUserWC = async () =>{
         if(!isAuthenticated){
-            await authenticate({ provider: "walletconnect" });
-            renderBalance();
+            try{
+                await authenticate({ provider: "walletconnect" });
+            } catch (error) {
+                alert(error);
+            }
+            finally {
+                if(isAuthenticated){
+                    renderBalance();               
+                    setProfilePic(user.attributes?.profilePic?._url);
+                    setUsername(user.attributes?.username);  
+                }
+            }                  
         }
         setOpenConnectMenu(!connectMenu);
-        setDisplayConnect(!displayConnect);
     }
 
     const logoutUser = async () => {
         await logout();
-        setDisplayConnect(!displayConnect);
+        setDisplayConnect(true);
         setProfilePic(avatar);
         const goHome = () => {window.location.href="/"};
         goHome();
@@ -79,11 +98,9 @@ function Navbar() {
 
 
     useEffect(() => {
-        showButton();
         if (user) {
             setProfilePic(user.attributes?.profilePic?._url);
             setUsername(user.attributes.username);
-            setDisplayConnect(false);
             renderBalance();
           }
         }, [user]);
@@ -140,7 +157,7 @@ function Navbar() {
                         </div>                                                
                     </li>
                     <li className='nav-item'>
-                        { !displayConnect && 
+                        { isAuthenticated && 
                         <div className="caret">
                             <i class="fas fa-caret-down" onClick={() => {setDropdown(!dropdown)}}>
                                 {dropdown && 
@@ -190,7 +207,7 @@ function Navbar() {
                         </div>
                         }
                     </li>
-                    { displayConnect && <button className='btn1'  onClick={() => setOpenConnectMenu(true)}>
+                    { !isAuthenticated && <button className='btn1'  onClick={() => setOpenConnectMenu(true)}>
                         Connect
                     </button>  } 
                     { connectMenu &&

@@ -12,7 +12,7 @@ import './Pagination.css';
 
 function ProjectsList({match}) {
 
-  const { Moralis } = useMoralis();
+  const { user, Moralis } = useMoralis();
 
   const [ projects, setProjects ] = useState([""]);
   const [ savedProjects, setSavedProjects ] = useState([""]);
@@ -66,7 +66,9 @@ function ProjectsList({match}) {
     [pageNumber],
   );  
   useEffect(() => {
-    LoadSavedProjects();
+    if(user){
+      LoadSavedProjects();
+    }
     },
     [initLoad],
   );  

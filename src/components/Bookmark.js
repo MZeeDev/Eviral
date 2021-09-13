@@ -52,7 +52,9 @@ function Bookmark(props) {
     }
 
     useEffect(() => {
+        if(user){
         checkBookmark();
+        }
         },
         [init],
       );

@@ -33,10 +33,8 @@ function LoadUsers() {
     await setPageNumber(nextPageNumber);
   }
 
-
-
   const LoadUsers = async() => {
-    console.group(pageNumber);
+    console.log(pageNumber);
     const params = { pageNum: pageNumber};
     const userList = await Moralis.Cloud.run("loadUsers", params);
     setUsers(userList);
@@ -136,10 +134,10 @@ function LoadUsers() {
                   {users.map(userProfile => (
                     <div key={userProfile.username} className="project-grid-box">
                       <ProfileGridBox
-                      landscapePic={userProfile.landscapePic}
-                      bio={userProfile.bio}
-                      profilePic={userProfile.profilePic}
-                      username={userProfile.username}           
+                        landscapePic={userProfile.landscapePic}
+                        bio={userProfile.bio}
+                        profilePic={userProfile.profilePic}
+                        username={userProfile.username}           
                       />
                   </div>
                   ))}

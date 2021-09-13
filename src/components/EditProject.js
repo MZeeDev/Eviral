@@ -57,27 +57,29 @@ function EditProject(props) {  ///set input variables as required, add other att
 
     const editProject = async () => {
         try {            
+            console.log(props.title);
             const params = { projectTitle: (props.title) }; 
+            console.log(params);
             const project = await Moralis.Cloud.run("getProjectByName", params);
-            const currentProject = project[0];
+            console.log(project);
+            console.log(project);
             const file = photoFile;
             const name = photoFileName;
             let fileIpfs = await saveFile(name, file, { saveIPFS: true });
-            currentProject.set('projectPhoto', fileIpfs);
-            currentProject.set('title', title);
-            currentProject.set('summary', summary);
-            currentProject.set('description', description);
-            currentProject.set("website", website === "" ? undefined : website);
-            currentProject.set("twitter", twitter === "" ? undefined : twitter);
-            currentProject.set("telegram", telegram === "" ? undefined : telegram);
-            currentProject.set("discord", discord === "" ? undefined : discord);
-            currentProject.set("linkedIn", linkedIn === "" ? undefined : linkedIn);
-            currentProject.set("youtube", youtube === "" ? undefined : youtube);
-            currentProject.set("twitch", twitch === "" ? undefined : twitch);
-            await currentProject.save();
+            project.set('projectPhoto', fileIpfs);
+            project.set('title', title);
+            project.set('summary', summary);
+            project.set('description', description);
+            project.set("website", website === "" ? undefined : website);
+            project.set("twitter", twitter === "" ? undefined : twitter);
+            project.set("telegram", telegram === "" ? undefined : telegram);
+            project.set("discord", discord === "" ? undefined : discord);
+            project.set("linkedIn", linkedIn === "" ? undefined : linkedIn);
+            project.set("youtube", youtube === "" ? undefined : youtube);
+            project.set("twitch", twitch === "" ? undefined : twitch);
+            await project.save();
             setAlertContents("Updates Sumbitted!");
             setAlertVisible(true);
-            (props.closeCreateProjectMenu(false));
         } catch (error) {
             alert(error)
         }
