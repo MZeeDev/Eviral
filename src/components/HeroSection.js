@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import { Button } from './Button';
 import './HeroSection.css';
+import { ByMoralis } from 'react-moralis';
 
 
 import eViralLogo from "../img/eViralLogo2.png";
@@ -15,6 +16,7 @@ function HeroSection() {
         <div className="background-homepage">
             <video src="/videos/eViral.mp4" classname="background-mp4" autoPlay loop muted />
                 <div className='hero-container'>
+                    
                     <div className="homepage-welcome">
                         <h1> Viral Crypto </h1>
                         <h2 className="hero-text">Connecting Innovators and Influencers in DeFI</h2>
@@ -24,6 +26,7 @@ function HeroSection() {
                         <Link to='/projects' className="homepage-button btn2">Discover&nbsp;Projects</Link>
                         <Link to='/profiles' className="homepage-button btn2">Find&nbsp;Profiles</Link>
                     </div>
+                    
                 <div className="tokenIframes">
                     <div className="tokenIframes-wrapper">
                         <div className="eViralIframe">
@@ -41,6 +44,10 @@ function HeroSection() {
                     </div>
                 </div>
             <Cards/>
+                <div className="byMoralis">
+                    <ByMoralis  width={300} variant="dark" />
+                </div>
+            
             </div>
         </div>
         

@@ -2,6 +2,10 @@
   display: flex;
   height: 100%;
 }
+
+.byMoralis {
+  margin: 4rem 0 3rem 0;
+}
 video {
   object-fit: cover;
   width: 100%;
@@ -56,6 +60,7 @@ video {
     "Lucida Sans", Arial, sans-serif;
   font-size: 2rem;
   margin-top: 24px;
+  width: 100%;
 }
 
 .hero-btns {
@@ -77,6 +82,7 @@ video {
   padding: 0.5rem 1rem;
   box-shadow: 0 6px 20px rgb(61 61 61 / 17%);
   width: 40%;
+  max-width: 15rem;
   height: 100%;
   border-radius: 0.3rem;
   border: 1px solid rgba(0, 0, 0, 0.35);
@@ -99,10 +105,12 @@ video {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 100%;
 }
 .tokenIframes-wrapper {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 .iframe-title {
@@ -119,7 +127,7 @@ video {
   justify-content: center;
   align-items: center;
   width: 100%;
-
+  max-width: 480px;
   background: linear-gradient(
     to right,
     rgba(4, 192, 255, 0.415),
