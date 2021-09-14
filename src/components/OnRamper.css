@@ -1,0 +1,42 @@
+.homepage-onRamp {
+  display: flex;
+  width: 80%;
+  justify-content: flex-start;
+  margin-bottom: 3rem;
+}
+
+.homepage-onRamp iframe {
+  padding: 0;
+  margin: 0;
+}
+.homepage-onRamp-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 30%;
+}
+.homepage-onRamp-text h3,
+h4 {
+  width: 90%;
+  color: white;
+  margin-top: 2rem;
+}
+
+.onramper-widget {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 440px;
+  height: 595px;
+  background: linear-gradient(
+    to right,
+    rgba(4, 192, 255, 0.415),
+    rgba(64, 224, 208, 0.3)
+  );
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  border: 3px solid black;
+}
+.onramper-widget html {
+  background-color: transparent !important;
+}

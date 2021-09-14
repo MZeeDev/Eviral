@@ -1,5 +1,5 @@
 {
-  "name": "ocean-of-eth",
+  "name": "viral-crypto",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,17 +7,20 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "moralis": "0.0.30",
+    "formatic": "^2.2.0",
+    "fortmatic": "^2.2.1",
+    "moralis": "0.0.45",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-modal": "^3.14.3",
-    "react-moralis": "^0.2.0",
+    "react-moralis": "^0.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-scrollable-feed": "^1.3.1",
     "react-slick": "^0.28.1",
     "slick-carousel": "^1.8.1",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "web3": "^1.5.2"
   },
   "scripts": {
     "start": "react-scripts start",

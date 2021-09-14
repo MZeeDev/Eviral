@@ -1,14 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
-import { Button } from './Button';
+
 import './HeroSection.css';
 import { ByMoralis } from 'react-moralis';
-
-
 import eViralLogo from "../img/eViralLogo2.png";
 import beViralLogo from "../img/beviral.png";
 import Cards from './Cards';
+
+import OnRamper from './OnRamper';
+import TokenPrices from './TokenPrices';
+import FortmaticWallet from './FortmaticWallet';
 
 function HeroSection() {
     return (
@@ -16,7 +18,7 @@ function HeroSection() {
         <div className="background-homepage">
             <video src="/videos/eViral.mp4" classname="background-mp4" autoPlay loop muted />
                 <div className='hero-container'>
-                    
+                    {/* <TokenPrices /> */}
                     <div className="homepage-welcome">
                         <h1> Viral Crypto </h1>
                         <h2 className="hero-text">Connecting Innovators and Influencers in DeFI</h2>
@@ -25,6 +27,21 @@ function HeroSection() {
                     <div className="homepage-buttons">
                         <Link to='/projects' className="homepage-button btn2">Discover&nbsp;Projects</Link>
                         <Link to='/profiles' className="homepage-button btn2">Find&nbsp;Profiles</Link>
+                    </div>
+                    <div className="homepage-onRamp">
+                        <div className="homepage-onRamp-text">
+                            <h3>
+                                New to Crypto?
+                                <br/>
+                                <br/>
+                                No problem!
+                            </h3>
+                            <h4>
+                                You'll need ETH to buy eViral, or BUSD to buy beViral.
+                            </h4>
+                            {/* <FortmaticWallet/> */}
+                        </div>
+                        <OnRamper/>
                     </div>
                     
                 <div className="tokenIframes">
