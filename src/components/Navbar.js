@@ -47,13 +47,13 @@ function Navbar() {
                 }
             }                  
         }
-        setOpenConnectMenu(!connectMenu);
+        setOpenConnectMenu(false);
     }
 
     const authenticateUserWC = async () =>{
         if(!isAuthenticated){
             try{
-                await authenticate({ provider: "walletconnect" });
+                await authenticate({ provider: "walletconnect" });                
             } catch (error) {
                 alert(error);
             }
@@ -65,7 +65,7 @@ function Navbar() {
                 }
             }                  
         }
-        setOpenConnectMenu(!connectMenu);
+        setOpenConnectMenu(false);
     }
 
     const logoutUser = async () => {
@@ -95,6 +95,10 @@ function Navbar() {
         }
     };
     
+    const getVersion = () => {
+        console.log(Moralis.CoreManager.get("VERSION"));
+
+    }
 
 
     useEffect(() => {
@@ -116,8 +120,11 @@ function Navbar() {
                         <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
                     </div>                        
                 <ul className="navbar-logo">
-                    <Link to="/" className="navbar-logo">                         
-                        <img className="roundLogo" src={roundLogo} alt="" />                  
+                    <Link to="/" className="navbar-logo">  
+                    <div className="viralcrypto">
+                        <h1> viralcrypto </h1>
+                        </div>                       
+                        {/* <img className="roundLogo" src={roundLogo} alt="" />                   */}
                     </Link>                                      
                 </ul>
 
@@ -136,7 +143,8 @@ function Navbar() {
                             <Link to='/profiles' className='nav-links' onClick={closeMobileMenu}>
                                 <i class="fas fa-people-arrows"></i>
                             </Link>
-                        </li>
+                        </li> 
+                        
                         {user &&
                         <li className='nav-item' onClick={closeMobileMenu}>
                             <Link to='/chat' className='nav-links' >
@@ -220,16 +228,15 @@ function Navbar() {
                                     <h3>Connect with Web3</h3>
                                 </div>
                                 <div className="connectMenu-options">
-                                    <div className="connectMenu-metamask">
-                                        
-                                        <button  className="connectMenu-btn"onClick={() => authenticateUserMM()}><img className="metamask-logo" src={mmLogo} /></button>
+                                    <div className="connectMenu-metamask"onClick={() => authenticateUserMM()}>                                        
+                                        <button  className="connectMenu-btn"><img className="metamask-logo" src={mmLogo} /></button>
                                     </div>
-                                    <div className="connectMenu-walletConnect">
-                                        <button className="connectMenu-btn"  onClick={() => authenticateUserWC()}><img className="walletconnect-logo" src={wcLogo} /></button>
+                                    <div className="connectMenu-walletConnect"  >
+                                        <button className="connectMenu-btn" ><img className="walletconnect-logo" src={wcLogo} onClick={() => authenticateUserWC()}/></button>
                                     </div>
                                 </div>
                                 <div className="connectMenu-footer">
-                                    <button  onClick={() => setOpenConnectMenu(!connectMenu)}>CLOSE</button>
+                                    <button  onClick={() => setOpenConnectMenu(false)}>CLOSE</button>
                                 </div>
                             </div>
                         </div>                        

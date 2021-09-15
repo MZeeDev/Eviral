@@ -72,6 +72,16 @@
   background-color: rgb(204, 204, 204);
 }
 
+.project-dev-status-radio {
+  display: flex;
+  width: 80%;
+  justify-content: space-evenly;
+}
+
+.project-dev-status-radio input {
+  margin-right: 0.3rem;
+}
+
 .form-text-wrapper {
   display: flex;
   flex-direction: row;

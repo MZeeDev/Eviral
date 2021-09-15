@@ -20,7 +20,7 @@ function HeroSection() {
                 <div className='hero-container'>
                     {/* <TokenPrices /> */}
                     <div className="homepage-welcome">
-                        <h1> Viral Crypto </h1>
+                        {/* <h1> Viral Crypto </h1> */}
                         <h2 className="hero-text">Connecting Innovators and Influencers in DeFI</h2>
                         <p className="hero-text">Own eViral or BeViral and join the network of independent blockchain creators.</p>
                     </div>

@@ -29,6 +29,8 @@ function ProjectDisplay(props) {
   const init = 0;
 
   const verified = (props.isVerified);
+  const isLive = (props.isLive);
+  
 
   const checkOwnership = async() => {
     if(user) {
@@ -39,9 +41,6 @@ function ProjectDisplay(props) {
     }
   }
 
-  const consoleLog = () => {
-    console.log(props.title);
-  }
 
   const verificationEmail = async() => {
     const params = { projectName: props.title};
@@ -85,7 +84,7 @@ function ProjectDisplay(props) {
   }
 
   useEffect(() => {
-    checkOwnership();    
+    checkOwnership(); 
   }, [init])
 
     return (           
@@ -100,6 +99,12 @@ function ProjectDisplay(props) {
                     <i class="fas fa-clipboard-check">Pro</i>
                   </div>
                   }
+                   {isLive &&
+                      <i class="fas fa-chart-line">Live</i>                        
+                    }
+                    {!isLive &&
+                      <i class="fas fa-wrench">InDev</i>                    
+                    }
                   <h2>{props.title}</h2>
                   <Rating
                     title = {props.title}
@@ -117,9 +122,9 @@ function ProjectDisplay(props) {
           
                 <div className="project-page-description">
                   <h3>About</h3>
-          
+                  
                   <div className="project-page-links">
-                  <Link className="website-link" to={{ pathname: (props.website) }} target="_blank" aria-label='Website'><i class="fas fa-link"></i>{props.website}</Link>
+                  <Link className="website-link" to={{ pathname: `https://${props.website}` }} target="_blank" aria-label='Website'><i class="fas fa-link"></i>{props.website}</Link>
                     <SocialIconBar
                       twitter={props.twitter}
                       telegram={props.telegram}

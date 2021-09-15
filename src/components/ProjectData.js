@@ -51,7 +51,8 @@ const ProjectData = ({ data }) => {
                   youtube={project.youtube}
                   twitch={project.twitch}
                   objectId = {project.objectId}  
-                  isVerified = {project.isVerified}              
+                  isVerified = {project.isVerified}
+                  isLive = {project.isLive}              
                 />                
             </div>
           ))}        

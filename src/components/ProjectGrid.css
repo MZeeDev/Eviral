@@ -117,18 +117,35 @@
 
 .project-card-title {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 20%;
   width: auto;
   padding-left: 0.5rem;
-  padding-bottom: 0.7rem;
-  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
 }
-.project-card-badge {
-  transform: translateY(-0.5rem);
+.project-card-title h4 {
+  margin-bottom: 0;
+  font-size: 1.2rem;
 }
-.fas.fa-clipboard-check {
+.project-card-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 100%;
+}
+.project-card-badge {
+  transform: translateY(0.15rem);
+  margin-top: 0.15rem;
+}
+.fas.fa-clipboard-check,
+.fas.fa-chart-line,
+.fas.fa-wrench {
   margin: 0;
+  font-size: 1.2rem;
 }
 .project-card-creator {
   display: flex;

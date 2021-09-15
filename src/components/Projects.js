@@ -126,7 +126,8 @@ function ProjectsList({match}) {
                               label={project.username}
                               path={project.title}
                               projectTitle = {project.title}
-                              isVerified = {project.isVerified}   
+                              isVerified = {project.isVerified}
+                              isLive={project.isLive}   
                               />                            
                           </div>
                         ))}
@@ -161,6 +162,8 @@ function ProjectsList({match}) {
                           createdOn = {project.createdOn}
                           path={project.title}
                           isVerified = {project.isVerified}
+                          isLive={project.isLive}
+                          
                           />
                       </div>
                     ))}

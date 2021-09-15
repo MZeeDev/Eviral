@@ -9,6 +9,8 @@ function ProjectGridBox(props) {
     
     const { url } = useRouteMatch();
     const verified = (props.isVerified);
+    const isLive = (props.isLive);
+
     return (
                   
         <div className="project-grid-box-wrapper">
@@ -23,11 +25,23 @@ function ProjectGridBox(props) {
             <div className="project-card-body">
                 <div className="project-card-title">
                     <h4>{props.title}</h4>
-                    {verified &&
-                        <div className="project-card-badge">
-                            <i class="fas fa-clipboard-check">Pro</i>
-                        </div>
-                    }
+                    <div className="project-card-badges">
+                        {isLive &&
+                            <div className="project-card-badge">
+                                <i class="fas fa-chart-line">Live</i>
+                            </div>
+                        }
+                        {!isLive &&
+                            <div className="project-card-badge">
+                                <i class="fas fa-wrench">InDev</i>
+                            </div>
+                        }
+                        {verified &&
+                            <div className="project-card-badge">
+                                <i class="fas fa-clipboard-check">Pro</i>
+                            </div>
+                        }
+                    </div>
                 </div>
                 <div className="project-card-creator">
                     <img  src={props.creatorProfilePic}  className="project-card-profilepic"/>{" "}{props.username}

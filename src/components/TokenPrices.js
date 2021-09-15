@@ -1,49 +1,46 @@
 import React, {useState, useEffect} from 'react';
 import eViralLogo from "../img/eViralLogo2.png";
 import beViralLogo from "../img/beviral.png";
-import { useMoralis } from "react-moralis";
+import { useMoralis, useMoralisWeb3Api } from "react-moralis";
 
 function TokenPrices() {
 
     const { Moralis } = useMoralis();
+    const Web3Api = useMoralisWeb3Api();
 
     const [eViralPrice, setEViralPrice] = useState(0);
     const [beViralPrice, setBEViralPrice] = useState(0);
     const init = 0;
 
-    const getEViralQuote = async() => {
-        const quote = await Moralis.Plugins.oneInch.quote({
-        chain: 'eth', // The blockchain you want to use (eth/bsc/polygon)
-        fromTokenAddress: '0x7cec018ceef82339ee583fd95446334f2685d24f', // The token you want to swap
-        toTokenAddress: '0x6b175474e89094c44da98b954eedeac495271d0f', // The token you want to receive
-        amount: 1,
-        });
-        setEViralPrice(quote);
-    }
+    // const getEViralQuote = async() => {       
+    //     const options = {
+    //         address: "0x7cec018ceef82339ee583fd95446334f2685d24f",
+    //         chain: "Eth",
+    //         exchange: "uniswap-v2"
+    //     };
+    //     const price = await Moralis.Web3API.token.getTokenPrice(options);
+    //     setEViralPrice(price);
+    // }
 
     const getBEViralQuote = async() => {
-        const quote = await Moralis.Plugins.oneInch.quote({
-        chain: 'bsc', // The blockchain you want to use (eth/bsc/polygon)
-        fromTokenAddress: '0x7cec018ceef82339ee583fd95446334f2685d24f', // The token you want to swap
-        toTokenAddress: '0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3', // The token you want to receive
-        amount: 1,
-        });
-        setBEViralPrice(quote);
+        
+        const options = {
+            address: "0x7cec018ceef82339ee583fd95446334f2685d24f",
+            chain: "bsc",
+            exchange: "pancakeswap-v2"
+        };
+        const price = await Web3Api.token.getTokenPrice(options);
+        console.log(price);
+        setBEViralPrice(price);
     }
 
     useEffect(() => {
-        try{
-            (async function(){
-                Moralis.initPlugins();
-            })();
-            console.log("success");
-        } catch (error) {
-            alert(error)
-        }
+        // getEViralQuote();
+        getBEViralQuote();
         }, [init])
 
     const getQuotes = async() => {
-        await getEViralQuote();
+        // await getEViralQuote();
         await getBEViralQuote();
     }
 

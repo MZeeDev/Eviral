@@ -20,6 +20,8 @@ function CreateNewProject(props) {  ///set input variables as required, add othe
     const [linkedIn, setLinkedIn] = useState();
     const [youtube, setYoutube] = useState();
     const [twitch, setTwitch] = useState();
+    const [isLive, setIsLive] = useState(false);
+
 
     const [alertVisible, setAlertVisible] = useState(false);
     const [alertContents, setAlertContents] = useState();
@@ -42,6 +44,7 @@ function CreateNewProject(props) {  ///set input variables as required, add othe
             const userObjectId =currentUser.attributes.userObjectId;
             let fileIpfs = await saveFile(name, file, { saveIPFS: true });
             project.set('projectPhoto', fileIpfs);
+            project.set("isLive", isLive);
             project.set('title', title);
             project.set('creator', currentUser);
             project.set("createdBy", username);
@@ -102,6 +105,24 @@ function CreateNewProject(props) {  ///set input variables as required, add othe
                         </div>
                         <div className="form-text-wrapper">
                             <form className="form-text">
+                                 
+                                <div className="form-text-component">
+                                    Has your project already launched or is it still in development?
+                                    <div className="project-dev-status-radio">
+                                        <div className="project-dev-status-radio-check">
+                                            <input type="radio" id="indevelopment" name="flexRadioDefault" onClick={() => setIsLive(false)}/>
+                                            <label className="form-label">
+                                                In Development
+                                            </label>
+                                        </div>
+                                        <div className="project-dev-status-radio-check">
+                                            <input type="radio" id="launched" name="flexRadioDefault" onClick={() => setIsLive(true)}/>
+                                            <label className="form-label">
+                                                Launched
+                                            </label>
+                                        </div>                                        
+                                    </div>
+                                </div>
                                 <div className="form-text-component">
                                     <label className="form-label">Project Name<span style={{color:"red"}}> *</span></label>
                                     <input className="form-input" placeholder="Create a title" value={title} required onChange={(event) =>setTitle(event.currentTarget.value)}/>
