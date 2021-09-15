@@ -43,6 +43,17 @@ function ProjectDisplay(props) {
     console.log(props.title);
   }
 
+  const verificationEmail = async() => {
+    const params = { projectName: props.title};
+    console.log(params);
+    try{
+    await Moralis.Cloud.run("sendVerifyEmail", params);
+    console.log("emailSent")
+    } catch (error) {
+      alert(error);
+    }
+  }
+
   const userCheck = async() => {
     console.log(user);
     const eViral = await Moralis.Web3.getERC20({tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
@@ -150,7 +161,7 @@ function ProjectDisplay(props) {
                     }
               
                     { (owner && !verified) &&
-                      <button className="verify-request-button btn2"> Get Verified</button>
+                      <button className="verify-request-button btn2" onClick={verificationEmail}> Get Verified</button>
                     }
                   </div>
                 

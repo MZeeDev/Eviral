@@ -31,8 +31,7 @@ function HeroSection() {
                     <div className="homepage-onRamp">
                         <div className="homepage-onRamp-text">
                             <h3>
-                                New to Crypto?
-                                <br/>
+                                New to Crypto?                                
                                 <br/>
                                 No problem!
                             </h3>

@@ -40,3 +40,21 @@ h4 {
 .onramper-widget html {
   background-color: transparent !important;
 }
+
+@media screen and (max-width: 640px) {
+  .homepage-onRamp {
+    flex-direction: column;
+    width: 90%;
+  }
+  .homepage-onRamp-text {
+    width: 100%;
+  }
+  .homepage-onRamp-text h4 {
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .onramper-widget {
+    width: 100%;
+  }
+}

@@ -227,8 +227,7 @@ a {
     height: 100%;
     justify-content: flex-end;
     align-items: center;
-    position: absolute;
-    margin-left: 5rem;
+    margin-left: 0.5rem;
   }
   .fas.fa-times,
   .fas.fa-bars {
@@ -269,5 +268,7 @@ a {
   }
   .nav-links {
     margin: 1rem;
+  }
+  .menu-icon {
   }
 }

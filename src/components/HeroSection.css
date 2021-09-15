@@ -191,6 +191,15 @@ video {
   }
 }
 
+@media screen and (max-width: 640px) {
+  .homepage-welcome {
+    width: 90%;
+  }
+  .homepage-buttons {
+    width: 90%;
+  }
+}
+
 @keyframes mymove {
   50% {
     color: rgb(160, 252, 255);
@@ -202,5 +211,8 @@ video {
   .homepage-button {
     font-size: 0.9rem;
     width: 40%;
+  }
+  .homepage-welcome > h2 {
+    font-size: 2.7rem;
   }
 }
