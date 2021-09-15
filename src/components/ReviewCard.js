@@ -13,7 +13,7 @@ function ReviewCard(props) {
                         {[...Array(props.stars)].map( star => {
                             return <i class="fas fa-star"></i>
                         })}
-                        {props.reviewTitle}
+                        <span id="reviewTitle">{props.reviewTitle}</span>
                     </div>
                     <div className="review-date">Reviewed on {props.createdAt}</div>
                     <div className="review-review">{props.review}</div>       

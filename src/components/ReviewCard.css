@@ -21,6 +21,9 @@
 .review-date {
   margin: 0.3rem 0;
 }
+#reviewTitle {
+  margin-left: 0.2rem;
+}
 
 .review-title.fas.fa-star {
   margin: 0.2rem;

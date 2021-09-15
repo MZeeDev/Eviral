@@ -68,7 +68,7 @@ function RatingProject(props) {
                 const userReview = queryResults[0];
                 userReview.set("stars", stars);
                 userReview.set('review', review);
-                userReview.set('reviewTitle', reviewTitle)
+                userReview.set('reviewTitle', reviewTitle);
                 await userReview.save();
                 alert("Review updated!")
             }  else {
@@ -84,7 +84,8 @@ function RatingProject(props) {
                 newReview.set('reviewer', currentUser);
                 newReview.set("username", username);
                 newReview.set('reviewerPic', profilePic);
-                newReview.set('project', currentProject);            
+                newReview.set('project', currentProject);     
+                newReview.set('reviewTitle', reviewTitle);       
                 await newReview.save();
                 const relation = currentUser.relation("reviews");
                 relation.add(newReview);
