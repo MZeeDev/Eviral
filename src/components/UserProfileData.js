@@ -55,7 +55,7 @@ const UserProfilePage = ({ data }) => {
   }
     
   const checkUserPage = () => {
-    const userLoaded =profileLoaded[0].username; 
+    const userLoaded = profileLoaded[0].username; 
     const userVisiter = user.attributes?.username;
     if(userLoaded == userVisiter) {
       setUserPage(true);

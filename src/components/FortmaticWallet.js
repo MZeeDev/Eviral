@@ -8,14 +8,18 @@
 // function FortmaticWallet() {
     
 //     Moralis.initPlugins();   
-//     const enabler = () => {
-//         Moralis.enable = async () => {
-//             // const web3Provider = new MoralisFortmaticProvider();        
-//             const web3 = new Web3(fm.getProvider());
-//             return web3;
-//         }}
-        
-//         const fm = new Fortmatic('pk_live_CAC6E97548234051');
+
+//     Moralis.enable = async () => {
+//         // const web3Provider = new MoralisFortmaticProvider();        
+//         const web3 = new Web3(fm.getProvider());
+//         return web3;
+//     }
+
+//     const fm = new Fortmatic('pk_live_CAC6E97548234051');
+//     const connect = async() => {
+//         window.web3 = await Moralis.enable();
+//     }
+
 //         // class MoralisFortmaticProvider {
 
         
@@ -44,7 +48,7 @@
 
 //     return (
 //         <div>
-//             <button onClick={enabler}>Fortmatic</button>
+//             <button onClick={connect}>Fortmatic</button>
 //         </div>
 //     )
 // }

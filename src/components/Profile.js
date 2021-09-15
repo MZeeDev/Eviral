@@ -43,6 +43,8 @@ function Profile(props) {
         user.set("profilePic", fileIpfs);
         await user.save();
         setProfilePic(user.attributes.profilePic._url);
+        setAlertContents("Uploaded!");
+        setAlertVisible(true);
     };
 
     const renderBalance = async () => {
@@ -181,7 +183,7 @@ function Profile(props) {
                                     <input className="form-control" type="file" accept="image/*" multiple="false" id="profilePhoto" onChange={onChangePhoto} />
                                 </div>
                                 <div className="change-profile-pic-footer">
-                                    <button className="btn1" onClick={()=>{setOpenChangeProfilePicMenu(false)}}>Cancel</button>
+                                    <button className="btn1" onClick={()=>{setOpenChangeProfilePicMenu(false)}}>Close</button>
                                     <input type="button" value="Upload" className="upload-profilePic-button btn2" onClick={onSubmitPhoto} />
                                 </div>
                             </form>
