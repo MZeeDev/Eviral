@@ -79,7 +79,7 @@ function LoadUsers() {
               <input 
                 type="text" 
                 className="searchbar-text" 
-                placeholder="Search projects by name" 
+                placeholder="Search profiles by name" 
                 value={queryProfile} 
                 onChange={(event) =>setQueryProfile(event.currentTarget.value)} 
                 onKeyPress={(event) => { if(event.key === "Enter") {SearchProfiles()}}}
