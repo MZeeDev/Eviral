@@ -8,45 +8,38 @@ function RatingProject(props) {
     const { user, Moralis } = useMoralis();
 
     const [review, setReview] = useState();
+    const [ userReview, setUserReivew] = useState();
     const [stars, setStars] = useState(0);
     const [reviewTitle, setReviewTitle] = useState();
     const [ prevTitle, setPrevTitle] = useState("Review Title");
-    
     const [alertVisible, setAlertVisible] = useState(false);
     const [alertContents, setAlertContents] = useState();
+    const [hasReview, setHasReview] = useState();
+    const [reivewed, setReviewed] = useState();
     const init=0;
 
-    const [hasReview, setHasReview] = useState(false);
-
     const loadUserRating = async() => {
+        if(hasReview){ console.log("you do have a hasReivew")};
+        if(userReview){ console.log("you do have a userReivew")};
+
         const params = { projectTitle: (props.projectName) }; 
         const currentProject = await Moralis.Cloud.run("getProjectByName", params);
-        const projectRelation = currentProject.relation("reviews")
+        const projectRelation = currentProject.relation("reviews");
         const query = projectRelation.query();
-        query.equalTo('username', user.attributes?.username)
+        query.equalTo('username', user.attributes?.username);
         const queryResults = await query.find();
-        console.log(queryResults[0]);
         if(queryResults.length > 0) {
-            console.log(queryResults[0].attributes.review);
-            console.log(queryResults[0].id);
             const stars = queryResults[0].attributes.stars;
             const reviewText = queryResults[0].attributes.review;
             const title = queryResults[0].attributes.reviewTitle;
-            setReview(reviewText);
+            const boolReview = queryResults[0].attributes.hasReview;
+            setUserReivew(queryResults[0].attributes.hasReview);
+;           setReview(reviewText);
             setStars(stars);
             setPrevTitle(title);
-            setHasReview(true);
-            console.log(hasReview);
-        } else {
-            setAlertContents(
-                <>
-                <div className="alert-popup-contents">
-                No review found.
-                </div>
-                </>
-                );
-            setAlertVisible(true);
-        }
+            setHasReview(true);    
+            setReviewed(boolReview) 
+        } 
     }
     
     const postProjectRating = async() => {    
@@ -59,6 +52,7 @@ function RatingProject(props) {
                 throw alert('Please leave a review.');
             }
             if(hasReview){
+                console.log("whent down this path of has review");
                 const params = { projectTitle: (props.projectName) }; 
                 const currentProject = await Moralis.Cloud.run("getProjectByName", params);
                 const projectRelation = currentProject.relation("reviews")
@@ -70,7 +64,14 @@ function RatingProject(props) {
                 userReview.set('review', review);
                 userReview.set('reviewTitle', reviewTitle);
                 await userReview.save();
-                alert("Review updated!")
+                setAlertContents(
+                    <>
+                    <div className="alert-popup-contents">
+                    Review Updated!
+                    </div>
+                    </>
+                    );
+                setAlertVisible(true);
             }  else {
                 const userReview = Moralis.Object.extend("Reviews");
                 const newReview = new userReview();
@@ -85,21 +86,28 @@ function RatingProject(props) {
                 newReview.set("username", username);
                 newReview.set('reviewerPic', profilePic);
                 newReview.set('project', currentProject);     
-                newReview.set('reviewTitle', reviewTitle);       
+                newReview.set('reviewTitle', reviewTitle); 
+                newReview.set('hasReview', true);      
                 await newReview.save();
                 const relation = currentUser.relation("reviews");
                 relation.add(newReview);
                 user.save();
                 const projectRelation = currentProject.relation("reviews")
                 projectRelation.add(newReview);
-                currentProject.save();
-                alert("Thank you for your review!")
+                currentProject.save();            
+                setAlertContents(
+                    <>
+                    <div className="alert-popup-contents">
+                    Thank you for your review!
+                    </div>
+                    </>
+                    );
+                setAlertVisible(true);
             }
         }
     }
 
     const userCheck = async() => {
-        console.log(user);
         const eViral = await Moralis.Web3.getERC20({tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
         const beViral = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
         const balanceETH = eViral.balance;
@@ -131,7 +139,12 @@ function RatingProject(props) {
       }
 
     useEffect(() => {  
-    })
+        loadUserRating();
+    }, [])
+
+    useEffect(() => {
+        setHasReview(userReview);
+    }, [userReview])
 
     return (
         <>
@@ -162,8 +175,13 @@ function RatingProject(props) {
                     onChange={(event) =>setReview(event.currentTarget.value)}/>
                 </div>
                 <div className="rating-project-submit">
-                <button className="rating-project-submit-button btn1" onClick={() => {loadUserRating()}}>Load My Review</button>
-                    <button className="rating-project-submit-button btn2" onClick={postProjectRating}>Post Review</button>
+                {/* <button className="rating-project-submit-button btn1" onClick={() => {loadUserRating()}}>Load My Review</button> */}
+                   {hasReview && 
+                   <button className="rating-project-submit-button btn2" onClick={postProjectRating}>Edit Review</button>
+                    }
+                   {!hasReview && 
+                   <button className="rating-project-submit-button btn2" onClick={postProjectRating}>Post Review</button>
+                    }
                 </div>
             </div>   
         </div>

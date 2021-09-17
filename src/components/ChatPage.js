@@ -21,6 +21,7 @@ function ChatPage() {
     const [ processRequest, setProcessRequest] = useState(false);
     const [ reply, setReply] = useState("");
     const [noUsers, setNoUsers] = useState(false);
+    const [numRequests, setNumRequests] = useState(0);
     
     const [alertVisible, setAlertVisible] = useState(false);
     const [alertContents, setAlertContents] = useState();
@@ -152,6 +153,7 @@ function ChatPage() {
         setNoUsers(false); 
         setShowInbox(false);      
         const profileCards = await Moralis.Cloud.run("loadRequestsProfiles");
+        console.log(profileCards.length);
         if(profileCards !== 'undefined') {
         setRequestsUsers(profileCards);
         setShowRequests(true);
@@ -160,6 +162,12 @@ function ChatPage() {
         if(profileCards.length == 0) {
             setNoUsers(true);
         }
+    }
+
+    const numberOfRequests = async() => {
+        const numRequests = await Moralis.Cloud.run("loadNumRequests");
+        console.log(numRequests);
+        setNumRequests(numRequests);
     }
 
     const loadRequestMessage = async(chatId, permission) => {
@@ -272,7 +280,8 @@ function ChatPage() {
     }
 
     useEffect(() => {
-        
+        loadInboxProfiles();
+        numberOfRequests();
     }, [init])
     
 
@@ -282,7 +291,12 @@ function ChatPage() {
                 <div className="chat-sidebar">
                     <div className="chat-messaging-header-left">                       
                         <button className="btn2 header-left-btn-msg" onClick={() => CheckInboxClick()}><h5>Messages</h5></button>
-                        <button className="btn2 header-left-btn-req"onClick={() => CheckRequestsClick()}><h5>Requests</h5></button>
+                        <>
+                            <button className="btn2 header-left-btn-req"onClick={() => CheckRequestsClick()}>
+                                <span><h5>Requests</h5></span>
+                            <span className="numRequests">{numRequests}</span>
+                            </button>
+                        </>
                     </div>
                     <div className="chat-messaging-sidebar-content">
                         { showInbox &&

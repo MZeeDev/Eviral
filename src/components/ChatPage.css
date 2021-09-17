@@ -45,7 +45,7 @@
   height: 2rem;
   margin: 1rem 0;
   padding: 0.3rem 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 0.15rem;
   background: dodgerblue;
 }
 
@@ -77,6 +77,26 @@
   width: 100%;
   color: white;
   background: rgba(220, 220, 220, 0.095);
+}
+
+.header-left-btn-req {
+  position: relative;
+}
+
+.header-left-btn-req .numRequests {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 1.5rem;
+  width: 1.5rem;
+  top: -0.3rem;
+  right: -0.5rem;
+  border-radius: 50%;
+  background: red;
+  color: white;
+  font-size: 0.9rem;
 }
 .chat-messaging-header-right {
   display: flex;
@@ -389,8 +409,9 @@
   }
   .btn2.header-left-btn-msg h5,
   .btn2.header-left-btn-req h5 {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
+
   .chat-messaging-welcome-user h5,
   .chat-messaging-header-right h5,
   .chat-messaging-content-message-text p {
