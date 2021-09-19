@@ -252,8 +252,6 @@ a {
 
 @media only screen and (max-width: 650px) {
   .viralcrypto h1 {
-    position: absolute;
-    left: 35%;
     font-size: 1.7rem;
   }
   .menu-icon {

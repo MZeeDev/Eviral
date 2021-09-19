@@ -155,7 +155,6 @@ function Wallet() {
             </div>            
             {viewTokens &&
             <div className="wallet-tokens-wrapper">
-                <div className="wallet-tokens">
                     <div className="wallet-token-chart">                        
                         <span id="chart-column-name">Logo</span>
                         <span id="chart-column-name">Name/ Symbol</span>
@@ -163,6 +162,7 @@ function Wallet() {
                         <span id="chart-column-name">Price</span>
                         <span id="chart-column-name">Holdings</span>
                     </div>
+                <div className="wallet-tokens">
                     {tokens.map(token => (
                         <div key={token.token_address} className="wallet-token">
                             <span id="token-detail"><img src={token.logo} /></span>

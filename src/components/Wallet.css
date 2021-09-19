@@ -106,7 +106,9 @@
 .wallet-tokens-wrapper {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .wallet-tokens {
@@ -115,14 +117,15 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  padding: 2rem 1rem;
-  margin-top: 1rem;
+  padding: 1rem 1rem;
+  margin-top: 0rem;
   background: linear-gradient(
     to right,
     rgba(4, 192, 255, 0.515),
     rgba(64, 224, 208, 0.4)
   );
   border: 2px solid rgba(0, 0, 0, 0.65);
+  border-top: none;
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
 }
 
@@ -147,15 +150,17 @@
   border: 2px solid rgba(0, 0, 0, 0.34);
   display: flex;
   align-items: center;
+  margin-top: 1rem;
   padding: 0.75rem 0rem;
   background: linear-gradient(
     to right,
     rgba(4, 192, 255, 0.915),
     rgba(69, 216, 153, 0.7)
   );
-  width: 100%;
+  width: 98%;
   border-radius: none;
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+  z-index: 2;
 }
 #chart-column-name {
   margin: 0rem 0.1rem;
@@ -163,7 +168,6 @@
   display: inline-block;
   text-align: center;
   width: 20%;
-  min-width: 5rem;
 }
 
 .wallet-token img {
@@ -178,11 +182,17 @@
   min-width: 5rem;
   word-wrap: break-word;
   font-size: calc(0.9rem + 0.1vw);
+  text-align: center;
 }
 
 @media only screen and (max-width: 700px) {
+  .wallet-token img {
+    height: 3.5rem;
+    width: 3.5rem;
+  }
   #chart-column-name {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    width: 20%;
   }
   #token-detail {
     font-size: 0.9rem;

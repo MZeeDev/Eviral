@@ -82,9 +82,9 @@ function HeroSection() {
                         </div>
                         <OnRamper/>
                     </div>
-                <div className="token-swap">
+                {/* <div className="token-swap">
                     <button onClick={0}>Swap</button>
-                </div>
+                </div> */}
                 <div className="tokenIframes">
                     <div className="tokenIframes-wrapper">
                         <div className="eViralIframe">

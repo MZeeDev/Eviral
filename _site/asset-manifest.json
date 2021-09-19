@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.60202722.chunk.css",
-    "main.js": "/static/js/main.3d50d8fb.chunk.js",
-    "main.js.map": "/static/js/main.3d50d8fb.chunk.js.map",
+    "main.css": "/static/css/main.2407d410.chunk.css",
+    "main.js": "/static/js/main.f6cb7ad6.chunk.js",
+    "main.js.map": "/static/js/main.f6cb7ad6.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e01d658d.js",
     "runtime-main.js.map": "/static/js/runtime-main.e01d658d.js.map",
     "static/js/2.035a276b.chunk.js": "/static/js/2.035a276b.chunk.js",
     "static/js/2.035a276b.chunk.js.map": "/static/js/2.035a276b.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.60202722.chunk.css.map": "/static/css/main.60202722.chunk.css.map",
+    "static/css/main.2407d410.chunk.css.map": "/static/css/main.2407d410.chunk.css.map",
     "static/js/2.035a276b.chunk.js.LICENSE.txt": "/static/js/2.035a276b.chunk.js.LICENSE.txt",
     "static/media/beviral.83bfabd5.png": "/static/media/beviral.83bfabd5.png",
     "static/media/bsclogo.582fc765.png": "/static/media/bsclogo.582fc765.png",
@@ -25,7 +25,7 @@
   "entrypoints": [
     "static/js/runtime-main.e01d658d.js",
     "static/js/2.035a276b.chunk.js",
-    "static/css/main.60202722.chunk.css",
-    "static/js/main.3d50d8fb.chunk.js"
+    "static/css/main.2407d410.chunk.css",
+    "static/js/main.f6cb7ad6.chunk.js"
   ]
 }
