@@ -19,8 +19,9 @@
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  padding-left: 3rem;
+  padding-left: 2rem;
   border-bottom: 3px solid lightgray;
+  margin-top: 1rem;
 }
 .project-grid-container {
   display: flex;
@@ -95,8 +96,9 @@
 
 .project-card-img {
   display: flex;
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
+  min-height: 100%;
   max-height: 100%;
   max-width: 100%;
   object-fit: cover;

@@ -10,6 +10,7 @@ import LoadMyProjects from '../LoadMyProjects';
 import Alert from '../Alert';
 import ProjectCard from '../ProjectCard';
 import ProfileCard from '../ProfileCard';
+import ProjectGridBox from '../ProjectGridBox';
 
 
 
@@ -63,30 +64,30 @@ function MyProfile() {
                                 <div className="project-section-title">
                                     <h3>SAVED PROJECTS</h3>               
                                 </div>
-                                <div className='cards__container'>
-                                    <div className='cards__wrapper'>
-                                        <div className='cards__items'>                    
-                                            {savedProjects.map(project => (                          
-                                                <div key={project.title} className="cards__item">                            
-                                                    <ProjectCard
-                                                    title={project.title}
-                                                    summary={project.summary}
-                                                    src={project.projectPhoto}
-                                                    username={project.username}
-                                                    creatorProfilePic={project.profilePic}
-                                                    createdOn = {project.createdOn}
-                                                    label={project.username}
-                                                    path={project.title}
-                                                    projectTitle = {project.title}  
-                                                    />
-                                                </div>
-                                            ))}
+                                <div className="project-grid-container">
+                                    <div className="my-project-grid-wrapper">
+                                        {savedProjects.map(listItem => (
+                                            <div key={listItem.title} className="project-grid-box">
+                                            <ProjectGridBox
+                                            title={listItem.title}
+                                            summary={listItem.summary}
+                                            src={listItem.projectPhoto}
+                                            username={listItem.username}
+                                            creatorProfilePic={listItem.profilePic}
+                                            createdOn = {listItem.createdOn}
+                                            label={listItem.username}
+                                            path={listItem.title}
+                                            isVerified = {listItem.isVerified}
+                                            />
                                         </div>
-                                    </div>                
+                                        ))}
+                                    </div>
                                 </div>
+                               
                                 <div className="project-section-title">
                                     <h3>SAVED PROFILES</h3>               
                                 </div>
+
                                 <div className='cards__container'>             
                                     <div className='project-cards__wrapper'>
                                         <div className='cards__items'>      

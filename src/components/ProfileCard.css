@@ -89,7 +89,7 @@
   text-align: left;
   width: 100%;
   margin-bottom: 0;
-  font-size: 0.7rem;
+  font-size: 1rem;
 }
 
 .profile-social-icon-wrapper {
@@ -151,4 +151,10 @@
   flex: 1;
   margin: 0 1rem;
   border-radius: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  .profile-summary > p {
+    font-size: calc(0.7rem + 0.9vw);
+  }
 }

@@ -139,7 +139,9 @@ function RatingProject(props) {
       }
 
     useEffect(() => {  
+        if(user){
         loadUserRating();
+        }
     }, [])
 
     useEffect(() => {

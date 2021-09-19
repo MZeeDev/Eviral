@@ -1,0 +1,204 @@
+.wallet-background {
+  background-color: rgb(56, 56, 56);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.choose-chain-wallet-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#choosechaintext {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.choose-chain-wallet {
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin-top: 1rem;
+  background: linear-gradient(
+    to right,
+    rgba(4, 192, 255, 0.615),
+    rgba(64, 224, 208, 0.5)
+  );
+  border: 2px solid rgba(0, 0, 0, 0.65);
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
+}
+
+.choose-chain-wallet-choose {
+  display: flex;
+  width: 95%;
+  max-width: 70vw;
+  padding: 0 3rem;
+  justify-content: space-between;
+}
+
+.choose-chain-wallet-chain img {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 0, 0, 0.551);
+}
+
+.choose-chain-wallet-chain img:hover {
+  box-shadow: 0px 0px 15px 2px rgba(255, 255, 255, 0.552);
+  cursor: pointer;
+}
+
+.choose-display-holding-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.choose-display-holding {
+  display: flex;
+  width: 98%;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem 1rem;
+  margin-top: 1rem;
+  background: linear-gradient(
+    to right,
+    rgba(4, 192, 255, 0.515),
+    rgba(64, 224, 208, 0.4)
+  );
+  border: 2px solid rgba(0, 0, 0, 0.65);
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
+}
+
+#display-holding-option {
+  color: white;
+  font-size: 1.5rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  border: 2px solid rgba(0, 0, 0, 0.34);
+  padding: 1rem 2rem;
+  background: linear-gradient(
+    to right,
+    rgba(4, 192, 255, 0.915),
+    rgba(69, 216, 153, 0.7)
+  );
+  width: 40%;
+  border-radius: 2.5rem;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+}
+
+#display-holding-option:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.75);
+}
+
+.wallet-tokens-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.wallet-tokens {
+  display: flex;
+  width: 98%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2rem 1rem;
+  margin-top: 1rem;
+  background: linear-gradient(
+    to right,
+    rgba(4, 192, 255, 0.515),
+    rgba(64, 224, 208, 0.4)
+  );
+  border: 2px solid rgba(0, 0, 0, 0.65);
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
+}
+
+.wallet-token {
+  color: white;
+  font-size: 1.5rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  border-bottom: 2px solid lightgray;
+  padding: 0.75rem 05%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+}
+.wallet-token-chart {
+  color: white;
+  font-size: 1.2rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  border: 2px solid rgba(0, 0, 0, 0.34);
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 0rem;
+  background: linear-gradient(
+    to right,
+    rgba(4, 192, 255, 0.915),
+    rgba(69, 216, 153, 0.7)
+  );
+  width: 100%;
+  border-radius: none;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+}
+#chart-column-name {
+  margin: 0rem 0.1rem;
+  font-size: 1.2rem;
+  display: inline-block;
+  text-align: center;
+  width: 20%;
+  min-width: 5rem;
+}
+
+.wallet-token img {
+  height: 5rem;
+  width: 5rem;
+}
+
+#token-detail {
+  margin: 0rem 0.1rem;
+  display: block;
+  width: 10vw;
+  min-width: 5rem;
+  word-wrap: break-word;
+  font-size: calc(0.9rem + 0.1vw);
+}
+
+@media only screen and (max-width: 700px) {
+  #chart-column-name {
+    font-size: 1rem;
+  }
+  #token-detail {
+    font-size: 0.9rem;
+  }
+  #display-holding-option {
+    padding: 0.75rem 1.5rem;
+  }
+  .choose-chain-wallet {
+    padding: 2rem 0rem;
+  }
+  .choose-chain-wallet-choose {
+    width: 100%;
+    max-width: 90%;
+    padding: 0%;
+  }
+  .wallet-token {
+    padding: 0.75rem 0%;
+  }
+}

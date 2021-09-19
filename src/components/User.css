@@ -105,15 +105,12 @@
   border-bottom-right-radius: 1rem;
 }
 
-.landscape-pic:hover {
-}
-
 .profile-header {
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
   width: 100%;
-  transform: translateY(-2rem);
+  transform: translateY(-0.5rem);
   padding-bottom: 0.3rem;
   border-bottom: 3px solid lightgrey;
   padding-left: 3rem;
@@ -128,6 +125,18 @@
   justify-content: space-evenly;
 }
 
+.save-profile-wrapper {
+  display: flex;
+  width: 10%;
+  max-height: 12rem;
+  align-items: center;
+  justify-content: center;
+}
+.save-profile-wrapper i.far {
+  margin: 0rem;
+  margin-bottom: 0.5rem;
+}
+
 .profile-page-summary {
   padding-left: 0.5rem;
   display: flex;
@@ -139,7 +148,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 0.5rem;
-  width: 100%;
+  width: 50%;
   height: auto;
   max-width: 12rem;
   min-height: 5rem;
@@ -150,6 +159,7 @@
   background: lightgray;
   border: 3px solid white;
   box-shadow: 0px 0.5rem 0.7rem lightgrey;
+  transform: translateY(-0.5rem);
 }
 
 .profile-pic-container:hover .profile-pic {
@@ -387,7 +397,7 @@
   }
 
   .profile-page-bio {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
   .sub-profile-wrapper {
     display: flex;
@@ -429,5 +439,13 @@
   .profile-page-summary h2 {
     font-size: calc(1.325rem + 0.9vw);
     overflow-wrap: break-word;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .profile-summary h2 {
+    font-size: calc(1.1rem + 0.9vw);
+    margin-bottom: 0.2rem;
+    font-weight: 600;
   }
 }

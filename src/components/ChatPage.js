@@ -280,8 +280,10 @@ function ChatPage() {
     }
 
     useEffect(() => {
+        if(user){
         loadInboxProfiles();
         numberOfRequests();
+        }
     }, [init])
     
 

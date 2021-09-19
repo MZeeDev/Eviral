@@ -241,7 +241,21 @@ a {
   text-decoration: none;
 }
 
+@media only screen and (max-width: 800px) {
+  .viralcrypto h1 {
+    font-size: 1.2rem;
+  }
+  .nav-links {
+    margin: 0 0.75rem;
+  }
+}
+
 @media only screen and (max-width: 650px) {
+  .viralcrypto h1 {
+    position: absolute;
+    left: 35%;
+    font-size: 1.7rem;
+  }
   .menu-icon {
     display: flex;
     height: 100%;

@@ -8,8 +8,7 @@ import './ProjectGrid.css';
 import ProfileGridBox from './ProfileGridBox';
 
 function LoadUsers() {
-
-  const { user, Moralis } = useMoralis();
+  const { user, Moralis, isInitialized } = useMoralis();
   const [ users, setUsers ] = useState([""]);
   const [ usersSaved, setUsersSaved ] = useState([""]);  
   const [ queryProfile, setQueryProfile] = useState("");
@@ -58,9 +57,11 @@ function LoadUsers() {
   }
 
   useEffect(() => {
+    if(isInitialized){
     LoadUsers();
+    }
     },
-    [pageNumber]
+    [pageNumber, isInitialized]
   );  
 
   useEffect(() => {

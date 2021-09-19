@@ -1,9 +1,33 @@
-import React, {useState } from 'react';
+import React, {useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SocialIconBar from './SocialIconBar';
 import SaveProfile from './SaveProfile';
+import { useMoralis } from "react-moralis";
 
 function UserProfile(props) {
+    const { user, Moralis } = useMoralis();
+    const [isSaved, setIsSaved] = useState(props.isSaved);
+
+    const checkSavedProfile = async() => {
+        const params = {profileName: props.profileName}
+        const results = await Moralis.Cloud.run("checkIfSavedProfile", params);
+        
+        if(results[0]) {
+            setIsSaved(true);
+        } 
+    }
+
+    let init;
+
+    useEffect(() => {
+        if(user){
+        checkSavedProfile();
+        }
+        },
+        [init],
+      );
+
+
 
     return (
         <>
@@ -20,9 +44,10 @@ function UserProfile(props) {
                         <p className="profile-page-bio">{props.bio}</p>
                                           
                     </div>
-                    <div className="edit-profile-wrapper">
+                    <div className="save-profile-wrapper">
                     <SaveProfile
                         profileName = {props.username}
+                        isSaved = {isSaved}
                     />
                     </div>                     
                 </div>                

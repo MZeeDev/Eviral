@@ -12,13 +12,14 @@ import ProjectGridBox from "./ProjectGridBox";
 
 const UserProfilePage = ({ data }) => {
     
-  const { user, Moralis } = useMoralis();  
+  const { user, Moralis,isInitialized } = useMoralis();  
   const { username } = useParams();
   
   const [ profileLoaded, setProfileLoaded ] = useState([""]);
   const [ projects, setProjects ] = useState([""]);
   const [sendMessagePopUpVisible, setSendMessagePopUpVisible] = useState(false);  
   const [ userPage, setUserPage] = useState(false);
+  const [isSaved, setIsSaved] = useState(false);
   
   const [alertVisible, setAlertVisible] = useState(false);
   const [alertContents, setAlertContents] = useState();
@@ -94,17 +95,20 @@ const UserProfilePage = ({ data }) => {
   }
 
 
-
   useEffect(() => {
-    loadProfile();    
+    if(isInitialized){
+    loadProfile();  
+    }  
     },
-    [init],
+    [isInitialized],
   );
 
   useEffect(() => {
+    if(isInitialized){
     loadProfileProjects();
+    }
     },
-    [pageNumber]
+    [pageNumber, isInitialized]
   );  
 
 

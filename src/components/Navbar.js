@@ -152,11 +152,11 @@ function Navbar() {
                             </Link>
                         </li>
                         }
-                        {/* <li className='nav-item'>
-                            <Link to='/platform' className='nav-links' onClick={closeMobileMenu}>
-                                <i class="fas fa-toolbox"></i>
+                        <li className='nav-item'>
+                            <Link to='/wallet' className='nav-links' onClick={closeMobileMenu}>
+                                <i class="fas fa-wallet"></i>
                             </Link>
-                        </li> */}
+                        </li>
                     </ul>
                
                     

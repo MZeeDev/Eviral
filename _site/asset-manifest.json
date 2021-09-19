@@ -1,28 +1,31 @@
 {
   "files": {
-    "main.css": "/static/css/main.084f3b30.chunk.css",
-    "main.js": "/static/js/main.b111fa7c.chunk.js",
-    "main.js.map": "/static/js/main.b111fa7c.chunk.js.map",
+    "main.css": "/static/css/main.60202722.chunk.css",
+    "main.js": "/static/js/main.3d50d8fb.chunk.js",
+    "main.js.map": "/static/js/main.3d50d8fb.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e01d658d.js",
     "runtime-main.js.map": "/static/js/runtime-main.e01d658d.js.map",
-    "static/js/2.8adee1aa.chunk.js": "/static/js/2.8adee1aa.chunk.js",
-    "static/js/2.8adee1aa.chunk.js.map": "/static/js/2.8adee1aa.chunk.js.map",
+    "static/js/2.035a276b.chunk.js": "/static/js/2.035a276b.chunk.js",
+    "static/js/2.035a276b.chunk.js.map": "/static/js/2.035a276b.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.084f3b30.chunk.css.map": "/static/css/main.084f3b30.chunk.css.map",
-    "static/js/2.8adee1aa.chunk.js.LICENSE.txt": "/static/js/2.8adee1aa.chunk.js.LICENSE.txt",
+    "static/css/main.60202722.chunk.css.map": "/static/css/main.60202722.chunk.css.map",
+    "static/js/2.035a276b.chunk.js.LICENSE.txt": "/static/js/2.035a276b.chunk.js.LICENSE.txt",
     "static/media/beviral.83bfabd5.png": "/static/media/beviral.83bfabd5.png",
+    "static/media/bsclogo.582fc765.png": "/static/media/bsclogo.582fc765.png",
     "static/media/construction.cfb1328d.png": "/static/media/construction.cfb1328d.png",
     "static/media/defaultLandscape.61b5b0db.jpg": "/static/media/defaultLandscape.61b5b0db.jpg",
     "static/media/defaultProfile.c7fa3ad6.png": "/static/media/defaultProfile.c7fa3ad6.png",
     "static/media/eViralLogo2.5c4556ad.png": "/static/media/eViralLogo2.5c4556ad.png",
+    "static/media/ethlogo.97ee4148.png": "/static/media/ethlogo.97ee4148.png",
+    "static/media/maticlogo.409d5248.png": "/static/media/maticlogo.409d5248.png",
     "static/media/metamask.2c7ea74a.png": "/static/media/metamask.2c7ea74a.png",
     "static/media/roundlogo.befa4d11.png": "/static/media/roundlogo.befa4d11.png",
     "static/media/walletconnect.00a434b3.png": "/static/media/walletconnect.00a434b3.png"
   },
   "entrypoints": [
     "static/js/runtime-main.e01d658d.js",
-    "static/js/2.8adee1aa.chunk.js",
-    "static/css/main.084f3b30.chunk.css",
-    "static/js/main.b111fa7c.chunk.js"
+    "static/js/2.035a276b.chunk.js",
+    "static/css/main.60202722.chunk.css",
+    "static/js/main.3d50d8fb.chunk.js"
   ]
 }

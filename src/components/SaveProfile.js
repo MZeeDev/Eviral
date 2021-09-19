@@ -2,9 +2,10 @@ import React, {useState, useEffect} from 'react';
 import { useMoralis } from "react-moralis";
 
 function SaveProfile(props) {
-    const { user, Moralis } = useMoralis();
-    const [saved, setSaved] = useState(false);
-    
+    const { user, Moralis, isInitialized } = useMoralis();
+    const [saved, setSaved] = useState();
+    let isSaved = (props.isSaved);
+    let init = 0;
 
     const saveProfile = async() => {
         setSaved(true);
@@ -42,16 +43,16 @@ function SaveProfile(props) {
     }
 
     useEffect(() => {
-        if(user){
+        if(isInitialized){
         checkSavedProfile();
         }
         },
-        [null],
+        [isInitialized],
       );
 
     return (        
         <div className="bookmark" >
-            {saved ? <i class="fas fa-heart" onClick={() => removeProfile()}></i>  : <i class="far fa-heart" onClick={() => saveProfile()}></i>}
+            {(saved || isSaved) ? <i class="fas fa-heart" onClick={() => removeProfile()}></i>  : <i class="far fa-heart" onClick={() => saveProfile()}></i>}
         </div>        
     )
 }

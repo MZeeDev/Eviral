@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useMoralis } from "react-moralis";
 
 function Rating(props) {
-    const { user, Moralis } = useMoralis();
+    const { user, Moralis, isInitialized } = useMoralis();
     const title = (props.title);
 
 
@@ -19,9 +19,11 @@ function Rating(props) {
      }
 
     useEffect(() => {
+        if(isInitialized){
         checkRating();
+        }
         },
-        [null],
+        [isInitialized],
       );
       
     return (

@@ -86,7 +86,7 @@ video::-webkit-media-controls-start-playback-button {
   align-items: center;
   font-size: 1.15rem;
   padding: 0.5rem 1rem;
-  box-shadow: 0 6px 20px rgb(61 61 61 / 17%);
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
   width: 40%;
   max-width: 15rem;
   height: 100%;
@@ -143,6 +143,7 @@ video::-webkit-media-controls-start-playback-button {
   padding-top: 1rem;
   border: 3px solid black;
   margin: 2rem 1rem 3rem 1rem;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
 }
 .eViralIframe > iframe,
 .beViralIframe > iframe {
