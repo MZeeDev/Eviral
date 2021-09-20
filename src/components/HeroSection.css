@@ -29,7 +29,6 @@ video::-webkit-media-controls-start-playback-button {
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
   object-fit: contain;
 }
-
 .homepage-welcome {
   display: flex;
   justify-content: center;

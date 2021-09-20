@@ -1,5 +1,6 @@
 import React from 'react';
 import {useRouteMatch } from 'react-router-dom';
+import './NFTCard.css';
 
 
 function NFTCard(props) {
@@ -9,29 +10,27 @@ function NFTCard(props) {
 
     return (
                   
-        <div className="project-grid-box-wrapper">
-            <div className="project-card-header">
-                <div className="project-url-link">                
-                <img className="project-card-img" src={props.src}></img>   
-                </div>             
-            </div>
-            <div className="project-card-body">
-                <div className="project-card-title">
+        <div className="nft-card-wrapper">
+            <div className="nft-card-title">
                     <h4>{props.name}</h4>
                 </div>
-                <div className="project-card-creator">
+            <div className="nft-card-header">
+                <div className="nft-card-img-wrapper">                
+                <img className="nft-card-img" src={props.src}></img>   
+                </div>             
+            </div>
+            <div className="nft-card-body">
+                
+                <div className="nft-card-creator">
                     {props.symbol}{" "}{props.tokenId}
                 </div>
-                <div className="project-card-summary">
+                <div className="nft-card-summary">
                     {props.description}
                 </div>
             </div>
-            <div className="project-card-footer">
-                <div>{props.contractType}</div>
-                <div className="project-card-date">
-                    Amount: {props.amount}
-                </div>
-                
+            <div className="nft-card-footer">
+                <div>{props.contractType}</div>                
+                <div>Amount: {props.amount}</div>                
             </div>
         </div>   
     )

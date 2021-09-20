@@ -2,6 +2,7 @@
   "name": "viral-crypto",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8081",
   "dependencies": {
     "@fortawesome/react-fontawesome": "^0.1.15",
     "@testing-library/jest-dom": "^5.14.1",

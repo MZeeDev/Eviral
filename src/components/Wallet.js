@@ -19,6 +19,8 @@ function Wallet() {
     const [ viewTokens, setViewTokens] = useState(true);
     const [ viewNFTs, setViewNFTs] = useState(false);
     const [viewTransactions, setViewTransactions] = useState(false);
+    const [ chainLogo, setChainLogo] = useState(ETH);
+    const [ theme, setTheme] = useState("choose-chain-wallet-eth");
     let init = 0;
 
     const getTokens = async() => {
@@ -63,30 +65,52 @@ function Wallet() {
         setNFTS([]);
         const options = { chain: currentChain}
         const nftList = await Moralis.Web3API.account.getNFTs(options);
+        let list = await 
+        Promise.all(
+            nftList.result.map( async(nft) => {
+                console.log(nft);
+                let nfts = {};
+                let url = fixURL(nft.token_uri);
+                fetch(url)
+                .then(response => response.json())
+                .then(data => {                    
+                    nfts.image = data.image;
+                    console.log(12321);
+                    console.log(data.image);
+                });
+                nft = {...nft, ...nfts};
+                try{
+                console.log(nft.token_uri?.get("image"));
+                } catch (error){
+                    
+                }
+                return nft;
+            })
+        );
         
-        for(let i = 0; i < nftList.result.length; ++i) {
-            let url = fixURL(nftList.result[i].token_uri);
-            fetch(url)
-            .then(response => response.json())
-            .then(data => {
+        // for(let i = 0; i < nftList.result.length; ++i) {
+        //     let url = fixURL(nftList.result[i].token_uri);
+        //     fetch(url)
+        //     .then(response => response.json())
+        //     .then(data => {
                 
-                nftList.result[i].image = data.image;
-                console.log(12321);
-                console.log(data.image);
-            });
-        }
+        //         nftList.result[i].image = data.image;
+        //         console.log(12321);
+        //         console.log(data.image);
+        //     });
+        // }
 
-        nftList.result.forEach(function(nft) {   
-            let url = fixURL(nft.token_uri);
-            fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                nft.image = data.image;
-                console.log(12321);
-                console.log(data.image);
-            });
-            console.log(nft);
-        })
+        // nftList.result.forEach(function(nft) {   
+        //     let url = fixURL(nft.token_uri);
+        //     fetch(url)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         nft.image = data.image;
+        //         console.log(12321);
+        //         console.log(data.image);
+        //     });
+        //     console.log(nft);
+        // })
 
         function fixURL(url) {
             if(url.startsWith("ipfs")) {
@@ -96,9 +120,8 @@ function Wallet() {
             } 
         }
 
-        console.log(nftList.result);
-        setNFTS(nftList.result);
-        
+        console.log(list);
+        setNFTS(list);        
         setViewNFTs(true);
     } 
     
@@ -117,6 +140,14 @@ function Wallet() {
     //     setViewTransactions(true);
     // }
 
+    const changeChain = (chain, logo, theme) => {
+        setViewTokens(false);
+        setViewTransactions(false);
+        setViewNFTs(false);
+        setCurrentChain(chain);
+        setChainLogo(logo);
+        setTheme(theme);
+    }
 
     useEffect(() => {
         if(isInitialized){
@@ -132,40 +163,40 @@ function Wallet() {
         <>        
         <div className="wallet-background">
             <div className="choose-chain-wallet-wrapper">
-                <div className="choose-chain-wallet">                  
+                <div className={`choose-chain-wallet-${theme}`}>                  
                 <div className="choose-chain-wallet-choose">                    
-                    <div className="choose-chain-wallet-chain" onClick={() => setCurrentChain("eth")}>
+                    <div className="choose-chain-wallet-chain" onClick={() => changeChain("eth", ETH, "eth")}>
                         <img src={ETH} />
                     </div>
-                    <div className="choose-chain-wallet-chain" onClick={() => setCurrentChain("bsc")}>
+                    <div className="choose-chain-wallet-chain" onClick={() => changeChain("bsc", BSC, "bsc")}>
                         <img src={BSC} />
                     </div>
-                    <div className="choose-chain-wallet-chain" onClick={() => setCurrentChain("matic")}>
+                    <div className="choose-chain-wallet-chain" onClick={() => changeChain("matic", MATIC, "matic")}>
                         <img src={MATIC} />
                     </div>
                 </div>
                 </div>
             </div>
             <div className="choose-display-holding-wrapper">
-                <div className="choose-display-holding">
-                    <button id="display-holding-option" onClick={getTokens}>TOKENS</button>
-                    <button id="display-holding-option" onClick={getNFTs}>NFTS</button>
+                <div className={`choose-display-holding-${theme}`}>
+                    <button id={`display-holding-option-${theme}`} onClick={getTokens}>TOKENS</button>
+                    <button id={`display-holding-option-${theme}`} onClick={getNFTs}>NFTS</button>
                     {/* <button id="display-holding-option" onClick={getTransactions}>HISTORY</button> */}
                 </div>
             </div>            
             {viewTokens &&
             <div className="wallet-tokens-wrapper">
-                    <div className="wallet-token-chart">                        
+                    <div className={`wallet-token-chart-${theme}`}>                        
                         <span id="chart-column-name">Logo</span>
                         <span id="chart-column-name">Name/ Symbol</span>
                         <span id="chart-column-name">Balance</span>
                         <span id="chart-column-name">Price</span>
                         <span id="chart-column-name">Holdings</span>
                     </div>
-                <div className="wallet-tokens">
+                <div className={`wallet-tokens-${theme}`}>
                     {tokens.map(token => (
                         <div key={token.token_address} className="wallet-token">
-                            <span id="token-detail"><img src={token.logo} /></span>
+                            <span id="token-detail"><img src={ !token.logo ? chainLogo : token.logo }/></span>
                             <span id="token-detail">{token.name}<br/>({token.symbol})</span>
                             <span id="token-detail">{(token.balance/(10**token.decimals)).toFixed(2)}</span>
                             <span id="token-detail">${token.price}</span>
@@ -177,12 +208,12 @@ function Wallet() {
             </div>
             }
             {viewNFTs && 
-                <div className="wallet-tokens-wrapper">
-                    <div className="wallet-tokens">
-                    <div className="project-grid-container">
-                        <div className="project-grid-wrapper">
+                <div className="wallet-tokens-wrapper ">
+                    <div className="wallet-nfts">
+                    <div className="nft-grid-container">
+                        <div className="nft-grid-wrapper">
                         {nfts.map(nft => (
-                            <div key={nft.token_uri} className="project-grid-box">  
+                            <div key={nft.token_uri} className="nft-card">  
                                 <NFTCard
                                 src={nft.image}
                                 name={nft.name}
