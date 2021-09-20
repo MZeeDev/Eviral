@@ -208,7 +208,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  padding: 1rem 0.1rem;
+  padding: 1rem 0.25rem;
   margin-top: 0rem;
   background: linear-gradient(
     to right,
@@ -380,8 +380,15 @@
     max-width: 90%;
     padding: 0%;
   }
+
   .wallet-token {
     padding: 0.75rem 0%;
     width: 100%;
+  }
+
+  .wallet-tokens-eth,
+  .wallet-tokens-bsc,
+  .wallet-tokens-matic {
+    padding: 1rem 0rem;
   }
 }
