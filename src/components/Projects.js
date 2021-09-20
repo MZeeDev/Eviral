@@ -142,7 +142,7 @@ function ProjectsList({match}) {
 
 
 
-              <div className="cards-background">
+              {/* <div className="cards-background"> */}
               <div className="project-section-title">
                 <h3>NEWEST PROJECTS</h3>               
               </div>
@@ -179,7 +179,7 @@ function ProjectsList({match}) {
               </div>                   
               
       </div>
-      </div>
+      {/* </div> */}
       </>
     )
 };

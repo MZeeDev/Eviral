@@ -22,6 +22,7 @@ function ChatPage() {
     const [ reply, setReply] = useState("");
     const [noUsers, setNoUsers] = useState(false);
     const [numRequests, setNumRequests] = useState(0);
+    const [notifyReq, setNotifyReq] = useState(false);
     
     const [alertVisible, setAlertVisible] = useState(false);
     const [alertContents, setAlertContents] = useState();
@@ -29,7 +30,7 @@ function ChatPage() {
     const deletePopUp = async () => {
         setAlertContents(
             <div className="verify-delete-popup">
-                Are you sure you want to delete this chat history?
+                This will delete entire chat history for both parites. Are you sure you want to proceed?
                 <button className="submit-form btn3" onClick={deleteChat}>Yes. Delete </button>
                 <button className="submit-form btn2" onClick={setAlertVisible(false)}>Close </button>
             </div>
@@ -168,6 +169,9 @@ function ChatPage() {
         const numRequests = await Moralis.Cloud.run("loadNumRequests");
         console.log(numRequests);
         setNumRequests(numRequests);
+        if(numRequests > 0) {
+            setNotifyReq(true);
+        }
     }
 
     const loadRequestMessage = async(chatId, permission) => {
@@ -296,7 +300,7 @@ function ChatPage() {
                         <>
                             <button className="btn2 header-left-btn-req"onClick={() => CheckRequestsClick()}>
                                 <span><h5>Requests</h5></span>
-                            <span className="numRequests">{numRequests}</span>
+                            {notifyReq && <span className="numRequests">{numRequests}</span>}
                             </button>
                         </>
                     </div>

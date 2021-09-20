@@ -68,21 +68,19 @@ function Wallet() {
         let list = await 
         Promise.all(
             nftList.result.map( async(nft) => {
-                console.log(nft);
+                console.log(nft.image);
                 let nfts = {};
                 let url = fixURL(nft.token_uri);
                 fetch(url)
                 .then(response => response.json())
-                .then(data => {                    
-                    nfts.image = data.image;
-                    console.log(12321);
-                    console.log(data.image);
+                .then(data => {             
+                    nft.image = data.image;
                 });
                 nft = {...nft, ...nfts};
                 try{
-                console.log(nft.token_uri?.get("image"));
+                // console.log(nft.token_uri?.fetch("image"));
                 } catch (error){
-                    
+                    console.log(error);
                 }
                 return nft;
             })

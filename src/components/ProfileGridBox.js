@@ -17,7 +17,9 @@ function ProfileGridBox(props) {
             </div>
             <div className="profile-box-body">
                 <div className="profile-box-profilepic">
-                    <img  src={props.profilePic}  className="profile-box-profile-img"/>
+                    <div className="profile-box-profilepic-pic">
+                        <img  src={props.profilePic}  className="profile-box-profile-img"/>
+                    </div>
                     <div className="profile-box-creator">
                         {props.username}
                     </div>

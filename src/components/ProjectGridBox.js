@@ -44,7 +44,8 @@ function ProjectGridBox(props) {
                     </div>
                 </div>
                 <div className="project-card-creator">
-                    <img  src={props.creatorProfilePic}  className="project-card-profilepic"/>{" "}{props.username}
+                    <div className="project-card-creator-pic"><img  src={props.creatorProfilePic}  className="project-card-profilepic"/></div>
+                    <div className="project-card-creator-name">{props.username}</div>
                 </div>
                 <div className="project-card-summary">
                     {props.summary}

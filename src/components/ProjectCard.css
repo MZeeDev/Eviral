@@ -115,9 +115,6 @@ h1 {
   color: gold;
 }
 
-.rating {
-  margin-right: 0.2rem;
-}
 .img-body {
   display: flex;
   justify-content: center;
@@ -129,6 +126,8 @@ h1 {
 .rating {
   display: flex;
   align-items: center;
+  margin-right: 0.2rem;
+  font-size: 0.9rem;
 }
 
 .bookmark {
