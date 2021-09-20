@@ -20,7 +20,7 @@ function Wallet() {
     const [ viewNFTs, setViewNFTs] = useState(false);
     const [viewTransactions, setViewTransactions] = useState(false);
     const [ chainLogo, setChainLogo] = useState(ETH);
-    const [ theme, setTheme] = useState("choose-chain-wallet-eth");
+    const [ theme, setTheme] = useState("eth");
     let init = 0;
 
     const getTokens = async() => {
