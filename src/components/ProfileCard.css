@@ -1,29 +1,29 @@
 .profile-card-container {
   display: flex;
   flex-direction: column;
-  height: 20rem;
+  height: 300px;
   max-width: 15rem;
-  box-shadow: 0 6px 20px rgba(61, 61, 61, 0.17);
-  filter: drop-shadow(0 6px 20px rgba(61, 61, 61, 0.017));
-  overflow: hidden;
-  text-decoration: none;
-  justify-content: flex-end;
-  border: 2px solid rgba(0, 0, 0, 0.25);
-  border-radius: 0.2rem;
-  background: linear-gradient(to bottom, lightgray, whitesmoke);
+
+  justify-content: flex-start;
 }
 
 .profile-card-wrapper {
   height: 100%;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(61, 61, 61, 0.17);
+  filter: drop-shadow(0 6px 20px rgba(61, 61, 61, 0.017));
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  background: linear-gradient(to bottom, lightgray, whitesmoke);
 }
 
 .profile-cards-link {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50%;
-  width: auto;
-  margin: 5% 0;
+  height: 55%;
+  width: 100%;
 }
 
 .profile-card-pic-wrap {
@@ -31,7 +31,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  width: auto;
+  width: 100%;
   height: 100%;
   overflow: hidden;
   margin: 0;
@@ -39,13 +39,11 @@
 
 .profile-card-img {
   display: flex;
-  max-height: 100%;
-  max-width: 100%;
   height: 100%;
   width: auto;
+  min-width: 100%;
   object-fit: cover;
   transition: all 0.2s linear;
-  border-radius: 50%;
 }
 
 .profile-card-img:hover {
@@ -55,8 +53,9 @@
 .profile-card-body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 30%;
+  justify-content: space-between;
+  align-items: center;
+  height: 33%;
   background-color: white;
   border-top: 1px solid rgba(0, 0, 0, 0.25);
 }
@@ -64,12 +63,7 @@
 .profile-card-title {
   display: flex;
   justify-content: center;
-}
-.profile-card-title h4 {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .creator-profile-pic {
@@ -84,12 +78,7 @@
   align-items: flex-start;
   width: 100%;
   padding: 0.3rem;
-}
-.profile-summary > p {
-  text-align: left;
-  width: 100%;
-  margin-bottom: 0;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .profile-social-icon-wrapper {
@@ -117,7 +106,7 @@
 
 .profile-card-footer {
   width: 100%;
-  height: 15%;
+  height: 12%;
   display: flex;
   background-color: rgba(0, 0, 0, 0.03);
   border-top: 1px solid rgba(0, 0, 0, 0.125);

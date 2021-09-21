@@ -93,6 +93,7 @@ function CreateNewProject(props) {  ///set input variables as required, add othe
                         <div className="project-pic-container">
                             <img className="project-pic" src={projectPhotoPreview} alt="" />
                         </div>
+                        
                         <div className="form-photo-wrapper">
                             <form>
                                 <div className="mb-3">
@@ -143,43 +144,43 @@ function CreateNewProject(props) {  ///set input variables as required, add othe
                              
                             </form>
                         </div>
-                        <div className="update-socials">
-                            <div className="social-link-item">
+                        <div id="update-socials">
+                            <div id="social-link-item">
                                 <div className="social-input-box-group">
                                     <i className="fab fa-twitter update"></i>
                                     <span className="social-link-at-box">@</span>
                                     <input className="input-social-text-box" value={twitter} placeholder=" @username" onChange={(event) =>setTwitter(event.currentTarget.value)}/>
                                 </div>
                             </div>
-                            <div className="social-link-item">
+                            <div id="social-link-item">
                                 <div className="social-input-box-group">
                                     <i className="fab fa-telegram update"></i>
                                     <span className="social-link-at-box">@</span>
                                     <input className="input-social-text-box" value={telegram} placeholder=" t.me/  LINK" onChange={(event) =>setTelegram(event.currentTarget.value)}/>
                                 </div>
                             </div>
-                            <div className="social-link-item">
+                            <div id="social-link-item">
                                 <div className="social-input-box-group">
                                     <i className="fab fa-discord update"></i>
                                     <span className="social-link-at-box">@</span>
                                     <input  className="input-social-text-box"value={discord} placeholder=" discord.gg/ LINK" onChange={(event) =>setDiscord(event.currentTarget.value)}/>
                                 </div>
                             </div>
-                            <div className="social-link-item">
+                            <div id="social-link-item">
                                 <div className="social-input-box-group">
                                     <i className="fab fa-linkedin update"></i>
                                     <span className="social-link-at-box">@</span>
                                     <input className="input-social-text-box" value={linkedIn} placeholder=" linkedin.com/in/ Profile URL" onChange={(event) =>setLinkedIn(event.currentTarget.value)}/>
                                 </div>
                             </div>
-                            <div className="social-link-item">
+                            <div id="social-link-item">
                                 <div className="social-input-box-group">
                                     <i className="fab fa-youtube update"></i>
                                     <span className="social-link-at-box">@</span>
                                     <input className="input-social-text-box" value={youtube} placeholder=" youtube.com/c/ channel URL" onChange={(event) =>setYoutube(event.currentTarget.value)}/>
                                 </div>
                             </div>
-                            <div className="social-link-item">
+                            <div id="social-link-item">
                                 <div className="social-input-box-group">
                                     <i className="fab fa-twitch update"></i>
                                     <span className="social-link-at-box">@</span>
@@ -188,7 +189,7 @@ function CreateNewProject(props) {  ///set input variables as required, add othe
                             </div>
                             </div>
                         <div className="form-button-wrapper">
-                            <button className="btn1" onClick={()=>{props.closeCreateProjectMenu(false)}}>Close Menu</button>
+                            <button className="submit-form btn1" onClick={()=>{props.closeCreateProjectMenu(false)}}>Close Menu</button>
                             <input type="button" className="submit-form btn2" value="Create Project" onClick={createNewProject} />
                         </div>
                     </div>

@@ -29,10 +29,10 @@ function ProfileCard(props) {
                         </Link>
                         <div className="profile-card-body">
                             <div className="profile-card-title">
-                                <h4>{props.username}</h4>
+                               {props.username}
                             </div>
                             <div className="profile-summary">
-                                <p>{props.bio}</p>
+                               {props.bio}
                             </div>
                         </div>
                         <div className="hl"></div>

@@ -25,6 +25,7 @@ function ProjectDisplay(props) {
   
   const [alertVisible, setAlertVisible] = useState(false);
   const [alertContents, setAlertContents] = useState();
+  const [activePhoto, setActivePhoto] = useState(props.photo1);
   
   const init = 0;
 
@@ -117,7 +118,18 @@ function ProjectDisplay(props) {
                   {props.summary}
                 </div>
                 <div className="project-page-photo">
-                  <img  className="project-page-photo-img" src={props.src} />
+                  <img  className="project-page-photo-img" src={activePhoto} />
+                </div>
+                <div className="project-page-photo-thumbnails">
+                  <div className="project-page-photo-thumbnail">
+                    <img  className="project-page-photo-img" src={props.photo1} />
+                  </div>
+                  <div className="project-page-photo-thumbnail">
+                    <img  className="project-page-photo-img" src={props.photo2} />
+                  </div>
+                  <div className="project-page-photo-thumbnail">
+                    <img  className="project-page-photo-img" src={props.photo3} />
+                  </div>
                 </div>
           
                 <div className="project-page-description">

@@ -157,43 +157,43 @@ function EditProject(props) {  ///set input variables as required, add other att
                              
                             </form>
                         </div>
-                        <div className="update-socials">
-                            <div className="social-link-item">
+                        <div id="update-socials">
+                            <div id="social-link-item">
                                 <div className="social-input-box-group">
                                     <i className="fab fa-twitter update"></i>
                                     <span className="social-link-at-box">@</span>
                                     <input className="input-social-text-box" value={twitter} placeholder=" @username" onChange={(event) =>setTwitter(event.currentTarget.value)}/>
                                 </div>
                             </div>
-                            <div className="social-link-item">
+                            <div id="social-link-item">
                                 <div className="social-input-box-group">
                                     <i className="fab fa-telegram update"></i>
                                     <span className="social-link-at-box">@</span>
                                     <input className="input-social-text-box" value={telegram} placeholder=" t.me/  LINK" onChange={(event) =>setTelegram(event.currentTarget.value)}/>
                                 </div>
                             </div>
-                            <div className="social-link-item">
+                            <div id="social-link-item">
                                 <div className="social-input-box-group">
                                     <i className="fab fa-discord update"></i>
                                     <span className="social-link-at-box">@</span>
                                     <input  className="input-social-text-box"value={discord} placeholder=" discord.gg/ LINK" onChange={(event) =>setDiscord(event.currentTarget.value)}/>
                                 </div>
                             </div>
-                            <div className="social-link-item">
+                            <div id="social-link-item">
                                 <div className="social-input-box-group">
                                     <i className="fab fa-linkedin update"></i>
                                     <span className="social-link-at-box">@</span>
                                     <input className="input-social-text-box" value={linkedIn} placeholder=" linkedin.com/in/ Profile URL" onChange={(event) =>setLinkedIn(event.currentTarget.value)}/>
                                 </div>
                             </div>
-                            <div className="social-link-item">
+                            <div id="social-link-item">
                                 <div className="social-input-box-group">
                                     <i className="fab fa-youtube update"></i>
                                     <span className="social-link-at-box">@</span>
                                     <input className="input-social-text-box" value={youtube} placeholder=" youtube.com/c/ channel URL" onChange={(event) =>setYoutube(event.currentTarget.value)}/>
                                 </div>
                             </div>
-                            <div className="social-link-item">
+                            <div id="social-link-item">
                                 <div className="social-input-box-group">
                                     <i className="fab fa-twitch update"></i>
                                     <span className="social-link-at-box">@</span>

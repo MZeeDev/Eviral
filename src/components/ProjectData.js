@@ -35,7 +35,7 @@ const ProjectData = ({ data }) => {
                 <ProjectDisplay
                   title={project.title}
                   summary={project.summary}
-                  src={project.projectPhoto}
+                  photo1={project.projectPhoto}
                   creator={project.username}
                   creatorProfilePic={project.profilePic}
                   bio={project.bio}
