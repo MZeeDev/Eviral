@@ -61,55 +61,25 @@ function Wallet() {
     const getNFTs = async() =>{
         setViewTokens(false);
         setViewTransactions(false);
-        console.log('pressed nft button');
         setNFTS([]);
         const options = { chain: currentChain}
         const nftList = await Moralis.Web3API.account.getNFTs(options);
         let list = await 
         Promise.all(
             nftList.result.map( async(nft) => {
-                console.log(nft.image);
-                let nfts = {};
                 let url = fixURL(nft.token_uri);
-                fetch(url)
-                .then(response => response.json())
-                .then(data => {             
-                    nft.image = data.image;
-                });
-                nft = {...nft, ...nfts};
                 try{
-                // console.log(nft.token_uri?.fetch("image"));
-                } catch (error){
-                    console.log(error);
+                     await fetch(url)
+                    .then(response => response.json())
+                    .then(data => {   
+                        nft.image = data.image;  
+                    });
+                } catch {
                 }
                 return nft;
             })
         );
         
-        // for(let i = 0; i < nftList.result.length; ++i) {
-        //     let url = fixURL(nftList.result[i].token_uri);
-        //     fetch(url)
-        //     .then(response => response.json())
-        //     .then(data => {
-                
-        //         nftList.result[i].image = data.image;
-        //         console.log(12321);
-        //         console.log(data.image);
-        //     });
-        // }
-
-        // nftList.result.forEach(function(nft) {   
-        //     let url = fixURL(nft.token_uri);
-        //     fetch(url)
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         nft.image = data.image;
-        //         console.log(12321);
-        //         console.log(data.image);
-        //     });
-        //     console.log(nft);
-        // })
-
         function fixURL(url) {
             if(url.startsWith("ipfs")) {
                 return "https://ipfs.moralis.io:2053/ipfs/"+url.split("ipfs://ipfs/").slice(-1)
@@ -117,8 +87,6 @@ function Wallet() {
                 return url
             } 
         }
-
-        console.log(list);
         setNFTS(list);        
         setViewNFTs(true);
     } 
@@ -207,7 +175,7 @@ function Wallet() {
             }
             {viewNFTs && 
                 <div className="wallet-tokens-wrapper ">
-                    <div className="wallet-nfts">
+                    <div className={`wallet-nfts-${theme}`}>
                     <div className="nft-grid-container">
                         <div className="nft-grid-wrapper">
                         {nfts.map(nft => (

@@ -203,6 +203,12 @@ function Navbar() {
                                         </span>
                                         Messages
                                     </Link>
+                                    <Link to="/wallet" className="dropdown-item">
+                                        <span className="dropdown-icon">
+                                        <i class="fas fa-wallet"></i>
+                                        </span>
+                                        My Wallet
+                                    </Link>
                                     
                                     <li className="dropdown-logout">
                                         <button className="btn1  logout-btn" onClick={() => {setDropdown(!dropdown)}}>Close</button>                                            

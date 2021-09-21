@@ -232,7 +232,12 @@
 .chat-messaging-reply-text {
   height: 70%;
   width: 70%;
-  border-radius: 1rem;
+  border-radius: 2rem;
+  border-width: 2px;
+  text-indent: 1rem;
+  border-color: rgb(72, 148, 255);
+  border-style: outset;
+  color: black;
 }
 .chat-messaging-reply-button:hover {
   cursor: pointer;

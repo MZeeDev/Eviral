@@ -219,8 +219,8 @@
   margin-top: 0rem;
   background: linear-gradient(
     to right,
-    rgba(4, 159, 255, 0.615),
-    rgba(64, 99, 224, 0.5)
+    rgba(4, 159, 255, 0.415),
+    rgba(64, 99, 224, 0.4)
   );
   border: 2px solid rgba(0, 0, 0, 0.65);
   border-top: none;
@@ -251,15 +251,15 @@
   margin-top: 0rem;
   background: linear-gradient(
     to right,
-    rgba(80, 123, 253, 0.4),
-    rgba(75, 4, 255, 0.515)
+    rgba(80, 123, 253, 0.3),
+    rgba(75, 4, 255, 0.3)
   );
   border: 2px solid rgba(0, 0, 0, 0.65);
   border-top: none;
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
 }
 
-.wallet-nfts {
+.wallet-nfts-matic {
   display: flex;
   width: 98%;
   flex-direction: column;
@@ -267,7 +267,41 @@
   align-items: center;
   padding: 1rem 0.25rem;
   margin-top: 0rem;
-  background: rgb(41, 41, 41);
+  background: linear-gradient(
+    to right,
+    rgba(80, 123, 253, 0.2),
+    rgba(75, 4, 255, 0.2)
+  );
+  border: 2px solid rgba(0, 0, 0, 0.65);
+  border-top: none;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
+}
+.wallet-nfts-bsc {
+  display: flex;
+  width: 98%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem 0.25rem;
+  margin-top: 0rem;
+  background: rgba(255, 220, 0, 0.5);
+  border: 2px solid rgba(0, 0, 0, 0.65);
+  border-top: none;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
+}
+.wallet-nfts-eth {
+  display: flex;
+  width: 98%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 1rem 0.25rem;
+  margin-top: 0rem;
+  background: linear-gradient(
+    to right,
+    rgba(4, 159, 255, 0.215),
+    rgba(64, 99, 224, 0.2)
+  );
   border: 2px solid rgba(0, 0, 0, 0.65);
   border-top: none;
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);

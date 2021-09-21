@@ -17,7 +17,6 @@
   justify-content: center;
   justify-items: center;
   align-items: center;
-  resize: both;
   overflow: hidden;
 }
 
@@ -58,6 +57,7 @@
   overflow: hidden;
   justify-content: center;
   align-items: center;
+  background: rgb(15, 15, 15);
 }
 
 .nft-card-img {
@@ -67,7 +67,7 @@
   min-height: 100%;
   max-height: 100%;
   max-width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: all 0.2s linear;
 }
 
