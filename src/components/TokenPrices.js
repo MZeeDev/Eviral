@@ -4,6 +4,8 @@ import eViralLogo from "../img/eViralLogo2.png";
 import beViralLogo from "../img/beviral.png";
 import { Moralis } from 'moralis';
 import { useMoralis } from 'react-moralis';
+import Logo from '../img/newlogo2.png';
+import LogoBSC from '../img/newlogoBSC2.png';
 
 function TokenPrices() {
     const { isInitialized } = useMoralis();
@@ -48,10 +50,10 @@ function TokenPrices() {
             <div className="tokenPrices">
                 <div className="tokenPrices-wrapper">
                     <div className="eViral-price">
-                        <img className="eViralLogo" src={eViralLogo}/>${eViralPrice}
+                        <img className="eViralLogo" src={Logo}/>${eViralPrice}
                     </div>
                     <div className="beViral-price">
-                        <img className="eViralLogo" src={beViralLogo}/>${beViralPrice}
+                        <img className="eViralLogo" src={LogoBSC}/>${beViralPrice}
                     </div>
                 </div>
             </div>     

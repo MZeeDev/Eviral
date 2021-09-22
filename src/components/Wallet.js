@@ -152,9 +152,11 @@ function Wallet() {
             </div>            
             {viewTokens &&
             <div className="wallet-tokens-wrapper">
+                    <div className={`wallet-token-warning-${theme}`}>
+                    Caution: If you didn't buy a token below, it may be a scam!
+                    </div>                        
                     <div className={`wallet-token-chart-${theme}`}>                        
-                        <span id="chart-column-name">Logo</span>
-                        <span id="chart-column-name">Name/ Symbol</span>
+                        <span id="chart-column-name">Token</span>
                         <span id="chart-column-name">Balance</span>
                         <span id="chart-column-name">Price</span>
                         <span id="chart-column-name">Holdings</span>
@@ -162,8 +164,15 @@ function Wallet() {
                 <div className={`wallet-tokens-${theme}`}>
                     {tokens.map(token => (
                         <div key={token.token_address} className="wallet-token">
-                            <span id="token-detail"><img src={ !token.logo ? chainLogo : token.logo }/></span>
-                            <span id="token-detail">{token.name}<br/>({token.symbol})</span>
+                            <span id="token-detail-name">
+                                <div id="token-logoandname">
+                                    <img src={ !token.logo ? chainLogo : token.logo }/>
+                                    <div id="token-namesymbol">
+                                        <div id="token-name">{token.name}</div>
+                                        <div id="token-symbol">({token.symbol})</div>
+                                    </div>
+                                </div>
+                            </span>
                             <span id="token-detail">{(token.balance/(10**token.decimals)).toFixed(2)}</span>
                             <span id="token-detail">${token.price}</span>
                             <span id="token-detail">${token.usdAmount}</span>

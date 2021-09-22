@@ -20,6 +20,11 @@
   padding: 0rem;
 }
 
+.newLogo {
+  height: 3.5rem;
+  width: auto;
+}
+
 .navbar-nav {
   max-width: 100%;
   width: 100%;

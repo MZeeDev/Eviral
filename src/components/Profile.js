@@ -2,8 +2,8 @@ import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import './User.css';
 import { useMoralis, useMoralisFile } from "react-moralis";
-import eViralLogo from "../img/eViralLogo2.png";
-import beViralLogo from "../img/beviral.png";
+import Logo from '../img/newlogo2.png';
+import LogoBSC from '../img/newlogoBSC2.png';
 import defaultProfile from "../img/defaultProfile.png";
 import defaultLandscape from "../img/defaultLandscape.jpg";
 import Alert from './Alert';
@@ -144,11 +144,11 @@ function Profile(props) {
                         <div className="profile-balances-wrapper">
                             <div className="showProfileBalance">
                                 <p>{balanceETH}&nbsp;Bil</p>
-                                <img className="logo-balance-display" src={eViralLogo} alt="" ></img>
+                                <img className="logo-balance-display" src={Logo} alt="" ></img>
                             </div>
                             <div className="showProfileBalanceBSC">
                                 <p>{balanceBSC}&nbsp;Bil</p>
-                                <img className="logo-balance-display" src={beViralLogo} alt="" ></img>
+                                <img className="logo-balance-display" src={LogoBSC} alt="" ></img>
                             </div>
                         </div>
                     </div>

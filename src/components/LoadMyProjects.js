@@ -61,6 +61,7 @@ function LoadMyProject() {
                       label={listItem.username}
                       path={listItem.title}
                       isVerified = {listItem.isVerified}
+                      isLive={listItem.isLive} 
                       />
                   </div>
                   ))}

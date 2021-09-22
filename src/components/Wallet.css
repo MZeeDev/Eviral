@@ -314,10 +314,57 @@
   border-bottom: 1px solid rgba(42, 42, 42, 0.496);
   padding: 0.75rem 0rem;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  justify-items: flex-start;
   align-items: center;
   font-size: 1.1rem;
+}
+.wallet-token-warning-bsc {
+  color: rgb(49, 49, 49);
+  font-size: 0.9rem;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0rem;
+  background: gold;
+  width: 98%;
+  border-radius: none;
+}
+.wallet-token-warning-eth {
+  color: lightgray;
+  font-size: 0.9rem;
+  font-family: Arial, sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0rem;
+  background: linear-gradient(
+    to right,
+    rgba(4, 192, 255, 0.915),
+    rgba(69, 123, 216, 0.7)
+  );
+  width: 98%;
+  border-radius: none;
+}
+.wallet-token-warning-matic {
+  color: lightgray;
+  font-size: 0.9rem;
+  font-family: Arial, sans-serif;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0rem;
+  background: linear-gradient(
+    to right,
+    rgba(97, 35, 255, 0.678),
+    rgba(64, 57, 255, 0.659)
+  );
+  width: 98%;
+  border-radius: none;
 }
 .wallet-token-chart-eth {
   color: white;
@@ -325,7 +372,9 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   border: 2px solid rgba(0, 0, 0, 0.34);
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  justify-items: center;
   align-items: center;
   margin-top: 0rem;
   padding: 0.75rem 0rem;
@@ -345,7 +394,9 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   border: 2px solid rgba(0, 0, 0, 0.34);
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  justify-items: center;
   align-items: center;
   margin-top: 0rem;
   padding: 0.75rem 0rem;
@@ -361,7 +412,9 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   border: 2px solid rgba(0, 0, 0, 0.34);
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  justify-items: center;
   align-items: center;
   margin-top: 0rem;
   padding: 0.75rem 0rem;
@@ -376,26 +429,55 @@
   z-index: 2;
 }
 #chart-column-name {
-  margin: 0rem 0.1rem;
-  font-size: 1.2rem;
+  margin: 0rem;
+  font-size: 1.1rem;
   display: inline-block;
   text-align: center;
-  width: 20%;
+  width: 100%;
 }
 
-#token-detail img {
-  height: 3rem;
-  width: 3rem;
+#token-detail-name img {
+  height: 2.5rem;
+  width: 2.5rem;
 }
 
 #token-detail {
   margin: 0rem 0.1rem 0rem 0rem;
-  display: block;
-  width: 10vw;
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
   min-width: 5rem;
   word-wrap: break-word;
   font-size: calc(0.9rem + 0.1vw);
   text-align: center;
+}
+#token-detail-name {
+  margin: 0rem 0.1rem 0rem 0rem;
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  min-width: 5rem;
+  word-wrap: break-word;
+  font-size: calc(0.9rem + 0.1vw);
+  text-align: center;
+}
+
+#token-logoandname {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#token-token-namesymbol {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#token-name {
+  font-size: 0.9rem;
+  width: 100%;
+}
+#token-symbol {
+  font-size: 0.8rem;
 }
 
 @media only screen and (max-width: 700px) {
@@ -405,10 +487,11 @@
   }
   #chart-column-name {
     font-size: 0.9rem;
-    width: 20%;
   }
   #token-detail {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    width: 90%;
+    word-wrap: break-word;
   }
 
   #display-holding-option-eth,

@@ -13,6 +13,7 @@ import TokenPrices from './TokenPrices';
 import FortmaticWallet from './FortmaticWallet';
 import { Moralis } from 'moralis';
 import { useMoralis } from 'react-moralis';
+import Logo from '../img/newlogo2.png';
 
 function HeroSection() {
     

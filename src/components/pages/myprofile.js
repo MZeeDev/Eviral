@@ -16,7 +16,7 @@ import ProjectGridBox from '../ProjectGridBox';
 
 function MyProfile() {
 
-    const { Moralis } = useMoralis();
+    const { isInitialized, Moralis } = useMoralis();
     
     const [createProjectMenu, setOpenCreateProjectMenu] = useState(false);
     const [editProfileMenu, setOpenEditProfileMenu] = useState(false);    
@@ -35,10 +35,12 @@ function MyProfile() {
     };
 
     useEffect(() => {
+        if(isInitialized){
     LoadSavedProjects();
     LoadSavedProfiles();
+        }
     },
-    [initLoad],
+    [isInitialized],
     );  
 
     return (

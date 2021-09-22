@@ -262,11 +262,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  width: 15rem;
-  background-color: dodgerblue;
+  width: auto;
+  background-color: rgb(35, 105, 247);
   border-radius: 0.3rem;
   padding: 0.25rem;
-  border: 2px solid lightslategray;
+  border: 1px solid lightslategray;
   height: 2.7rem;
 }
 

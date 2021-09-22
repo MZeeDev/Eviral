@@ -9,7 +9,7 @@ import ScrollableFeed from 'react-scrollable-feed';
 
 function ChatPage() {
 
-    const { user, Moralis } = useMoralis();
+    const { user, Moralis, isInitialized } = useMoralis();
     const [inboxUsers, setInboxUsers] = useState();
     const [requestsUsers, setRequestsUsers] = useState();
     const [ showInbox, setShowInbox] = useState(false);
@@ -171,6 +171,8 @@ function ChatPage() {
         setNumRequests(numRequests);
         if(numRequests > 0) {
             setNotifyReq(true);
+        } else {
+            setNotifyReq(false)
         }
     }
 
@@ -284,11 +286,18 @@ function ChatPage() {
     }
 
     useEffect(() => {
-        if(user){
-        loadInboxProfiles();
+        if(isInitialized){
+        
         numberOfRequests();
         }
-    }, [init])
+    }, [isInitialized])
+
+    useEffect(() => {
+        if(isInitialized){        
+        numberOfRequests();
+        }
+    }, [isInitialized])
+
     
 
     return (

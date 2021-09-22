@@ -19,6 +19,7 @@
   justify-content: flex-start;
   border-radius: var(--border-radius);
   transition: background var(--speed);
+  padding: 0;
 }
 
 .dropdown-item-user {
@@ -50,6 +51,7 @@
 }
 
 .eViralLogo-Dropdown {
-  height: 85%;
+  height: 2rem;
+  width: auto;
   margin-left: 0.3rem;
 }

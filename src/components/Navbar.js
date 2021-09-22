@@ -12,6 +12,8 @@ import wcLogo from '../img/walletconnect.png';
 import './DropdownMenu.css';
 import './NavbarConnectMenu.css';
 import Alert from './Alert';
+import Logo from '../img/newlogo2.png';
+import LogoBSC from '../img/newlogoBSC2.png';
 
 function Navbar() {
     const { authenticate, isAuthenticated, user, logout, auth, Moralis} = useMoralis();
@@ -182,11 +184,11 @@ function Navbar() {
                                         <div className="wallet-balances">
                                             <div className="showBalance">
                                             {balance}
-                                            <img className="eViralLogo-Dropdown" src={eViralLogo} alt="" ></img>
+                                            <img className="eViralLogo-Dropdown" src={Logo} alt="" ></img>
                                             </div>
                                             <div className="showBalanceBSC">
                                             {balanceBSC}
-                                            <img className="eViralLogo-Dropdown" src={beViralLogo} alt="" ></img>
+                                            <img className="eViralLogo-Dropdown" src={LogoBSC} alt="" ></img>
                                             </div>
                                         </div>                                     
                                     </li>                                

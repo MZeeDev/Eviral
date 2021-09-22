@@ -6,7 +6,7 @@ function ProfileGridBox(props) {
     const { url } = useRouteMatch();
 
     return (    
-        <div className="project-grid-box-wrapper">
+        <div className="profile-grid-box-wrapper">
             <div className="profile-box-header">
                 <Link
                     className="project-url-link"
