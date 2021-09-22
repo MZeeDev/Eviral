@@ -29,16 +29,6 @@ function HeroSection() {
     const bnb = 0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c;
     const nativeToken1Inch = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
 
-    
-    const showButton = () => {
-        if(window.innerWidth <=960) {
-            setShowImg(true);
-        } else {
-            setShowImg(false);
-        }
-    };
-    
-    window.addEventListener('resize', showButton);
         
 
     // const options = {
@@ -84,6 +74,38 @@ function HeroSection() {
                     <div className="homepage-buttons">
                         <Link to='/projects' className="homepage-button btn2">Discover&nbsp;Projects</Link>
                         <Link to='/profiles' className="homepage-button btn2">Find&nbsp;Profiles</Link>
+                        <a href="#vclabs" className="homepage-button btn2">VC&nbsp;Labs</a>
+                    </div>
+                    <div id="how-it-works1">                    
+                        <img src={HowItWorks} />
+                    </div>
+                    <div id="how-it-works2">
+                    <img src={Logo} id="how-it-works-logo"/>
+                    <div id="how-it-works-title">
+                        <h4>How it Works</h4>
+                    </div>
+                    <div id="how-it-works-content">
+                        <section id="how-it-works-section">
+                            <h6>1. Get Viral Tokens</h6>
+                            <article>Currently available on both the Ethereum and BSC blockchains, by owning any viral tokens you gain access to the platform.</article>
+                        </section>
+                        <section id="how-it-works-section">
+                            <h6>2. Create Your Space</h6>
+                            <article>Connect to the Viral Crypto platform to create profile, start your own project, and connect with others.</article>
+                        </section>
+                        <section id="how-it-works-section">
+                            <h6>3. Collaborate</h6>
+                            <article>Connect and message other DeFi enthusiasts to work together, learn new skills, share interests, and evaluate new projects.</article>
+                        </section>
+                    </div>
+                    </div>
+                    <div id="why-viral-crypto">
+                        <h3>WHY ViralCrypto?</h3>
+                        <p>ViralCrypto is similar to old contractor networks in that users can make profiles and project pages in addition to searching through the platform in order to collaborate. Although, this is where the similarities end. 
+                            <br/>
+                            <br/>
+                            The VC platform allows users to safely work together, learn new skills, share interests, and evaluate new projects because each user wallet-connects and can create a profile that is uniquely associated with their wallet. Users can create pages for new projects that are still in development in order to collaborate with freelancers. Users can also create verified project pages for established projects that are administered by the appropriate representative of that project. Users can rate and review projects and message with the verified creators. Whether a user is doxxed or not, their projects along with reviews and ratings follow them forever on the site. This way, reputation is built, transparency is assured, and privacy is allowed. In addition, all project pages are visible without a wallet balance, incentivizing newcomers to engage with the platform.
+                        </p>
                     </div>
                     <div className="homepage-onRamp">
                         <div className="homepage-onRamp-text">
@@ -116,35 +138,9 @@ function HeroSection() {
                         </div>
                     </div>
                 </div>
-                <div id="how-it-works">
-                    {showImg && 
-                        <img src={HowItWorks} />
-                    }
-
-                    {!showImg && 
-                    <>
-                    <img src={Logo} id="how-it-works-logo"/>
-                    <div id="how-it-works-title">
-                        <h4>How it Works</h4>
-                    </div>
-                    <div id="how-it-works-content">
-                        <section id="how-it-works-section">
-                            <h6>1. Get Viral Tokens</h6>
-                            <article>Currently available on both the Ethereum and BSC blockchains, by owning any viral tokens you gain access to the platform.</article>
-                        </section>
-                        <section id="how-it-works-section">
-                            <h6>2. Create Your Space</h6>
-                            <article>Connect to the Viral Crypto platform to create profile, start your own project, and connect with others.</article>
-                        </section>
-                        <section id="how-it-works-section">
-                            <h6>3. Collaborate</h6>
-                            <article>Connect and message other DeFi enthusiasts to work together, learn new skills, share interests, and evaluate new projects.</article>
-                        </section>
-                    </div>
-                    </>
-                    }
-                </div>
+                
             <Cards/>
+            <div id="vclabs"></div>
                 <div className="byMoralis">
                     <ByMoralis  width={300} variant="dark" />
                 </div>

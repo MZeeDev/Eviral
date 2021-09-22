@@ -155,7 +155,23 @@ video::-webkit-media-controls-start-playback-button {
   margin: 0 0.3rem 0 0.5rem;
 }
 
-#how-it-works {
+#why-viral-crypto h3 {
+  margin-bottom: 1rem;
+}
+#why-viral-crypto {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  color: white;
+  text-align: center;
+}
+
+#how-it-works1 {
+  display: none;
+}
+#how-it-works2 {
   width: 100%;
   min-height: 250px;
   background: white;
@@ -165,10 +181,6 @@ video::-webkit-media-controls-start-playback-button {
   align-items: center;
   flex-direction: column;
   position: relative;
-}
-
-#how-it-works img {
-  width: 90%;
 }
 
 #how-it-works-logo {
@@ -188,13 +200,13 @@ video::-webkit-media-controls-start-playback-button {
   width: auto;
   border-bottom: 2px solid rgba(0, 0, 49, 0.483);
 }
+
 #how-it-works-content {
   display: flex;
   justify-content: space-evenly;
   align-items: flex-start;
   width: 100%;
   margin-top: 2rem;
-  border: 2px solid lightgray;
 }
 #how-it-works-content h6 {
   text-align: center;
@@ -257,6 +269,24 @@ video::-webkit-media-controls-start-playback-button {
 }
 
 @media screen and (max-width: 640px) {
+  #how-it-works2 {
+    display: none;
+  }
+  #how-it-works1 {
+    width: 100%;
+    min-height: 250px;
+    background: white;
+    margin-bottom: 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+  }
+
+  #how-it-works1 img {
+    width: 80%;
+  }
   .homepage-welcome {
     width: 90%;
   }
