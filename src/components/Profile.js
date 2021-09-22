@@ -13,8 +13,8 @@ import CreateNewProject from './CreateProject';
 
 function Profile(props) {
 
-    const { user, Moralis } = useMoralis();   
-    const { error, isUploading, moralisFile, saveFile, } = useMoralisFile();
+    const { user, Moralis, isInitialized } = useMoralis();   
+    const { error, isUploading, moralisFile, saveFile } = useMoralisFile();
 
     const [profilePic, setProfilePic] = useState("");
     const [landscape, setLandscape] = useState("");
@@ -25,14 +25,15 @@ function Profile(props) {
     const [changeProfilePicMenu, setOpenChangeProfilePicMenu] = useState(false);
     const [photoFile, setPhotoFile] = useState();    
     const [photoFileName, setPhotoFileName] = useState();
+    const [previewPic, setPreviewPic] = useState();
 
     const [alertVisible, setAlertVisible] = useState(false);
     const [alertContents, setAlertContents] = useState();
-    const init = 0;
     
     const onChangePhoto = e => {
         setPhotoFile(e.target.files[0]);
         setPhotoFileName(e.target.files[0].name);
+        setPreviewPic(URL.createObjectURL(e.target.files[0]));
     };
 
     
@@ -99,7 +100,38 @@ function Profile(props) {
         }
     }
 
+    const userCheck = async() => {
+        console.log(user);
+        const eViral = await Moralis.Web3.getERC20({tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
+        const beViral = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
+        const balanceETH = eViral.balance;
+        const balanceBSC = beViral.balance;
+        if( (balanceETH == 0) && (balanceBSC == 0) ) {
+          setAlertContents(
+              <>
+              <div className="alert-popup-contents">
+              You'll need to own either eViral or beViral to access this feature.
+              <Link to='/'><button className="btn2">Buy from Home Page</button></Link>
+              </div>
+              </>
+              );
+          setAlertVisible(true);
+        }  else if (!user.attributes?.profileCreated) {
+          setAlertContents(
+              <>
+          <div className="alert-popup-contents">
+          You'll need to set up a Profile to access this feature.                
+          </div>
+          </>
+          ) 
+          setAlertVisible(true);
+        } else {
+            setOpenChangeProfilePicMenu(true);
+        }
+      }
+
     useEffect(() => {
+        if(isInitialized){
         if (user) {
             if(typeof user.attributes?.profilePic?._url === 'undefined') {
                 setProfilePic(defaultProfile);
@@ -110,11 +142,12 @@ function Profile(props) {
                 setLandscape(defaultLandscape);
             } else {
                 setLandscape(user.attributes?.landscapePic?._url);
-            }          
-          
+            }                    
+            setPreviewPic(profilePic);
           renderBalance();
         }
-      }, [init]);
+    }
+      }, [isInitialized]);
 
 
     return (
@@ -126,7 +159,7 @@ function Profile(props) {
                         <img className='landscape-pic' src={landscape} alt=""/>
                     </div>
                     <div className="profile-header">
-                        <div className="profile-pic-container"onClick={() => setOpenChangeProfilePicMenu(true)}>
+                        <div className="profile-pic-container"onClick={() => userCheck()}>
                             <img className="profile-pic" src={profilePic} alt="" id="profilePic" />
                             <div className="middle-of-profilePic">                                
                                     <i class="fas fa-camera-retro"></i>                                
@@ -174,7 +207,7 @@ function Profile(props) {
                         <span className="exitMenu" onClick={() => {setOpenChangeProfilePicMenu(false)}}><i class="far fa-times-circle"></i></span>
                     </div>
                     <div className="profile-pic-container">
-                        <img className="profile-pic" src={profilePic} alt="" />
+                        <img className="profile-pic" src={previewPic} alt="" />
                     </div>
                         <form className="form-input-container">
                             <form onSubmit={onSubmitPhoto}>
@@ -183,8 +216,8 @@ function Profile(props) {
                                     <input className="form-control" type="file" accept="image/*" multiple="false" id="profilePhoto" onChange={onChangePhoto} />
                                 </div>
                                 <div className="change-profile-pic-footer">
-                                    <button className="btn1" onClick={()=>{setOpenChangeProfilePicMenu(false)}}>Close</button>
                                     <input type="button" value="Upload" className="upload-profilePic-button btn2" onClick={onSubmitPhoto} />
+                                    <button className="btn1" onClick={()=>{setOpenChangeProfilePicMenu(false)}}>Close</button>
                                 </div>
                             </form>
                         </form>

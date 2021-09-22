@@ -9,7 +9,6 @@ function ProfileMessageCard(props) {
             </div>
             <div className="pmc-body">
                 <h5>{props.username}</h5>
-                <p>RE:{props.projectName}</p>
                 <div className="pmc-updatedAt">
                     <h5>{props.updatedAt}</h5>
                 </div>     

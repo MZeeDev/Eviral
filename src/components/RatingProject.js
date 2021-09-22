@@ -16,7 +16,6 @@ function RatingProject(props) {
     const [alertContents, setAlertContents] = useState();
     const [hasReview, setHasReview] = useState();
     const [reivewed, setReviewed] = useState();
-    const init=0;
 
     const loadUserRating = async() => {
         if(hasReview){ console.log("you do have a hasReivew")};

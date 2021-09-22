@@ -155,6 +155,65 @@ video::-webkit-media-controls-start-playback-button {
   margin: 0 0.3rem 0 0.5rem;
 }
 
+#how-it-works {
+  width: 100%;
+  min-height: 250px;
+  background: white;
+  margin-bottom: 0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+#how-it-works img {
+  width: 90%;
+}
+
+#how-it-works-logo {
+  height: 90%;
+  opacity: 0.15;
+  position: absolute;
+  top: 1rem;
+  text-align: center;
+  width: auto;
+}
+
+#how-it-works-title {
+  margin-bottom: 1rem;
+  position: absolute;
+  top: 1rem;
+  text-align: center;
+  width: auto;
+  border-bottom: 2px solid rgba(0, 0, 49, 0.483);
+}
+#how-it-works-content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 2rem;
+  border: 2px solid lightgray;
+}
+#how-it-works-content h6 {
+  text-align: center;
+  font-size: 1.1rem;
+}
+#how-it-works-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 27%;
+  height: 100%;
+}
+
+#how-it-works-section article {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
 @media screen and (max-width: 1080px) {
   .homepage-welcome {
     display: flex;

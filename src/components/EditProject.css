@@ -17,8 +17,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 3px solid gray;
-  border-radius: 1rem;
+  border: 2px solid gray;
+  border-radius: 5px;
   margin: 0;
   padding: 1rem;
   width: 90%;
@@ -61,7 +61,7 @@
   align-items: center;
   margin: 1rem 2rem;
 
-  border: 0.2rem solid darkgrey;
+  border: 2px solid darkgrey;
   padding: 2px;
   max-width: 100%;
 }

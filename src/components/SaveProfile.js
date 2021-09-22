@@ -5,7 +5,6 @@ function SaveProfile(props) {
     const { user, Moralis, isInitialized } = useMoralis();
     const [saved, setSaved] = useState();
     let isSaved = (props.isSaved);
-    let init = 0;
 
     const saveProfile = async() => {
         setSaved(true);

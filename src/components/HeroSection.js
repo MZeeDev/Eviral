@@ -4,8 +4,6 @@ import '../App.css';
 
 import './HeroSection.css';
 import { ByMoralis } from 'react-moralis';
-import eViralLogo from "../img/eViralLogo2.png";
-import beViralLogo from "../img/beviral.png";
 import Cards from './Cards';
 
 import OnRamper from './OnRamper';
@@ -13,7 +11,10 @@ import TokenPrices from './TokenPrices';
 import FortmaticWallet from './FortmaticWallet';
 import { Moralis } from 'moralis';
 import { useMoralis } from 'react-moralis';
+
 import Logo from '../img/newlogo2.png';
+import LogoBSC from '../img/newlogoBSC2.png';
+import HowItWorks from "../img/howitworks.jpg"
 
 function HeroSection() {
     
@@ -21,11 +22,24 @@ function HeroSection() {
     const [ chain, setChain] = useState();
     const [ nativeToken, setNativeToken] = useState();
     const [ amount, setAmount] = useState(0);
+    const [ showImg, setShowImg] = useState();
     
     const viralToken = "0x7CeC018CEEF82339ee583Fd95446334f2685d24f";
     const eth = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
     const bnb = 0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c;
     const nativeToken1Inch = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
+
+    
+    const showButton = () => {
+        if(window.innerWidth <=960) {
+            setShowImg(true);
+        } else {
+            setShowImg(false);
+        }
+    };
+    
+    window.addEventListener('resize', showButton);
+        
 
     // const options = {
     //     chain: chain,
@@ -89,18 +103,46 @@ function HeroSection() {
                 <div className="tokenIframes">
                     <div className="tokenIframes-wrapper">
                         <div className="eViralIframe">
-                            <h3 className="iframe-title">Buy <img className="eViralLogo" src={eViralLogo}/>Viral Ethereum</h3>
+                            <h3 className="iframe-title">Buy <img className="eViralLogo" src={Logo}/>Viral Ethereum</h3>
                             <iframe
                                 src="https://app.uniswap.org/#/swap?outputCurrency=0x7cec018ceef82339ee583fd95446334f2685d24f&use=V2"
                             />
                         </div>
                         <div className="beViralIframe">
-                            <h3 className="iframe-title">Buy <img className="eViralLogo" src={beViralLogo}/>Viral Binance</h3>
+                            <h3 className="iframe-title">Buy <img className="eViralLogo" src={LogoBSC}/>Viral Binance</h3>
                             <iframe
                                 src="https://pancakeswap.finance/swap?outputCurrency=0x7cec018ceef82339ee583fd95446334f2685d24f"
                             />
                         </div>
                     </div>
+                </div>
+                <div id="how-it-works">
+                    {showImg && 
+                        <img src={HowItWorks} />
+                    }
+
+                    {!showImg && 
+                    <>
+                    <img src={Logo} id="how-it-works-logo"/>
+                    <div id="how-it-works-title">
+                        <h4>How it Works</h4>
+                    </div>
+                    <div id="how-it-works-content">
+                        <section id="how-it-works-section">
+                            <h6>1. Get Viral Tokens</h6>
+                            <article>Currently available on both the Ethereum and BSC blockchains, by owning any viral tokens you gain access to the platform.</article>
+                        </section>
+                        <section id="how-it-works-section">
+                            <h6>2. Create Your Space</h6>
+                            <article>Connect to the Viral Crypto platform to create profile, start your own project, and connect with others.</article>
+                        </section>
+                        <section id="how-it-works-section">
+                            <h6>3. Collaborate</h6>
+                            <article>Connect and message other DeFi enthusiasts to work together, learn new skills, share interests, and evaluate new projects.</article>
+                        </section>
+                    </div>
+                    </>
+                    }
                 </div>
             <Cards/>
                 <div className="byMoralis">

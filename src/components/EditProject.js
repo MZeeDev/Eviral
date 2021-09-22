@@ -107,11 +107,11 @@ function EditProject(props) {  ///set input variables as required, add other att
                         </div>
                         <div className="project-pic-container">
                             <img className="project-pic" src={projectPhotoPreview} alt="" />
-                        </div>
+                        </div>                        
                         <div className="form-photo-wrapper">
                             <form>
                                 <div className="mb-3">
-                                    <label htmlFor="projectPhoto" className="form-label">Upload a Cover Photo<span style={{color:"red"}}> *</span></label>
+                                    <label htmlFor="projectPhoto" className="form-label">Upload a main picture<span style={{color:"red"}}> *</span></label>
                                     <input className="form-control" type="file" accept="image/png, image/jpg, image/jpeg" multiple="false" id="projectPhoto" required onChange={onChangePhoto}/>
                                 </div>
                                 

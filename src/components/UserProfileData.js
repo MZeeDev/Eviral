@@ -94,9 +94,19 @@ const UserProfilePage = ({ data }) => {
     }
   }
 
+  const checkSavedProfile = async() => {
+    const params = {profileName: username}
+    const results = await Moralis.Cloud.run("checkIfSavedProfile", params);
+    
+    if(results[0]) {
+        setIsSaved(true);
+    } 
+}
+
 
   useEffect(() => {
     if(isInitialized){
+    checkSavedProfile();
     loadProfile();  
     }  
     },
@@ -134,6 +144,7 @@ const UserProfilePage = ({ data }) => {
                             linkedIn={userProfile.linkedIn}
                             twitch={userProfile.twitch}
                             youtube={userProfile.youtube}
+                            isSaved={isSaved}
                         />                    
                     ))}   
                 </div>

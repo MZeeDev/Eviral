@@ -5,7 +5,7 @@ import ProjectDisplay from "./ProjectPage";
 
 const ProjectData = ({ data }) => {
     
-  const { Moralis } = useMoralis();  
+  const { Moralis, isInitialized } = useMoralis();  
   const { title } = useParams();
 
   const [ projectLoaded, setProjectLoaded ] = useState([""]);
@@ -18,14 +18,12 @@ const ProjectData = ({ data }) => {
   }
 
   useEffect(() => {
+    if(isInitialized){
     loadProject();
+    }
     },
-    [init],
+    [isInitialized],
   );
-
-  const log = () => {
-    console.log(projectLoaded);
-  }
 
     
   return (
@@ -36,6 +34,8 @@ const ProjectData = ({ data }) => {
                   title={project.title}
                   summary={project.summary}
                   photo1={project.projectPhoto}
+                  photo2={project.projectPhoto1}
+                  photo3={project.projectPhoto2}
                   creator={project.username}
                   creatorProfilePic={project.profilePic}
                   bio={project.bio}

@@ -17,15 +17,15 @@ function UserProfile(props) {
         } 
     }
 
-    let init;
+    
 
-    useEffect(() => {
-        if(user){
-        checkSavedProfile();
-        }
-        },
-        [init],
-      );
+    // useEffect(() => {
+    //     if(user){
+    //     checkSavedProfile();
+    //     }
+    //     },
+    //     [init],
+    //   );
 
 
 
@@ -47,7 +47,7 @@ function UserProfile(props) {
                     <div className="save-profile-wrapper">
                     <SaveProfile
                         profileName = {props.username}
-                        isSaved = {isSaved}
+                        isSaved = {props.isSaved}
                     />
                     </div>                     
                 </div>                

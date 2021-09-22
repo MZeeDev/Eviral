@@ -23,6 +23,7 @@ function ChatPage() {
     const [noUsers, setNoUsers] = useState(false);
     const [numRequests, setNumRequests] = useState(0);
     const [notifyReq, setNotifyReq] = useState(false);
+    const [sendingMsg, setSendingMsg] = useState(false);
     
     const [alertVisible, setAlertVisible] = useState(false);
     const [alertContents, setAlertContents] = useState();
@@ -194,7 +195,6 @@ function ChatPage() {
         await activateChatListener(chatId);
         setChatDisplay(true);
         setActiveChatId(chatId);
-        setShowInbox(false); 
         setShowReply(true);
     }
 
@@ -260,7 +260,14 @@ function ChatPage() {
     }
 
     const sendReply = async() => {
+        if(sendingMsg){
+            return
+        }
+        if(reply == ""){
+            return
+        }
         try{
+            setSendingMsg(true)
             const Conversation = Moralis.Object.extend('Conversation');
             const findConversation = new Moralis.Query(Conversation);
             findConversation.equalTo('objectId', activeChatId)
@@ -279,9 +286,11 @@ function ChatPage() {
             const relation = conversation.relation("messages");
             relation.add(message);
             await conversation.save();   
-            setReply("");               
+            setReply("");  
+            setSendingMsg(false);             
         } catch (error) {
             alert(error)
+            setSendingMsg(false)
         } 
     }
 
@@ -394,6 +403,7 @@ function ChatPage() {
                                 className="chat-messaging-reply-text" 
                                 value={reply} 
                                 onChange={(event) =>setReply(event.currentTarget.value)} 
+                                required
                                 onKeyPress={(event) => { if(event.key === "Enter") {sendReply()}}}>
 
                             </input>
