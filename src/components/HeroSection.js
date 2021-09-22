@@ -91,7 +91,7 @@ function HeroSection() {
                         </section>
                         <section id="how-it-works-section">
                             <h6>2. Create Your Space</h6>
-                            <article>Connect to the Viral Crypto platform to create profile, start your own project, and connect with others.</article>
+                            <article>By owning viral tokens you can connect to the platform, create a profile, and host project pages for new and existing projects.</article>
                         </section>
                         <section id="how-it-works-section">
                             <h6>3. Collaborate</h6>
