@@ -401,6 +401,7 @@ function ChatPage() {
                                 type="text" 
                                 placeholder=" Reply..." 
                                 className="chat-messaging-reply-text" 
+                                id="chat-messaging-reply-text" 
                                 value={reply} 
                                 onChange={(event) =>setReply(event.currentTarget.value)} 
                                 required

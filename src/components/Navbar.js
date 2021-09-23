@@ -96,11 +96,6 @@ function Navbar() {
             setButton(true);
         }
     };
-    
-    const getVersion = () => {
-        console.log(Moralis.CoreManager.get("VERSION"));
-
-    }
 
 
     useEffect(() => {
@@ -154,11 +149,13 @@ function Navbar() {
                             </Link>
                         </li>
                         }
+                        {user &&
                         <li className='nav-item'>
                             <Link to='/wallet' className='nav-links' onClick={closeMobileMenu}>
                                 <i class="fas fa-wallet"></i>
                             </Link>
                         </li>
+                        }
                     </ul>
                
                     
@@ -226,7 +223,7 @@ function Navbar() {
                         }
                     </li>
                     { !isAuthenticated && <button className='btn1'  onClick={() => setOpenConnectMenu(true)}>
-                        Connect
+                        Wallet&nbsp;Connect
                     </button>  } 
                     { connectMenu &&
                     <div className="connectMenu-background">

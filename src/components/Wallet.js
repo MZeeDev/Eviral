@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import { Moralis } from 'moralis';
-import ETH from '../img/ethlogo.png'
-import BSC from '../img/bsclogo.png'
-import MATIC from '../img/maticlogo.png'
+import ETH from '../img/ethlogo.png';
+import BSC from '../img/bsclogo.png';
+import MATIC from '../img/maticlogo.png';
+import AVAX from '../img/avaxlogo.png';
 import './Wallet.css';
 import { useMoralis } from 'react-moralis';
 import NFTCard from './NFTCard';
@@ -139,6 +140,9 @@ function Wallet() {
                     </div>
                     <div className="choose-chain-wallet-chain" onClick={() => changeChain("matic", MATIC, "matic")}>
                         <img src={MATIC} />
+                    </div>
+                    <div className="choose-chain-wallet-chain" onClick={() => changeChain("avalanche", AVAX, "avax")}>
+                        <img src={AVAX} />
                     </div>
                 </div>
                 </div>

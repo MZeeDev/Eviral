@@ -14,7 +14,8 @@ import { useMoralis } from 'react-moralis';
 
 import Logo from '../img/newlogo2.png';
 import LogoBSC from '../img/newlogoBSC2.png';
-import HowItWorks from "../img/howitworks.jpg"
+import HowItWorks from "../img/howitworks.jpg";
+import VCLabs from "../img/vclabsmobile.jpg"
 
 function HeroSection() {
     
@@ -29,7 +30,7 @@ function HeroSection() {
     const bnb = 0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c;
     const nativeToken1Inch = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
 
-        
+    let dex;
 
     // const options = {
     //     chain: chain,
@@ -37,7 +38,7 @@ function HeroSection() {
     //     toTokenAddress: viralToken,
     //     amount: Number(Moralis.Units.ETH("0.00000001")),
     //     fromAddress: Moralis.User.current().get("ethAddress"),
-    //     slippage: 19        
+    //     slippage: 25        
     // }
     
     // var transact = async() => { 
@@ -45,17 +46,15 @@ function HeroSection() {
     //     console.log(receipt);
     // };
 
-    // let dex;
-    // const init = async() => { 
-    //     await Moralis.enable;
-    //     await Moralis.initPlugins();
-    //     dex = Moralis.Plugins.oneInch;
-    //  };
+  
 
     // useEffect(() => {
     //     if(isInitialized){
-    //         init();
-    //         setChain("eth");
+    //     const init = async() => { 
+    //         await Moralis.enable;
+    //         await Moralis.initPlugins();
+    //         dex = Moralis.Plugins.oneInch;
+    //     };
     //     }        
     // }, [isInitialized])
 
@@ -100,12 +99,15 @@ function HeroSection() {
                     </div>
                     </div>
                     <div id="why-viral-crypto">
-                        <h3>WHY ViralCrypto?</h3>
-                        <p>ViralCrypto is similar to old contractor networks in that users can make profiles and project pages in addition to searching through the platform in order to collaborate. Although, this is where the similarities end. 
+                        <h3>Why ViralCrypto?</h3>
+                        <p>ViralCrypto is similar to the preveious generation of contractor networks where users can make profiles and project pages in addition to searching through the platform in order to collaborate. Although, this is where the similarities end. 
                             <br/>
                             <br/>
-                            The VC platform allows users to safely work together, learn new skills, share interests, and evaluate new projects because each user wallet-connects and can create a profile that is uniquely associated with their wallet. Users can create pages for new projects that are still in development in order to collaborate with freelancers. Users can also create verified project pages for established projects that are administered by the appropriate representative of that project. Users can rate and review projects and message with the verified creators. Whether a user is doxxed or not, their projects along with reviews and ratings follow them forever on the site. This way, reputation is built, transparency is assured, and privacy is allowed. In addition, all project pages are visible without a wallet balance, incentivizing newcomers to engage with the platform.
+                            The VC platform allows users to safely work together, learn new skills, share interests, and evaluate new projects. How? Users connect to the platform with their Web3 wallet and create a profile that is uniquely associated with their wallet address. Users can create pages for new projects that are still in development in order to collaborate with freelancers. Users can also create verified project pages for established projects that are administered by the appropriate representative of that project. Users can rate and review projects and message with verified creators. Whether a user is doxxed or not, their projects along with reviews and ratings follow them forever on the site. This way, reputation is built, transparency is assured, and privacy is allowed. In addition, all project pages are visible without a wallet balance, incentivizing newcomers to engage with the platform.
                         </p>
+                    </div>
+                    <div className="buy-button">
+                        <a href="#tokenIframes" className="homepage-button btn2">Buy&nbsp;Viral&nbsp;Tokens</a>
                     </div>
                     <div className="homepage-onRamp">
                         <div className="homepage-onRamp-text">
@@ -122,7 +124,7 @@ function HeroSection() {
                 {/* <div className="token-swap">
                     <button onClick={0}>Swap</button>
                 </div> */}
-                <div className="tokenIframes">
+                <div className="tokenIframes" id="tokenIframes">
                     <div className="tokenIframes-wrapper">
                         <div className="eViralIframe">
                             <h3 className="iframe-title">Buy <img className="eViralLogo" src={Logo}/>Viral Ethereum</h3>
@@ -140,7 +142,9 @@ function HeroSection() {
                 </div>
                 
             <Cards/>
-            <div id="vclabs"></div>
+            <div id="vclabs">
+                <img src={VCLabs} />
+            </div>
                 <div className="byMoralis">
                     <ByMoralis  width={300} variant="dark" />
                 </div>

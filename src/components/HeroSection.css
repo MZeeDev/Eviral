@@ -42,7 +42,7 @@ video::-webkit-media-controls-start-playback-button {
 .homepage-welcome > h1 {
   display: flex;
   width: 100%;
-  justify-content: flex-start;
+  justify-content: center;
   color: rgb(219, 255, 238);
   font-size: 2rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
@@ -54,9 +54,11 @@ video::-webkit-media-controls-start-playback-button {
 .homepage-welcome > h2 {
   font-size: 3.5rem;
   animation: mymove 5s infinite;
+  text-align: center;
 }
 .homepage-welcome > p {
   font-size: 1.5rem;
+  text-align: center;
 }
 
 .hero-text {
@@ -75,9 +77,9 @@ video::-webkit-media-controls-start-playback-button {
 .homepage-buttons {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 90%;
 }
 .homepage-button {
   display: flex;
@@ -104,6 +106,23 @@ video::-webkit-media-controls-start-playback-button {
   background: linear-gradient(to left, rgba(3, 121, 160), rgba(43, 150, 118));
   box-shadow: 0 0 20px rgb(161 161 161 / 57%);
   color: white;
+}
+.buy-button {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+  width: 100%;
+}
+.homepage-onRamp {
+  display: flex;
+  width: 80%;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.homepage-onRamp iframe {
+  padding: 0;
+  margin: 0;
 }
 
 .tokenIframes {
@@ -150,6 +169,18 @@ video::-webkit-media-controls-start-playback-button {
   height: 600px;
 }
 
+#vclabs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  margin-bottom: 2rem;
+}
+#vclabs img {
+  width: 60%;
+}
+
 .eViralLogo {
   height: 2rem;
   margin: 0 0.3rem 0 0.5rem;
@@ -168,7 +199,7 @@ video::-webkit-media-controls-start-playback-button {
   width: 100%;
   color: white;
   text-align: center;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.42);
 }
 
 #why-viral-crypto p {
@@ -276,6 +307,9 @@ video::-webkit-media-controls-start-playback-button {
 }
 
 @media screen and (max-width: 640px) {
+  #vclabs img {
+    width: 100%;
+  }
   #how-it-works2 {
     display: none;
   }
