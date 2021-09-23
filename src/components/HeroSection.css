@@ -175,7 +175,6 @@ video::-webkit-media-controls-start-playback-button {
   justify-content: center;
   align-items: center;
   background: white;
-  margin-bottom: 2rem;
 }
 #vclabs img {
   width: 100%;
