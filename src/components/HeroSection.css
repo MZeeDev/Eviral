@@ -178,7 +178,11 @@ video::-webkit-media-controls-start-playback-button {
   margin-bottom: 2rem;
 }
 #vclabs img {
-  width: 60%;
+  width: 100%;
+}
+
+#vclabsm {
+  display: none;
 }
 
 .eViralLogo {
@@ -199,7 +203,7 @@ video::-webkit-media-controls-start-playback-button {
   width: 100%;
   color: white;
   text-align: center;
-  background: rgba(0, 0, 0, 0.42);
+  background: rgba(0, 0, 0, 0.55);
 }
 
 #why-viral-crypto p {
@@ -304,15 +308,22 @@ video::-webkit-media-controls-start-playback-button {
     display: flex;
     align-items: center;
   }
-}
-
-@media screen and (max-width: 640px) {
+  #vclabsd {
+    display: none;
+  }
   #vclabs img {
     width: 100%;
   }
+  #vclabsm {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 640px) {
   #how-it-works2 {
     display: none;
   }
+
   #how-it-works1 {
     width: 100%;
     min-height: 250px;

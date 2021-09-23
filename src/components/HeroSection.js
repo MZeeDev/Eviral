@@ -15,7 +15,8 @@ import { useMoralis } from 'react-moralis';
 import Logo from '../img/newlogo2.png';
 import LogoBSC from '../img/newlogoBSC2.png';
 import HowItWorks from "../img/howitworks.jpg";
-import VCLabs from "../img/vclabsmobile.jpg"
+import VCLabsM from "../img/vclabsmobile.jpg";
+import VCLabsD from "../img/vclabsdesktop.jpg";
 
 function HeroSection() {
     
@@ -143,7 +144,25 @@ function HeroSection() {
                 
             <Cards/>
             <div id="vclabs">
-                <img src={VCLabs} />
+                <img src={VCLabsM} id="vclabsm"/>
+                <img src={VCLabsD} id="vclabsd"/>
+            </div>
+            <div id="why-viral-crypto">
+                <h3>Front End Dev <br/> HACKATHON</h3>
+                <p>Winning developers will also be featured in search, here on the homepage and given credit on the team page. 
+                    <br/>
+                </p>
+                <p> October 1st through December 1st 2021, VC Labs is running its first HACKATHON and will select:
+                    <br/>
+                    <br/>
+                    4 innovative, community-driven features to add
+                    <br/>
+                    <br/>
+                    and
+                    <br/>
+                    <br/>
+                    1 innovative improvement on search capability
+                </p>
             </div>
                 <div className="byMoralis">
                     <ByMoralis  width={300} variant="dark" />
