@@ -182,6 +182,10 @@ video::-webkit-media-controls-start-playback-button {
 
 #vclabsm {
   display: none;
+  width: 100%;
+}
+#vclabsd {
+  width: auto;
 }
 
 .eViralLogo {

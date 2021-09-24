@@ -23,7 +23,7 @@ function Navbar() {
     const [dropdown, setDropdown] = useState(false);
     const [balance, setBalance] = useState(0);
     const [balanceBSC, setBalanceBSC] = useState(0);
-    const [profilePic, setProfilePic] = useState(avatar);
+    const [profilePic, setProfilePic] = useState();
     const [username, setUsername] = useState("Username");
     const [displayConnect, setDisplayConnect] = useState(true);
     
@@ -81,10 +81,10 @@ function Navbar() {
     const renderBalance = async () => {
         const eViralBalance = await Moralis.Web3.getERC20({tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
         const beViralBalance = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
-        const eBalance = eViralBalance.balance/(10**18);
-        const bBalance = beViralBalance.balance/(10**18);
-        const balance = (eBalance.toFixed(3) + " Bil");
-        const bvBalance = (bBalance.toFixed(3) + " Bil");
+        const eBalance = eViralBalance.balance/(10**9);
+        const bBalance = beViralBalance.balance/(10**9);
+        const balance = (eBalance.toFixed(0));
+        const bvBalance = (bBalance.toFixed(0));
         setBalance(balance);
         setBalanceBSC(bvBalance);
     }
@@ -180,12 +180,12 @@ function Navbar() {
                                     <li className="dropdown-item">
                                         <div className="wallet-balances">
                                             <div className="showBalance">
-                                            {balance}
-                                            <img className="eViralLogo-Dropdown" src={Logo} alt="" ></img>
+                                                <img className="eViralLogo-Dropdown" src={Logo} alt="" ></img>
+                                                {balance}
                                             </div>
                                             <div className="showBalanceBSC">
-                                            {balanceBSC}
-                                            <img className="eViralLogo-Dropdown" src={LogoBSC} alt="" ></img>
+                                                <img className="eViralLogo-Dropdown" src={LogoBSC} alt="" ></img>
+                                                {balanceBSC}
                                             </div>
                                         </div>                                     
                                     </li>                                

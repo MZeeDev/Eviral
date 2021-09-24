@@ -21,7 +21,7 @@ function Wallet() {
     const [ viewNFTs, setViewNFTs] = useState(false);
     const [viewTransactions, setViewTransactions] = useState(false);
     const [ chainLogo, setChainLogo] = useState(ETH);
-    const [ theme, setTheme] = useState("eth");
+    const [ theme, setTheme] = useState("ETH");
     let init = 0;
 
     const getTokens = async() => {
@@ -132,16 +132,16 @@ function Wallet() {
             <div className="choose-chain-wallet-wrapper">
                 <div className={`choose-chain-wallet-${theme}`}>                  
                 <div className="choose-chain-wallet-choose">                    
-                    <div className="choose-chain-wallet-chain" onClick={() => changeChain("eth", ETH, "eth")}>
+                    <div className="choose-chain-wallet-chain" onClick={() => changeChain("eth", ETH, "ETH")}>
                         <img src={ETH} />
                     </div>
-                    <div className="choose-chain-wallet-chain" onClick={() => changeChain("bsc", BSC, "bsc")}>
+                    <div className="choose-chain-wallet-chain" onClick={() => changeChain("bsc", BSC, "BSC")}>
                         <img src={BSC} />
                     </div>
-                    <div className="choose-chain-wallet-chain" onClick={() => changeChain("matic", MATIC, "matic")}>
+                    <div className="choose-chain-wallet-chain" onClick={() => changeChain("matic", MATIC, "MATIC")}>
                         <img src={MATIC} />
                     </div>
-                    <div className="choose-chain-wallet-chain" onClick={() => changeChain("avalanche", AVAX, "avax")}>
+                    <div className="choose-chain-wallet-chain" onClick={() => changeChain("avalanche", AVAX, "AVAX")}>
                         <img src={AVAX} />
                     </div>
                 </div>

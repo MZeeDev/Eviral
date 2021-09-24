@@ -1,0 +1,191 @@
+#swap-container {
+  margin: 2rem;
+}
+.swap-display-holding-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.swap-display-holding-ETH,
+.swap-display-holding-BSC,
+.swap-display-holding-MATIC,
+.swap-display-holding-AVAX {
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2rem 1rem 1rem;
+  margin-top: 0rem;
+  border: 2px solid rgba(0, 0, 0, 0.65);
+  border-top: none;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
+}
+.swap-display-holding-ETH {
+  background: linear-gradient(
+    to right,
+    rgba(4, 159, 255, 0.615),
+    rgba(64, 99, 224, 0.5)
+  );
+}
+.swap-display-holding-BSC {
+  background: linear-gradient(to right, gold, rgba(251, 219, 37, 0.8));
+}
+.swap-display-holding-MATIC {
+  background: linear-gradient(
+    to right,
+    rgba(80, 123, 253, 0.5),
+    rgba(75, 4, 255, 0.615)
+  );
+}
+.swap-display-holding-AVAX {
+  background: linear-gradient(to right, red, snow);
+}
+
+#swap-button-ETH,
+#swap-button-BSC,
+#swap-button-MATIC,
+#swap-button-AVAX {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  width: 45%;
+  padding: 0 1.5rem;
+  border-radius: 2.5rem;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+  height: 3.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  background: gainsboro;
+  color: rgb(32, 32, 32);
+}
+
+#swap-holding-option-ETH,
+#swap-holding-option-BSC,
+#swap-holding-option-MATIC,
+#swap-holding-option-AVAX {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.2rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  border: none;
+  width: 45%;
+  padding: 0 1.5rem;
+  border-top-left-radius: 2.5rem;
+  border-bottom-left-radius: 2.5rem;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
+  height: 3.5rem;
+
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-right: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+#swap-holding-option-ETH img,
+#swap-holding-option-BSC img,
+#swap-holding-option-MATIC img,
+#swap-holding-option-AVAX img {
+  height: 90%;
+  width: auto;
+  object-fit: contain;
+  margin-left: 0.2rem;
+}
+
+#swaplogoimg {
+  height: 90%;
+  border-radius: 50%;
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.35);
+}
+
+#swap-holding-option-ETH {
+  color: white;
+  background: linear-gradient(
+    to right,
+    rgba(4, 192, 255, 0.515),
+    rgba(64, 224, 208, 0.4)
+  );
+}
+#swap-holding-option-BSC {
+  color: black;
+  background: rgb(255, 233, 0);
+}
+#swap-holding-option-MATIC {
+  color: white;
+  background: linear-gradient(
+    to right,
+    rgba(64, 57, 255, 0.659),
+    rgba(97, 35, 255, 0.678)
+  );
+}
+#swap-holding-option-AVAX {
+  color: white;
+  background: linear-gradient(to right, rgb(213, 13, 13), rgb(255, 70, 70));
+}
+
+#swap-holding-option:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.75);
+}
+#swap-inputs {
+  display: flex;
+  justify-content: space-evenly;
+  width: 90%;
+  height: 50px;
+  margin: 1.5rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#input-swap-amount {
+  text-align: right;
+  width: 55%;
+  box-shadow: 02px 02px 10px 01px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-left: none;
+  padding-right: 1rem;
+  color: rgb(91, 91, 91);
+  font-size: 1.1rem;
+  background: rgb(243, 243, 243);
+  height: 3.5rem;
+}
+
+@media only screen and (max-width: 650px) {
+  #swap-inputs {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 50px;
+    margin: 1.5rem;
+  }
+  #swap-holding-option-ETH,
+  #swap-holding-option-BSC,
+  #swap-holding-option-MATIC,
+  #swap-holding-option-AVAX {
+    font-size: 1rem;
+    padding-right: 5px;
+    width: 65%;
+  }
+  #swap-holding-option-ETH img,
+  #swap-holding-option-BSC img,
+  #swap-holding-option-MATIC img,
+  #swap-holding-option-AVAX img {
+    height: 70%;
+    width: auto;
+    object-fit: contain;
+    margin-left: 2px;
+  }
+  #input-swap-amount {
+    font-size: 1rem;
+    padding-right: 3px;
+  }
+}

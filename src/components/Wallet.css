@@ -23,52 +23,52 @@
     "Lucida Sans", Arial, sans-serif;
 }
 
-.choose-chain-wallet-eth,
-.choose-chain-wallet-bsc,
-.choose-chain-wallet-matic,
-.choose-chain-wallet-avax {
+.choose-chain-wallet-ETH,
+.choose-chain-wallet-BSC,
+.choose-chain-wallet-MATIC,
+.choose-chain-wallet-AVAX {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 98%;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem 1rem 2rem 1rem;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 2rem 0rem;
   margin-top: 0.5rem;
   border: 2px solid rgba(0, 0, 0, 0.65);
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
 }
 
-.choose-chain-wallet-eth {
+.choose-chain-wallet-ETH {
   background: linear-gradient(
     to right,
     rgba(4, 159, 255, 0.615),
     rgba(64, 99, 224, 0.5)
   );
 }
-.choose-chain-wallet-bsc {
+.choose-chain-wallet-BSC {
   background: linear-gradient(to right, gold, rgba(251, 219, 37, 0.8));
 }
 
-.choose-chain-wallet-matic {
+.choose-chain-wallet-MATIC {
   background: linear-gradient(
     to right,
     rgba(80, 123, 253, 0.5),
     rgba(75, 4, 255, 0.615)
   );
 }
-.choose-chain-wallet-avax {
+.choose-chain-wallet-AVAX {
   background: linear-gradient(to right, firebrick, red, snow);
 }
 
 .choose-chain-wallet-choose {
   display: flex;
   width: 100%;
-  max-width: 70vw;
-  padding: 0 2rem;
+  max-width: 70%;
   justify-content: space-between;
 }
 .choose-chain-wallet-chain {
-  margin-right: 0.5rem;
+  display: flex;
+  height: 50%;
 }
 .choose-chain-wallet-chain img {
   height: 5.5rem;
@@ -89,10 +89,10 @@
   justify-content: center;
 }
 
-.choose-display-holding-eth,
-.choose-display-holding-bsc,
-.choose-display-holding-matic,
-.choose-display-holding-avax {
+.choose-display-holding-ETH,
+.choose-display-holding-BSC,
+.choose-display-holding-MATIC,
+.choose-display-holding-AVAX {
   display: flex;
   width: 98%;
   justify-content: space-evenly;
@@ -102,31 +102,31 @@
   border: 2px solid rgba(0, 0, 0, 0.65);
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
 }
-.choose-display-holding-eth {
+.choose-display-holding-ETH {
   background: linear-gradient(
     to right,
     rgba(4, 159, 255, 0.615),
     rgba(64, 99, 224, 0.5)
   );
 }
-.choose-display-holding-bsc {
+.choose-display-holding-BSC {
   background: linear-gradient(to right, gold, rgba(251, 219, 37, 0.8));
 }
-.choose-display-holding-matic {
+.choose-display-holding-MATIC {
   background: linear-gradient(
     to right,
     rgba(80, 123, 253, 0.5),
     rgba(75, 4, 255, 0.615)
   );
 }
-.choose-display-holding-avax {
+.choose-display-holding-AVAX {
   background: linear-gradient(to right, red, snow);
 }
 
-#display-holding-option-eth,
-#display-holding-option-bsc,
-#display-holding-option-matic,
-#display-holding-option-avax {
+#display-holding-option-ETH,
+#display-holding-option-BSC,
+#display-holding-option-MATIC,
+#display-holding-option-AVAX {
   display: flex;
   justify-content: center;
   font-size: 1.5rem;
@@ -139,7 +139,7 @@
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
 }
 
-#display-holding-option-eth {
+#display-holding-option-ETH {
   color: white;
   background: linear-gradient(
     to right,
@@ -147,7 +147,7 @@
     rgba(64, 224, 208, 0.4)
   );
 }
-#display-holding-option-bsc {
+#display-holding-option-BSC {
   color: black;
   background: linear-gradient(
     to right,
@@ -156,7 +156,7 @@
     gold
   );
 }
-#display-holding-option-matic {
+#display-holding-option-MATIC {
   color: white;
   background: linear-gradient(
     to right,
@@ -164,7 +164,7 @@
     rgba(97, 35, 255, 0.678)
   );
 }
-#display-holding-option-avax {
+#display-holding-option-AVAX {
   color: white;
   background: linear-gradient(to right, rgb(213, 13, 13), rgb(255, 70, 70));
 }
@@ -182,10 +182,10 @@
   align-items: center;
 }
 
-.wallet-tokens-eth,
-.wallet-tokens-bsc,
-.wallet-tokens-matic,
-.wallet-tokens-avax {
+.wallet-tokens-ETH,
+.wallet-tokens-BSC,
+.wallet-tokens-MATIC,
+.wallet-tokens-AVAX {
   display: flex;
   width: 98%;
   flex-direction: column;
@@ -197,7 +197,7 @@
   border-top: none;
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
 }
-.wallet-tokens-eth {
+.wallet-tokens-ETH {
   color: white;
   background: linear-gradient(
     to right,
@@ -205,11 +205,11 @@
     rgba(64, 99, 224, 0.4)
   );
 }
-.wallet-tokens-bsc {
+.wallet-tokens-BSC {
   color: black;
   background: whitesmoke;
 }
-.wallet-tokens-matic {
+.wallet-tokens-MATIC {
   color: white;
   background: linear-gradient(
     to right,
@@ -217,15 +217,15 @@
     rgba(75, 4, 255, 0.3)
   );
 }
-.wallet-tokens-avax {
+.wallet-tokens-AVAX {
   color: white;
   background: rgba(220, 220, 220, 0.762);
 }
 
-.wallet-nfts-matic,
-.wallet-nfts-bsc,
-.wallet-nfts-eth,
-.wallet-nfts-avax {
+.wallet-nfts-MATIC,
+.wallet-nfts-BSC,
+.wallet-nfts-ETH,
+.wallet-nfts-AVAX {
   display: flex;
   width: 98%;
   flex-direction: column;
@@ -243,24 +243,24 @@
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
 }
 
-.wallet-nfts-matic {
+.wallet-nfts-MATIC {
   background: linear-gradient(
     to right,
     rgba(80, 123, 253, 0.2),
     rgba(75, 4, 255, 0.2)
   );
 }
-.wallet-nfts-bsc {
+.wallet-nfts-BSC {
   background: rgba(255, 220, 0, 0.5);
 }
-.wallet-nfts-eth {
+.wallet-nfts-ETH {
   background: linear-gradient(
     to right,
     rgba(4, 159, 255, 0.215),
     rgba(64, 99, 224, 0.2)
   );
 }
-.wallet-nfts-avax {
+.wallet-nfts-AVAX {
   background: rgba(220, 20, 60, 0.231);
 }
 
@@ -278,10 +278,10 @@
   font-size: 1.1rem;
 }
 
-.wallet-token-warning-bsc,
-.wallet-token-warning-eth,
-.wallet-token-warning-matic,
-.wallet-token-warning-avax {
+.wallet-token-warning-BSC,
+.wallet-token-warning-ETH,
+.wallet-token-warning-MATIC,
+.wallet-token-warning-AVAX {
   font-size: 0.9rem;
   font-family: Arial, sans-serif;
   display: flex;
@@ -291,11 +291,11 @@
   width: 98%;
   border-radius: none;
 }
-.wallet-token-warning-bsc {
+.wallet-token-warning-BSC {
   color: rgb(49, 49, 49);
   background: gold;
 }
-.wallet-token-warning-eth {
+.wallet-token-warning-ETH {
   color: lightgray;
   background: linear-gradient(
     to right,
@@ -303,7 +303,7 @@
     rgba(69, 123, 216, 0.7)
   );
 }
-.wallet-token-warning-matic {
+.wallet-token-warning-MATIC {
   color: lightgray;
   background: linear-gradient(
     to right,
@@ -311,15 +311,15 @@
     rgba(64, 57, 255, 0.659)
   );
 }
-.wallet-token-warning-avax {
+.wallet-token-warning-AVAX {
   color: white;
   background: crimson;
 }
 
-.wallet-token-chart-eth,
-.wallet-token-chart-bsc,
-.wallet-token-chart-matic,
-.wallet-token-chart-avax {
+.wallet-token-chart-ETH,
+.wallet-token-chart-BSC,
+.wallet-token-chart-MATIC,
+.wallet-token-chart-AVAX {
   font-size: 1.2rem;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
@@ -335,7 +335,7 @@
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.35);
   z-index: 2;
 }
-.wallet-token-chart-eth {
+.wallet-token-chart-ETH {
   color: white;
   background: linear-gradient(
     to right,
@@ -343,7 +343,7 @@
     rgba(69, 123, 216, 0.7)
   );
 }
-.wallet-token-chart-avax {
+.wallet-token-chart-AVAX {
   color: white;
   background: linear-gradient(
     to right,
@@ -352,12 +352,12 @@
   );
 }
 
-.wallet-token-chart-bsc {
+.wallet-token-chart-BSC {
   color: black;
   background: gold;
 }
 
-.wallet-token-chart-matic {
+.wallet-token-chart-MATIC {
   color: white;
   background: linear-gradient(
     to right,
@@ -431,10 +431,10 @@
     word-wrap: break-word;
   }
 
-  #display-holding-option-eth,
-  #display-holding-option-bsc,
-  #display-holding-option-matic,
-  #display-holding-option-avax {
+  #display-holding-option-ETH,
+  #display-holding-option-BSC,
+  #display-holding-option-MATIC,
+  #display-holding-option-AVAX {
     padding: 0.5rem 1rem;
     width: 45%;
   }
@@ -444,8 +444,9 @@
   }
   .choose-chain-wallet-choose {
     width: 100%;
-    max-width: 90%;
-    padding: 0%;
+    max-width: 100%;
+    justify-content: space-around;
+    padding: 0;
   }
 
   .wallet-token {
@@ -453,10 +454,16 @@
     width: 100%;
   }
 
-  .wallet-tokens-eth,
-  .wallet-tokens-bsc,
-  .wallet-tokens-matic,
-  .wallet-tokens-avax {
+  .wallet-tokens-ETH,
+  .wallet-tokens-BSC,
+  .wallet-tokens-MATIC,
+  .wallet-tokens-AVAX {
     padding: 1rem 0rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .choose-chain-wallet-chain img {
+    height: 5rem;
+    width: 5rem;
   }
 }

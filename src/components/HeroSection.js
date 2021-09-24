@@ -16,7 +16,7 @@ import Logo from '../img/newlogo2.png';
 import LogoBSC from '../img/newlogoBSC2.png';
 import HowItWorks from "../img/howitworks.jpg";
 import VCLabsM from "../img/vclabsmobile.jpg";
-import VCLabsD from "../img/vclabsdesktop.jpg";
+import VCLabsD from "../img/vclabsdesktop.png";
 
 function HeroSection() {
     
@@ -24,40 +24,9 @@ function HeroSection() {
     const [ chain, setChain] = useState();
     const [ nativeToken, setNativeToken] = useState();
     const [ amount, setAmount] = useState(0);
-    const [ showImg, setShowImg] = useState();
     
-    const viralToken = "0x7CeC018CEEF82339ee583Fd95446334f2685d24f";
     const eth = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
     const bnb = 0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c;
-    const nativeToken1Inch = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
-
-    let dex;
-
-    // const options = {
-    //     chain: chain,
-    //     fromTokenAddress: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-    //     toTokenAddress: viralToken,
-    //     amount: Number(Moralis.Units.ETH("0.00000001")),
-    //     fromAddress: Moralis.User.current().get("ethAddress"),
-    //     slippage: 25        
-    // }
-    
-    // var transact = async() => { 
-    //     var receipt = await dex.swap(options);
-    //     console.log(receipt);
-    // };
-
-  
-
-    // useEffect(() => {
-    //     if(isInitialized){
-    //     const init = async() => { 
-    //         await Moralis.enable;
-    //         await Moralis.initPlugins();
-    //         dex = Moralis.Plugins.oneInch;
-    //     };
-    //     }        
-    // }, [isInitialized])
 
 
     return (
@@ -101,7 +70,7 @@ function HeroSection() {
                     </div>
                     <div id="why-viral-crypto">
                         <h3>Why ViralCrypto?</h3>
-                        <p>ViralCrypto is similar to the preveious generation of contractor networks where users can make profiles and project pages in addition to searching through the platform in order to collaborate. Although, this is where the similarities end. 
+                        <p>ViralCrypto is similar to the previous generation of contractor networks where users can make profiles and project pages in addition to searching through the platform in order to collaborate. Although, this is where the similarities end. 
                             <br/>
                             <br/>
                             The VC platform allows users to safely work together, learn new skills, share interests, and evaluate new projects. How? Users connect to the platform with their Web3 wallet and create a profile that is uniquely associated with their wallet address. Users can create pages for new projects that are still in development in order to collaborate with freelancers. Users can also create verified project pages for established projects that are administered by the appropriate representative of that project. Users can rate and review projects and message with verified creators. Whether a user is doxxed or not, their projects along with reviews and ratings follow them forever on the site. This way, reputation is built, transparency is assured, and privacy is allowed. In addition, all project pages are visible without a wallet balance, incentivizing newcomers to engage with the platform.
@@ -148,7 +117,7 @@ function HeroSection() {
                 <img src={VCLabsD} id="vclabsd"/>
             </div>
             <div id="why-viral-crypto">
-                <h3>Front End Dev <br/> HACKATHON</h3>
+                <h3>Front-end Dev <br/> HACKATHON</h3>
                 <p>Winning developers will also be featured in search, here on the homepage and given credit on the team page. 
                     <br/>
                 </p>

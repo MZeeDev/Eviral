@@ -51,10 +51,10 @@ function Profile(props) {
     const renderBalance = async () => {
         const eViralBalance = await Moralis.Web3.getERC20({tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
         const beViralBalance = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
-        const eBalance = eViralBalance.balance/(10**18);
-        const bBalance = beViralBalance.balance/(10**18);
-        const balance = (eBalance.toFixed(3));
-        const bvBalance = (bBalance.toFixed(3));
+        const eBalance = eViralBalance.balance/(10**9);
+        const bBalance = beViralBalance.balance/(10**9);
+        const balance = (eBalance.toFixed(0));
+        const bvBalance = (bBalance.toFixed(0));
         setBalanceETH(balance);
         setBalanceBSC(bvBalance);
     }
@@ -176,11 +176,11 @@ function Profile(props) {
                     <div className="profile-page-balances">
                         <div className="profile-balances-wrapper">
                             <div className="showProfileBalance">
-                                <p>{balanceETH}&nbsp;Bil</p>
+                                <p>{balanceETH}</p>
                                 <img className="logo-balance-display" src={Logo} alt="" ></img>
                             </div>
                             <div className="showProfileBalanceBSC">
-                                <p>{balanceBSC}&nbsp;Bil</p>
+                                <p>{balanceBSC}</p>
                                 <img className="logo-balance-display" src={LogoBSC} alt="" ></img>
                             </div>
                         </div>

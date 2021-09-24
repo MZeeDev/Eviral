@@ -2,6 +2,7 @@
   position: absolute;
   top: 66px;
   width: 300px;
+  height: auto;
   transform: translateX(-85%);
   background-color: var(--bg);
   border: var(--border);
@@ -13,7 +14,7 @@
 
 .dropdown-item {
   color: white;
-  height: 50px;
+  min-height: 50px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -46,12 +47,17 @@
 
 .wallet-balances {
   height: 100%;
+  width: 60%;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .eViralLogo-Dropdown {
-  height: 2rem;
+  display: flex;
+  justify-content: center;
+  height: 1.75rem;
   width: auto;
-  margin-left: 0.3rem;
+  margin: 0.5rem 1rem 0.5rem 0.5rem;
 }

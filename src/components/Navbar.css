@@ -166,8 +166,10 @@
   transition: all 0.2s ease-out;
 }
 
-.showBalance {
-  color: rgb(58, 228, 103);
+.showBalance,
+.showBalanceBSC {
+  display: flex;
+  justify-content: space-between;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   display: flex;
@@ -175,18 +177,15 @@
   text-decoration: none;
   padding: 0;
   height: 100%;
+  width: 100%;
+}
+
+.showBalance {
+  color: rgb(58, 228, 103);
 }
 
 .showBalanceBSC {
   color: gold;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  margin-left: 0.3rem;
-  padding: 0;
-  height: 100%;
 }
 
 .caret {

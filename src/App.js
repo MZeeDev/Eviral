@@ -12,6 +12,7 @@ import ProjectData from './components/ProjectData';
 import Profiles from './components/pages/profiles';
 import UserProfilePage from './components/UserProfileData';
 import ChatPage from './components/ChatPage';
+import TokenSwap from './components/TokenSwap';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
           </Route>
           <Route path='/chat' exact component={ChatPage} />
           <Route path='/wallet' exact component={Wallet} />
+          <Route path='/swap' exact component={TokenSwap} />
         </Switch>      
       </Router>
       

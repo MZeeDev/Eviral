@@ -58,7 +58,7 @@ function UpdateProfile(props) {
 
 
     const handleSave = async() => {
-        if( (username === "") ) { 
+        if( (username == "") ) { 
             return;
         }
         await setUserData({
