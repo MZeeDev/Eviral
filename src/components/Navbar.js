@@ -143,18 +143,23 @@ function Navbar() {
                         </li> 
                         
                         {user &&
-                        <li className='nav-item' onClick={closeMobileMenu}>
-                            <Link to='/chat' className='nav-links' >
-                                <i class="far fa-comments"></i>
-                            </Link>
-                        </li>
-                        }
-                        {user &&
-                        <li className='nav-item'>
-                            <Link to='/wallet' className='nav-links' onClick={closeMobileMenu}>
-                                <i class="fas fa-wallet"></i>
-                            </Link>
-                        </li>
+                            <>
+                                <li className='nav-item' onClick={closeMobileMenu}>
+                                    <Link to='/chat' className='nav-links' >
+                                        <i class="far fa-comments"></i>
+                                    </Link>
+                                </li>
+                                <li className='nav-item'>
+                                    <Link to='/wallet' className='nav-links' onClick={closeMobileMenu}>
+                                        <i class="fas fa-wallet"></i>
+                                    </Link>
+                                </li>
+                                {/* <li className='nav-item'>
+                                    <Link to='/swap' className='nav-links' onClick={closeMobileMenu}>
+                                    <i class="fas fa-sync-alt"></i>
+                                    </Link>
+                                </li> */}
+                            </>
                         }
                     </ul>
                

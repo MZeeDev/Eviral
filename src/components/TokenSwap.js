@@ -94,32 +94,56 @@ function TokenSwap() {
         await Moralis.Web3.enable();
         await Moralis.initPlugins();
         const userAddress = user.get('ethAddress');
-        console.log(userAddress);
-        await hasAllowance(userAddress);
+        await checkAllowance(userAddress);
+        // await approve(userAddress);
         const number = Number(Moralis.Units.ETH(nativeAmount));
-        console.log(number);
         const receipt = await Moralis.Plugins.oneInch.swap({
           chain: currentChain, // The blockchain you want to use (eth/bsc/polygon)
-          fromTokenAddress: NATIVE_ADDRESS, // The token you want to swap
+          fromTokenAddress: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", // The token you want to swap
           toTokenAddress: "0x7cec018ceef82339ee583fd95446334f2685d24f", // The token you want to receive
           amount: number,
           fromAddress: userAddress, // Your wallet address
-          slippage: 17,
-          disableEstimate: true,
-          fee: 0
+          protocols: "uniswapv2",
+          slippage: 33
         });
+        console.log("below id receipt");
         console.log(receipt);
       }
 
+       const approve = async(userAddress) => {
+        await Moralis.Plugins.oneInch.approve({
+          chain: currentChain, // The blockchain you want to use (eth/bsc/polygon)
+          tokenAddress: "0x6B175474E89094C44Da98b954EedeAC495271d0F", // The token you want to swap
+          fromAddress: userAddress, // Your wallet address
+          infinity: true,
+          protocols: "uniswapv2"
+        });
+      }
+
     const hasAllowance = async(userAddress) => {
-        console.log(userAddress);
         const number = Number(Moralis.Units.ETH(nativeAmount));
         const allowance = await Moralis.Plugins.oneInch.hasAllowance({
             chain: "eth", // The blockchain you want to use (eth/bsc/polygon)
-            tokenAddress: NATIVE_ADDRESS, // The token you want to swap
+            tokenAddress: "0x6B175474E89094C44Da98b954EedeAC495271d0F", // The token you want to swap
             fromAddress: userAddress, // Your wallet address            
             amount: number,
         });
+        console.log(allowance);
+        console.log(`The user has enough allowance: ${allowance}`);
+    }
+    const checkAllowance = async(userAddress) => {
+        const options = {
+            owner_address: userAddress,
+            spender_address: "0x11111112542D85B3EF69AE05771c2dCCff4fAa26",
+            address: "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+            // chain: currentChain
+          };
+          let allowance;
+          try{
+             allowance = await Moralis.Web3API.token.getTokenAllowance(options);
+          } catch(error){
+              console.log(error)
+          }
         console.log(allowance);
         console.log(`The user has enough allowance: ${allowance}`);
     }
@@ -271,6 +295,7 @@ function TokenSwap() {
     useEffect(() => {
         if(isInitialized) {
             init();
+            renderBalance(currentChain);
         }
     }, [isInitialized] )
 
@@ -326,6 +351,7 @@ function TokenSwap() {
                             <input id="input-swap-amount" type="number" value={viralTokenAmount} placeholder="0" onChange={ (e) => setViralTokenAmount(e.currentTarget.value)}/>
                         </div>
                         <div id="swap-inputs">
+                            <button id={`swap-button-${theme}`} onClick={() => swap()}>Approve</button>                        
                             <button id={`swap-button-${theme}`} onClick={() => swap()}>Swap</button>                        
                         </div>
                     </div>

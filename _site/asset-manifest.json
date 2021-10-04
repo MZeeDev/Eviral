@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.6da601f2.chunk.css",
-    "main.js": "/static/js/main.3194dcdc.chunk.js",
-    "main.js.map": "/static/js/main.3194dcdc.chunk.js.map",
+    "main.css": "/static/css/main.2beca43c.chunk.css",
+    "main.js": "/static/js/main.2fb46304.chunk.js",
+    "main.js.map": "/static/js/main.2fb46304.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e01d658d.js",
     "runtime-main.js.map": "/static/js/runtime-main.e01d658d.js.map",
     "static/js/2.926d8651.chunk.js": "/static/js/2.926d8651.chunk.js",
     "static/js/2.926d8651.chunk.js.map": "/static/js/2.926d8651.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.6da601f2.chunk.css.map": "/static/css/main.6da601f2.chunk.css.map",
+    "static/css/main.2beca43c.chunk.css.map": "/static/css/main.2beca43c.chunk.css.map",
     "static/js/2.926d8651.chunk.js.LICENSE.txt": "/static/js/2.926d8651.chunk.js.LICENSE.txt",
     "static/media/avaxlogo.30dfa545.png": "/static/media/avaxlogo.30dfa545.png",
     "static/media/beviral.83bfabd5.png": "/static/media/beviral.83bfabd5.png",
@@ -33,7 +33,7 @@
   "entrypoints": [
     "static/js/runtime-main.e01d658d.js",
     "static/js/2.926d8651.chunk.js",
-    "static/css/main.6da601f2.chunk.css",
-    "static/js/main.3194dcdc.chunk.js"
+    "static/css/main.2beca43c.chunk.css",
+    "static/js/main.2fb46304.chunk.js"
   ]
 }

@@ -14,17 +14,6 @@ function ProjectGridBox(props) {
     return (
                   
         <div className="project-grid-box-wrapper">
-            <div className="project-card-header">
-                <Link
-                    className="project-url-link"
-                    to={`/projects/${props.path}`}
-                    >
-                        <img className="project-card-img" src={props.src}></img>
-                </Link>
-            </div>
-            <div className="project-card-body">
-                <div className="project-card-title">
-                    <h4>{props.title}</h4>
                     <div className="project-card-badges">
                         {isLive &&
                             <div className="project-card-badge">
@@ -42,6 +31,17 @@ function ProjectGridBox(props) {
                             </div>
                         }
                     </div>
+            <div className="project-card-header">
+                <Link
+                    className="project-url-link"
+                    to={`/projects/${props.path}`}
+                    >
+                        <img className="project-card-img" src={props.src}></img>
+                </Link>
+            </div>
+            <div className="project-card-body">
+                <div className="project-card-title">
+                    <h4>{props.title}</h4>
                 </div>
                 <div className="project-card-creator">
                     <div className="project-card-creator-pic"><img  src={props.creatorProfilePic}  className="project-card-profilepic"/></div>
