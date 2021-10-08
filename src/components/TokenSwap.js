@@ -356,11 +356,8 @@ function TokenSwap() {
                             <label id={`swap-holding-option-${theme}`} >
                             <select class="form-select form-select-sm" aria-label=".form-select-sm example">
                                 <option selected>Open this select menu</option>
-                                {/* {tokens.map( (token, index) => (
-                                    <option key={index} value={token.address}>
-                                        {token.symbol}<img src={token.logoURI}/>
-                                    </option>
-                                ))} */}
+                                {/* 
+                                 */}
                             </select>
                                 {viralBalance}&nbsp;
                                 <img id="swaptokenimg" src={LogoETH} style={ chainLogo != ETH ? {display: "none"} : {} } />                                     
