@@ -37,6 +37,7 @@ function LoadUsers() {
     const params = { pageNum: pageNumber};
     const userList = await Moralis.Cloud.run("loadUsers", params);
     setUsers(userList);
+    console.log(userList);
   };
 
   const SavedProfiles = async () => {
@@ -140,7 +141,9 @@ function LoadUsers() {
                         landscapePic={userProfile.landscapePic}
                         bio={userProfile.bio}
                         profilePic={userProfile.profilePic}
-                        username={userProfile.username}           
+                        username={userProfile.username}
+                        startRate={userProfile.startRate}    
+                        payCurrency={userProfile.payCurrency}       
                       />
                   </div>
                   ))}

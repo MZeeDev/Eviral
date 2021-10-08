@@ -309,7 +309,12 @@
   justify-content: flex-end;
   align-items: center;
   justify-content: space-between;
-  margin: 0 1rem;
+  margin: 0 0rem;
+}
+
+#profileRates {
+  width: min-content;
+  margin-right: 5px;
 }
 
 /* @media only screen and (max-width: 1600px) {

@@ -1,9 +1,18 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import SaveProfile from './SaveProfile';
 
 function ProfileGridBox(props) {
     const { url } = useRouteMatch();
+
+    const [ratesLive, setRatesLive] = useState(false);
+
+    useEffect(() => {
+        if (props.startRate) {
+            setRatesLive(true);
+        }
+      }, []);
+    
 
     return (    
         <div className="profile-grid-box-wrapper">
@@ -34,6 +43,11 @@ function ProfileGridBox(props) {
                     profileName = {props.username}
                     />
                 </div>
+                {ratesLive &&
+                    <div id="profileRates">
+                        Starting&nbsp;at&nbsp;{props.startRate}{props.payCurrency}
+                    </div>
+                }
             </div>
         </div>   
     )

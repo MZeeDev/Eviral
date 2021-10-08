@@ -28,6 +28,8 @@ function UpdateProfile(props) {
     const [linkedIn, setLinkedIn] = useState();
     const [youtube, setYoutube] = useState();
     const [twitch, setTwitch] = useState();
+    const [startRate, setStartRate]  = useState();
+    const [payCurrency, setPayCurrency] = useState();
     const init = 0;
 
     const checkProfileCreated = () => {
@@ -46,7 +48,8 @@ function UpdateProfile(props) {
             setDiscord(user.attributes?.discord);
             setYoutube(user.attributes?.youtube);
             setTwitch(user.attributes?.twitch);
-
+            setStartRate(user.attributes?.startRate);
+            setStartRate(user.attributes?.payCurrency);
         }
     }
     
@@ -74,6 +77,8 @@ function UpdateProfile(props) {
             linkedIn: linkedIn === "" ? undefined : linkedIn,     
             youtube: youtube === "" ? undefined : youtube,     
             twitch: twitch === "" ? undefined : twitch,  
+            startRate: startRate === "" ? undefined : startRate,  
+            payCurrency: payCurrency === "" ? undefined : payCurrency,  
             profileCreated: true   
         });
         setAlertContents("Profile Updated!");
@@ -128,6 +133,19 @@ function UpdateProfile(props) {
                             <input className="form-input" placeholder="www.yourpage.com" value={website} onChange={(event) =>setWebsite(event.currentTarget.value)}/>
                             <label className="form-label">Skills</label>
                             <input className="form-input" placeholder="List skills as keywords (ie Artist, Programmer, Model)" maxLength={50} value={skills} onChange={(event) =>setSkills(event.currentTarget.value)}/>
+                            
+                            <label className="form-label">Average starting costs for your service?</label>                            
+                            <div id="social-link-item">
+                                <div className="social-input-box-group">
+                                    <span className="social-link-at-box">$</span>
+                                    <input className="form-input" type="number" min="0" placeholder="Enter starting amount" value={startRate} onChange={(event) =>setStartRate(event.currentTarget.value)}/>
+                                    <input id="payCurrency" className="form-input" maxLength={5} minLength={3} placeholder="Symbol (USD ETH DAI etc) " value={payCurrency} onChange={(event) =>setPayCurrency(event.currentTarget.value)}/>
+                                    
+                                </div>
+                            </div>
+                            
+                            
+                            
                             <label className="form-label">Bio</label>
                             <textarea rows={3} className="form-control" required placeholder="Brief bio (<150 characters)" maxLength={150} value={bio} onChange={(event) =>setBio(event.currentTarget.value)}/>
                             <label className="form-label">Story</label>

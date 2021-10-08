@@ -82,6 +82,11 @@
   background-color: rgb(204, 204, 204);
 }
 
+#payCurrency {
+  margin-left: 1rem;
+  width: max-content;
+}
+
 #update-socials {
   display: flex;
   flex-wrap: wrap;

@@ -24,6 +24,7 @@ function TokenSwap() {
     const [ viralTokenAmount, setViralTokenAmount] = useState(0);
     const [ nativeBalance, setNativeBalance ] = useState(0);
     const [ viralBalance, setViralBalance] = useState(0);
+    const [tokens, setTokens] = useState([]);
 
     const NATIVE_ADDRESS = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
     const VIRAL_ADDRESS = "0x7CeC018CEEF82339ee583Fd95446334f2685d24f";
@@ -108,6 +109,14 @@ function TokenSwap() {
         });
         console.log("below id receipt");
         console.log(receipt);
+      }
+
+      const getSupportedTokens = async() => {
+        const tokens = await Moralis.Plugins.oneInch.getSupportedTokens({
+          chain: currentChain, // The blockchain you want to use (eth/bsc/polygon)
+        });
+        console.log(tokens.tokens);
+        setTokens(tokens.tokens);
       }
 
        const approve = async(userAddress) => {
@@ -296,8 +305,11 @@ function TokenSwap() {
         if(isInitialized) {
             init();
             renderBalance(currentChain);
+            getSupportedTokens(currentChain);
         }
     }, [isInitialized] )
+    
+
 
     useEffect(() => {
         if(isInitialized) {
@@ -342,6 +354,14 @@ function TokenSwap() {
                         </div>
                         <div id="swap-inputs">
                             <label id={`swap-holding-option-${theme}`} >
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected>Open this select menu</option>
+                                {/* {tokens.map( (token, index) => (
+                                    <option key={index} value={token.address}>
+                                        {token.symbol}<img src={token.logoURI}/>
+                                    </option>
+                                ))} */}
+                            </select>
                                 {viralBalance}&nbsp;
                                 <img id="swaptokenimg" src={LogoETH} style={ chainLogo != ETH ? {display: "none"} : {} } />                                     
                                 <img id="swaptokenimg"src={LogoBSC} style={ chainLogo != BSC ? {display: "none"} : {} } />    
