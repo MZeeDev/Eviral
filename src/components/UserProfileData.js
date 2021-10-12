@@ -167,7 +167,13 @@ const UserProfilePage = ({ data }) => {
                                   story={userProfile.story}
                                   userLocation={userProfile.userLocation}
                                   skills={userProfile.skills}
-                                  website={userProfile.website}                             
+                                  website={userProfile.website} 
+                                  twitter={userProfile.twitter}
+                                  telegram={userProfile.telegram}
+                                  discord={userProfile.discord}
+                                  linkedIn={userProfile.linkedIn}
+                                  twitch={userProfile.twitch}
+                                  youtube={userProfile.youtube}                            
                                   />
                                 ))}  
                             </div>

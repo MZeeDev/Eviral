@@ -20,7 +20,13 @@ function AboutUser(props) {
                     <p className="profile-story-description">{props.skills}</p>
                 </div>                
             </div>            
-            <SocialIconBar />
+            <SocialIconBar 
+            twitter={props.twitter}
+            telegram={props.telegram}
+            discord={props.discord}
+            linkedIn={props.linkedIn}
+            twitch={props.twitch}
+            youtube={props.youtube}/>
         </div>
     )
 }
