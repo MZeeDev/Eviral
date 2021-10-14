@@ -17,6 +17,8 @@ import LogoBSC from '../img/newlogoBSC2.png';
 import HowItWorks from "../img/howitworks.jpg";
 import VCLabsM from "../img/vclabsmobile.jpg";
 import VCLabsD from "../img/vclabsdesktop.png";
+import Etherscan from "../img/etherscan-logo.png";
+import BSCScan from "../img/bscscan-logo.png";
 
 function HeroSection() {
     
@@ -49,33 +51,64 @@ function HeroSection() {
                         <img src={HowItWorks} />
                     </div>
                     <div id="how-it-works2">
-                    <img src={Logo} id="how-it-works-logo"/>
-                    <div id="how-it-works-title">
-                        <h4>How it Works</h4>
+                        <img src={Logo} id="how-it-works-logo"/>
+                        <div id="how-it-works-title">
+                            <h4>How it Works</h4>
+                        </div>
+                        <div id="how-it-works-content">
+                            <section id="how-it-works-section">
+                                <h6>1. Get Viral Tokens</h6>
+                                <article>Currently available on both the Ethereum and BSC blockchains, by owning any viral tokens you gain access to the platform.</article>
+                            </section>
+                            <section id="how-it-works-section">
+                                <h6>2. Create Your Space</h6>
+                                <article>By owning viral tokens you can connect to the platform, create a profile, and host project pages for new and existing projects.</article>
+                            </section>
+                            <section id="how-it-works-section">
+                                <h6>3. Collaborate</h6>
+                                <article>Connect and message other DeFi enthusiasts to work together, learn new skills, share interests, and evaluate new projects.</article>
+                            </section>
+                        </div>
                     </div>
-                    <div id="how-it-works-content">
-                        <section id="how-it-works-section">
-                            <h6>1. Get Viral Tokens</h6>
-                            <article>Currently available on both the Ethereum and BSC blockchains, by owning any viral tokens you gain access to the platform.</article>
-                        </section>
-                        <section id="how-it-works-section">
-                            <h6>2. Create Your Space</h6>
-                            <article>By owning viral tokens you can connect to the platform, create a profile, and host project pages for new and existing projects.</article>
-                        </section>
-                        <section id="how-it-works-section">
-                            <h6>3. Collaborate</h6>
-                            <article>Connect and message other DeFi enthusiasts to work together, learn new skills, share interests, and evaluate new projects.</article>
-                        </section>
+                    <div id="how-it-works3">
+                        <img src={LogoBSC} id="how-it-works-logo"/>
+                        <div id="why-viral-crypto">
+                            <h3>Why ViralCrypto?</h3>
+                        </div>                            
+                        <div id="how-it-works-content">
+                            <section id="how-it-works-section">
+                                <h6>Fundamentals</h6>
+                                <article>The VC platform allows users to safely collaborate, share interests, and evaluate new projects.</article>
+                            </section>
+                            <section id="how-it-works-section">
+                                <h6>First Steps</h6>
+                                <article>Users connect to the platform via our secure web3 walle-connect and create a profile that is uniquely associated with their wallet address.</article>
+                            </section>
+                            <section id="how-it-works-section">
+                                <h6>Freelancer Network Functionality</h6>
+                                <article>Users can create pages for new projects that are still in development in order to collaborate with freelancers.</article>
+                            </section>
+                            
+                        </div>
                     </div>
+                    <div id="how-it-works3">
+                        <img src={Logo} id="how-it-works-logo"/>                        
+                        <div id="how-it-works-content">
+                            <section id="how-it-works-section">
+                                <h6>Reputation Building</h6>
+                                <article>Users can create verified project pages for establish projects that are administered by the appropriate representative of that project</article>
+                            </section>
+                            <section id="how-it-works-section">
+                                <h6>Growing Together</h6>
+                                <article>Users can rate and review projects in addition to connecting with verified project creators</article>
+                            </section>
+                            <section id="how-it-works-section">
+                                <h6>Privacy Meets Publicity</h6>
+                                <article>Whether a user is publicly doxxed or not, their projects along with their reviews and ratings follow them forever on the VC platform.</article>
+                            </section>
+                        </div>
                     </div>
-                    <div id="why-viral-crypto">
-                        <h3>Why ViralCrypto?</h3>
-                        <p>ViralCrypto is similar to the previous generation of contractor networks where users can make profiles and project pages in addition to searching through the platform in order to collaborate. Although, this is where the similarities end. 
-                            <br/>
-                            <br/>
-                            The VC platform allows users to safely work together, learn new skills, share interests, and evaluate new projects. How? Users connect to the platform with their Web3 wallet and create a profile that is uniquely associated with their wallet address. Users can create pages for new projects that are still in development in order to collaborate with freelancers. Users can also create verified project pages for established projects that are administered by the appropriate representative of that project. Users can rate and review projects and message with verified creators. Whether a user is doxxed or not, their projects along with reviews and ratings follow them forever on the site. This way, reputation is built, transparency is assured, and privacy is allowed. In addition, all project pages are visible without a wallet balance, incentivizing newcomers to engage with the platform.
-                        </p>
-                    </div>
+                    
                     <div className="buy-button">
                         <a href="#tokenIframes" className="homepage-button btn2">Buy&nbsp;Viral&nbsp;Tokens</a>
                     </div>
@@ -98,12 +131,18 @@ function HeroSection() {
                     <div className="tokenIframes-wrapper">
                         <div className="eViralIframe">
                             <h3 className="iframe-title">Buy <img className="eViralLogo" src={Logo}/>Viral Ethereum</h3>
+                            <Link to={{ pathname: (`https://www.dextools.io/app/ether/pair-explorer/0xf38424fb7da8603e331aca2acb6cef8aed469fe2`) }} target="_blank" className="homepage-token-button ">Chart</Link>
+                            <Link to={{ pathname: (`https://team.finance/view-coin/0x7CeC018CEEF82339ee583Fd95446334f2685d24f?name=Viral%20Ethereum&symbol=eViral%20%F0%9F%A7%AC`) }} target="_blank" className="homepage-token-button btn2"><i class="fas fa-lock"></i> Liquidity</Link>
+                            <Link to={{ pathname: (`https://etherscan.io/token/0x7cec018ceef82339ee583fd95446334f2685d24f`) }} target="_blank" className="homepage-token-button btn2"><img id="etherscan" src={Etherscan}/></Link>
                             <iframe
                                 src="https://app.uniswap.org/#/swap?outputCurrency=0x7cec018ceef82339ee583fd95446334f2685d24f&use=V2"
                             />
                         </div>
                         <div className="beViralIframe">
                             <h3 className="iframe-title">Buy <img className="eViralLogo" src={LogoBSC}/>Viral Binance</h3>
+                            <Link to={{ pathname: (`https://www.dextools.io/app/bsc/pair-explorer/0xb76b40213d618a9099ba14bd859596904828aff5`) }} target="_blank" className="homepage-token-button btn2">Chart</Link>
+                            <Link to={{ pathname: (`https://team.finance/view-coin/0x7CeC018CEEF82339ee583Fd95446334f2685d24f?name=Viral%20Ethereum&symbol=eViral%20%F0%9F%A7%AC`) }} target="_blank" className="homepage-token-button btn2"><i class="fas fa-lock"></i> Liquidity</Link>
+                            <Link to={{ pathname: (`https://bscscan.com/token/0x7cec018ceef82339ee583fd95446334f2685d24f`) }} target="_blank" className="homepage-token-button btn2"><img id="bscscan" src={BSCScan}/></Link>
                             <iframe
                                 src="https://pancakeswap.finance/swap?outputCurrency=0x7cec018ceef82339ee583fd95446334f2685d24f"
                             />
@@ -133,7 +172,36 @@ function HeroSection() {
                     1 innovative improvement on search capability
                 </p>
             </div>
+                    <div className='social-icon-wrapper'>
+                        <Link className='profile-social-icon twitter' to={{ pathname: (`https://twitter.com/viralcryptoapp`) }} target="_blank" aria-label='Twitter'>
+                            <i className="fab fa-twitter"></i>
+                        </Link>        
+                        <Link className='profile-social-icon telegram' to={{ pathname: (`https://t.me/ViralCryptoApp`) }} target="_blank" aria-label='Telegram'>
+                            <i className="fab fa-telegram"></i>
+                        </Link>
+                    
+                        <Link className='profile-social-icon discord' to={{ pathname: (`https://discord.gg/qVbhwxWsEZ`) }} target="_blank" aria-label='Discord'>
+                            <i className="fab fa-discord"></i>
+                        </Link>
+                    
+                        <Link className='profile-social-icon linkedIn' to={{ pathname: (`https://www.linkedin.com/company/viralcrypto`) }} target="_blank" aria-label='LinkedIn'>
+                            <i className="fab fa-linkedin"></i>
+                        </Link>
+                        <Link className='profile-social-icon youtube' to={{ pathname: (`https://medium.com/@ViralCrypto`) }} target="_blank" aria-label='Medium'>
+                        <i class="fab fa-medium"></i>
+                        </Link>
+                        <Link className='profile-social-icon twitch' to={{ pathname: (`https://twitch.tv/@ViralCryptoApp`) }} target="_blank" aria-label='Twitch'>
+                            <i className="fab fa-twitch"></i>
+                        </Link>        
+                        <Link className='profile-social-icon twitch' to={{ pathname: (`https://vm.tiktok.com/ZMRv5NxqA/`) }} target="_blank" aria-label='TikTok'>
+                        <i class="fab fa-tiktok"></i>
+                        </Link>        
+                        <Link className='profile-social-icon twitch' to={{ pathname: (`https://www.instagram.com/p/CUbgem0jJ5U/?utm_medium=copy_kink`) }} target="_blank" aria-label='Instagram'>
+                        <i class="fab fa-instagram"></i>
+                        </Link>        
+                    </div>
                 <div className="byMoralis">
+                    <br/>
                     <ByMoralis  width={300} variant="dark" />
                 </div>
             

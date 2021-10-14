@@ -5,6 +5,8 @@ import './User.css';
 
 function AboutUser(props) {
 
+    
+
     return (
         <div className="profile-aboutme-container">
             <div className="profile-aboutme-wrapper">
@@ -21,12 +23,13 @@ function AboutUser(props) {
                 </div>                
             </div>            
             <SocialIconBar 
-            twitter={props.twitter}
-            telegram={props.telegram}
-            discord={props.discord}
-            linkedIn={props.linkedIn}
-            twitch={props.twitch}
-            youtube={props.youtube}/>
+                twitter={props.twitter}
+                telegram={props.telegram}
+                discord={props.discord}
+                linkedIn={props.linkedIn}
+                twitch={props.twitch}
+                youtube={props.youtube}
+            />
         </div>
     )
 }

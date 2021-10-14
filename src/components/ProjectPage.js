@@ -159,6 +159,7 @@ const onSubmitPhoto = async (e) => {
                   <Bookmark
                   projectTitle = {props.projectTitle}
                   />
+                  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="https://www.appd.com" data-via="atname" data-show-count="false">Tweet</a>
                 </div>
                 <div className="project-page-summary">
                   {props.summary}

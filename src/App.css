@@ -80,6 +80,15 @@
 .fas.fa-link {
   color: deepskyblue;
 }
+.fab.fa-instagram {
+  color: red;
+}
+.fab.fa-tiktok {
+  color: red;
+}
+.fab.fa-medium {
+  color: black;
+}
 
 .social-link-item {
   margin-bottom: 1rem;
