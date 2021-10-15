@@ -96,7 +96,7 @@ function HeroSection() {
                         <div id="how-it-works-content">
                             <section id="how-it-works-section">
                                 <h6>Reputation Building</h6>
-                                <article>Users can create verified project pages for establish projects that are administered by the appropriate representative of that project.</article>
+                                <article>Users can create verified project pages for established projects that are administered by the appropriate representative of that project.</article>
                             </section>
                             <section id="how-it-works-section">
                                 <h6>Growing Together</h6>
