@@ -20,7 +20,7 @@ function Reviews(props) {
 
     return (
         <div>
-            <button className="btn1" onClick={() => loadReviews()}>Show&nbsp;Reviews</button>
+            <button className="reviews-button btn1" onClick={() => loadReviews()}>Show&nbsp;Reviews</button>
             {seeReviews &&
                 <div className="project-page-review-container">
                 <h3>Reviews</h3>

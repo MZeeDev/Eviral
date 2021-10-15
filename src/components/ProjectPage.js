@@ -86,6 +86,17 @@ const onSubmitPhoto = async (e) => {
       alert(error);
     }
   }
+  
+  const sendReport = async() => {
+    const params = { projectName: props.title};
+    console.log(params);
+    try{
+    await Moralis.Cloud.run("sendReportEmail", params);
+    console.log("emailSent")
+    } catch (error) {
+      alert(error);
+    }
+  }
 
   const userCheck = async() => {
     console.log(user);
@@ -159,7 +170,7 @@ const onSubmitPhoto = async (e) => {
                   <Bookmark
                   projectTitle = {props.projectTitle}
                   />
-                  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-url="https://www.appd.com" data-via="atname" data-show-count="false">Tweet</a>
+                  
                 </div>
                 <div className="project-page-summary">
                   {props.summary}
@@ -218,6 +229,9 @@ const onSubmitPhoto = async (e) => {
                   <Reviews 
                   title = {props.title}
                   />
+                  { !owner &&
+                    <button className="report-button btn1" onClick={() => sendReport()}>Report</button>
+                    }
                 </div>
               </div>
               <div className="project-page-creator-container">

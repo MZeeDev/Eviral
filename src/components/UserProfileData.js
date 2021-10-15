@@ -103,6 +103,17 @@ const UserProfilePage = ({ data }) => {
     } 
 }
 
+const sendReport = async() => {
+  const params = {profileName: username};
+  console.log(params);
+  try{
+  await Moralis.Cloud.run("sendReportProfileEmail", params);
+  console.log("emailSent")
+  } catch (error) {
+    alert(error);
+  }
+}
+
 
   useEffect(() => {
     if(isInitialized){
@@ -177,6 +188,9 @@ const UserProfilePage = ({ data }) => {
                                   />
                                 ))}  
                             </div>
+                            { !userPage &&
+                            <button className="report-button btn1" onClick={() => sendReport()}>Report</button>
+                            }
                         </div>                    
                         <div className="profile-action-container">
                             <div className="profile-action-wrapper">

@@ -12,26 +12,26 @@ function SocialIconBar(props) {
     const [ linkedInActive, setLinkedInActive] = useState(true);
     const [ twitchActive, setTwitchActive] = useState(true);
 
-    useEffect(() => {
-        if(typeof props.twitter === 'undefined'){
-            setTwitterActive(false);
-        }
-        if(typeof props.telegram === 'undefined'){
-            setTelegramActive(false);
-        }
-        if(typeof props.discord === 'undefined'){
-            setDiscordActive(false);
-        }
-        if( typeof props.linkedIn === 'undefined'){
-            setLinkedInActive(false);
-        }
-        if(typeof props.twitch === 'undefined'){
-            setTwitchActive(false);
-        }
-        if(typeof props.youtube === 'undefined'){
-            setYoutubeActive(false);
-        }        
-    }, [])
+    // useEffect(() => {
+    //     if(typeof props.twitter === 'undefined'){
+    //         setTwitterActive(false);
+    //     }
+    //     if(typeof props.telegram === 'undefined'){
+    //         setTelegramActive(false);
+    //     }
+    //     if(typeof props.discord === 'undefined'){
+    //         setDiscordActive(false);
+    //     }
+    //     if( typeof props.linkedIn === 'undefined'){
+    //         setLinkedInActive(false);
+    //     }
+    //     if(typeof props.twitch === 'undefined'){
+    //         setTwitchActive(false);
+    //     }
+    //     if(typeof props.youtube === 'undefined'){
+    //         setYoutubeActive(false);
+    //     }        
+    // }, [])
 
 
     return (

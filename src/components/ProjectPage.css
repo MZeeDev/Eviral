@@ -35,6 +35,17 @@
   max-width: 15rem;
 }
 
+.report-button {
+  width: 10rem;
+  margin-top: 1rem;
+}
+.reviews-button {
+  width: 10rem;
+  margin-top: 1rem;
+  background: dodgerblue;
+  color: white;
+}
+
 .bkmrk {
   display: flex;
   align-items: center;
