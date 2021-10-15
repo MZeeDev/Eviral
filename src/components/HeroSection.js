@@ -44,7 +44,7 @@ function HeroSection() {
                     </div>
                     <div className="homepage-buttons">
                         <Link to='/projects' className="homepage-button btn2">Discover&nbsp;Projects</Link>
-                        <Link to='/profiles' className="homepage-button btn2">Find&nbsp;Profiles</Link>
+                        <Link to='/profiles' className="homepage-button btn2">Find&nbsp;Pros</Link>
                         <a href="#vclabs" className="homepage-button btn2">VC&nbsp;Labs</a>
                     </div>
                     <div id="how-it-works1">                    
