@@ -412,7 +412,7 @@ function ChatPage() {
                                     </div>
                                 </div>
                             }   
-                            <img id="chat-messaging-content-container-background" src={Background1} />
+                            {/* <img id="chat-messaging-content-container-background" src={Background1} /> */}
                         
                     </div>
                     <div className="chat-messaging-footer">
