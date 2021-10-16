@@ -389,7 +389,6 @@ function ChatPage() {
                             </div>
                     </div>
                     <div className="chat-messaging-content-container">
-                        <img id="chat-messaging-content-container-background" src={Background1} />
                             { chatDisplay && 
                                 <div className="chat-messaging-content-messageList">                                                               
                                     <div className="chat-messaging-content-message-wrapper">
@@ -413,6 +412,7 @@ function ChatPage() {
                                     </div>
                                 </div>
                             }   
+                            <img id="chat-messaging-content-container-background" src={Background1} />
                         
                     </div>
                     <div className="chat-messaging-footer">
