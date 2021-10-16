@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import './User.css';
 import { useMoralis } from "react-moralis";
+import ReactHtmlParser from 'react-html-parser';
 
 function AboutMe() {
 
@@ -15,7 +16,7 @@ function AboutMe() {
 
                 <div className="profile-story">
                     <h5 className="profile-story-title">My Story</h5>
-                    <p className="profile-story-description">{user?.attributes?.story}</p>
+                    <p className="profile-story-description">{ReactHtmlParser(user?.attributes?.story)}</p>
                 </div>
                 <div className="profile-story">
                     <h5 className="profile-story-title">Skills</h5>

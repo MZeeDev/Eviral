@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import './EditProject.css';
 import { useMoralis, useMoralisFile } from "react-moralis";
 import Alert from './Alert';
@@ -30,6 +33,11 @@ function EditProject(props) {  ///set input variables as required, add other att
     const [photoFile, setPhotoFile] = useState();    
     const [photoFileName, setPhotoFileName] = useState();  
     const [ projectPhotoPreview, setProjectPhotoPreview] = useState(props.projectPhoto);
+
+    const handleDescriptionOnChange = (e, editor) =>{
+        const data = editor.getData();
+        setDescription(data);
+    }
 
     const deletePopUp = async () => {
         setAlertContents(
@@ -147,7 +155,11 @@ function EditProject(props) {  ///set input variables as required, add other att
                                 </div>
                                 <div className="form-text-component">
                                     <label className="form-label">Description<span style={{color:"red"}}> *</span></label>
-                                    <textarea rows={3} className="form-control" placeholder="Please describe your project in more detail, up to 550 characters" maxLength={550} value={description} required onChange={(event) =>setDescription(event.currentTarget.value)}/>
+                                    {/* <textarea rows={3} className="form-control" placeholder="Please describe your project in more detail, up to 550 characters" maxLength={550} value={description} required onChange={(event) =>setDescription(event.currentTarget.value)}/> */}
+                                    <CKEditor 
+                                        editor={ClassicEditor}
+                                        onChange={handleDescriptionOnChange}                                    
+                                    />
                                 </div>
                                 <div className="form-text-component">
                                     <label className="form-label">Website</label>

@@ -82,7 +82,7 @@ function HeroSection() {
                             </section>
                             <section id="how-it-works-section">
                                 <h6>First Steps</h6>
-                                <article>Users connect to the platform via our secure web3 walle-connect and create a profile that is uniquely associated with their wallet address.</article>
+                                <article>Users connect to the platform via our secure web3 safe connect and create a profile that is uniquely associated with their wallet address.</article>
                             </section>
                             <section id="how-it-works-section">
                                 <h6>Freelancer Network Functionality</h6>

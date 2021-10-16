@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import SocialIconBar from './SocialIconBar';
 import './User.css';
+import ReactHtmlParser from 'react-html-parser';
 
 function AboutUser(props) {
 
@@ -15,7 +16,7 @@ function AboutUser(props) {
 
                 <div className="profile-story">
                     <h5 className="profile-story-title">My Story</h5>
-                    <p className="profile-story-description">{props.story}</p>
+                    <p className="profile-story-description">{ReactHtmlParser(props.story)}</p>
                 </div>
                 <div className="profile-story">
                     <h5 className="profile-story-title">Skills</h5>

@@ -6,6 +6,11 @@ import './ChatPage.css';
 import ProfileMessageCard from './ProfileMessageCard';
 import ScrollableFeed from 'react-scrollable-feed';
 
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
+import ReactHtmlParser from 'react-html-parser';
+
 
 function ChatPage() {
 
@@ -27,6 +32,12 @@ function ChatPage() {
     
     const [alertVisible, setAlertVisible] = useState(false);
     const [alertContents, setAlertContents] = useState();
+
+    const handleReplyOnChange = (e, editor) =>{
+        const data = editor.getData();
+        setReply(data);
+    }
+
 
     const deletePopUp = async () => {
         setAlertContents(
@@ -380,7 +391,7 @@ function ChatPage() {
                                                             <img className="chat-messaging-content-profilePic" src={message.fromProfilePic} />
                                                         </div>
                                                         <div className="chat-messaging-content-message-text">
-                                                            <p>{message.message}</p>
+                                                            <p>{ReactHtmlParser(message.message)}</p>
                                                         </div>
                                                     </div>
                                                     <div className="chat-messaging-content-message-time">
@@ -397,7 +408,7 @@ function ChatPage() {
                     <div className="chat-messaging-footer">
                         {showReply &&
                         <>
-                            <input 
+                            {/* <input 
                                 type="text" 
                                 placeholder=" Reply..." 
                                 className="chat-messaging-reply-text" 
@@ -407,7 +418,13 @@ function ChatPage() {
                                 required
                                 onKeyPress={(event) => { if(event.key === "Enter") {sendReply()}}}>
 
-                            </input>
+                            </input> */}
+                            <div className="rich-text-chat">
+                            <CKEditor 
+                                editor={ClassicEditor}
+                                onChange={handleReplyOnChange}                                    
+                            />
+                            </div>
                             <div className="chat-messaging-reply-button">
                                 <i class="fas fa-paper-plane" onClick={() => sendReply()}></i>
                             </div>

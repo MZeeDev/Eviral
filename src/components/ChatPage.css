@@ -225,9 +225,19 @@
   justify-content: center;
   align-items: center;
   border-top: 1px solid grey;
-  padding: 0.5rem 0;
+  padding: 0 0.5rem 0;
   height: calc(12% - 3rem);
   background: white;
+}
+
+.rich-text-chat{
+  object-fit: contain;  
+  height: 100%;
+  width: 70%;
+}
+
+.ck.ck-editor_main {
+  height: 5rem;
 }
 
 .chat-messaging-reply-text {
@@ -469,7 +479,7 @@
   }
 
   .chat-messaging-footer {
-    padding: 0.5rem;
+    padding: 0 0.5rem 0;
     height: 9%;
     position: sticky;
     bottom: 0;

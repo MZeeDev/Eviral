@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { useMoralis, useMoralisFile } from "react-moralis";
 import construction from  "../img/construction.png";
+import ReactHtmlParser from 'react-html-parser';
 
 import './ProjectCard.css';
 import './Project.css';
@@ -223,7 +224,8 @@ const onSubmitPhoto = async (e) => {
                   </div>
           
                   <h5><img className="profileThumb"src={props.creatorProfilePic} />{" "} {props.creator}{" "} {props.createdOn}</h5>
-                  <p>{props.description}</p>
+                  <p>{ReactHtmlParser(props.description)}</p>
+                  
                 </div>
                 <div className="ratingReviews">
                   <Reviews 

@@ -1,24 +1,15 @@
-import React, { useState, useMemo } from "react";
-import { createEditor } from "slate";
-import { Slate, Editable, withReact } from "slate-react";
+import React, { useState } from "react";
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import './CreateProject.css';
 import { useMoralis, useMoralisFile } from "react-moralis";
 import construction from  "../img/construction.png";
 import Alert from './Alert';
-import SlateEditor from './SlateEditor';
 
 function CreateNewProject(props) {  ///set input variables as required, add other attributes to be stored like tags, etc, allow for editing/updating?
 
     const { user, Moralis } = useMoralis();
     const { saveFile } = useMoralisFile();
-
-    const editor = useMemo(() => withReact(createEditor()), []);
-    const [value, setValue] = useState([
-      {
-        type: "paragraph",
-        children: [{ text: "We have some base content." }]
-      }
-    ]);
 
 
     const [title, setTitle] = useState();
@@ -42,6 +33,11 @@ function CreateNewProject(props) {  ///set input variables as required, add othe
     const [photoFile, setPhotoFile] = useState();    
     const [photoFileName, setPhotoFileName] = useState();  
     const [ projectPhotoPreview, setProjectPhotoPreview] = useState(construction);
+
+    const handleDescriptionOnChange = (e, editor) =>{
+        const data = editor.getData();
+        setDescription(data);
+    }
 
     const createNewProject = async () => {
         try {
@@ -146,16 +142,17 @@ function CreateNewProject(props) {  ///set input variables as required, add othe
                                 </div>
                                 <div className="form-text-component">
                                     <label className="form-label">Description<span style={{color:"red"}}> *</span></label>
-                                    <textarea rows={3} className="form-control" placeholder="Please describe your project in more detail, up to 2000 characters" maxLength={2000} value={description} required onChange={(event) =>setDescription(event.currentTarget.value)}/>
+                                    {/* <textarea rows={3} className="form-control" placeholder="Please describe your project in more detail, up to 2000 characters" maxLength={2000} value={description} required onChange={(event) =>setDescription(event.currentTarget.value)}/> */}
+                                    <CKEditor 
+                                        editor={ClassicEditor}
+                                        onChange={handleDescriptionOnChange}                                    
+                                    />
                                 </div>
                                 
-                                {/* <Slate
-                                    editor={editor}
-                                    value={value}
-                                    onChange={(newValue) => setValue(newValue)}
-                                >
-                                    <Editable style={{ border: "1px solid black" }}/>
-                                </Slate> */}
+
+
+
+
                                 <div className="form-text-component">
                                     <label className="form-label">Website</label>
                                     <input className="form-input" placeholder="www.yourpage.com" value={website} onChange={(event) =>setWebsite(event.currentTarget.value)}/>

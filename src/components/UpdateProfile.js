@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useMoralis, useMoralisFile } from "react-moralis";
+
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 import './User.css';
 import './UpdateProfile.css';
 import Alert from './Alert';
@@ -85,6 +89,11 @@ function UpdateProfile(props) {
         setAlertVisible(true);        
     };
 
+    const handleStoryOnChange = (e, editor) =>{
+        const data = editor.getData();
+        setStory(data);
+    }
+
     const onChangeLandscape = e => {        
         setLandscapeFile(e.target.files[0]);
         setLandscapeFileName(e.target.files[0].name);
@@ -149,7 +158,11 @@ function UpdateProfile(props) {
                             <label className="form-label">Bio</label>
                             <textarea rows={3} className="form-control" required placeholder="Brief bio (<150 characters)" maxLength={150} value={bio} onChange={(event) =>setBio(event.currentTarget.value)}/>
                             <label className="form-label">Story</label>
-                            <textarea rows={5} className="form-control" placeholder="What should others know about you? (<2000 characters)" maxLength={2000} value={story} onChange={(event) =>setStory(event.currentTarget.value)}/>
+                            <CKEditor 
+                                editor={ClassicEditor}
+                                onChange={handleStoryOnChange}                                    
+                            />
+                            {/* <textarea rows={5} className="form-control" placeholder="What should others know about you? (<2000 characters)" maxLength={2000} value={story} onChange={(event) =>setStory(event.currentTarget.value)}/> */}
 
                         <div id="update-socials">
                             <div id="social-link-item">
