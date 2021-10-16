@@ -44,16 +44,15 @@
   padding-bottom: 0.2rem;
 }
 
-.viralcrypto > h1 {
+
+
+#navbarlogo {
   display: flex;
-  width: 100%;
+  width: auto;
+  height: 3rem;
   justify-content: flex-start;
-  color: rgb(101, 224, 156);
-  font-size: 1.8rem;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.306);
-  /* animation: mymove 5s infinite; */
+  align-items: center;
+  margin: .2rem;
 }
 
 .navbar-user {

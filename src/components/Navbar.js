@@ -14,6 +14,7 @@ import './NavbarConnectMenu.css';
 import Alert from './Alert';
 import Logo from '../img/newlogo2.png';
 import LogoBSC from '../img/newlogoBSC2.png';
+import NavbarLogo from '../img/navbarlogo.png';
 
 function Navbar() {
     const { authenticate, isAuthenticated, user, logout, auth, Moralis} = useMoralis();
@@ -118,8 +119,8 @@ function Navbar() {
                     </div>                        
                 <ul className="navbar-logo">
                     <Link to="/" className="navbar-logo">  
-                    <div className="viralcrypto">
-                        <h1> viralcrypto </h1>
+                    <div className="viralcrypto">                        
+                        <img id="navbarlogo" src={NavbarLogo} />
                         </div>                       
                         {/* <img className="roundLogo" src={roundLogo} alt="" />                   */}
                     </Link>                                      
@@ -228,7 +229,7 @@ function Navbar() {
                         }
                     </li>
                     { !isAuthenticated && <button className='btn1'  onClick={() => setOpenConnectMenu(true)}>
-                        Wallet&nbsp;Connect
+                        Safe&nbsp;Connect
                     </button>  } 
                     { connectMenu &&
                     <div className="connectMenu-background">
