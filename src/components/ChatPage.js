@@ -10,6 +10,7 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import ReactHtmlParser from 'react-html-parser';
+import Background1 from '../img/vcbackground.png';
 
 
 function ChatPage() {
@@ -36,6 +37,11 @@ function ChatPage() {
     const handleReplyOnChange = (e, editor) =>{
         const data = editor.getData();
         setReply(data);
+    }
+
+    const closeSidebarContent = ()=> {
+        setShowInbox(false);
+        setShowRequests(false);
     }
 
 
@@ -334,6 +340,9 @@ function ChatPage() {
                         </>
                     </div>
                     <div className="chat-messaging-sidebar-content">
+                        {(showInbox || showRequests) &&
+                        <button id="mobile-chat-inbox-profiles" className="btn1" onClick={closeSidebarContent}>Close</button>
+                        }
                         { showInbox &&
                         <ul className="chat-messaging-sidebar-from">
                             {noUsers && <div className="chat-messaging-header-left-empty" onClick={() => setShowInbox(false)}>No Messages</div>}
@@ -380,6 +389,7 @@ function ChatPage() {
                             </div>
                     </div>
                     <div className="chat-messaging-content-container">
+                        <img id="chat-messaging-content-container-background" src={Background1} />
                             { chatDisplay && 
                                 <div className="chat-messaging-content-messageList">                                                               
                                     <div className="chat-messaging-content-message-wrapper">
@@ -392,10 +402,10 @@ function ChatPage() {
                                                         </div>
                                                         <div className="chat-messaging-content-message-text">
                                                             <p>{ReactHtmlParser(message.message)}</p>
+                                                        <div className="chat-messaging-content-message-time">
+                                                            <p>{message.date}, {message.time}</p>
                                                         </div>
-                                                    </div>
-                                                    <div className="chat-messaging-content-message-time">
-                                                        <p>{message.date}, {message.time}</p>
+                                                        </div>
                                                     </div>
                                             </div>
                                             ))}
