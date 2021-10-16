@@ -168,6 +168,7 @@
 }
 
 #chat-messaging-content-container-background{
+  display: none;
   height: 100%;  
   position: absolute;
   filter:opacity(70%) blur(5px);
