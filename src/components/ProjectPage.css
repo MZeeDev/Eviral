@@ -190,6 +190,24 @@
   margin-bottom: 0;
 }
 
+.socialShareLinks {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid darkgrey;
+  width: max-content;
+  height: 50px;
+  padding: 0 5px;
+  margin-bottom: 10px;
+}
+#socialShareLink {
+  margin-right: 5px;
+  margin-bottom: 0;
+}
+#socialShareLink:hover {
+
+}
+
 .project-page-creator {
 }
 .project-page-description,

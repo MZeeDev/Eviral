@@ -8,6 +8,9 @@ import Carousel from "./Carousel";
 import SendMessagePopUp from "./SendMessagePopUp";
 import Alert from "./Alert";
 import ProjectGridBox from "./ProjectGridBox";
+import { EmailShareButton,EmailIcon, FacebookShareButton, FacebookIcon,LinkedinShareButton, LinkedinIcon,PinterestShareButton, PinterestIcon,RedditShareButton, RedditIcon,TelegramShareButton, TelegramIcon,TumblrShareButton, TumblrIcon,TwitterShareButton, TwitterIcon} from "react-share";
+import HelmetMetaData from "./HelmetMetaData";
+
 
 
 const UserProfilePage = ({ data }) => {
@@ -135,6 +138,12 @@ const sendReport = async() => {
 
   return (
       <>  
+        <HelmetMetaData
+          description = {profileLoaded[0].bio}
+          title={username}
+          image={profileLoaded[0].profilePic} 
+          path={`/profiles/${username}`}     
+      ></HelmetMetaData>
         <div className="page-container">
             <div className="page-wrapper">
                 <div className="profile-container">                
@@ -170,6 +179,23 @@ const sendReport = async() => {
                         Send Message
                       </button>
                     }
+                    <div className="socialShareLinks">
+                    <EmailShareButton  url={`https://viralcrypto.app/profiles/${username}`} id="socialShareLink">
+                      <EmailIcon size={36} round={false}/>
+                    </EmailShareButton>
+                    <FacebookShareButton quote={profileLoaded[0].bio}  url={`https://viralcrypto.app/profiles/${username}`} id="socialShareLink">
+                      <FacebookIcon size={36} round={false} />
+                    </FacebookShareButton>
+                    <TwitterShareButton   url={`https://viralcrypto.app/profiles/${username}`} id="socialShareLink">
+                      <TwitterIcon size={36} round={false}/>
+                    </TwitterShareButton>
+                    <PinterestShareButton  description={profileLoaded[0].bio} media={profileLoaded[0].profilePic} url={`https://viralcrypto.app/profiles/${username}`} id="socialShareLink">
+                      <PinterestIcon size={36} round={false}/>
+                    </PinterestShareButton>
+                    <TelegramShareButton  url={`https://viralcrypto.app/profiles/${username}`} id="socialShareLink">
+                      <TelegramIcon size={36} round={false}/>
+                    </TelegramShareButton>
+                  </div>
                           
                             <div className="aboutme-wrapper">
                                 {profileLoaded.map(userProfile => (  

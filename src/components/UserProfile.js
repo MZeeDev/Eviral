@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SocialIconBar from './SocialIconBar';
 import SaveProfile from './SaveProfile';
 import { useMoralis } from "react-moralis";
+import { Helmet } from 'react-helmet';
 
 function UserProfile(props) {
     const { user, Moralis } = useMoralis();
@@ -31,6 +32,17 @@ function UserProfile(props) {
 
     return (
         <>
+        <Helmet>
+          <meta property="og:url" content={`https://viralcrypto.app/profiles/${props.username}`} />
+          <meta property="og:title" content={props.username} />
+          <meta property="og:description" content={props.summary} />
+          <meta property="og:image" content={props.photo1} />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:site" content={props.twitter} />
+          <meta name="twitter:title" content={props.username} />
+          <meta name="twitter:description" content={props.bio}/>
+          <meta name="twitter:image" content={props.profilePic} />
+      </Helmet>
             <div className="profile-wrapper">
                 <div className="profile-background">
                     <img className='landscape-pic' src={props.landscapePic} alt=""/>   

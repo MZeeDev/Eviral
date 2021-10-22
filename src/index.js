@@ -7,7 +7,7 @@ const appId='TTxOqOgA9vSsj2z84WeDRi4i1iDgbo9kruLWqfxd';
 const serverUrl='https://siixq6taugjh.moralis.io:2053/server';
 
 ReactDOM.render(
-  <MoralisProvider appId={appId} serverUrl={serverUrl}>
+  <MoralisProvider appId={appId} serverUrl={serverUrl}>    
     <App />
   </MoralisProvider>,
   document.getElementById('root')

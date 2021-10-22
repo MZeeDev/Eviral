@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useMoralis, useMoralisFile } from "react-moralis";
 import construction from  "../img/construction.png";
 import ReactHtmlParser from 'react-html-parser';
+import { Helmet } from 'react-helmet';
+import { EmailShareButton,EmailIcon, FacebookShareButton, FacebookIcon,LinkedinShareButton, LinkedinIcon,PinterestShareButton, PinterestIcon,RedditShareButton, RedditIcon,TelegramShareButton, TelegramIcon,TumblrShareButton, TumblrIcon,TwitterShareButton, TwitterIcon} from "react-share";
 
 import './ProjectCard.css';
 import './Project.css';
@@ -16,6 +18,7 @@ import SocialIconBar from './SocialIconBar';
 import SendMessagePopUp from './SendMessagePopUp';
 import Alert from './Alert';
 import EditProject from './EditProject';
+import HelmetMetaData from './HelmetMetaData';
 
 
 function ProjectDisplay(props) {
@@ -147,6 +150,12 @@ const onSubmitPhoto = async (e) => {
 
     return (           
       <>
+      <HelmetMetaData
+        description = {props.summary}
+        title={props.title}
+        image={props.photo1} 
+        path={`/projects/${props.title}`}     
+      ></HelmetMetaData>
         <div className="project-page">
           
           <div className="project-page-container">              
@@ -209,6 +218,25 @@ const onSubmitPhoto = async (e) => {
                 </div>                  
                 { (owner ) && <p id="change-photo-project-text">Click/Tap a thumbnail to change it</p>}
                 <div className="project-page-description">
+                  <div className="socialShareLinks">
+                    <h5 id="socialShareLink">SHARE</h5>
+                    <EmailShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
+                      <EmailIcon size={36} round={false}/>
+                    </EmailShareButton>
+                    <FacebookShareButton quote={props.summary} url={`https://viralcrypto.app/projects/${props.title}`} id="socialShareLink">
+                      <FacebookIcon size={36} round={false} />
+                    </FacebookShareButton>
+                    <TwitterShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
+                      <TwitterIcon size={36} round={false}/>
+                    </TwitterShareButton>
+                    <PinterestShareButton  description={`${props.title} "-" ${props.summary}`} media={props.photo1} url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
+                      <PinterestIcon size={36} round={false}/>
+                    </PinterestShareButton>
+                    <TelegramShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
+                      <TelegramIcon size={36} round={false}/>
+                    </TelegramShareButton>
+                  </div>
+                  
                   <h3>About</h3>
                   
                   <div className="project-page-links">

@@ -13,6 +13,7 @@ import Profiles from './components/pages/profiles';
 import UserProfilePage from './components/UserProfileData';
 import ChatPage from './components/ChatPage';
 import TokenSwap from './components/TokenSwap';
+import HelmetMetaData from './components/HelmetMetaData';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
   
   return (
     <>
+    <HelmetMetaData></HelmetMetaData>
       <Router history= {history}>
       <Navbar />
         <Switch>
