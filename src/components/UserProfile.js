@@ -8,6 +8,7 @@ import { Helmet } from 'react-helmet';
 function UserProfile(props) {
     const { user, Moralis } = useMoralis();
     const [isSaved, setIsSaved] = useState(props.isSaved);
+    const mainPhoto = props.profilePic;
 
     const checkSavedProfile = async() => {
         const params = {profileName: props.profileName}
@@ -36,12 +37,12 @@ function UserProfile(props) {
           <meta property="og:url" content={`https://viralcrypto.app/profiles/${props.username}`} />
           <meta property="og:title" content={props.username} />
           <meta property="og:description" content={props.summary} />
-          <meta property="og:image" content={props.photo1} />
+          <meta property="og:image" content={mainPhoto} />
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:site" content={props.twitter} />
           <meta name="twitter:title" content={props.username} />
           <meta name="twitter:description" content={props.bio}/>
-          <meta name="twitter:image" content={props.profilePic} />
+          <meta name="twitter:image" content={mainPhoto} />
       </Helmet>
             <div className="profile-wrapper">
                 <div className="profile-background">

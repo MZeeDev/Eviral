@@ -35,6 +35,7 @@ function ProjectDisplay(props) {
   const [photoFileName, setPhotoFileName] = useState();
   const [previewPic, setPreviewPic] = useState(construction);
   const [ photoNumber, setPhotoNum] = useState();
+  const mainPhoto = props.photo1;
 
   const verified = (props.isVerified);
   const isLive = (props.isLive);
@@ -150,12 +151,23 @@ const onSubmitPhoto = async (e) => {
 
     return (           
       <>
-      <HelmetMetaData
+      {/* <HelmetMetaData
         description = {props.summary}
         title={props.title}
         image={props.photo1} 
         path={`/projects/${props.title}`}     
-      ></HelmetMetaData>
+      ></HelmetMetaData> */}
+       <Helmet>
+          <meta property="og:url" content={`https://viralcrypto.app/profiles/${props.title}`} />
+          <meta property="og:title" content={props.title} />
+          <meta property="og:description" content={props.summary} />
+          <meta property="og:image" content={mainPhoto} />
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:site" content={props.twitter} />
+          <meta name="twitter:title" content={props.title} />
+          <meta name="twitter:description" content={props.summary}/>
+          <meta name="twitter:image" content={mainPhoto} />
+      </Helmet>
         <div className="project-page">
           
           <div className="project-page-container">              
