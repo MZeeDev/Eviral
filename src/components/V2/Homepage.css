@@ -1008,13 +1008,14 @@
     
     #section1-homepage-motto{
         display: flex;
-        width: 335px;
+        width: 100%;
+        min-width: 375px;
         height: 260px;
         text-align: center;
         justify-content: flex-start;
         align-items: center;
         top: 40px;
-        left: 11px;
+        left: 0px;
     }
     #section1-homepage-motto-text{
         display: flex;
@@ -1023,7 +1024,7 @@
         padding: 10px;    
         position: static;
         width: 335px;
-        height: 176px;
+        height: 190px;
         left: 0px;
         top: 0px;
         margin: 0;

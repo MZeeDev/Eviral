@@ -140,7 +140,7 @@ function Homepage() {
                     <div id="createyourspace-text">
                         <img id="createyourspace" src={CreateYourSpace}/>
                             <h4>Create your Space</h4>
-                            <p>By owning viral tokens you can connect to the platform, create a profile, and host project pages for nex and existing projects.</p>
+                            <p>By owning viral tokens you can connect to the platform, create a profile, and host project pages for new or existing projects.</p>
                         </div>
                     </div>
                     <div id="section2-box3">
