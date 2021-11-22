@@ -1,6 +1,8 @@
 .tokenPrices {  
   position: relative;
-  width: 1440px;
+  
+  width: 100%;
+  min-width: 1440px;
   padding-right: 25px;
   height: 56px;
   display: flex;
@@ -36,7 +38,8 @@
 
 @media only screen and (max-width: 1300px) {
   .tokenPrices{
-    width: 375px;
+    width: 100%;
+    min-width: 375px;
   }
   .tokenPrices-wrapper{
     width: 375px;

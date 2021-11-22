@@ -3,12 +3,15 @@
     width: 100%;
     min-width: 1440px;
     height: 8460px;
-    background: #FFFFFF;    
+    background: #FFFFFF;  
+    display: flex;
+    justify-content: center;  
 }
 
 #section1 {
     position: absolute;
-    width: 1440px;
+    width: 100%;
+    min-width: 1440px;
     height: 886px;
     left: 0px;
     background: radial-gradient(79.82% 119.73% at 86.74% 99.61%, #2F3C9E 0%, #253184 12.11%, #192364 29.95%, #11194D 47.22%, #0C1340 63.5%, #0A113B 77.78%, #151515 100%);
@@ -144,7 +147,8 @@
     align-items: center;
     position: absolute;
     flex-direction: column;
-    width: 1440px;
+    width: 100%;
+    min-width: 1440px;
     height: 624px;
     left: 0px;
     top: 870px;
@@ -173,7 +177,8 @@
 
 #section2background {
     position: absolute;
-    width: 1440px;
+    width: 100%;
+    min-width: 1440px;
     height: 624px;
     left: 0px;
     top: 87px;
@@ -320,7 +325,8 @@
     justify-content: flex-end;
     align-items: center;
     position: absolute;
-    width: 1440px;
+    width: 100%;
+    min-width: 1440px;
     height: 640px;
     left: 0px;
     top: 1675px;
@@ -455,11 +461,12 @@
 
 #section4 {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     position: absolute;
     flex-direction: column;
-    width: 1440px;
+    width: 100%;
+    min-width: 1440px;
     height: 861px;
     left: 0px;
     top: 2450px;
@@ -467,27 +474,35 @@
 
 #section4images{
     position: absolute;
+    
+    width: 100%;
+    min-width: 1440px;
+    display: flex;
+    justify-content: center;
     left: 0;
     top: 0;
 }
 
 #section4background {
     position: absolute;
+    
+    width: 100%;
+    min-width: 1440px;
     top: 0;
     left: 0;
 }
 #section4greenblob {
     position: absolute;
-    left: 680px;
+    left: 50%;
     top: 205px;
     
 }
 
 #section4onramp{
-    position: absolute;
+    position: relative;
     width: 1198px;
     height: 595px;
-    left: 80px;
+    left: 0px;
     top: 0px;
     display: flex;
     align-items: center;
@@ -522,15 +537,18 @@
 }
 
 #section5background {
-    position: absolute;
+    position: absolute;    
+    width: 100%;
+    min-width: 1440px;
     top: 705px;
 }
 #section5 {
     position: absolute;
-    width: 1440px;
+    width: 100%;
+    min-width: 1440px;
     height: 640px;
     left: 0px;
-    top: 3200px;
+    top: 3250px;
 }
 #section5>h2 {
     position: absolute;
@@ -557,7 +575,8 @@
 
 #section6 {
     position: absolute;
-    width: 1440px;
+    width: 100%;
+    min-width: 1440px;
     height: 640px;
     left: 0px;
     top: 4420px;
@@ -616,7 +635,8 @@
 }
 #section7 {
     position: absolute;
-    width: 1440px;
+    width: 100%;
+    min-width: 1440px;
     height: 640px;
     left: 0px;
     top: 5260px;
@@ -650,7 +670,8 @@
 
 #section8 {
     position: relative;
-    width: 1440px;
+    width: 100%;
+    min-width: 1440px;
     height: 840px;
     left: 0px;
     top: 5950px;
@@ -715,7 +736,8 @@
 
 #section9 {
     position: absolute;
-    width: 1440px;
+    width: 100%;
+    min-width: 1440px;
     height: 670px;
     left: 0px;
     top: 7000px;
@@ -727,6 +749,9 @@
 
 #section9background{
     position: absolute;
+    
+    width: 100%;
+    min-width: 1440px;
     top: 0;
 }
 
@@ -763,7 +788,8 @@
 
 #section10{
     position: absolute;
-    width: 1440px;
+    width: 100%;
+    min-width: 1440px;
     height: 690px;
     left: 0px;
     top: 7920px;
@@ -774,6 +800,9 @@
 }
 #section10background{
     position: absolute;
+    
+    width: 100%;
+    min-width: 1440px;
     left: 0;
     top: 0;
 }
@@ -955,20 +984,22 @@
 
 
 
-@media only screen and (max-width: 1300px) {
+@media only screen and (max-width: 600px) {
     .homepage-container {
         display: flex;
         width: 100%;
         min-width: 375px;
-        height: 10480px;
+        height: 10410px;
         background: #FFFFFF;   
         flex-direction: column; 
     }
     
     #section1 {
-        position: relative;
-        width: 375px;
+        position: absolute;
+        width: 100%;
+        min-width: 375px;
         height: 1355px;
+        top: 127px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -976,13 +1007,14 @@
     }
     
     #section1-homepage-motto{
+        display: flex;
         width: 335px;
         height: 260px;
         text-align: center;
         justify-content: flex-start;
-        align-items: flex-start;
+        align-items: center;
         top: 40px;
-        left: 20px;
+        left: 11px;
     }
     #section1-homepage-motto-text{
         display: flex;
@@ -1088,7 +1120,8 @@
         align-items: center;
         position: absolute;
         flex-direction: column;
-        width: 375px;
+        width: 100%;
+        min-width: 375px;
         height: 624px;
         left: 0px;
         top: 870px;
@@ -1118,7 +1151,8 @@
     
     #section2background {
         position: absolute;
-        width: 375px;
+        width: 100%;
+        min-width: 375px;
         height: 146px;
         left: 0px;
         top: 611px;
@@ -1265,7 +1299,8 @@
         justify-content: flex-start;
         align-items: center;
         position: absolute;
-        width: 375px;
+        width: 100%;
+        min-width: 375px;
         height: 640px;
         left: 0px;
         top: 1675px;
@@ -1413,7 +1448,8 @@
         align-items: center;
         position: absolute;
         flex-direction: column;
-        width: 375px;
+        width: 100%;
+        min-width: 375px;
         height: 1318px;
         left: 0px;
         top: 2990px;
@@ -1424,7 +1460,9 @@
         position: absolute;
         left: 0;
         top: 0;
-        width: 335px;
+        
+        width: 100%;
+        min-width: 335px;
     }
     
     #section4background {
@@ -1493,15 +1531,17 @@
     #section5background {
         position: absolute;
         top: 1286px;
-        width: 375px;
+        width: 100%;
+        min-width: 375px;
         height: 373px;
     }
     #section5 {
-        position: relative;
-        width: 375px;
+        position: absolute;
+        width: 100%;
+        min-width: 375px;
         height: 640px;
         left: 0px;
-        top: 2426px;
+        top: 3864px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -1527,12 +1567,13 @@
         position: absolute;
         top: 80px;
         left: 0px;
-        width: 375px;
+        width: 100%;
     }
     
     #section6 {
         position: absolute;
-        width: 375px;
+        width: 100%;
+        min-width: 375px;
         height: 640px;
         left: 0px;
         top: 4655px;        
@@ -1609,7 +1650,8 @@
     }
     #section7 {
         position: absolute;
-        width: 375px;
+        width: 100%;
+        min-width: 375px;
         height: 640px;
         left: 0px;
         top: 5280px;
@@ -1646,10 +1688,11 @@
     
     #section8 {
         position: relative;
-        width: 375px;
+        width: 100%;
+        min-width: 375px;
         height: 640px;
         left: 0px;
-        top: 4615px;
+        top: 1670px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -1715,7 +1758,8 @@
     
     #section9 {
         position: absolute;
-        width: 375px;
+        width: 100%;
+        min-width: 375px;
         height: 670px;
         left: 0px;
         top: 8800px;
@@ -1774,20 +1818,24 @@
     
     #section10{
         position: absolute;
-        width: 375px;
-        height: 690px;
+        width: 100%;
+        min-width: 375px;
+        height: 1060px;
         left: 0px;
-        top: 9530px;
+        top: 9479px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+        background: radial-gradient(79.82% 119.73% at 86.74% 99.61%, #2F3C9E 0%, #253184 12.11%, #192364 29.95%, #11194D 47.22%, #0C1340 63.5%, #0A113B 77.78%, #151515 100%);
+
     }
     #section10background{
         position: absolute;
-        left: -1080px;
         top: 0;
-        height: 1080px;
+        
+        width: 100%;
+        min-width: 375px;
     }
     
     #section10>h2 {

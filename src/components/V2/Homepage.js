@@ -202,7 +202,10 @@ function Homepage() {
                 </div>
             </div>
             <div id="section5">
-                <h2>Buy Viral Tokens</h2>
+                <h2>Buy Viral Tokens
+                     <span>&nbsp;<h3>(coming soon)</h3></span>
+                </h2>
+                
                 <img id="section5block" src={Section5Block}/>
                 <img id="section5swap" src={Section5Swap}/>
             </div>

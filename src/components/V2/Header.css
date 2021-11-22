@@ -1,7 +1,9 @@
 .header {
   height: 72px;
   display: flex;
-  width: 1440px;
+  
+  width: 100%;
+  min-width: 1440px;
   background: #151515;
   position: relative;
 } 
@@ -346,9 +348,10 @@
   
 
   
-  @media only screen and (max-width: 1300px) {
+  @media only screen and (max-width: 600px) {
     .header{
-      width: 375px;
+      width: 100%;
+      min-width: 375px;
     }
     .navbarlogo{
       height: 25px;
