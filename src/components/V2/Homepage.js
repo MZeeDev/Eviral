@@ -41,6 +41,7 @@ import VCLabs3 from "../../img/homepage/section10vclabs3.svg";
 import './Homepage.css';
 import ProjectCard from './ProjectCard';
 import ProfileCard from './ProfileCard';
+import SwapContainer from './SwapContainer';
 
 function Homepage() {
     
@@ -208,7 +209,8 @@ function Homepage() {
                 </h2>
                 
                 <img id="section5block" src={Section5Block}/>
-                <img id="section5swap" src={Section5Swap}/>
+                {/* <img id="section5swap" src={Section5Swap}/> */}
+                <SwapContainer />
             </div>
             <div id="section6">
                 <h2>Evolving VC Partners</h2>
