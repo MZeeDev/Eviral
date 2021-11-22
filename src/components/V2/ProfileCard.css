@@ -1,0 +1,311 @@
+.profilecard-background {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px 20px 32px 20px;
+    position: static;
+    width: 400px;
+    height: 638px;
+    left: 0px;
+    top: 0px;
+    background: #FDFDFD;
+    box-shadow: 0px 8px 18px rgba(66, 27, 27, 0.10);
+    border-radius: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 40px;
+}
+
+.profilecard-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    position: static;
+    width: 360px;
+    height: 586px;
+    left: 20px;
+    top: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px ;
+}
+
+.profilecard-top {
+    position: relative;
+    width: 360px;
+    height: 360px;
+    left: 0px;
+    top: 0px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px;
+}
+
+.profilecard-link {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    left: 0px;
+    top: 0px;
+}
+
+.profilecard-photo-container{    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    width: 100%;    
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0px 5px 16px rgba(0, 0, 0, .075);
+    object-fit: contain;
+}
+
+
+.profilecard-photo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    min-height: 100%;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 1);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+.profilecard-bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    position: static;
+    width: 320px;
+    height: 206px;
+    left: 20px;
+    top: 300px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 15px 40px 0px 40px;
+}
+
+.profilecard-text{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    position: static;
+    width: 320px;
+    height: 140px;
+    left: 0px;
+    top: 0px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin:  0px;
+}
+
+.profilecard-username{
+    position: static;
+    width: 320px;
+    height: 32px;
+    left: 0px;
+    top: 0px;
+    font-family:ProximaNova;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 32px;
+    color: #151515;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 0px;
+}
+
+.profilecard-bio{
+    position: static;
+    width: 320px;
+    height: 120px;
+    left: 0px;
+    top: 40px;
+    font-family:ProximaNova;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #373738;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 0px;
+    overflow: ellipsis;
+}
+.profilecard-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    position: static;
+    width: 320px;
+    height: 82px;
+    left: 0px;
+    top: 124px;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 12px 0px;
+}
+.profilecard-footer-tags{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    position: static;
+    width: 320px;
+    height: 30px;
+    left: 0px;
+    top: 0px;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+.profilecard-footer-rates-and-save {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-content: end;
+    align-items: center;
+    padding: 0px;    
+    position: static;
+    width: 320px;
+    height: 32px;
+    left: 0px;
+    top: 50px;    
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+#profileRates {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    padding: 0px;
+    position: static;
+    width: 100%;
+    height: 20px;
+    left: 0px;
+    top: 6px;
+    font-family:ProximaNova;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 24px;    
+    color: #373738;
+    justify-self: start;
+}
+
+.saveProfile {
+    display: flex;
+    justify-self: flex-end;
+    justify-content: center;
+}
+
+.saveProfile-heart:hover{
+    cursor:pointer;
+}
+
+
+@media only screen and (max-width: 1300px) {
+    .profilecard-background {
+        padding: 12px 12px 24px;
+        position: static;
+        width: 335px;
+        height: 591px;
+        margin: 0px ;
+    }
+    
+    .profilecard-contents {
+        width: 311px;
+        height: 555px;
+        left: 12px;
+        top: 12px;
+    }
+    
+    .profilecard-top {
+        width: 311px;
+        height: 311px;
+    }
+    
+    .profilecard-link {    
+        width: 311px;
+        height: 311px;
+    }    
+    
+    .profilecard-bottom{
+        width: 271px;
+        height: 240px;
+        left: 20px;
+        top: 315px;
+        margin: 15px 40px 0px 40px;
+    }
+    
+    .profilecard-text{
+        width: 271px;
+        height: 140px;
+    }
+    
+    .profilecard-username{
+        position: static;
+        width: 271px;
+        height: 32px;
+        font-size: 20px;
+        line-height: 24px;
+    }
+    
+    .profilecard-bio{
+        width: 271px;
+        height: 120px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    .profilecard-footer {
+        width: 271px;
+        height: 82px;
+        margin: 10px 0px;
+    }
+    .profilecard-footer-tags{
+        width: 271px;
+        height: 30px;
+    }
+    
+    .profilecard-footer-rates-and-save {
+        width: 271px;
+        height: 100%;
+    }
+    
+    #profileRates {
+        width: 100%;
+        height: 20px;
+        font-size: 16px;
+        line-height: 20px;   
+    }
+}

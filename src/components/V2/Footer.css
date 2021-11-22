@@ -1,0 +1,188 @@
+.footer-container{   
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: #151515;
+}
+
+.footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #151515;
+    height: 300px;
+    width: 1440px;
+}
+
+.footer>h4{
+margin-top: 48px;
+font-family:Verdana, Geneva, Tahoma, sans-serif;
+font-style: normal;
+font-weight: 800;
+font-size: 24px;
+line-height: 32px;
+text-align: center;
+color: #FDFDFD;
+}
+
+#footerlogo{
+    position: absolute;
+    height: 36px;
+    left: 25px;
+    bottom: 25px;
+}
+
+.footer-links{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    position: absolute;
+    width: 1116px;
+    height: 40px;
+    left: 280px;
+    top: 240px;
+}
+
+.footer-link {
+    color: white;
+    font-family:ProximaNova;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+    color: #FDFDFD;
+}
+
+.footer-logo-and-links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px;    
+    position: static;
+    width: 500px;
+    height: 40px;
+    left: 200px;
+    top: calc(50% - 40px/2);  
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    
+}
+
+.social-icon-bar{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0px;
+    
+    position: absolute;
+    width: 880px;
+    height: 40px;
+    left: 280px;
+    top: 144px;
+}
+
+.fab.fa-twitter ,
+.fab.fa-telegram ,
+.fab.fa-twitch ,
+.fab.fa-youtube ,
+.fab.fa-discord ,
+.fab.fa-linkedin ,
+.fas.fa-link ,
+.fab.fa-instagram ,
+.fab.fa-tiktok ,
+.fab.fa-medium {
+    color: white;
+    font-size: 40px;
+  }
+
+.fab.fa-twitter:hover ,
+.fab.fa-telegram:hover ,
+.fab.fa-twitch:hover ,
+.fab.fa-youtube:hover ,
+.fab.fa-discord:hover ,
+.fab.fa-linkedin:hover ,
+.fas.fa-link:hover ,
+.fab.fa-instagram:hover ,
+.fab.fa-tiktok:hover ,
+.fab.fa-medium:hover {
+    color: #2DBF6E;
+}
+
+#byMoralis {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    width: 250px;
+    height: 26px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+
+@media only screen and (max-width: 700px) {
+    .footer-container{
+        height: 440;
+        min-width: 375px;
+    }
+    .footer{
+        position: relative;
+        bottom: 0;
+        left: 0;
+        height: 440px;
+        width: 375px;
+    }
+    .social-icon-bar{
+        position: unset;
+        width: 375px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        position: relative;
+        height: 200px;
+        top: 0;
+        left: 0;
+    }
+    .profile-social-icon{
+        margin: 20px;
+    }
+    .footer-links{
+        display: flex;
+        justify-content: center;
+        width: 375px;
+        flex-wrap: wrap;
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+    .footer-logo-and-links{
+        width: 375px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .footer-link{
+        font-size: 16px;
+        margin: 10px;
+        margin-top: 0;
+    }
+    #footerlogo{
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        height: 30px;
+    }
+    #byMoralis{
+        margin-top: 15px;
+        width: 200px;
+    }
+  }

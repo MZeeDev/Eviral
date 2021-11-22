@@ -1,10 +1,9 @@
-.project-page-reviewList {
+.project-page-reviews {
   padding: 0.5rem 0;
   background: #fff;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-image: linear-gradient(to bottom, whitesmoke, white);
 }
 
 .project-page-review {
@@ -12,31 +11,161 @@
 }
 
 .review-container {
-  margin: 1rem 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  width: 557px;
+  height: 212px;
+  background: #FDFDFD;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 20px 0px;
 }
-.review-profile > .creator-profile-pic {
-  margin-right: 0.3rem;
-}
-.review-title,
-.review-date {
-  margin: 0.3rem 0;
-}
-#reviewTitle {
-  margin-left: 0.2rem;
-}
-
-.review-title.fas.fa-star {
-  margin: 0.2rem;
-  color: red;
-}
-.review-date {
-  color: gray;
-}
-.review-review {
-  color: dimgray;
-  width: 70%;
+#review-title-stars{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.fa-star {
+#review-title-stars>h4 {
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 32px;
+  color: #151515;
+}
+
+#reviewStars{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  height: 32px;
+}
+#review-reviewer{
+  position: absolute;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+#review-profilePic {
+  height: 45px;
+  width: 45px;
+  border-radius: 8px;
+  margin-right: 5px;
+}
+
+#review-nameanddate{
+  
+}
+#review-nameanddate>h5{
+  font-family: ProximaNova-bold;
+  font-size: 18px;
   margin: 0;
+}
+#review-nameanddate>p{
+  font-family: ProximaNova;
+  font-size: 15px;
+  margin: 0;
+}
+
+@media only screen and (max-width: 1300px) {
+  .project-page-reviews {
+    padding: 0.5rem 0;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  
+  .review-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    width: 351px;
+    height: 256px;
+    background: #FDFDFD;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 10px 0px 20px 0;
+  }
+  #review-title-stars{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 35px;
+
+  }
+  
+  #review-title-stars>h4 {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 24px;
+    color: #151515;
+    width: 311px;
+  }
+  
+  #reviewStars{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    height: 32px;
+    position: absolute;
+    top: 15px;
+    left: 12px;
+  }
+  #review-reviewer{
+    position: absolute;
+    bottom: 12px;
+    display: flex;
+    align-items: center;
+    height: 50px;
+  }
+  #review-review{
+    font-family: ProximaNova;
+    font-style: normal;
+    font-weight: nofrmal;
+    font-size: 14px;
+    line-height: 20px;
+    color: #151515;
+    width: 311px;
+  }
+  
+  #review-profilePic {
+    height: 45px;
+    width: 45px;
+    border-radius: 8px;
+    margin-right: 5px;
+  }
+  
+  #review-nameanddate{
+    
+  }
+  #review-nameanddate>h5{
+    font-family: ProximaNova-bold;
+    font-size: 18px;
+    margin: 0;
+  }
+  #review-nameanddate>p{
+    font-family: ProximaNova;
+    font-size: 15px;
+    margin: 0;
+  }
 }

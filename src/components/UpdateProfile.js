@@ -8,6 +8,16 @@ import './User.css';
 import './UpdateProfile.css';
 import Alert from './Alert';
 
+
+
+import Exit from '../img/exit.svg';
+import shareTelegram from '../img/shareIcons/telegram.svg';
+import shareTwitter from '../img/shareIcons/twitter.svg';
+import shareLinkedIn from '../img/shareIcons/linkedin.svg';
+import shareDiscord from '../img/shareIcons/discord.svg';
+import shareTwitch from '../img/shareIcons/twitch.svg';
+import shareYoutube from '../img/shareIcons/youtube.svg';
+
 function UpdateProfile(props) {
 
     const { user, setUserData, Moralis } = useMoralis();
@@ -33,7 +43,9 @@ function UpdateProfile(props) {
     const [youtube, setYoutube] = useState();
     const [twitch, setTwitch] = useState();
     const [startRate, setStartRate]  = useState();
+    const [rate, setRate] = useState("Rate");
     const [payCurrency, setPayCurrency] = useState();
+    const [contactForPricing, setContactForPricing] = useState(false);
     const init = 0;
 
     const checkProfileCreated = () => {
@@ -53,7 +65,9 @@ function UpdateProfile(props) {
             setYoutube(user.attributes?.youtube);
             setTwitch(user.attributes?.twitch);
             setStartRate(user.attributes?.startRate);
-            setStartRate(user.attributes?.payCurrency);
+            setPayCurrency(user.attributes?.payCurrency);
+            setRate(user.attributes?.rate);
+            setContactForPricing(user.attributes?.contactForPricing);
         }
     }
     
@@ -83,6 +97,8 @@ function UpdateProfile(props) {
             twitch: twitch === "" ? undefined : twitch,  
             startRate: startRate === "" ? undefined : startRate,  
             payCurrency: payCurrency === "" ? undefined : payCurrency,  
+            contactForPricing: contactForPricing === "" ? undefined : contactForPricing,  
+            rate: rate === "" ? undefined : rate,  
             profileCreated: true   
         });
         setAlertContents("Profile Updated!");
@@ -119,100 +135,103 @@ function UpdateProfile(props) {
             <div className="update-profile-background">
                 <div className="update-container">
                     <div className="update-container-wrapper">
-                    <div className="update-profile-header">
-                        <h3 className="update-profile-title"> Update Profile </h3>
-                        <span className="exitMenu" onClick={() => {props.closeEditProfileMenu(false)}}><i class="far fa-times-circle"></i></span>
-                    </div>
-                    <div className="change-landscape-pic-container">
-                        <img className="change-landscape-pic" src={landscapePic} alt="" />
-                    </div>
-                        <form className="form-input-container">                            
-                            <form onSubmit={onSubmitLandscape}>
-                                <div className="mb-3">
-                                    <label htmlFor="landscapePic" className="form-label">Choose a Landscape (recommended 1500px X 500px)</label>
-                                    <input className="form-control" type="file" accept="image/*" multiple="false" id="landscapePic" onChange={onChangeLandscape} />
-                                </div>
-                                <input type="button" value="Upload" className="updateProfile-btn2-upload" onClick={onSubmitLandscape} />
-                            </form>
-                            <label className="form-label">Username</label>
-                            <input className="form-input" placeholder="Choose a name" value={username} required onChange={(event) =>setUsername(event.currentTarget.value)}/>
-                            <label className="form-label">Location</label>
-                            <input className="form-input" placeholder="City, Country" value={userLocation} onChange={(event) =>setUserLocation(event.currentTarget.value)}/>
-                            <label className="form-label">Website</label>
-                            <input className="form-input" placeholder="www.yourpage.com" value={website} onChange={(event) =>setWebsite(event.currentTarget.value)}/>
-                            <label className="form-label">Skills</label>
-                            <input className="form-input" placeholder="List skills as keywords (ie Artist, Programmer, Model)" maxLength={50} value={skills} onChange={(event) =>setSkills(event.currentTarget.value)}/>
-                            
-                            <label className="form-label">Average starting costs for your service?</label>                            
-                            <div id="social-link-item">
-                                <div className="social-input-box-group">
-                                    <span className="social-link-at-box">$</span>
-                                    <input className="form-input" type="number" min="0" placeholder="Enter starting amount" value={startRate} onChange={(event) =>setStartRate(event.currentTarget.value)}/>
-                                    <input id="payCurrency" className="form-input" maxLength={5} minLength={3} placeholder="Symbol (USD ETH DAI etc) " value={payCurrency} onChange={(event) =>setPayCurrency(event.currentTarget.value)}/>
-                                    
-                                </div>
+                        <div className="update-profile-header">
+                            <h3 className="update-profile-title"> Update Profile </h3>
+                            <img id="exitMenu" src={Exit} onClick={() => {props.closeEditProfileMenu(false)}}/>
+                        </div>
+                        <div className="change-landscape-pic-container">
+                            <img className="change-landscape-pic" src={landscapePic} alt="" />
+                        </div>                           
+                        <form onSubmit={onSubmitLandscape}>
+                            <div className="mb-3">
+                                <label htmlFor="landscapePic" className="form-label">Choose a Landscape (recommended 1400px X 500px)</label>
+                                <input className="form-control" type="file" accept="image/*" multiple="false" id="landscapePic" onChange={onChangeLandscape} />
                             </div>
-                            
-                            
-                            
-                            <label className="form-label">Bio</label>
-                            <textarea rows={3} className="form-control" required placeholder="Brief bio (<150 characters)" maxLength={150} value={bio} onChange={(event) =>setBio(event.currentTarget.value)}/>
-                            <label className="form-label">Story</label>
+                            <input type="button" value="Upload" className="upload-profilePic-button" onClick={onSubmitLandscape} />
+                        </form>
+                        <h4 id="createProject-aboutProject">About me</h4>
+                        <div id="createProject-formInput">
+                            <label id="createProject-formInput-title">Username</label>
+                            <input id="createProject-formInput-text" placeholder="Choose a unique name" value={username} required onChange={(event) =>setUsername(event.currentTarget.value)}/>
+                        </div>
+                        <div id="createProject-formInput">
+                            <label id="createProject-formInput-title">Bio</label>
+                            <textarea rows={3} id="createProject-formInput-text" required placeholder="Brief bio (<150 characters)" maxLength={150} value={bio} onChange={(event) =>setBio(event.currentTarget.value)}/>
+                            {/* <input id="createProject-formInput-text" placeholder="List key skills (Artist, Programmer, Model etc.)" maxLength={50} value={skills} onChange={(event) =>setSkills(event.currentTarget.value)}/> */}
+                        </div>
+                        <div id="createProject-formInput">
+                            <label id="createProject-formInput-title">Location</label>
+                            <input id="createProject-formInput-text" placeholder="City, Country" value={userLocation} onChange={(event) =>setUserLocation(event.currentTarget.value)}/>
+                        </div>
+                        <div id="createProject-formInput">
+                            <label id="createProject-formInput-title">Website</label>
+                            <input id="createProject-formInput-text" placeholder="www.yourwebsite.com" value={website} onChange={(event) =>setWebsite(event.currentTarget.value)}/>
+                        </div>
+                        <div id="createProject-formInput">
+                            <label id="createProject-formInput-title">Skillset</label>
+                            <input id="createProject-formInput-text" placeholder="List key skills (Artist, Programmer, Model etc.)" maxLength={50} value={skills} onChange={(event) =>setSkills(event.currentTarget.value)}/>
+                        </div>
+                        <div id="createProject-formInput-description">
+                            <label id="createProject-formInput-title-description">Story<span style={{color:"red"}}> *</span></label>  
+                            {/* <textarea rows={3} className="form-control" placeholder="Please describe your project in more detail, up to 550 characters" maxLength={550} value={description} required onChange={(event) =>setDescription(event.currentTarget.value)}/> */}
                             <CKEditor 
                                 editor={ClassicEditor}
                                 onChange={handleStoryOnChange}                                    
                             />
-                            {/* <textarea rows={5} className="form-control" placeholder="What should others know about you? (<2000 characters)" maxLength={2000} value={story} onChange={(event) =>setStory(event.currentTarget.value)}/> */}
-
-                        <div id="update-socials">
-                            <div id="social-link-item">
-                                <div className="social-input-box-group">
-                                    <i className="fab fa-twitter update"></i>
-                                    <span className="social-link-at-box">@</span>
-                                    <input className="input-social-text-box" value={twitter} placeholder=" @username" onChange={(event) =>setTwitter(event.currentTarget.value)}/>
-                                </div>
-                            </div>
-                            <div id="social-link-item">
-                                <div className="social-input-box-group">
-                                    <i className="fab fa-telegram update"></i>
-                                    <span className="social-link-at-box">@</span>
-                                    <input className="input-social-text-box" value={telegram} placeholder=" t.me/  LINK" onChange={(event) =>setTelegram(event.currentTarget.value)}/>
-                                </div>
-                            </div>
-                            <div id="social-link-item">
-                                <div className="social-input-box-group">
-                                    <i className="fab fa-discord update"></i>
-                                    <span className="social-link-at-box">@</span>
-                                    <input  className="input-social-text-box"value={discord} placeholder=" discord.gg/ LINK" onChange={(event) =>setDiscord(event.currentTarget.value)}/>
-                                </div>
-                            </div>
-                            <div id="social-link-item">
-                                <div className="social-input-box-group">
-                                    <i className="fab fa-linkedin update"></i>
-                                    <span className="social-link-at-box">@</span>
-                                    <input className="input-social-text-box" value={linkedIn} placeholder=" linkedin.com/in/ Profile URL" onChange={(event) =>setLinkedIn(event.currentTarget.value)}/>
-                                </div>
-                            </div>
-                            <div id="social-link-item">
-                                <div className="social-input-box-group">
-                                    <i className="fab fa-youtube update"></i>
-                                    <span className="social-link-at-box">@</span>
-                                    <input className="input-social-text-box" value={youtube} placeholder=" youtube.com/c/ channel URL" onChange={(event) =>setYoutube(event.currentTarget.value)}/>
-                                </div>
-                            </div>
-                            <div id="social-link-item">
-                                <div className="social-input-box-group">
-                                    <i className="fab fa-twitch update"></i>
-                                    <span className="social-link-at-box">@</span>
-                                    <input className="input-social-text-box" value={twitch} placeholder=" twitch.tv/ channel URL" onChange={(event) =>setTwitch(event.currentTarget.value)}/>
-                                </div>
-                            </div>
-                            </div>
-                        <div className="submit">
-                            <button className="btn1" onClick={() => {props.closeEditProfileMenu(false)}}>Close Menu</button>                            
-                            <input className="updateProfile-btn2 btn2" onClick={handleSave} type="button" value="Save Changes"/>
                         </div>
-                        </form>
+                        <span style={{color:"red"}}> * Required</span> 
+                        <h4 id="createProject-aboutProject">Average starting costs for your service?</h4> 
+                        <div id="paymentInput">
+                            <div id="createProject-launchStatus-option">
+                                <input type="checkbox" id="indevelopment" name="flexRadioDefault" onClick={() => setContactForPricing(!contactForPricing)}/>
+                                <p id="contactForPricing-text">I prefer to be contacted about pricing. 
+                                    <br/>
+                                    (Leave payment fields below blank if you choose this)
+                                </p>
+                            </div>
+                            <div id="createProfile-paymentInput">
+                                <label id="createProject-formInput-title">Amount</label>
+                                <input id="createProfile-paymentInput-text" placeholder="Average starting costs" type="number" min="0" placeholder="Enter starting amount" value={startRate} onChange={(event) =>setStartRate(event.currentTarget.value)}/>
+                                <button class="payInput-button dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">{rate}</button>
+                                <ul class="dropdown-menu dropdown-menu-end">                                    
+                                    <button class="rateChoice" value="Hour" onClick={(event) =>setRate(event.currentTarget.value)}>Hourly</button>
+                                    <button class="rateChoice" value="Job" onClick={(event) =>setRate(event.currentTarget.value)}>Per Job</button>
+                                </ul>
+                            </div>
+                            <div id="createProfile-paymentInput">
+                                <label id="createProject-formInput-title">Currency</label>
+                                <input id="createProfile-paymentInput-text" maxLength={5} minLength={3} placeholder="USD, BTC, ETH, DAI etc" value={payCurrency} onChange={(event) =>setPayCurrency(event.currentTarget.value)}/>
+                            </div>                        
+                        </div>                       
+                        <h4 id="createProject-aboutProject">Social media</h4>             
+                        <div id="createProject-social">                            
+                            <span id="createProject-social-icon"><img src={shareTwitter}/></span>
+                            <input id="createProject-social-text" value={twitter} placeholder=" @username" onChange={(event) =>setTwitter(event.currentTarget.value)}/>
+                        </div>
+                        <div id="createProject-social">                            
+                                <span id="createProject-social-icon"><img src={shareTelegram}/></span>
+                                <input id="createProject-social-text" value={telegram} placeholder=" t.me/  LINK" onChange={(event) =>setTelegram(event.currentTarget.value)}/>
+                        </div>
+                        <div id="createProject-social">                            
+                                <span id="createProject-social-icon"><img src={shareDiscord}/></span>
+                                <input id="createProject-social-text" value={discord} placeholder=" @username" onChange={(event) =>setDiscord(event.currentTarget.value)}/>
+                        </div>
+                        <div id="createProject-social">                            
+                                <span id="createProject-social-icon"><img src={shareLinkedIn}/></span>
+                                <input id="createProject-social-text" value={linkedIn} placeholder=" linkedin.com/in/ Profile URL" onChange={(event) =>setLinkedIn(event.currentTarget.value)}/>
+                        </div>
+                        <div id="createProject-social">                            
+                                <span id="createProject-social-icon"><img src={shareYoutube}/></span>
+                                <input id="createProject-social-text" value={youtube} placeholder=" youtube.com/c/ channel URL" onChange={(event) =>setYoutube(event.currentTarget.value)}/>
+                        </div>
+                        <div id="createProject-social">                            
+                                <span id="createProject-social-icon"><img src={shareTwitch}/></span>
+                                <input id="createProject-social-text" value={twitch} placeholder=" twitch.tv/ channel URL" onChange={(event) =>setTwitch(event.currentTarget.value)}/>
+                        </div>
+                        <div className="form-button-wrapper">
+                            <button id="createProject-button-submit" onClick={handleSave}>Submit Changes</button>
+                            <button id="createProject-button-close" onClick={() => {props.closeEditProfileMenu(false)}}>Close Menu</button>  
+                        </div>  
                     </div>
                 </div>
             </div>

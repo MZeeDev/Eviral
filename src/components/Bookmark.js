@@ -1,5 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { useMoralis } from "react-moralis";
+import HeartFull from '../img/heartfull.png';
+import HeartOutlined from '../img/heartoutlined.svg';
+import './Bookmark.css';
+
 
 function Bookmark(props) {
     const { user, Moralis } = useMoralis();
@@ -60,8 +64,8 @@ function Bookmark(props) {
       );
 
     return (
-        <div className="bookmark" >
-            {bookmark ? <i class="fas fa-bookmark" onClick={() => removeProject()}></i>  : <i class="far fa-bookmark" onClick={() => saveProject()}></i>}
+        <div className="bookmark" style={{}}>
+            {bookmark ? <img id="saveHeart" src={HeartFull} onClick={() => removeProject()}/>  : <img id="saveHeart" src={HeartOutlined} onClick={() => saveProject()}/>}
         </div>
     )
 }

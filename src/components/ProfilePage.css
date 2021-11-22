@@ -1,0 +1,587 @@
+#profilePage-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    width: 1400px;
+    height: 1080px;
+    border-radius: 20px;
+    margin: 50px 20px 25px 20px;
+}
+#profilePage-landscapePic{
+    width: 1400px;
+    height: 500px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    object-fit: cover;
+}
+
+#profilePage-profileContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    position: relative;
+    padding: 40px;
+    width: 1400px;
+    height: 466px;
+    background: #F4F4F5;
+    border-radius: 20px;
+    margin: 0px 0px 25px 0px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+#myProfilePage-subProfileMenu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    padding: 40px;
+    width: 1400px;
+    height: 100px;
+    background: #F4F4F5;
+    border-radius: 20px;
+    margin: 0px 0px 0 0px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.12);
+    bottom: 15px;
+    
+}
+
+#profilePage-profilePic{
+    height: 386px;
+    width: 386px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;    
+    margin-right: 40px;
+    position: relative;
+}
+
+#profilePage-profilePic:hover  {
+    opacity: 0.7;
+    cursor: pointer;
+    background: #151515;
+  }
+#profilePage-profilePic:hover .middle-of-profilePic {
+    opacity: 1;
+    cursor: pointer;
+  }
+.middle-of-profilePic {
+    transition: 0.3s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left:50%;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    background: #000000d9;
+    border-radius: 20px;  
+}
+.middle-of-profilePic>img {    
+    height: 56px;
+    width: 56px; 
+}
+
+#profilePage-profileInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 900px;
+}
+
+#profilePage-usernameandbio{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#profilePage-username>h2{
+    font-family: ProximaNova-bold;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 48px;
+    color: #151515;
+}
+#sendMessage-button{
+    position: absolute;
+    right: 0px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+
+#profilePage-payrate{
+    font-family: ProximaNova-bold;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 24px;
+    color: #151515;
+    margin: 5px 0;
+}
+
+#profilePage-story>p{
+    font-family: ProximaNova;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #151515;
+    margin: 5px 0;
+    margin-bottom: 0;
+}
+
+#profilePage-location{
+    display: flex;
+    align-items: center;
+}
+#profilePage-location>p{
+    margin: 0;
+}
+
+#profilePage-website{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #151515;
+    width: 100%;
+}
+
+#profilePage-projects{
+    height: 64px;
+    font-family: ProximaNova-bold;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 56px;
+    line-height: 64px;
+    color: #2d2d2d;
+    margin:70px 0px 20px 80px;
+}
+
+#skillTags{
+    display: flex;
+    margin: 5px 0 0 0;
+
+}
+#skillTags>p{ 
+    font-weight: bold;
+    margin: 0 5px 0 0;
+}
+
+#socialShares {
+    margin: 10px 0;
+}
+#mysocialShares {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+#mysocialShares>p {
+    font-family: ProximaNova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+#profilePage-save {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+#profilePage-save.bookmark>img {
+    height: 500px;
+}
+
+#profile-balances-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 100%;
+    font-size: 1rem;
+    height: 3.3rem;
+    margin: 0.2rem 0;
+}
+
+#tokenBalanceSymbol{
+    height: 45px;
+    margin-right: 5px;
+}
+
+#showProfileBalance>p, #showProfileBalanceBSC>p {
+    margin-bottom: 0;
+    font-family: ProximaNova;
+    font-size: 22px;
+    font-weight: 700;
+}
+#showProfileBalance, #showProfileBalanceBSC {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+#showProfileBalance {
+    color: rgb(58, 228, 103);
+}
+#showProfileBalanceBSC {
+    color: gold;
+}
+
+#subProfile-button{
+    width: 200px;
+    height: 44px;
+    background: linear-gradient(152.95deg, #5DED9C 32.2%, #0EBD91 93.13%);
+    border-radius: 8px;
+    font-family: ProximaNova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #FDFDFD;
+    border: none;
+    margin: 0 10px;
+}
+
+#createAProject{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px 32px 20px;
+    position: static;
+    width: 400px;
+    height: 448px;
+    left: 0px;
+    top: 0px;
+    background: #FDFDFD;
+    box-shadow: 0px 8px 18px rgba(66, 27, 27, 0.10);
+    border-radius: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 40px;
+}
+
+#addProjectIcon{
+    height: 48px;
+    width: 48px;
+    margin-bottom: 10px;
+}
+
+#addProjectText{
+    font-family: ProximaNova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+}
+#createAProject:hover{
+    cursor: pointer;
+    background: #F4F4F5;
+}
+
+
+
+
+@media only screen and (max-width: 1300px) {
+    #profilePage-profile{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        width: 365px;
+        height: min-content;
+        min-height: 1080px;
+        border-radius: 20px;
+        margin: 12px 5px 25px 5px;
+    }
+    #profilePage-landscapePic{
+        width: 365px;
+        height: 127px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        object-fit: cover;
+    }
+    
+    #profilePage-profileContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+        padding: 12px;
+        width: 365px;
+        height: 1053px;
+        background: #F4F4F5;
+        border-radius: 20px;
+        margin: 0px 0px 25px 0px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.12);
+    }
+    
+    #myProfilePage-subProfileMenu{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+        padding: 40px;
+        width: 365px;
+        height: 75px;
+        background: #F4F4F5;
+        border-radius: 20px;
+        margin: 0px 0px 0 0px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.12);
+        bottom: 15px;
+        
+    }
+    
+    #profilePage-profilePic{
+        height: 325px;
+        width: 325px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
+        border-radius: 20px;    
+        margin-right: 0px;
+        position: relative;
+        top: 0px;
+    }
+    
+    #profilePage-profileInfo{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 325px;
+    }
+    
+    #profilePage-usernameandbio{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 325px;
+        margin-top: 12px;
+    }
+    
+    #profilePage-username>h2{
+        font-family: ProximaNova-bold;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 32px;
+        line-height: 40px;
+        color: #151515;
+        width: 325px;
+    }
+    #sendMessage-button{
+        position: relative;
+        right: 0px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
+        width: 325px;
+        font-weight: normal;
+    }
+
+    #profilePage-payrate{
+        margin: 10px 0 10px 0;
+
+    }
+    
+    #profilePage-location{
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+    }
+    #profilePage-location>p{
+        margin: 0;
+    }
+    
+    #profilePage-website{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #151515;
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    #profilePage-projects{
+        height: 28px;
+        font-family: ProximaNova-bold;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 28px;
+        line-height:14px;
+        color: #2d2d2d;
+        margin:40px 0px 0px 20px;
+        text-align: left;
+    }
+    
+    #skillTags{
+        display: flex;
+        margin: 10px 0;
+    
+    }
+    #skillTags>p{ 
+        font-weight: bold;
+        margin: 0 5px 0 0;
+    }
+    
+
+    #mysocialShares>p{
+        font-family: ProximaNova-bold;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;    
+        color: #151515;
+        margin: 0;
+    }
+    
+    #mysocialShares {
+        display: flex;
+        width: 325px;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5px 0;
+        height: 30px;
+    }
+    
+    #profilePage-save {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+    }
+    #profilePage-save.bookmark>img {
+        height: 500px;
+    }
+    
+    #profile-balances-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: row;
+        width: 325px;
+        font-size: 1rem;
+        height: 25px;
+        margin: 0.2rem 0;
+    }
+    
+    #tokenBalanceSymbol{
+        height: 25px;
+        margin-right: 5px;
+    }
+    
+    #showProfileBalance>p, #showProfileBalanceBSC>p {
+        margin-bottom: 0;
+        font-family: ProximaNova;
+        font-size: 16px;
+        font-weight: 700;
+    }
+    #showProfileBalance, #showProfileBalanceBSC {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+    #showProfileBalance {
+        color: rgb(58, 228, 103);
+    }
+    #showProfileBalanceBSC {
+        color: gold;
+    }
+    
+    #subProfile-button{
+        width: 335px;
+        height: 44px;
+        background: linear-gradient(152.95deg, #5DED9C 32.2%, #0EBD91 93.13%);
+        border-radius: 8px;
+        font-family: ProximaNova;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #FDFDFD;
+        border: none;
+        margin: 5px 10px;
+    }
+    
+    #createAProject{
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px 20px 32px 20px;
+        position: static;
+        left: 0px;
+        top: 0px;
+        background: white;
+        box-shadow: 0px 8px 18px rgba(66, 27, 27, 0.10);
+        border-radius: 20px;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin: 0px 40px;
+        width: 335px;
+        height: 375px;
+        margin-bottom: 20px;
+    }
+    
+    #addProjectIcon{
+        height: 48px;
+        width: 48px;
+        margin-bottom: 10px;
+    }
+    
+    #addProjectText{
+        font-family: ProximaNova;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+    }
+    #createAProject:hover{
+        cursor: pointer;
+        background: #F4F4F5;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

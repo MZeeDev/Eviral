@@ -1,0 +1,360 @@
+
+.projectcard-background {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px 20px 32px 20px;
+    position: static;
+    width: 400px;
+    height: 448px;
+    left: 0px;
+    top: 0px;
+    background: #FDFDFD;
+    box-shadow: 0px 8px 18px rgba(66, 27, 27, 0.10);
+    border-radius: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 40px;
+}
+
+.projectcard-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    position: static;
+    width: 360px;
+    height: 396px;
+    left: 20px;
+    top: 20px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px ;
+}
+
+.projectcard-top {
+    position: relative;
+    width: 360px;
+    height: 220px;
+    left: 0px;
+    top: 0px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px;
+}
+
+.projectcard-creator-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    position: absolute;
+    width: 114px;
+    height: 40px;
+    left: 12px;
+    top: 12px;
+}
+
+.projectcard-creator-nameanddate{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    position: static;
+    width: 275px;
+    height: 38px;
+    left: 52px;
+    top: 1px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px;
+}
+
+.projectcard-creator-username{
+    display: flex;
+    position: static;
+    width: 100%;
+    height: 20px;
+    left: 0px;
+    top: 0px;
+    font-family:ProximaNova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    color: #FDFDFD;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 2px 0px;
+}
+
+.projectcard-created-on-date{
+    position: static;
+    width: 100%px;
+    height: 16px;
+    left: 0px;
+    top: 22px;
+    font-family:ProximaNova;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #FDFDFD;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 2px 0px;
+}
+.projectcard-creator-profilepic{
+    position: static;
+    width: 40px;
+    height: 40px;
+    left: 0px;
+    top: 0px;
+    border-radius: 100%;
+    filter: drop-shadow(0px 8px 16px rgba(0, 0, 0, 0.08));
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 12px;
+}
+
+.projectcard-link {    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 360px;
+    height: 220px;
+    left: 0px;
+    top: 0px;
+}
+
+.projectcard-photo-container{    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    width: 100%;    
+    overflow: hidden;
+    border-radius: 20px;
+    object-fit: contain;
+}
+
+#overlayprojectcard {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(167.91deg,rgba(0, 0, 0, 0.512) 0%, rgba(0, 0, 0, 0.384) 20%,rgba(0, 0, 0, 0) 45%);
+    border-radius: 20px;
+
+}
+
+.projectcard-photo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    min-height: 100%;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+
+.projectcard-bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    position: static;
+    width: 320px;
+    height: 156px;
+    left: 20px;
+    top: 240px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 15px 40px 0px 40px;
+}
+
+.projectcard-text{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    position: static;
+    width: 320px;
+    height: 140px;
+    left: 0px;
+    top: 0px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin:  0px;
+}
+
+.projectcard-title{
+    position: static;
+    width: 320px;
+    height: 32px;
+    left: 0px;
+    top: 0px;
+    font-family:ProximaNova-bold;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 32px;
+    color: #151515;
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 0px;
+}
+
+.projectcard-summary{
+    position: static;
+    width: 320px;
+    height: 120px;
+    left: 0px;
+    top: 40px;
+    font-family:ProximaNova;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: #373738;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 0px;
+    overflow: ellipsis;
+}
+
+
+.projectcard-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    width: 350px;
+    height: 32px;
+    left: 0px;
+    bottom: 10px;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    padding-bottom: 10px;
+}
+
+.project-card-badges {
+    display: flex;
+    top: 0;
+    right: 0;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+#project-card-badge{
+    margin: 0 5px;
+    height: 30px;
+}
+
+
+@media only screen and (max-width: 1300px) {
+
+    
+    .projectcard-background {
+        padding: 12px 12px 20px;
+        width: 335px;
+        height: 396px;
+        margin: 0px 20px;
+    }
+    
+    .projectcard-contents {
+        width: 311px;
+        height: 364px;
+        left: 12px;
+        top: 12px;
+    }
+    
+    .projectcard-top {
+        width: 311px;
+        height: 180px;
+    }
+    
+    
+    .projectcard-creator-nameanddate{
+        width: 245px;
+    }
+    
+    .projectcard-creator-username{
+        margin: 0 0 2px 0px;
+    }
+    
+    .projectcard-creator-profilepic{
+        margin: 0px 5px 0 0;
+    }
+    
+    .projectcard-link {    
+        width: 311px;
+        height: 180px;
+    }
+    
+    
+    .projectcard-bottom{
+        width: 290px;
+        height: 150px;
+        left: 20px;
+        top: 196px;
+        margin: 10px 0px 0px 0px;
+    }
+    
+    .projectcard-text{
+        width: 290px;
+        height: 140px;
+    }
+    
+    .projectcard-title{
+        width: 290px;
+        height: 24px;
+        font-size: 18px;
+        line-height: 24px;
+    }
+    
+    .projectcard-summary{
+        width: 290px;
+        height: 120px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+    
+    .projectcard-footer {
+        width: 310px;
+        height: 32px;
+        padding-bottom: 0px;
+    }
+    
+    #project-card-badge{
+        margin: 0 5px 0 0;
+        height: 22px;
+    }
+}

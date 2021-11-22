@@ -9,6 +9,22 @@ import defaultLandscape from "../img/defaultLandscape.jpg";
 import Alert from './Alert';
 import CreateNewProject from './CreateProject';
 
+import '../components/ProfilePage.css';
+import ReactHtmlParser from 'react-html-parser';
+
+import shareTelegram from '../img/shareIcons/telegram.svg';
+import shareTwitter from '../img/shareIcons/twitter.svg';
+import shareLinkedIn from '../img/shareIcons/linkedin.svg';
+import shareEmail from '../img/shareIcons/email.svg';
+import shareFacebook from '../img/shareIcons/facebook.svg';
+import sharePinterest from '../img/shareIcons/pinterest.svg';
+import shareYoutube from '../img/shareIcons/youtube.svg';
+import shareTwitch from '../img/shareIcons/twitch.svg';
+import websiteIcon from '../img/projectpage/websiteicon.svg';
+import location from '../img/location.svg';
+import addImage from '../img/addImage.svg';
+import Exit from '../img/exit.svg';
+
 
 
 function Profile(props) {
@@ -152,23 +168,106 @@ function Profile(props) {
 
     return (
         <>
-        
-            <div className="profile-container-wrapper">
-                <div className="profile-wrapper">
-                    <div className="profile-background">
-                        <img className='landscape-pic' src={landscape} alt=""/>
+            <div id="profilePage-profile">
+                <img id="profilePage-landscapePic" src={landscape}/>
+                <div id="profilePage-profileContainer">
+                    <div id="profilePage-profilePic">
+                        <img id="profilePage-profilePic" src={profilePic} onClick={() => userCheck()}/>
+                        <div className="middle-of-profilePic" onClick={() => userCheck()}>                                
+                            <img src={addImage}/>                              
+                        </div>          
                     </div>
+                    <div id="profilePage-profileInfo">
+                        <div id="profilePage-usernameandbio">
+                            <div id="profilePage-username">
+                                <h2>{user?.attributes?.username}</h2>
+                                <p>{user?.attributes?.bio}</p>
+                            </div>
+                            <div className="profile-header-btns">                            
+                            <button id="subProfile-button" onClick={editProfileCheck}>
+                            <i class="fas fa-pen"></i>Edit&nbsp;Profile
+                            </button>
+                        </div>        
+                        </div>
+                        <div id="profilePage-payrate">
+                            {user?.attributes?.contactForPricing 
+                            ?
+                            <p>Contact for pricing</p>
+                            :
+                            <>
+                            {user?.attributes?.startRate}&nbsp;
+                            {user?.attributes?.payCurrency}&nbsp;
+                            {user?.attributes?.rate && 
+                                <>
+                                /&nbsp;
+                                {user?.attributes?.rate}
+                                </>
+                            }
+                            </>
+                            }
+                            
+                        </div>
+                        <p>{ReactHtmlParser(user?.attributes?.story)}</p>
+                        <div id="skillTags">
+                            <p>Skillset:</p> {user?.attributes?.skills}
+                        </div>
+                        <div id="mysocialShares">
+                            <p>Socials:</p>                  
+                                <Link className='profile-social-icon twitter' to={{ pathname: (`https://twitter.com/${(user?.attributes?.twitter)}`) }} target="_blank" aria-label='Twitter'>
+                                    <img id="socialShareIcon" src={shareTwitter}/>
+                                </Link>
+                                <Link className='profile-social-icon telegram' to={{ pathname: (`https://t.me/${(user?.attributes?.telegram)}`) }} target="_blank" aria-label='Telegram'>
+                                    <img id="socialShareIcon" src={shareTelegram}/>
+                                </Link>
+                                <Link className='profile-social-icon linkedIn' to={{ pathname: (`https://linkedin.com/in/${(user?.attributes?.linkedIn)}`) }} target="_blank" aria-label='LinkedIn'>
+                                    <img id="socialShareIcon" src={shareLinkedIn}/>
+                                </Link>
+                                <Link className='profile-social-icon youtube' to={{ pathname: (`https://youtube.com/c/${(user?.attributes?.youtube)}`) }} target="_blank" aria-label='Youtube'>
+                                    <img id="socialShareIcon" src={shareYoutube}/>
+                                </Link>
+                                <Link className='profile-social-icon twitch' to={{ pathname: (`https://twitch.tv/${(user?.attributes?.twitch)}`) }} target="_blank" aria-label='Twitch'>
+                                    <img id="socialShareIcon" src={shareTwitch}/>
+                                </Link>
+                        </div>
+                        <div id="profilePage-location">
+                            <img id="socialShareIcon" src={location}/>
+                            <p>{user?.attributes?.userLocation}</p>
+                        </div>
+                        <div id="profilePage-website">
+                            <div>                    
+                                <Link className="website-link"
+                                    to={{ pathname: `https://${user?.attributes?.website}` }}
+                                    target="_blank"
+                                    >
+                                    <img id="websiteIcon" src={websiteIcon}/>
+                                    {user?.attributes?.website}
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="myProfilePage-subProfileMenu">
+                    <div id="profile-balances-wrapper">
+                        <div id="showProfileBalance">
+                            <img id="tokenBalanceSymbol" src={Logo} alt="" ></img>
+                            <p>{balanceETH}</p>
+                        </div>
+                        <div id="showProfileBalanceBSC">
+                            <img id="tokenBalanceSymbol" src={LogoBSC} alt="" ></img>
+                            <p>{balanceBSC}</p>
+                        </div>
+                    </div>      
+                </div>
+            </div>
+        
+            {/* <div className="profile-container-wrapper">
+                <div className="profile-wrapper"> 
                     <div className="profile-header">
                         <div className="profile-pic-container"onClick={() => userCheck()}>
                             <img className="profile-pic" src={profilePic} alt="" id="profilePic" />
                             <div className="middle-of-profilePic">                                
                                     <i class="fas fa-camera-retro"></i>                                
                             </div>
-                        </div>
-                        <div className="profile-page-summary">
-                            <h2 className="profile-page-username"> {user?.attributes?.username} </h2>
-                            <p className="profile-page-bio">{user?.attributes?.bio}</p>
-                
                         </div>
                 
                     </div>
@@ -197,27 +296,31 @@ function Profile(props) {
                     </div>                    
                 </div>
                 </div>
-            </div>
+            </div> */}
             {changeProfilePicMenu &&
             <div className="update-profile-background">
-                <div className="update-container">
+                <div className="update-profilePic-container">
                     <div className="update-profilepic-container-wrapper">
-                    <div className="update-profile-header">
+                    <div className="update-profilepic-header">
                         <h3 className="update-profile-title">Choose a Profile Picture</h3>
-                        <span className="exitMenu" onClick={() => {setOpenChangeProfilePicMenu(false)}}><i class="far fa-times-circle"></i></span>
+                        <img id="exitMenu" src={Exit} onClick={() => {setOpenChangeProfilePicMenu(false)}}/>
                     </div>
-                    <div className="profile-pic-container">
-                        <img className="profile-pic" src={previewPic} alt="" />
+                    <div id="profilePage-update-profilePic">
+                        <img id="profilePage-update-profilePic" src={previewPic} onClick={() => userCheck()}/>
                     </div>
                         <form className="form-input-container">
                             <form onSubmit={onSubmitPhoto}>
                                 <div className="mb-3">
-                                    <label htmlFor="profilePhoto" className="form-label">Select Image File</label>
+                                    <label htmlFor="profilePhoto" className="form-label">
+                                        Select Image File
+                                        <br/>
+                                        (If you have trouble uploading, make sure the file name contains no special characters.)
+                                    </label>
                                     <input className="form-control" type="file" accept="image/*" multiple="false" id="profilePhoto" onChange={onChangePhoto} />
                                 </div>
                                 <div className="change-profile-pic-footer">
                                     <input type="button" value="Upload" className="upload-profilePic-button btn2" onClick={onSubmitPhoto} />
-                                    <button className="btn1" onClick={()=>{setOpenChangeProfilePicMenu(false)}}>Close</button>
+                                    <button className="upload-profilePic-button1" onClick={()=>{setOpenChangeProfilePicMenu(false)}}>Close</button>
                                 </div>
                             </form>
                         </form>
@@ -228,8 +331,8 @@ function Profile(props) {
             }
             {alertVisible &&
             <Alert 
-            visible={setAlertVisible}
-            content={alertContents}            
+                visible={setAlertVisible}
+                content={alertContents}            
             />
             }
         </>

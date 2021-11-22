@@ -1,22 +1,35 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
 import './ReviewCard.css';
 
 function ReviewCard(props) {
+
+    const stars = (props.stars);
+
+
     return (
         
             <div className="review-container"> 
-                    <div className="review-profile">
-                        <img className="creator-profile-pic" src={props.reviewerPic} />
-                        {props.username}
+                    <div id="review-title-stars">
+                        <h4 id="reviewTitle">{props.reviewTitle}</h4>                            
+                        <div id="reviewStars">
+                            {[...Array(5)].map( (star, i) => {
+                                const ratingValue = i + 1;
+                                return (
+                                    <label>
+                                        {ratingValue  <= stars ? <i class="fas fa-star gold"></i> : <i class="fas fa-star grey"></i>}
+                                    </label>
+                                )
+                            })}
+                        </div>
                     </div>
-                    <div className="review-title">
-                        {[...Array(props.stars)].map( star => {
-                            return <i class="fas fa-star"></i>
-                        })}
-                        <span id="reviewTitle">{props.reviewTitle}</span>
+                    <p id="review-review">{props.review}</p>       
+                    <div id="review-reviewer">
+                        <img id="review-profilePic" src={props.reviewerPic} />
+                        <div id="review-nameanddate">
+                            <h5>{props.username}</h5>
+                            <p className="review-date"> {props.createdAt}</p>
+                        </div>
                     </div>
-                    <div className="review-date">Reviewed on {props.createdAt}</div>
-                    <div className="review-review">{props.review}</div>       
             </div>            
         
     )

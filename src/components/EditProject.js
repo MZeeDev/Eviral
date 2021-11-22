@@ -6,6 +6,14 @@ import './EditProject.css';
 import { useMoralis, useMoralisFile } from "react-moralis";
 import Alert from './Alert';
 
+import Exit from '../img/exit.svg';
+import shareTelegram from '../img/shareIcons/telegram.svg';
+import shareTwitter from '../img/shareIcons/twitter.svg';
+import shareLinkedIn from '../img/shareIcons/linkedin.svg';
+import shareDiscord from '../img/shareIcons/discord.svg';
+import shareTwitch from '../img/shareIcons/twitch.svg';
+import shareYoutube from '../img/shareIcons/youtube.svg';
+
 function EditProject(props) {  ///set input variables as required, add other attributes to be stored like tags, etc, allow for editing/updating?
 
     const { user, Moralis } = useMoralis();
@@ -111,112 +119,77 @@ function EditProject(props) {  ///set input variables as required, add other att
                     <div className="form-wrapper">
                         <div className="form-header">
                             <h3 className="menu-title"> Edit Project </h3>
-                            <span className="exitMenu" onClick={() => {props.closeCreateProjectMenu(false)}}><i class="far fa-times-circle"></i></span>
+                            <img id="exitMenu" src={Exit} onClick={() => {props.closeCreateProjectMenu(false)}}/>
                         </div>
-                        <div className="project-pic-container">
+                        <div id="project-pic-container">
                             <img className="project-pic" src={projectPhotoPreview} alt="" />
                         </div>                        
-                        <div className="form-photo-wrapper">
-                            <form>
-                                <div className="mb-3">
-                                    <label htmlFor="projectPhoto" className="form-label">Upload a main picture<span style={{color:"red"}}> *</span></label>
-                                    <input className="form-control" type="file" accept="image/png, image/jpg, image/jpeg" multiple="false" id="projectPhoto" required onChange={onChangePhoto}/>
-                                </div>
-                                
-                
-                            </form>
+                        <div className="form-photo-wrapper">  
+                            <label htmlFor="projectPhoto" className="form-label">Upload a cover photo*</label>
+                            <input className="form-control" type="file" accept="image/png, image/jpg, image/jpeg" multiple="false" id="projectPhoto" required onChange={onChangePhoto}/>
                         </div>
-                        <div className="form-text-wrapper">
-                            <form className="form-text">
-                            <div className="form-text-component">
-                                    Has your project already launched or is it still in development?
-                                    <div className="project-dev-status-radio">
-                                        <div className="project-dev-status-radio-check">
-                                            <input type="radio" id="indevelopment" name="flexRadioDefault" onClick={() => setIsLive(false)}/>
-                                            <label className="form-label">
-                                                In Development
-                                            </label>
-                                        </div>
-                                        <div className="project-dev-status-radio-check">
-                                            <input type="radio" id="launched" name="flexRadioDefault" onClick={() => setIsLive(true)}/>
-                                            <label className="form-label">
-                                                Launched
-                                            </label>
-                                        </div>                                        
-                                    </div>
-                                </div>
-                                <div className="form-text-component">
-                                    <label className="form-label">Project Title<span style={{color:"red"}}> *</span></label>
-                                    <input className="form-input" placeholder={title} value={title} required onChange={(event) =>setTitle(event.currentTarget.value)}/>
-                                </div>
-                                <div className="form-text-component">
-                                    <label className="form-label">Summary<span style={{color:"red"}}> *</span></label>
-                                    <textarea rows={3} className="form-control" placeholder="Enter brief description to display ( <150 characters )" maxLength={150} value={summary} required onChange={(event) =>setSummary(event.currentTarget.value)}/>
-                                </div>
-                                <div className="form-text-component">
-                                    <label className="form-label">Description<span style={{color:"red"}}> *</span></label>
-                                    {/* <textarea rows={3} className="form-control" placeholder="Please describe your project in more detail, up to 550 characters" maxLength={550} value={description} required onChange={(event) =>setDescription(event.currentTarget.value)}/> */}
-                                    <CKEditor 
-                                        editor={ClassicEditor}
-                                        onChange={handleDescriptionOnChange}                                    
-                                    />
-                                </div>
-                                <div className="form-text-component">
-                                    <label className="form-label">Website</label>
-                                    <input className="form-input" placeholder="www.yourpage.com" value={website} onChange={(event) =>setWebsite(event.currentTarget.value)}/>
-                                </div>
-                                <span style={{color:"red"}}> * Required</span>
-                             
-                            </form>
+                        <div id="createProject-launchStatus">
+                            <p>Has your project already launched or is it still in development?</p>
+                            <div id="createProject-launchStatus-option">
+                                <input type="radio" id="indevelopment" name="flexRadioDefault" onClick={() => setIsLive(false)}/>
+                                <p>In Development</p>
+                            </div>
+                            <div id="createProject-launchStatus-option">
+                                <input type="radio" id="indevelopment" name="flexRadioDefault" onClick={() => setIsLive(true)}/>
+                                <p>Launched</p>
+                            </div>              
                         </div>
-                        <div id="update-socials">
-                            <div id="social-link-item">
-                                <div className="social-input-box-group">
-                                    <i className="fab fa-twitter update"></i>
-                                    <span className="social-link-at-box">@</span>
-                                    <input className="input-social-text-box" value={twitter} placeholder=" @username" onChange={(event) =>setTwitter(event.currentTarget.value)}/>
-                                </div>
-                            </div>
-                            <div id="social-link-item">
-                                <div className="social-input-box-group">
-                                    <i className="fab fa-telegram update"></i>
-                                    <span className="social-link-at-box">@</span>
-                                    <input className="input-social-text-box" value={telegram} placeholder=" t.me/  LINK" onChange={(event) =>setTelegram(event.currentTarget.value)}/>
-                                </div>
-                            </div>
-                            <div id="social-link-item">
-                                <div className="social-input-box-group">
-                                    <i className="fab fa-discord update"></i>
-                                    <span className="social-link-at-box">@</span>
-                                    <input  className="input-social-text-box"value={discord} placeholder=" discord.gg/ LINK" onChange={(event) =>setDiscord(event.currentTarget.value)}/>
-                                </div>
-                            </div>
-                            <div id="social-link-item">
-                                <div className="social-input-box-group">
-                                    <i className="fab fa-linkedin update"></i>
-                                    <span className="social-link-at-box">@</span>
-                                    <input className="input-social-text-box" value={linkedIn} placeholder=" linkedin.com/in/ Profile URL" onChange={(event) =>setLinkedIn(event.currentTarget.value)}/>
-                                </div>
-                            </div>
-                            <div id="social-link-item">
-                                <div className="social-input-box-group">
-                                    <i className="fab fa-youtube update"></i>
-                                    <span className="social-link-at-box">@</span>
-                                    <input className="input-social-text-box" value={youtube} placeholder=" youtube.com/c/ channel URL" onChange={(event) =>setYoutube(event.currentTarget.value)}/>
-                                </div>
-                            </div>
-                            <div id="social-link-item">
-                                <div className="social-input-box-group">
-                                    <i className="fab fa-twitch update"></i>
-                                    <span className="social-link-at-box">@</span>
-                                    <input className="input-social-text-box" value={twitch} placeholder=" twitch.tv/ channel URL" onChange={(event) =>setTwitch(event.currentTarget.value)}/>
-                                </div>
-                            </div>
-                            </div>
+                        <h4 id="createProject-aboutProject">About Project</h4>
+                        <div id="createProject-formInput">
+                            <label id="createProject-formInput-title">Enter Project Name<span style={{color:"red"}}> *</span></label>
+                            <input id="createProject-formInput-text" placeholder={title} value={title} required onChange={(event) =>setTitle(event.currentTarget.value)}/>
+                        </div>
+                        <div id="createProject-formInput">
+                            <label id="createProject-formInput-title">Summary<span style={{color:"red"}}> *</span></label>
+                            <textarea rows={3} id="createProject-formInput-text" placeholder="Enter brief description to display ( <150 characters )" maxLength={150} value={summary} required onChange={(event) =>setSummary(event.currentTarget.value)}/>
+                        </div>
+                        <div id="createProject-formInput-description">
+                            <label id="createProject-formInput-title-description">Description<span style={{color:"red"}}> *</span></label>  
+                            {/* <textarea rows={3} className="form-control" placeholder="Please describe your project in more detail, up to 550 characters" maxLength={550} value={description} required onChange={(event) =>setDescription(event.currentTarget.value)}/> */}
+                            <CKEditor 
+                                editor={ClassicEditor}
+                                onChange={handleDescriptionOnChange}                                    
+                            />
+                        </div>
+                        <div id="createProject-formInput">
+                            <label id="createProject-formInput-title">Website</label>
+                            <input id="createProject-formInput-text" placeholder="www.yourwebsite.com" value={website} onChange={(event) =>setWebsite(event.currentTarget.value)}/>
+                        </div>
+                        <span style={{color:"red"}}> * Required</span>                        
+                        <div id="createProject-social">                            
+                                <span id="createProject-social-icon"><img src={shareTwitter}/></span>
+                                <input id="createProject-social-text" value={twitter} placeholder=" @username" onChange={(event) =>setTwitter(event.currentTarget.value)}/>
+                        </div>
+                        <div id="createProject-social">                            
+                                <span id="createProject-social-icon"><img src={shareTelegram}/></span>
+                                <input id="createProject-social-text" value={telegram} placeholder=" t.me/  LINK" onChange={(event) =>setTelegram(event.currentTarget.value)}/>
+                        </div>
+                        <div id="createProject-social">                            
+                                <span id="createProject-social-icon"><img src={shareDiscord}/></span>
+                                <input id="createProject-social-text" value={discord} placeholder=" @username" onChange={(event) =>setDiscord(event.currentTarget.value)}/>
+                        </div>
+                        <div id="createProject-social">                            
+                                <span id="createProject-social-icon"><img src={shareLinkedIn}/></span>
+                                <input id="createProject-social-text" value={linkedIn} placeholder=" linkedin.com/in/ Profile URL" onChange={(event) =>setLinkedIn(event.currentTarget.value)}/>
+                        </div>
+                        <div id="createProject-social">                            
+                                <span id="createProject-social-icon"><img src={shareYoutube}/></span>
+                                <input id="createProject-social-text" value={youtube} placeholder=" youtube.com/c/ channel URL" onChange={(event) =>setYoutube(event.currentTarget.value)}/>
+                        </div>
+                        <div id="createProject-social">                            
+                                <span id="createProject-social-icon"><img src={shareTwitch}/></span>
+                                <input id="createProject-social-text" value={twitch} placeholder=" twitch.tv/ channel URL" onChange={(event) =>setTwitch(event.currentTarget.value)}/>
+                        </div>                            
+                            
                         <div className="form-button-wrapper">
-                            <button className="submit-form btn1" onClick={()=>{props.closeCreateProjectMenu(false)}}>Close Menu</button>
-                            <button className="submit-form btn2" onClick={editProject}>Sumbit Changes</button>
-                            {isOwner && <button className="submit-form btn3" onClick={deletePopUp}>Delete Project</button>}
+                            <button id="createProject-button-submit" onClick={editProject}>Sumbit Changes</button>
+                            {isOwner && <button id="createProject-button-delete" onClick={deletePopUp}>Delete Project</button>}
+                            <button id="createProject-button-close" onClick={()=>{props.closeCreateProjectMenu(false)}}>Close Menu</button>
                         </div>
                     </div>
                 </div>

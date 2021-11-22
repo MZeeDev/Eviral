@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useMoralis } from 'react-moralis';
 import ProjectDisplay from "./ProjectPage";
+import ProjectPage from "./V2/ProjectPage";
 
 const ProjectData = ({ data }) => {
     
@@ -29,7 +30,7 @@ const ProjectData = ({ data }) => {
   return (
       <>
           {projectLoaded.map(project => (            
-            <div key={project.title} className="background">                            
+            <div key={project.title} className="background">
                 <ProjectDisplay
                   title={project.title}
                   summary={project.summary}

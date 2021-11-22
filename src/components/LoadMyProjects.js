@@ -1,13 +1,17 @@
 
 import React, {useState, useEffect} from 'react';
-import ProjectCard from './ProjectCard';
-import './ProjectCard.css';
+import ProjectCard from '../components/V2/ProjectCard';
+import '../components/V2/ProjectCard';
 import './Project.css';
 import { useMoralis } from 'react-moralis';
 import MyProjectsCard from './MyProjectsCard';
 import Carousel from './Carousel';
 import ProjectGridBox from './ProjectGridBox';
 import './ProjectGrid.css';
+
+
+import Left from '../img/leftpagination.png';
+import Right from '../img/rightpagination.png';
 
 function LoadMyProject() {
 
@@ -45,34 +49,27 @@ function LoadMyProject() {
 
     return (           
       <>
-        <React.Fragment>
-          
-          <div className="project-grid-container">
-            <div className="my-project-grid-wrapper">
-                {projects.map(listItem => (
-                    <div key={listItem.title} className="project-grid-box">
-                      <ProjectGridBox
-                      title={listItem.title}
-                      summary={listItem.summary}
-                      src={listItem.projectPhoto}
-                      username={listItem.username}
-                      creatorProfilePic={listItem.profilePic}
-                      createdOn = {listItem.createdOn}
-                      label={listItem.username}
-                      path={listItem.title}
-                      isVerified = {listItem.isVerified}
-                      isLive={listItem.isLive} 
-                      />
-                  </div>
-                  ))}
-                </div>
-              <div className="pagination">
-                <button className="pagination-prev" onClick={() => PagPrev()}><i class="fas fa-caret-square-left"></i>PREV</button>              
-                <button className="pagination-next" onClick={() => PagNext()}>NEXT<i class="fas fa-caret-square-right"></i></button>
-              </div>
-            </div>
-
-        </React.Fragment>
+        <div className="project-grid-wrapper">
+          { (projects).map(project => (
+          <div key={project.title} >
+              <ProjectCard
+              title={project.title}
+              summary={project.summary}
+              src={project.projectPhoto}
+              username={project.username}
+              creatorProfilePic={project.profilePic}
+              createdOn = {project.createdOn}
+              path={project.title}
+              isVerified = {project.isVerified}
+              isLive={project.isLive}                          
+              />
+          </div>
+          ))}
+        </div>
+        <div className="pagination">
+            <button className="pagination-prev" onClick={() => PagPrev()}><img id="leftarrow" src={Left}/></button>                    
+            <button className="pagination-next" onClick={() => PagNext()}><img id="rightarrow" src={Right}/></button>
+        </div>     
       </>
     )
 }

@@ -18,19 +18,6 @@ function UserProfile(props) {
             setIsSaved(true);
         } 
     }
-
-    
-
-    // useEffect(() => {
-    //     if(user){
-    //     checkSavedProfile();
-    //     }
-    //     },
-    //     [init],
-    //   );
-
-
-
     return (
         <>
         <Helmet>

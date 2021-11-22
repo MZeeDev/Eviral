@@ -1,0 +1,20 @@
+#rating {
+    font-family: ProximaNova;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 24px;    
+    color: #151515;
+}
+#review-count{
+    font-family: ProximaNova;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;    
+    color: #151515;
+}
+
+#ratingStars, #rating {
+    margin-right: 3px;
+}

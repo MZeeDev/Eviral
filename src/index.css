@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "ProximaNova";
+    src: local("ProximaNova"), 
+    url('./fonts/ProximaNova/ProximaNova-Regular.ttf') format("truetype");
+    /* other formats include: 'woff2', 'truetype, 'opentype',
+                              'embedded-opentype', and 'svg' */
+  }
+@font-face {
+    font-family: "ProximaNova-Bold";
+    src: local("ProximaNova"), 
+    url('./fonts/ProximaNova/ProximaNova-Bold.ttf') format("truetype");
+    /* other formats include: 'woff2', 'truetype, 'opentype',
+                              'embedded-opentype', and 'svg' */
+  }
+  p {
+    margin-bottom: 0px;
+
+  }

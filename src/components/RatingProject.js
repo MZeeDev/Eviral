@@ -150,9 +150,8 @@ function RatingProject(props) {
     return (
         <>
         <div className="rating-project-container">
-            <div className="rating-project-wrapper">
-                <h4>Your Review</h4>
-                
+                <h4>Post Review</h4>
+            <div className="rating-project-wrapper">                
                 <div className="rating-project-stars-container">
                     {[...Array(5)].map( (star, i) => {
                         const ratingValue = i + 1;
@@ -164,24 +163,32 @@ function RatingProject(props) {
                         )
                     })}
                 </div>
-                    <input className="rating-review-title" type="text" placeholder={prevTitle} value={reviewTitle} required 
-                    onChange={(event) =>setReviewTitle(event.currentTarget.value)}/>
+                <div id="rating-project-review-title-container">
+                    <label id="reviewTitle-label">
+                        <p>Review title</p>
+                    </label>
+                    <input className="rating-project-review-title" type="text" placeholder={prevTitle} value={reviewTitle} required
+                        onChange={(event) =>setReviewTitle(event.currentTarget.value)}/>
+                </div>
                 <div className="rating-project-review-text">
-                <textarea rows={3} 
-                    className="form-control" 
-                    placeholder="Please leave a review in less than 150 characters." 
-                    maxLength={150} 
-                    value={review} 
-                    required 
-                    onChange={(event) =>setReview(event.currentTarget.value)}/>
+                    <label id="reviewTitle-label">
+                        <p>Your review</p>
+                    </label>
+                    <textarea rows={3} 
+                        className="form-control" 
+                        placeholder="Please leave a review in less than 150 characters." 
+                        maxLength={150} 
+                        value={review} 
+                        required 
+                        onChange={(event) =>setReview(event.currentTarget.value)}/>
                 </div>
                 <div className="rating-project-submit">
                 {/* <button className="rating-project-submit-button btn1" onClick={() => {loadUserRating()}}>Load My Review</button> */}
                    {hasReview && 
-                   <button className="rating-project-submit-button btn2" onClick={postProjectRating}>Edit Review</button>
+                   <button className="rating-project-button" onClick={postProjectRating}>Edit Review</button>
                     }
                    {!hasReview && 
-                   <button className="rating-project-submit-button btn2" onClick={postProjectRating}>Post Review</button>
+                   <button className="rating-project-button" onClick={postProjectRating}>Post Review</button>
                     }
                 </div>
             </div>   

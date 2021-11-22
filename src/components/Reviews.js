@@ -3,7 +3,7 @@ import { useMoralis } from "react-moralis";
 import ReviewCard from './ReviewCard';
 
 function Reviews(props) {
-    const { Moralis } = useMoralis();
+    const { Moralis, isInitialized } = useMoralis();
     const title = (props.title);
 
     const [reviews, setReviews] = useState();
@@ -17,6 +17,12 @@ function Reviews(props) {
         console.log(reviews);
         setSeeReviews(!seeReviews)        
     }
+
+    useEffect(() => {
+        if(isInitialized){
+            loadReviews(); 
+        }
+      }, [isInitialized])
 
     return (
         <div>
@@ -40,6 +46,26 @@ function Reviews(props) {
                 </div>
             </div>
               }
+            {/* <button className="reviews-button btn1" onClick={() => loadReviews()}>Show&nbsp;Reviews</button>
+            {seeReviews &&
+                <div className="project-page-review-container">
+                <h3>Reviews</h3>
+                <div className="project-page-reviewList">
+                    {reviews.map(review => (            
+                        <div key={review.title} className="project-page-review">                            
+                            <ReviewCard
+                            username={review.username}
+                            stars={review.stars}
+                            review={review.review}
+                            reviewerPic={review.reviewerPic}  
+                            createdAt={review.createdAt} 
+                            reviewTitle= {review.reviewTitle}                         
+                            />                
+                        </div>
+                    ))}      
+                </div>
+            </div>
+              } */}
         </div>
     )
 }

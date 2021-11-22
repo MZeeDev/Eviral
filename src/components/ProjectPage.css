@@ -210,24 +210,7 @@
 
 .project-page-creator {
 }
-.project-page-description,
-.project-page-review-container {
-  margin-top: 1.5rem;
-  border-bottom: 0.1rem solid lightgray;
-}
 
-.project-page-description > h3,
-.project-page-review-container > h3 {
-  border-bottom: 0.1rem solid lightgray;
-}
-
-.project-page-creator-container {
-  margin: 5rem 2rem 0 0;
-  display: flex;
-  justify-content: center;
-  width: 30%;
-  height: auto;
-}
 .project-page-creator-wrapper {
   width: 100%;
 }
@@ -253,30 +236,23 @@
 }
 .fas.fa-clipboard-check {
   color: deepskyblue;
-  margin-right: 0.3rem;
-  background-color: white;
-  border-radius: 5px;
-  padding: 5px;
-  box-shadow: 0 4px 7px rgb(61 61 61 / 17%);
-  border: 1px solid rgba(0, 0, 0, 0.15);
+ 
 }
 .fas.fa-chart-line {
   color: limegreen;
-  margin-right: 0.3rem;
-  background-color: white;
-  border-radius: 5px;
-  padding: 5px;
-  box-shadow: 0 4px 7px rgb(61 61 61 / 17%);
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  
 }
 .fas.fa-wrench {
   color: rgb(238, 192, 40);
-  margin-right: 0.3rem;
+}
+
+.fas.fa-wrench,.fas.fa-clipboard-check,.fas.fa-chart-line {
+  margin-right: 5px;
   background-color: white;
   border-radius: 5px;
   padding: 5px;
   box-shadow: 0 4px 7px rgb(61 61 61 / 17%);
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  border:none;
 }
 
 .project-page-links {

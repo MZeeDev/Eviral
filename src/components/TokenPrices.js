@@ -49,11 +49,11 @@ function TokenPrices() {
         
             <div className="tokenPrices">
                 <div className="tokenPrices-wrapper">
-                    <div className="eViral-price">
-                        <img className="eViralLogo" src={Logo}/>${eViralPrice}
+                    <div className="token-price">
+                        <img id="viralToken" src={Logo}/>${eViralPrice}
                     </div>
-                    <div className="beViral-price">
-                        <img className="eViralLogo" src={LogoBSC}/>${beViralPrice}
+                    <div className="token-price">
+                        <img id="viralToken" src={LogoBSC}/>${beViralPrice}
                     </div>
                 </div>
             </div>     

@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: ProximaNova;
 }
 
 .home,
@@ -58,7 +58,7 @@
   border: none;
   font-size: 16px;
 }
-
+/* 
 .fab.fa-twitter {
   color: deepskyblue;
 }
@@ -88,7 +88,7 @@
 }
 .fab.fa-medium {
   color: black;
-}
+} */
 
 .social-link-item {
   margin-bottom: 1rem;

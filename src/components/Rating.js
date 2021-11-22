@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useMoralis } from "react-moralis";
+import './Rating.css';
 
 function Rating(props) {
     const { user, Moralis, isInitialized } = useMoralis();
@@ -27,12 +28,14 @@ function Rating(props) {
       );
       
     return (
-        <div className="rating">
+        <div className="rating" >
+            <div id="ratingStars">
             {[...Array(1)].map( star => {
                 return <i class="fas fa-star"></i>
             })}
-            <span className="rating">{rating}</span>
-            <span className="review-count">{" "}({reviewCount})</span>
+            </div>
+            <span id="rating">{rating}</span>
+            <span id="review-count">{" "}({reviewCount} Reviews)</span>
         </div>
     )
 }

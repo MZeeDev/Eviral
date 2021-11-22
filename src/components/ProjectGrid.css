@@ -1,27 +1,74 @@
 .background {
-  background-color: rgba(0, 0, 0, 0.85);
+  position: relative;
+  background-color: white;
   padding: 3rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
   padding: 0;
 }
+
 .foreground {
-  background: white;
-  padding: 3rem 1rem;
+  position: relative;
+  left: 0px;
+  top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-bottom: 30px;
 }
+
+.searchbar-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 16px; 
+  width: 300px;
+  height: 60px;
+  right: 0px;
+  top: calc(50% - 80px/2);  
+  /* Gradients/1 */  
+  background: linear-gradient(152.95deg, #5DED9C 32.2%, #0EBD91 93.13%);
+  border-radius: 8px;
+  border: none;
+  font-family:ProximaNova;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 32px;
+  color: #FDFDFD;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  margin: 25px 80px;
+}
+
+
 /* Projects (profiles are below) */
 
 .project-section-title {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-  padding-left: 2rem;
-  border-bottom: 3px solid lightgray;
-  margin-top: 1rem;
+  height: 64px;
+  font-family:ProximaNova-bold;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 56px;
+  line-height: 64px;
+  color: #2d2d2d;
+  margin: 100px 0px 25px 80px;
+}
+
+#notfoundmessage{
+  height: 64px;
+  font-family:ProximaNova;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  color: #2d2d2d;
+  margin: 30px 0px 25px 80px;
 }
 .project-grid-container {
   display: flex;
@@ -32,15 +79,26 @@
 }
 .project-grid-wrapper {
   display: grid;
-  grid-template-columns: repeat(4, 22%);
-  grid-template-rows: repeat(auto-fill, 25rem);
-  width: 100%;
-  gap: 1rem;
+  grid-template-columns: repeat(3, 400px);
+  grid-template-rows: repeat(auto-fill, 450px);
+  width: 1440px;
+  gap: 24px;
   padding: 2rem 0;
   justify-content: center;
   justify-items: center;
   align-items: center;
-  resize: both;
+  overflow: hidden;
+}
+.profile-grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+  grid-template-rows: repeat(auto-fill, 656px);
+  width: 1440px;
+  gap: 32px;
+  padding: 32px 0;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
   overflow: hidden;
 }
 
@@ -139,25 +197,8 @@
   margin-bottom: 0;
   font-size: 1.1rem;
 }
-.project-card-badges {
-  display: flex;
-  position: absolute;
-  top: 0;
-  right: 0;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-end;
-}
-.project-card-badge {
-  transform: translateY(0.15rem);
-  margin-top: 0.15rem;
-}
-.fas.fa-clipboard-check,
-.fas.fa-chart-line,
-.fas.fa-wrench {
-  margin: 0;
-  font-size: 1.2rem;
-}
+
+
 .project-card-creator {
   display: flex;
   align-items: center;
@@ -331,64 +372,26 @@
   margin: 0 0rem;
 }
 
-#profileRates {
-  width: min-content;
-  margin-right: 5px;
-}
 
-/* @media only screen and (max-width: 1600px) {
-  .project-grid-wrapper {
-    display: grid;
-    grid-template: repeat(3, 25rem) / repeat(2, 22rem);
-    grid-auto-columns: minmax(225px, auto);
-    width: 100%;
-    gap: 2rem;
-    padding: 3rem 0;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    resize: both;
-    overflow: hidden;
-  }
-  .my-project-grid-wrapper {
-    display: grid;
-    grid-template: repeat(1, 25rem) / repeat(2, 22rem);
-  }
-} */
 
-@media only screen and (max-width: 1000px) {
-  .my-project-grid-wrapper {
-    display: grid;
-    grid-template: repeat(1, 25rem) / repeat(1, 22rem);
-    align-items: center;
-    justify-content: center;
-  }
-}
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1300px) {
+  .project-section-title{
+    font-size: 32px;
+    margin: 50px 0 25px 25px;
+  }
   .project-grid-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 30%);
-    grid-template-rows: repeat(auto-fill, 25rem);
+    width: 375px;
+    grid-template-columns: repeat(1, 400px);
+    grid-template-rows: repeat(auto-fill, 400px);
+    
   }
-  .my-project-grid-wrapper {
-    display: grid;
-    grid-template: repeat(1, 25rem) / repeat(1, 22rem);
-    align-items: center;
-    justify-content: center;
-  }
-}
-@media only screen and (max-width: 850px) {
-  .project-grid-wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 45%);
-    grid-template-rows: repeat(auto-fill, 25rem);
-  }
-}
-@media only screen and (max-width: 575px) {
-  .project-grid-wrapper {
-    display: grid;
-    grid-template-columns: repeat(1, 90%);
-    grid-template-rows: repeat(auto-fill, 25rem);
+  .profile-grid-wrapper {
+    width: 375px;
+    grid-template-columns: repeat(1, 340px);
+    grid-template-rows: repeat(auto-fill, 580px);
+    padding: 24px;
+    gap: 24px;
   }
 }

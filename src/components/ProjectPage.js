@@ -19,6 +19,27 @@ import SendMessagePopUp from './SendMessagePopUp';
 import Alert from './Alert';
 import EditProject from './EditProject';
 import HelmetMetaData from './HelmetMetaData';
+import ReviewCard from './ReviewCard';
+
+
+
+
+
+import websiteIcon from '../img/projectpage/websiteicon.svg';
+import '../components/V2/ProjectPage.css';
+import shareTelegram from '../img/shareIcons/telegram.svg';
+import shareTwitter from '../img/shareIcons/twitter.svg';
+import shareLinkedIn from '../img/shareIcons/linkedin.svg';
+import shareEmail from '../img/shareIcons/email.svg';
+import shareFacebook from '../img/shareIcons/facebook.svg';
+import sharePinterest from '../img/shareIcons/pinterest.svg';
+import tagLive from '../img/tagLive.svg';
+import tagIndev from '../img/tagINDEV.svg';
+import tagPro from '../img/tagPro.svg';
+import addImage from '../img/addImage.svg';
+import Exit from '../img/exit.svg';
+import shareYoutube from '../img/shareIcons/youtube.svg';
+import shareTwitch from '../img/shareIcons/twitch.svg';
 
 
 function ProjectDisplay(props) {
@@ -35,6 +56,16 @@ function ProjectDisplay(props) {
   const [photoFileName, setPhotoFileName] = useState();
   const [previewPic, setPreviewPic] = useState(construction);
   const [ photoNumber, setPhotoNum] = useState();
+
+  const [ twitterActive, setTwitterActive] = useState(true);
+  const [ youtubeActive, setYoutubeActive] = useState(true);
+  const [ telegramActive, setTelegramActive] = useState(true);
+  const [ discordActive, setDiscordActive] = useState(true);
+  const [ linkedInActive, setLinkedInActive] = useState(true);
+  const [ twitchActive, setTwitchActive] = useState(true);
+
+
+
   const mainPhoto = props.photo1;
 
   const verified = (props.isVerified);
@@ -143,11 +174,42 @@ const onSubmitPhoto = async (e) => {
     setActivePhoto(file);
   }
 
+  const [reviews, setReviews] = useState([]);
+  const [seeReviews, setSeeReviews] = useState(false);
+  const [mobile, setMobile] = useState(false);
+  
+  const loadReviews = async() => {
+      const params = { projectTitle: props.title};
+      const reviewList = await Moralis.Cloud.run("loadReviews", params);
+      setReviews(reviewList);     
+      setSeeReviews(!seeReviews)
+  }
+
   useEffect(() => {
     if(isInitialized){
     checkOwnership(); 
+    loadReviews();
     }
   }, [isInitialized])
+
+
+  const resize = () => {
+    if(window.innerWidth <=960) {
+        setMobile(true);
+    } else {
+      setMobile(false);
+    }
+};
+
+
+useEffect(() => {
+    if (isInitialized) {
+        resize();
+      }
+    }, [isInitialized]);
+
+window.addEventListener('resize', resize);
+    
 
     return (           
       <>
@@ -168,35 +230,394 @@ const onSubmitPhoto = async (e) => {
           <meta name="twitter:description" content={props.summary}/>
           <meta name="twitter:image" content={mainPhoto} />
       </Helmet>
-        <div className="project-page">
+        <div id="projectPage">          
+      {!mobile &&
+          <>
+          <div id="projectPage-information">
+              <div id="projectPage-description-tagsandrating">
+                  <div id="projectPage-description-tags">
+                      { verified &&                      
+                          <img id="projectTag" src={tagPro}/>                      
+                      }
+                      {isLive &&
+                          <img id="projectTag" src={tagLive}/>                
+                      }
+                      {!isLive &&
+                          <img id="projectTag" src={tagIndev}/>              
+                      }
+                  </div>
+                  <div id="projectPage-description-rating">
+                      <Rating title = {props.title}/>
+                  </div>
+              </div>
+              <h1 id="projectPage-title">{props.title}</h1>
+              <p id="projectPage-summary">{props.summary}</p>
+              <div id="socialShares">
+                  <p>Socials:</p>
+                  { twitterActive &&
+                      <Link className='profile-social-icon twitter' to={{ pathname: (`https://twitter.com/${(props.twitter)}`) }} target="_blank" aria-label='Twitter'>
+                          <img id="socialShareIcon" src={shareTwitter}/>
+                      </Link>
+                  }
+                  { telegramActive &&
+                      <Link className='profile-social-icon telegram' to={{ pathname: (`https://t.me/${(props.telegram)}`) }} target="_blank" aria-label='Telegram'>
+                          <img id="socialShareIcon" src={shareTelegram}/>
+                      </Link>
+                  }
+                  { linkedInActive &&
+                      <Link className='profile-social-icon linkedIn' to={{ pathname: (`https://linkedin.com/in/${(props.linkedIn)}`) }} target="_blank" aria-label='LinkedIn'>
+                          <img id="socialShareIcon" src={shareLinkedIn}/>
+                      </Link>
+                  }
+                  { youtubeActive &&
+                      <Link className='profile-social-icon youtube' to={{ pathname: (`https://youtube.com/c/${(props.youtube)}`) }} target="_blank" aria-label='Youtube'>
+                          <img id="socialShareIcon" src={shareYoutube}/>
+                      </Link>
+                  }
+                  { twitchActive &&
+                      <Link className='profile-social-icon twitch' to={{ pathname: (`https://twitch.tv/${(props.twitch)}`) }} target="_blank" aria-label='Twitch'>
+                          <img id="socialShareIcon" src={shareTwitch}/>
+                      </Link>
+                  }
+              </div>
+              <div id="saveProject">
+                <Bookmark projectTitle = {props.projectTitle}/> 
+                <p>Add to favorites</p>
+              </div>
+              <div id="projectWebsite">
+                <img id="websiteIcon" src={websiteIcon}/>
+                <Link className="website-link" 
+                    to={{ pathname: `https://${props.website}` }} 
+                    target="_blank">
+                    {props.website}
+                </Link>
+              </div>
+              <div id="socialShares">
+                <p>Share:</p>
+                <EmailShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
+                <img id="socialShareIcon" src={shareEmail}/>
+                </EmailShareButton>
+                <FacebookShareButton quote={props.summary} url={`https://viralcrypto.app/projects/${props.title}`} id="socialShareLink">
+                <img id="socialShareIcon" src={shareFacebook}/>
+                </FacebookShareButton>
+                <TwitterShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
+                  <img id="socialShareIcon" src={shareTwitter}/>
+                </TwitterShareButton>
+                <PinterestShareButton  description={`${props.title} "-" ${props.summary}`} media={props.photo1} url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
+                <img id="socialShareIcon" src={sharePinterest}/>
+                </PinterestShareButton>
+                <TelegramShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
+                  <img id="socialShareIcon" src={shareTelegram}/>
+                </TelegramShareButton>
+                <LinkedinShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
+                  <img id="socialShareIcon" src={shareLinkedIn}/>
+                </LinkedinShareButton>
+              </div>
+              <p id="projectPage-description">{ReactHtmlParser(props.description)}</p>              
+          </div>    
+          <div id="projectPage-photo-creator-review">
+            <div id="projectPage-photo-container">
+              {/* <img  className="project-page-photo-img" src={activePhoto} /> */}
+              <img id="projectPage-photo" src={activePhoto}/>
+            </div>
+            <div id="projectPage-thumbnails">
+              { owner 
+                ?
+                <>
+                  {props.photo1
+                    ? 
+                    <div id="myprojectPage-thumbnail">
+                      <img id="myprojectPage-thumbnail" src={props.photo1} onClick={(e) => {setActivePhotos(e.currentTarget.src, 0);openChangePhotoMenu(0) }}/>
+                      <div id="middleOf-myprojectPage-thumbnail">                                
+                        <img src={addImage}/>                              
+                      </div> 
+                    </div>
+                    :
+                    <>
+                      <img id="myprojectPage-thumbnail" src={addImage} onClick={(e) => {setActivePhotos(e.currentTarget.src, 0);openChangePhotoMenu(0) }}/>
+                    </>
+                  }
+                  {props.photo2
+                    ? 
+                    <div id="myprojectPage-thumbnail">
+                      <img id="myprojectPage-thumbnail" src={props.photo2} onClick={(e) => {setActivePhotos(e.currentTarget.src, 1); openChangePhotoMenu(1) }}/>
+                      <div id="middleOf-myprojectPage-thumbnail">                                
+                        <img src={addImage}/>                              
+                      </div> 
+                    </div>
+                    :
+                    <>
+                      <img id="myprojectPage-thumbnail" src={addImage} onClick={(e) => {setActivePhotos(e.currentTarget.src, 1); openChangePhotoMenu(1) }}/>
+                    </>
+                  }
+                  {props.photo3
+                    ? 
+                    <div id="myprojectPage-thumbnail" onClick={() => openChangePhotoMenu(2)}>
+                      <img id="myprojectPage-thumbnail" src={props.photo3}  src={props.photo2} onClick={(e) => {setActivePhotos(e.currentTarget.src, 2); openChangePhotoMenu(2) }}/>
+                      <div id="middleOf-myprojectPage-thumbnail">                                
+                        <img src={addImage}/>                              
+                      </div> 
+                    </div>
+                    :
+                    <>
+                      <img id="myprojectPage-thumbnail" src={addImage} onClick={(e) => {setActivePhotos(e.currentTarget.src, 2); openChangePhotoMenu(2) }}/>                      
+                  </>
+                }                
+                </>
+                :
+                <>
+                  {props.photo1 && 
+                    <img id="projectPage-thumbnail" src={props.photo1} onClick={(e) => setActivePhotos(e.currentTarget.src, 0)}/>
+                  }
+                  {props.photo2 && 
+                    <img id="projectPage-thumbnail" src={props.photo2} onClick={(e) => setActivePhotos(e.currentTarget.src, 1)}/>
+                  }
+                  {props.photo3 && 
+                    <img id="projectPage-thumbnail" src={props.photo3} onClick={(e) => setActivePhotos(e.currentTarget.src, 2)}/>
+                  } 
+                </>        
+              }                      
+            </div>
+            {owner &&
+              <div id="myProject-buttons">
+                {owner &&  
+                  <button id="myProject-button" onClick={()=> setOpenEditProjectMenu(true)}>                  
+                    <span>Edit&nbsp;Project</span>
+                  </button>            
+                }        
+                { (owner && !verified) &&
+                  <button id="myProject-button" onClick={() =>verificationEmail()}> Get Verified</button>
+                }
+              </div>
+              }
+            <div id="projectPage-creator">
+                <img id="projectPage-creator-profilePic" src={props.creatorProfilePic}/>                
+                <div id="projectPage-creator-info">
+                  <h4>{props.creator}</h4>
+                  <p id="creator-createdOn">{props.createdOn}</p>
+                  <p id="creator-bio">{props.bio}</p>
+                </div>                          
+                { !owner &&
+                  <div id="creator-message-buttons">
+                    <button id="sendMessage-button" onClick={() => userCheck()}>Send Message</button>                    
+                    <button id="sendMessage-button" onClick={() => sendReport()}>Report</button>
+                  </div>    
+                }                
+            </div>                            
+            {!owner &&
+              <RatingProject 
+              projectName={props.title}
+              />
+            }
+            <button id="showReviews-button" onClick={() => loadReviews()}>Show&nbsp;Reviews</button>
+            {seeReviews &&
+              <div className="project-page-review-container">
+                  <h2>Reviews</h2>
+                  <div className="project-page-reviews">
+                      {reviews.map(review => (            
+                          <div key={review.title} >                            
+                              <ReviewCard
+                              username={review.username}
+                              stars={review.stars}
+                              review={review.review}
+                              reviewerPic={review.reviewerPic}  
+                              createdAt={review.createdAt} 
+                              reviewTitle= {review.reviewTitle}                         
+                              />                
+                          </div>
+                      ))}      
+                  </div>
+              </div>
+            }
+          </div>
+          </>
+          }
+          {mobile &&
+          <>
+          <div id="projectPage-information">
+            <div id="projectPage-photo-container">                
+                <img id="projectPage-photo" src={activePhoto}/>
+              </div>
+              <div id="projectPage-thumbnails">      
+              { owner 
+                ?
+                <>
+                  {props.photo1
+                    ? 
+                    <div id="myprojectPage-thumbnail">
+                      <img id="myprojectPage-thumbnail" src={props.photo1} onClick={(e) => {setActivePhotos(e.currentTarget.src, 0);openChangePhotoMenu(0) }}/>
+                      <div id="middleOf-myprojectPage-thumbnail">                                
+                        <img src={addImage}/>                              
+                      </div> 
+                    </div>
+                    :
+                    <>
+                      <img id="myprojectPage-thumbnail" src={addImage} onClick={(e) => {setActivePhotos(e.currentTarget.src, 0);openChangePhotoMenu(0) }}/>
+                    </>
+                  }
+                  {props.photo2
+                    ? 
+                    <div id="myprojectPage-thumbnail">
+                      <img id="myprojectPage-thumbnail" src={props.photo2} onClick={(e) => {setActivePhotos(e.currentTarget.src, 1); openChangePhotoMenu(1) }}/>
+                      <div id="middleOf-myprojectPage-thumbnail">                                
+                        <img src={addImage}/>                              
+                      </div> 
+                    </div>
+                    :
+                    <>
+                      <img id="myprojectPage-thumbnail" src={addImage} onClick={(e) => {setActivePhotos(e.currentTarget.src, 1); openChangePhotoMenu(1) }}/>
+                    </>
+                  }
+                  {props.photo3
+                    ? 
+                    <div id="myprojectPage-thumbnail" onClick={() => openChangePhotoMenu(2)}>
+                      <img id="myprojectPage-thumbnail" src={props.photo3}  src={props.photo2} onClick={(e) => {setActivePhotos(e.currentTarget.src, 2); openChangePhotoMenu(2) }}/>
+                      <div id="middleOf-myprojectPage-thumbnail">                                
+                        <img src={addImage}/>                              
+                      </div> 
+                    </div>
+                    :
+                    <>
+                      <img id="myprojectPage-thumbnail" src={addImage} onClick={(e) => {setActivePhotos(e.currentTarget.src, 2); openChangePhotoMenu(2) }}/>                      
+                  </>
+                }                
+                </>
+                :
+                <>
+                  {props.photo1 && 
+                    <img id="projectPage-thumbnail" src={props.photo1} onClick={(e) => setActivePhotos(e.currentTarget.src, 0)}/>
+                  }
+                  {props.photo2 && 
+                    <img id="projectPage-thumbnail" src={props.photo2} onClick={(e) => setActivePhotos(e.currentTarget.src, 1)}/>
+                  }
+                  {props.photo3 && 
+                    <img id="projectPage-thumbnail" src={props.photo3} onClick={(e) => setActivePhotos(e.currentTarget.src, 2)}/>
+                  } 
+                </>        
+              }                       
+              </div>
+              {owner &&
+              <div id="myProject-buttons">
+                {owner &&  
+                  <button id="myProject-button" onClick={()=> setOpenEditProjectMenu(true)}>                  
+                    <span>Edit&nbsp;Project</span>
+                  </button>            
+                }        
+                { (owner && !verified) &&
+                  <button id="myProject-button" onClick={() =>verificationEmail()}> Get Verified</button>
+                }
+              </div>
+              }
+              <div id="projectPage-description-tagsandrating">
+                  <div id="projectPage-description-tags">
+                      { verified &&                      
+                          <img id="projectTag" src={tagPro}/>                      
+                      }
+                      {isLive &&
+                          <img id="projectTag" src={tagLive}/>                
+                      }
+                      {!isLive &&
+                          <img id="projectTag" src={tagIndev}/>              
+                      }
+                  </div>
+                  <div id="projectPage-description-rating">
+                      <Rating title = {props.title}/>
+                  </div>
+              </div>
+              <h1 id="projectPage-title">{props.title}</h1>
+              <p id="projectPage-summary">{props.summary}</p>
+              <div id="saveProject">
+                <Bookmark projectTitle = {props.projectTitle}/> 
+                <p>Add to favorites</p>
+              </div>
+              <div id="projectWebsite">
+                <img id="websiteIcon" src={websiteIcon}/>
+                <Link className="website-link" 
+                    to={{ pathname: `https://${props.website}` }} 
+                    target="_blank">
+                    {props.website}
+                </Link>
+              </div>
+              <div id="socialShares">
+                <p>Share:</p>
+                <EmailShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
+                <img id="socialShareIcon" src={shareEmail}/>
+                </EmailShareButton>
+                <FacebookShareButton quote={props.summary} url={`https://viralcrypto.app/projects/${props.title}`} id="socialShareLink">
+                <img id="socialShareIcon" src={shareFacebook}/>
+                </FacebookShareButton>
+                <TwitterShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
+                  <img id="socialShareIcon" src={shareTwitter}/>
+                </TwitterShareButton>
+                <PinterestShareButton  description={`${props.title} "-" ${props.summary}`} media={props.photo1} url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
+                <img id="socialShareIcon" src={sharePinterest}/>
+                </PinterestShareButton>
+                <TelegramShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
+                  <img id="socialShareIcon" src={shareTelegram}/>
+                </TelegramShareButton>
+                <LinkedinShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
+                  <img id="socialShareIcon" src={shareLinkedIn}/>
+                </LinkedinShareButton>
+              </div>
+              <p id="projectPage-description">{ReactHtmlParser(props.description)}</p>              
+          </div>    
+                     
+            <div id="projectPage-creator">
+                <div id="projectPage-creator-picandname">
+                  <img id="projectPage-creator-profilePic" src={props.creatorProfilePic}/>
+                  <div id="projectPage-creator-info">
+                    <h4>{props.creator}</h4>
+                    <p id="creator-createdOn">{props.createdOn}</p>
+                  </div>
+                </div>                         
+                <p id="creator-bio">{props.bio}</p>
+                { !owner &&
+                  <div id="creator-message-buttons">
+                    <button id="sendMessage-button" onClick={() => userCheck()}>Send Message</button>                    
+                    <button id="sendMessage-button" onClick={() => sendReport()}>Report</button>
+                  </div>    
+                }                
+            </div>                            
+            
+            <button id="showReviews-button" onClick={() => loadReviews()}>Show&nbsp;Reviews</button>
+            {seeReviews &&
+              <div className="project-page-review-container">
+                  <h2>Reviews</h2>
+                  <div className="project-page-reviews">
+                      {reviews.map(review => (            
+                          <div key={review.title} >                            
+                              <ReviewCard
+                              username={review.username}
+                              stars={review.stars}
+                              review={review.review}
+                              reviewerPic={review.reviewerPic}  
+                              createdAt={review.createdAt} 
+                              reviewTitle= {review.reviewTitle}                         
+                              />                
+                          </div>
+                      ))}      
+                  </div>
+              </div>
+            }
+            {!owner &&
+              <RatingProject 
+              projectName={props.title}
+              />
+            }
           
-          <div className="project-page-container">              
+          </>
+          }
+
+
+
+          
+          {/* <div className="project-page-container">              
             <div className="project-page-body">
               <div className="project-page-project-container">
-                <div className="project-page-title">
-                { verified &&
-                  <div>
-                    <i class="fas fa-clipboard-check">Pro</i>
-                  </div>
-                  }
-                   {isLive &&
-                      <i class="fas fa-chart-line">Live</i>                        
-                    }
-                    {!isLive &&
-                      <i class="fas fa-wrench">InDev</i>                    
-                    }
-                  <h2>{props.title}</h2>
-                  <Rating
-                    title = {props.title}
-                  />
-                  <Bookmark
-                  projectTitle = {props.projectTitle}
-                  />
-                  
-                </div>
-                <div className="project-page-summary">
-                  {props.summary}
-                </div>
+
+
+              ************** add photo changes to edit project menu!!!!!!**************
+                
                 <div className={ owner ? "project-page-photo-owner" : "project-page-photo"} onClick={ owner ? () => openChangePhotoMenu(photoNumber) : ""}>
                   <img  className="project-page-photo-img" src={activePhoto} />   
                   <div className="middle-of-projectPic">                                
@@ -204,9 +625,11 @@ const onSubmitPhoto = async (e) => {
                   </div>         
                 </div>
                 <div className="project-page-photo-thumbnails">
+
                   <div className="project-page-photo-thumbnail">
                     <img  className="project-page-photo-img" src={props.photo1}  onClick={(e) => setActivePhotos(e.currentTarget.src, 0)}/>
                   </div>
+
                   {(props.photo2 || owner) &&
                   <div className="project-page-photo-thumbnail">
                     {!props.photo2 && 
@@ -217,6 +640,7 @@ const onSubmitPhoto = async (e) => {
                     {props.photo2 && <img  className="project-page-photo-img" src={props.photo2}  onClick={(e) => setActivePhotos(e.currentTarget.src, 1)}/>}
                   </div>
                   }
+
                   {(props.photo3 || owner) &&
                   <div className="project-page-photo-thumbnail">
                     {!props.photo3 && 
@@ -229,29 +653,9 @@ const onSubmitPhoto = async (e) => {
                   }
                 </div>                  
                 { (owner ) && <p id="change-photo-project-text">Click/Tap a thumbnail to change it</p>}
-                <div className="project-page-description">
-                  <div className="socialShareLinks">
-                    <h5 id="socialShareLink">SHARE</h5>
-                    <EmailShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
-                      <EmailIcon size={36} round={false}/>
-                    </EmailShareButton>
-                    <FacebookShareButton quote={props.summary} url={`https://viralcrypto.app/projects/${props.title}`} id="socialShareLink">
-                      <FacebookIcon size={36} round={false} />
-                    </FacebookShareButton>
-                    <TwitterShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
-                      <TwitterIcon size={36} round={false}/>
-                    </TwitterShareButton>
-                    <PinterestShareButton  description={`${props.title} "-" ${props.summary}`} media={props.photo1} url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
-                      <PinterestIcon size={36} round={false}/>
-                    </PinterestShareButton>
-                    <TelegramShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
-                      <TelegramIcon size={36} round={false}/>
-                    </TelegramShareButton>
-                  </div>
-                  
-                  <h3>About</h3>
-                  
-                  <div className="project-page-links">
+
+
+
                   <Link className="website-link" to={{ pathname: `https://${props.website}` }} target="_blank" aria-label='Website'><i class="fas fa-link"></i>{props.website}</Link>
                     <SocialIconBar
                       twitter={props.twitter}
@@ -261,70 +665,22 @@ const onSubmitPhoto = async (e) => {
                       youtube={props.youtube}
                       twitch={props.twitch}
                     />
-                  </div>
-          
-                  <h5><img className="profileThumb"src={props.creatorProfilePic} />{" "} {props.creator}{" "} {props.createdOn}</h5>
-                  <p>{ReactHtmlParser(props.description)}</p>
                   
-                </div>
-                <div className="ratingReviews">
-                  <Reviews 
-                  title = {props.title}
-                  />
-                  { !owner &&
-                    <button className="report-button btn1" onClick={() => sendReport()}>Report</button>
-                    }
-                </div>
-              </div>
-              <div className="project-page-creator-container">
-                <div className="project-page-creator-wrapper">
-                  <div className="project-page-creator-profile-wrapper">
-                    <h4>Project Creator</h4>
-                    { !owner &&
-                    <button className="send-msg-button btn2" onClick={() => userCheck()}> Send Message</button>
-                    }
-                    <ProfileCard
-                      username={props.creator}
-                      src={props.creatorProfilePic}
-                      bio={props.bio}
-                    />
-                    {owner &&                
-                        <div className="edit-project-btn-wrapper">
-                          <button className= "edit-project-btn btn1" onClick={()=> setOpenEditProjectMenu(true)}>
-                            <i class="fas fa-puzzle-piece"></i>
-                            <span>Edit&nbsp;Project</span>
-                          </button>                      
-                        </div>                
-                    }
+    
               
-                    { (owner && !verified) &&
-                      <button className="verify-request-button btn2" onClick={() =>verificationEmail()}> Get Verified</button>
-                    }
-                  </div>
-                
-                {!owner &&
-                  <RatingProject 
-                  projectName={props.title}
-                  />
-                }
-                </div>
-              </div>
             </div>
-            <div className="project-page-footer-container">
-              <div className="project-page-footer">
-              </div>
-            </div>
-          </div>
+           
+          </div> */}
           {openChangePhoto && 
           <div className="update-profile-background">
-              <div className="update-container">
-                  <div className="update-profilepic-container-wrapper">
-                  <div className="update-profile-header">
-                      <h3 className="update-profile-title">Choose a Picture</h3>
-                      <span className="exitMenu" onClick={() => {setOpenChangePhoto(false)}}><i class="far fa-times-circle"></i></span>
+              <div className="update-projectPhoto-container">
+                  <div className="update-projectPhoto-container-wrapper">
+                  <div className="update-projectPhoto-header">
+                      <h3 className="update-projectPhoto-title">Choose a Picture</h3>
+                      <img id="exitMenu" src={Exit} onClick={() => {setOpenChangePhoto(false)}}/>
                   </div>
-                  <div className="project-page-photo">
-                      <img className="project-page-photo-img" src={previewPic} alt="" />
+                  <div className="update-projectPhoto-photo-container">
+                      <img className="project-page-photo-img" src={activePhoto} alt="" />
                   </div>
                       <form className="form-input-container">
                           <form onSubmit={onSubmitPhoto}>
@@ -332,9 +688,9 @@ const onSubmitPhoto = async (e) => {
                                   <label htmlFor="profilePhoto" className="form-label">Select Image File</label>
                                   <input className="form-control" type="file" accept="image/*" multiple="false" id="profilePhoto" onChange={onChangePhoto} />
                               </div>
-                              <div className="change-profile-pic-footer">
-                                  <input type="button" value="Upload" className="upload-profilePic-button btn2" onClick={() =>onSubmitPhoto()} />
-                                  <button className="btn1" onClick={()=>{setOpenChangePhoto(false)}}>Close</button>
+                              <div className="change-profile-pic-footer">                                  
+                                  <button id="updateProjectPhoto-submit" onClick={() =>onSubmitPhoto()}>Change Photo</button>
+                                  <button id="updateProjectPhoto-close" onClick={()=>{setOpenChangePhoto(false)}}>Close</button>
                               </div>
                           </form>
                       </form>

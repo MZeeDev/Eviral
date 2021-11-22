@@ -2,6 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import { MoralisProvider } from "react-moralis";
+import './index.css';
+// import './fonts/ProximaNova/ProximaNova-Regular.tff';
+// import './fonts/ProximaNova/ProximaNova-Bold.tff';
+
 
 const appId='TTxOqOgA9vSsj2z84WeDRi4i1iDgbo9kruLWqfxd';
 const serverUrl='https://siixq6taugjh.moralis.io:2053/server';

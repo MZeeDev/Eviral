@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useMoralis } from "react-moralis";
+import HeartOutlined from '../img/heartoutlined.svg';
+import HeartFull from '../img/heartfull.png';
 
 function SaveProfile(props) {
     const { user, Moralis, isInitialized } = useMoralis();
@@ -51,7 +53,12 @@ function SaveProfile(props) {
 
     return (        
         <div className="bookmark" >
-            {(saved || isSaved) ? <i class="fas fa-heart" onClick={() => removeProfile()}></i>  : <i class="far fa-heart" onClick={() => saveProfile()}></i>}
+            {(saved || isSaved) 
+                ? 
+                <img className="saveProfile-heart" src={HeartFull} onClick={() => removeProfile()}/>  
+                : 
+                <img className="saveProfile-heart" src={HeartOutlined} onClick={() => saveProfile()}/>
+            }
         </div>        
     )
 }

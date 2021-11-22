@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import ProfileCard from './ProfileCard';
 import './ProjectCard.css';
 import './Project.css';
 import { useMoralis } from 'react-moralis';
 import './SearchBar.css';
 import './ProjectGrid.css';
 import ProfileGridBox from './ProfileGridBox';
+import SearchGlass from '../img/searchglass.svg';
+import Left from '../img/leftpagination.png';
+import Right from '../img/rightpagination.png';
+import ProfileCard from '../components/V2/ProfileCard';
 
 function LoadUsers() {
   const { user, Moralis, isInitialized } = useMoralis();
@@ -75,90 +78,78 @@ function LoadUsers() {
 
     return (           
       <>
-        <div className="background">
+          <div className="project-section-title">
+            Profiles               
+          </div>   
           <div className="searchbar-container">
-          <div className="searchbar-wrapper">
-              <input 
-                type="text" 
-                className="searchbar-text" 
-                placeholder="Search profiles by name" 
-                value={queryProfile} 
-                onChange={(event) =>setQueryProfile(event.currentTarget.value)} 
-                onKeyPress={(event) => { if(event.key === "Enter") {SearchProfiles()}}}
-                />
-              <button className="btn2 searchbtn" onClick={SearchProfiles} ><i class="fas fa-search searchicon"></i>Search</button>
+            <div className="searchbar-wrapper">
+                <input 
+                  type="text" 
+                  className="searchbar-text" 
+                  placeholder="Search profiles by name..." 
+                  value={queryProfile} 
+                  onChange={(event) =>setQueryProfile(event.currentTarget.value)} 
+                  onKeyPress={(event) => { if(event.key === "Enter") {SearchProfiles()}}}
+                  />
+                <button className="searchbar-button" onClick={SearchProfiles}>Search<img id="searchbarglass" src={SearchGlass}/></button>
+            </div>
           </div>
-                </div>
-        </div>
-      {noneFound &&
-        <div className="cards-background">
-        <h3>Search Results...<button className="btn1" onClick={()=>setNoneFound(false)}>Close</button></h3> 
-          <div className='cards__container'>
-              <div className='cards__wrapper'>
-                <div>No results found. Searches are currently case sensitive. Try something else?</div>                  
-            </div> 
-          </div> 
-        </div> 
-        }
+        {noneFound &&
+          <>
+          <div className="project-section-title">
+            Search Results               
+          </div>  
+          <h5 id="notfoundmessage">No results found. Searches are currently case sensitive. Try something else?</h5>                  
+          <button className="searchbar-close" onClick={()=>setNoneFound(false)}>Close</button>
+          </>            
+        }    
         {showSearchResults &&
-          <div className="cards-background"> 
-            <div className='cards__container'>
-            <h3 className="my-projects-title">Search Results...<button className="btn1" onClick={()=>setShowSearchResults(false)}>Close</button></h3>
-              <div className='project-cards__wrapper'>
-                <div className='cards__items'>      
-                  {searchResults.map(userProfile => (                          
-                    <div key={userProfile.username} className="cards__item">                                                   
-                      <ProfileCard
-                      bio={userProfile.bio}
-                      src={userProfile.profilePic}
-                      username={userProfile.username}          
-                      />                         
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        }
-
-        <React.Fragment>
-          <div className="cards">
-            <div className="cards-background"> 
-
+          <>
               <div className="project-section-title">
-                <h3>NEWEST PROFILES</h3>               
+                Search Results
               </div>
-              <div className="pagination">
-                <button className="pagination-prev" onClick={() => PagPrev()}><i class="fas fa-caret-square-left"></i>PREV</button>
-                
-                <button className="pagination-next" onClick={() => PagNext()}>NEXT<i class="fas fa-caret-square-right"></i></button>
-              </div>
-              <div className="project-grid-container">
-                <div className="project-grid-wrapper">
-                  {users.map(userProfile => (
-                    <div key={userProfile.username} className="project-grid-box">
-                      <ProfileGridBox
-                        landscapePic={userProfile.landscapePic}
-                        bio={userProfile.bio}
-                        profilePic={userProfile.profilePic}
-                        username={userProfile.username}
-                        startRate={userProfile.startRate}    
-                        payCurrency={userProfile.payCurrency}       
-                      />
-                  </div>
-                  ))}
+              <button className="searchbar-close" onClick={()=>setShowSearchResults(false)}>Return</button>
+              <div className="profile-grid-wrapper">
+                {searchResults.map(userProfile => (
+                  <div key={userProfile.username}>
+                    <ProfileCard
+                      bio={userProfile.bio}
+                      profilePic={userProfile.profilePic}
+                      username={userProfile.username}
+                      startRate={userProfile.startRate}    
+                      payCurrency={userProfile.payCurrency}                      
+                      rate={userProfile.rate}                      
+                      contactForPricing={userProfile.contactForPricing}                      
+                    />
                 </div>
-              </div>              
-              <div className="pagination">
-                <button className="pagination-prev" onClick={() => PagPrev()}><i class="fas fa-caret-square-left"></i>PREV</button>
-                
-                <button className="pagination-next" onClick={() => PagNext()}>NEXT<i class="fas fa-caret-square-right"></i></button>
+                ))}
               </div>
-                
+            </>          
+        }
+        {!showSearchResults &&     
+        <>  
+          <div className="profile-grid-wrapper">
+            {users.map(userProfile => (
+              <div key={userProfile.username}>
+                <ProfileCard
+                  bio={userProfile.bio}
+                  profilePic={userProfile.profilePic}
+                  username={userProfile.username}
+                  startRate={userProfile.startRate}    
+                  payCurrency={userProfile.payCurrency}  
+                  rate={userProfile.rate}                      
+                  contactForPricing={userProfile.contactForPricing}                        
+                />
             </div>
+            ))}
           </div>
-        </React.Fragment>
-      </>
+        </>
+        } 
+        <div className="pagination">
+            <button className="pagination-prev" onClick={() => PagPrev()}><img id="leftarrow" src={Left}/></button>                    
+            <button className="pagination-next" onClick={() => PagNext()}><img id="rightarrow" src={Right}/></button>
+        </div>                 
+      </>      
     )
 }
 
