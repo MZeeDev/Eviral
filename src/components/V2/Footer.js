@@ -41,16 +41,16 @@ function Footer() {
                 <img id="footerlogo" src={DesktopLogo}/>  
                 <div className="footer-links">
                     <div className="footer-logo-and-links">
-                        <Link to='/projects'  className='footer-link'>
+                        <Link to={{ pathname: (`https://eviral.site`) }}  className='footer-link'>
                             Privacy Policy
                         </Link>
-                        <Link to='/profiles'  className='footer-link'>
+                        <Link to={{ pathname: (`https://eviral.site`) }}  className='footer-link'>
                             FAQ
                         </Link>
-                        <Link to='/'  className='footer-link'>
+                        <Link to={{ pathname: (`https://eviral.site`) }}  className='footer-link'>
                             Terms of Use
                         </Link>
-                        <Link to='/'  className='footer-link'>
+                        <Link to={{ pathname: (`https://onramper.com/about/`) }}  className='footer-link'>
                             OnRamper
                         </Link>                                 
                     </div>
