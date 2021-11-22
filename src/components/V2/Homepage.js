@@ -30,6 +30,7 @@ import Section5Block from "../../img/homepage/section5block.svg";
 import Section5Swap from "../../img/homepage/section5swapplaceholder.png";
 import Section6Block from "../../img/homepage/section6block.svg";
 import Kyubi from "../../img/homepage/kyubi.png";
+import Kyubi2 from "../../img/homepage/kyubi2.png";
 import Section9Background from "../../img/homepage/section9background.svg";
 import Section9Graphic from "../../img/homepage/section9graphic.png";
 import Section10Background from "../../img/homepage/section10background.svg";
@@ -214,7 +215,7 @@ function Homepage() {
                 <img id="section6block" src={Section6Block}/>
                 <div id="vcpartners">
                     <h3>Kyubi World - NFTs: A place for aspiring artists and gamers to flourish</h3>
-                    <Link to={{ pathname: (`https://kyubiverse.org`) }} target="_blank"><img hrefid="kyubi" src={Kyubi}/></Link>
+                    <Link id="kyubi" to={{ pathname: (`https://kyubiverse.org`) }} target="_blank"><img src={Kyubi}/></Link>
 
                     
                   <button className="pagination-prev" id="prevPartner" ><img id="leftarrow" src={Left}/></button>                    

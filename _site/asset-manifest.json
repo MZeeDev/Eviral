@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.d32eda7e.chunk.css",
-    "main.js": "/static/js/main.0e6f4591.chunk.js",
-    "main.js.map": "/static/js/main.0e6f4591.chunk.js.map",
+    "main.css": "/static/css/main.219e36e6.chunk.css",
+    "main.js": "/static/js/main.2328ec75.chunk.js",
+    "main.js.map": "/static/js/main.2328ec75.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e01d658d.js",
     "runtime-main.js.map": "/static/js/runtime-main.e01d658d.js.map",
     "static/js/2.da88c970.chunk.js": "/static/js/2.da88c970.chunk.js",
     "static/js/2.da88c970.chunk.js.map": "/static/js/2.da88c970.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.d32eda7e.chunk.css.map": "/static/css/main.d32eda7e.chunk.css.map",
+    "static/css/main.219e36e6.chunk.css.map": "/static/css/main.219e36e6.chunk.css.map",
     "static/js/2.da88c970.chunk.js.LICENSE.txt": "/static/js/2.da88c970.chunk.js.LICENSE.txt",
     "static/media/index.css": "/static/media/ProximaNova-Regular.b078618b.ttf",
     "static/media/add.e984d697.svg": "/static/media/add.e984d697.svg",
@@ -34,6 +34,7 @@
     "static/media/heartoutlined.52a407c6.svg": "/static/media/heartoutlined.52a407c6.svg",
     "static/media/homepagecoinstack.1ea40be3.png": "/static/media/homepagecoinstack.1ea40be3.png",
     "static/media/kyubi.cc3f38c2.png": "/static/media/kyubi.cc3f38c2.png",
+    "static/media/kyubi2.50af8807.png": "/static/media/kyubi2.50af8807.png",
     "static/media/linkedin.d41f42ef.svg": "/static/media/linkedin.d41f42ef.svg",
     "static/media/location.c5d0785c.svg": "/static/media/location.c5d0785c.svg",
     "static/media/maticlogo.409d5248.png": "/static/media/maticlogo.409d5248.png",
@@ -75,7 +76,7 @@
   "entrypoints": [
     "static/js/runtime-main.e01d658d.js",
     "static/js/2.da88c970.chunk.js",
-    "static/css/main.d32eda7e.chunk.css",
-    "static/js/main.0e6f4591.chunk.js"
+    "static/css/main.219e36e6.chunk.css",
+    "static/js/main.2328ec75.chunk.js"
   ]
 }
