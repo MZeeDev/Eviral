@@ -142,7 +142,7 @@ function Navbar() {
                                 </>
                             }
                             <li className='nav-item'>
-                                <Link to={{ pathname: (`https://eviral.site`) }} className='nav-links' onClick={closeMobileMenu}>
+                                <Link to={{ pathname: (`https://eviral.site`) }} target="_blank" className='nav-links' >
                                     FAQ
                                 </Link>
                             </li>                         
