@@ -173,7 +173,7 @@ function Homepage() {
                 <div id="whyviralcrypto-section2">
                     <div id="whyviralcrypto-section2-box1">
                         <div id="whyviralcrypto-box-title2">Reputation Building</div>
-                        <p>Users can create verified projects pages for established projects that are administered by their appropriate resprentatives.</p>
+                        <p>Users can create verified project pages for established projects that are administered by their appropriate resprentatives.</p>
                     </div>
                     <div id="whyviralcrypto-section2-box2">
                         <div id="whyviralcrypto-box-title1">Growing Together</div>

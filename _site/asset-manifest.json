@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.b300befe.chunk.css",
-    "main.js": "/static/js/main.ec536347.chunk.js",
-    "main.js.map": "/static/js/main.ec536347.chunk.js.map",
+    "main.css": "/static/css/main.bc9daa66.chunk.css",
+    "main.js": "/static/js/main.1140b29b.chunk.js",
+    "main.js.map": "/static/js/main.1140b29b.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e01d658d.js",
     "runtime-main.js.map": "/static/js/runtime-main.e01d658d.js.map",
     "static/js/2.8e3e9cb7.chunk.js": "/static/js/2.8e3e9cb7.chunk.js",
     "static/js/2.8e3e9cb7.chunk.js.map": "/static/js/2.8e3e9cb7.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.b300befe.chunk.css.map": "/static/css/main.b300befe.chunk.css.map",
+    "static/css/main.bc9daa66.chunk.css.map": "/static/css/main.bc9daa66.chunk.css.map",
     "static/js/2.8e3e9cb7.chunk.js.LICENSE.txt": "/static/js/2.8e3e9cb7.chunk.js.LICENSE.txt",
     "static/media/index.css": "/static/media/ProximaNova-Regular.b078618b.ttf",
     "static/media/add.e984d697.svg": "/static/media/add.e984d697.svg",
@@ -16,6 +16,7 @@
     "static/media/avaxlogo.6663f81d.png": "/static/media/avaxlogo.6663f81d.png",
     "static/media/beviral.83bfabd5.png": "/static/media/beviral.83bfabd5.png",
     "static/media/bsclogo.582fc765.png": "/static/media/bsclogo.582fc765.png",
+    "static/media/bscscan-logo-circle.e70ce408.svg": "/static/media/bscscan-logo-circle.e70ce408.svg",
     "static/media/bscscan-logo.e7dce3c0.png": "/static/media/bscscan-logo.e7dce3c0.png",
     "static/media/collaborate.86ead215.svg": "/static/media/collaborate.86ead215.svg",
     "static/media/construction.cfb1328d.png": "/static/media/construction.cfb1328d.png",
@@ -25,6 +26,7 @@
     "static/media/discord.e6b8da48.svg": "/static/media/discord.e6b8da48.svg",
     "static/media/eViralLogo2.5c4556ad.png": "/static/media/eViralLogo2.5c4556ad.png",
     "static/media/email.c34bf030.svg": "/static/media/email.c34bf030.svg",
+    "static/media/etherscan-logo-circle.4fa0af1d.svg": "/static/media/etherscan-logo-circle.4fa0af1d.svg",
     "static/media/etherscan-logo.910113c1.png": "/static/media/etherscan-logo.910113c1.png",
     "static/media/ethlogo.97ee4148.png": "/static/media/ethlogo.97ee4148.png",
     "static/media/exit.5658a49b.svg": "/static/media/exit.5658a49b.svg",
@@ -76,7 +78,7 @@
   "entrypoints": [
     "static/js/runtime-main.e01d658d.js",
     "static/js/2.8e3e9cb7.chunk.js",
-    "static/css/main.b300befe.chunk.css",
-    "static/js/main.ec536347.chunk.js"
+    "static/css/main.bc9daa66.chunk.css",
+    "static/js/main.1140b29b.chunk.js"
   ]
 }
