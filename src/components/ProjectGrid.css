@@ -20,7 +20,13 @@
   justify-content: center;
   padding-bottom: 30px;
 }
-
+#loadProjects-container{
+  width: 100%;
+  min-width: 1440px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .searchbar-close {
   display: flex;
   justify-content: center;
@@ -50,6 +56,9 @@
 /* Projects (profiles are below) */
 
 .project-section-title {
+  display: flex;
+  justify-content: flex-start;
+  width: 1336px;
   height: 64px;
   font-family:ProximaNova-bold;
   font-style: normal;
@@ -57,7 +66,7 @@
   font-size: 56px;
   line-height: 64px;
   color: #2d2d2d;
-  margin: 100px 0px 25px 80px;
+  margin: 100px 0px 25px 20px;
 }
 
 #notfoundmessage{
@@ -376,9 +385,19 @@
 
 
 @media only screen and (max-width: 1300px) {
+  #loadProjects-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    min-width: 375px;
+  }
   .project-section-title{
+    display: flex;
+    justify-content: flex-start;
+    width: 335px;
     font-size: 32px;
-    margin: 50px 0 25px 25px;
+    margin: 50px 0 25px 0px;
   }
   .project-grid-wrapper {
     display: grid;

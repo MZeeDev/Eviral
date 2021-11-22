@@ -179,12 +179,28 @@ const sendReport = async() => {
               </div>
               <button id="sendMessage-button" onClick={() => userCheck()}>Send Message</button>
             </div>
-            <div id="profilePage-payrate">Add$</div>
+            <div id="profilePage-payrate">
+              {profileLoaded[0].contactForPricing 
+                ?
+                <p>Contact for pricing</p>
+                :
+                <>
+                {profileLoaded[0].startRate}&nbsp;
+                {profileLoaded[0].payCurrency}&nbsp;
+                {profileLoaded[0].rate && 
+                    <>
+                    /&nbsp;
+                    {profileLoaded[0].rate}
+                    </>
+                }
+                </>
+              }
+            </div>
             <p id="profilePage-story">{ReactHtmlParser(profileLoaded[0].story)}</p>
             <div id="skillTags">
               <p>Skillset:</p> {profileLoaded[0].skills}
             </div>
-            <div id="socialShares">
+            <div id="profile-socialShares">
                   <p>Socials:</p>
                   { twitterActive &&
                       <Link className='profile-social-icon twitter' to={{ pathname: (`https://twitter.com/${(profileLoaded[0].twitter)}`) }} target="_blank" aria-label='Twitter'>
@@ -213,7 +229,7 @@ const sendReport = async() => {
                   }
               </div>
               <div id="profilePage-location">
-                <img id="socialShareIcon" src={location}/>
+                <img id="locationIcon" src={location}/>
                 <p>{profileLoaded[0].userLocation}</p>
               </div>
               <div id="profilePage-website">
@@ -236,26 +252,28 @@ const sendReport = async() => {
           </div>
         </div>
         </div>
-      <div id="profilePage-projects">
-        Projects      
-      </div>
-      <div className="project-grid-wrapper">
-                { (projects).map(project => (
-                  <div key={project.title} >
-                      <ProjectCard
-                      title={project.title}
-                      summary={project.summary}
-                      src={project.projectPhoto}
-                      username={project.username}
-                      creatorProfilePic={project.profilePic}
-                      createdOn = {project.createdOn}
-                      path={project.title}
-                      isVerified = {project.isVerified}
-                      isLive={project.isLive}                          
-                      />
-                  </div>
-                ))}
+      <div id="loadProjects-container">
+        <div id="profilePage-projects">
+          Projects
         </div>
+        <div className="project-grid-wrapper">
+                  { (projects).map(project => (
+                    <div key={project.title} >
+                        <ProjectCard
+                        title={project.title}
+                        summary={project.summary}
+                        src={project.projectPhoto}
+                        username={project.username}
+                        creatorProfilePic={project.profilePic}
+                        createdOn = {project.createdOn}
+                        path={project.title}
+                        isVerified = {project.isVerified}
+                        isLive={project.isLive}
+                        />
+                    </div>
+                  ))}
+          </div>
+      </div>
         { sendMessagePopUpVisible &&
           <SendMessagePopUp
           visible={setSendMessagePopUpVisible}

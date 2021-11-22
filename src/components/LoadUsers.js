@@ -77,7 +77,7 @@ function LoadUsers() {
   );  
 
     return (           
-      <>
+      <div id="loadProjects-container">
           <div className="project-section-title">
             Profiles               
           </div>   
@@ -149,7 +149,7 @@ function LoadUsers() {
             <button className="pagination-prev" onClick={() => PagPrev()}><img id="leftarrow" src={Left}/></button>                    
             <button className="pagination-next" onClick={() => PagNext()}><img id="rightarrow" src={Right}/></button>
         </div>                 
-      </>      
+      </div>      
     )
 }
 

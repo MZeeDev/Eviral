@@ -81,7 +81,7 @@ color: #151515;
 #websiteIcon{
     height: 30px;
     width: 30px;
-    padding: 5px;
+    padding: 3px;
 }
 
 #socialShares>p{
@@ -484,19 +484,6 @@ color: #151515;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 @media only screen and (max-width: 1300px) {
     #projectPage{
         background: white;
@@ -593,7 +580,7 @@ color: #151515;
     #websiteIcon{
         height: 30px;
         width: 30px;
-        padding: 5px 5px 5px 0px;
+        padding:  3px;
     }
     
     #socialShares>p{
