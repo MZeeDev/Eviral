@@ -50,7 +50,7 @@ function SwapContainer() {
                 <p>More Information</p>
                 <div id="tokenSwap-tokenlinks">
                     <img id="tokenSwap-tokenlogo-info" src={EViral}/> 
-                    <Link to={{ pathname: (`https://www.dextools.io/app/bsc/pair-explorer/0xb76b40213d618a9099ba14bd859596904828aff5`) }} target="_blank">
+                    <Link to={{ pathname: (`https://www.dextools.io/app/ether/pair-explorer/0xf38424fb7da8603e331aca2acb6cef8aed469fe2`) }} target="_blank">
                         <button id="tokenSwap-button2">Charts</button>
                     </Link>
                     <Link to={{ pathname: (`https://www.team.finance/view-coin/0x7CeC018CEEF82339ee583Fd95446334f2685d24f?name=Viral%20Ethereum&symbol=eViral%20%F0%9F%A7%AC`) }} target="_blank">
@@ -65,7 +65,8 @@ function SwapContainer() {
                 </div>
                 <div id="tokenSwap-tokenlinks">
                     <img id="tokenSwap-tokenlogo-info" src={BeViral}/> 
-                    <Link to={{ pathname: (`https://www.dextools.io/app/ether/pair-explorer/0xf38424fb7da8603e331aca2acb6cef8aed469fe2`) }} target="_blank">
+                    
+                    <Link to={{ pathname: (`https://www.dextools.io/app/bsc/pair-explorer/0xb76b40213d618a9099ba14bd859596904828aff5`) }} target="_blank">
                         <button id="tokenSwap-button3">Charts</button>
                     </Link>
                     <Link to={{ pathname: (`https://www.team.finance/view-coin/0x7CeC018CEEF82339ee583Fd95446334f2685d24f?name=Viral%20Ethereum&symbol=eViral%20%F0%9F%A7%AC`) }} target="_blank">
