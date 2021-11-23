@@ -97,7 +97,7 @@ function MyProfile() {
     );  
 
     return (
-        <div>                               
+        <div id="myProfilePage">                               
             <Profile openCreateProjectMenu={setOpenCreateProjectMenu} openEditProfileMenu={setOpenEditProfileMenu}/> 
             <div id="profilePage-projects">
                 My Projects      
