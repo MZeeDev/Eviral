@@ -180,14 +180,15 @@
     align-items: flex-start;
     padding: 0px;
     position: static;
-    width: 320px;
-    height: 156px;
+    width: 340px;
+    height: 155px;
     left: 20px;
     top: 240px;
     flex: none;
     order: 1;
     flex-grow: 0;
-    margin: 15px 40px 0px 40px;
+    margin: 5px 0px 10px 0px;
+    overflow: hidden;
 }
 
 .projectcard-text{
@@ -196,8 +197,8 @@
     align-items: flex-start;
     padding: 0px;
     position: static;
-    width: 320px;
-    height: 140px;
+    width: 340px;
+    height: 156px;
     left: 0px;
     top: 0px;
     flex: none;
@@ -208,8 +209,8 @@
 
 .projectcard-title{
     position: static;
-    width: 320px;
-    height: 32px;
+    width: 340px;
+    height: unset;
     left: 0px;
     top: 0px;
     font-family:ProximaNova-bold;
@@ -226,8 +227,8 @@
 }
 
 .projectcard-summary{
-    position: static;
-    width: 320px;
+    position: unset;
+    width: 340px;
     height: 120px;
     left: 0px;
     top: 40px;
@@ -243,6 +244,7 @@
     flex-grow: 0;
     margin: 0px;
     overflow: ellipsis;
+    flex-wrap: balance;
 }
 
 
