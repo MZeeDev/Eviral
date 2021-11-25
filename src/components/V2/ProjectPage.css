@@ -49,6 +49,13 @@
     line-height: 24px;    
     color: #151515;
     margin: 20px 20px 20px 0;
+    width: 600px;
+}
+#projectPage-description>img{
+    width: 600px;
+}
+#projectPage-description>p>img{
+    width: 600px;
 }
 
 #saveProject{
@@ -543,7 +550,14 @@ color: #151515;
         color: #151515;
         margin: 0px 5px 10px 0;
         padding-left: 10px;
+        width: 351px;
+    }
 
+    #projectPage-description>img{
+        width: 351px;
+    }
+    #projectPage-description>p>img{
+        width: 351px;
     }
     
     #saveProject{
