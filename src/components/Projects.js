@@ -78,6 +78,13 @@ function ProjectsList({match}) {
     [initLoad],
   );  
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top:0,
+      behavior: 'smooth'
+    });
+  }
+
     return (          
       <div id="loadProjects-container">
           <div className="project-section-title">
@@ -150,8 +157,8 @@ function ProjectsList({match}) {
               </div>
             }
             <div className="pagination">
-                  <button className="pagination-prev" onClick={() => PagPrev()}><img id="leftarrow" src={Left}/></button>                    
-                  <button className="pagination-next" onClick={() => PagNext()}><img id="rightarrow" src={Right}/></button>
+                  <button className="pagination-prev" onClick={() => {scrollToTop(); PagPrev()}}><img id="leftarrow" src={Left}/></button>              
+                  <button className="pagination-next" onClick={() => {scrollToTop();PagNext()}}><img id="rightarrow" src={Right}/></button>
             </div>              
       </div>      
     )

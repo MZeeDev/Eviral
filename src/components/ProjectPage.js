@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import { useMoralis, useMoralisFile } from "react-moralis";
 import construction from  "../img/construction.png";
 import ReactHtmlParser from 'react-html-parser';
@@ -43,6 +43,7 @@ import shareTwitch from '../img/shareIcons/twitch.svg';
 
 
 function ProjectDisplay(props) {
+  const { url } = useRouteMatch();
   const { user, Moralis, isInitialized } = useMoralis();  
   const { isUploading, saveFile } = useMoralisFile();
   const [ owner, setOwnerProject] = useState(false);
@@ -391,7 +392,9 @@ window.addEventListener('resize', resize);
               </div>
               }
             <div id="projectPage-creator">
-                <img id="projectPage-creator-profilePic" src={props.creatorProfilePic}/>                
+              <Link to={`/profiles/${props.creator}`}>
+                <img id="projectPage-creator-profilePic" src={props.creatorProfilePic}/>
+              </Link>                
                 <div id="projectPage-creator-info">
                   <h4>{props.creator}</h4>
                   <p id="creator-createdOn">{props.createdOn}</p>

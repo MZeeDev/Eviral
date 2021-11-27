@@ -326,7 +326,8 @@
         height: 150px;
         left: 20px;
         top: 196px;
-        margin: 10px 0px 0px 0px;
+        margin: 5px 0px 10px 0px;
+        overflow: hidden;
     }
     
     .projectcard-text{
@@ -336,18 +337,17 @@
     
     .projectcard-title{
         width: 290px;
-        height: 24px;
+        height: unset;
         font-size: 18px;
         line-height: 24px;
     }
     
     .projectcard-summary{
         width: 290px;
-        height: 120px;
+        height: unset;
         font-size: 14px;
         line-height: 20px;
     }
-    
     
     .projectcard-footer {
         width: 310px;
