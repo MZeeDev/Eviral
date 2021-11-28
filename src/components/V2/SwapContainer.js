@@ -8,8 +8,8 @@ import ETH from '../../img/ethlogo.png';
 import MATIC from '../../img/maticlogo.png';
 import Etherscan from '../../img/etherscan-logo-circle.svg';
 import BscScan from '../../img/bscscan-logo-circle.svg';
-import EViral from '../../img/newlogo2.png';
-import BeViral from '../../img/newlogoBSC2.png';
+import EViral from '../../img/vceth.png';
+import BeViral from '../../img/vcbsc.png';
 
 function SwapContainer() {
 

@@ -8,6 +8,9 @@ export default function OnRamper() {
             <iframe
                 className="onramper-widget"
                 defaultCrypto="ETH"
+                filters={{
+                    onlyCryptos: ["ETH"]
+                  }}
                 id="onramper-widget"
                 title="Onramper widget"
                 frameborder="no"

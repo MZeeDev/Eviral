@@ -202,27 +202,27 @@ const sendReport = async() => {
             </div>
             <div id="profile-socialShares">
                   <p>Socials:</p>
-                  { twitterActive &&
+                  { profileLoaded[0].twitter &&
                       <Link className='profile-social-icon twitter' to={{ pathname: (`https://twitter.com/${(profileLoaded[0].twitter)}`) }} target="_blank" aria-label='Twitter'>
                           <img id="socialShareIcon" src={shareTwitter}/>
                       </Link>
                   }
-                  { telegramActive &&
+                  { profileLoaded[0].telegram &&
                       <Link className='profile-social-icon telegram' to={{ pathname: (`https://t.me/${(profileLoaded[0].telegram)}`) }} target="_blank" aria-label='Telegram'>
                           <img id="socialShareIcon" src={shareTelegram}/>
                       </Link>
                   }
-                  { linkedInActive &&
+                  { profileLoaded[0].linkedIn &&
                       <Link className='profile-social-icon linkedIn' to={{ pathname: (`https://linkedin.com/in/${(profileLoaded[0].linkedIn)}`) }} target="_blank" aria-label='LinkedIn'>
                           <img id="socialShareIcon" src={shareLinkedIn}/>
                       </Link>
                   }
-                  { youtubeActive &&
+                  { profileLoaded[0].youtube &&
                       <Link className='profile-social-icon youtube' to={{ pathname: (`https://youtube.com/c/${(profileLoaded[0].youtube)}`) }} target="_blank" aria-label='Youtube'>
                           <img id="socialShareIcon" src={shareYoutube}/>
                       </Link>
                   }
-                  { twitchActive &&
+                  { profileLoaded[0].twitch &&
                       <Link className='profile-social-icon twitch' to={{ pathname: (`https://twitch.tv/${(profileLoaded[0].twitch)}`) }} target="_blank" aria-label='Twitch'>
                           <img id="socialShareIcon" src={shareTwitch}/>
                       </Link>

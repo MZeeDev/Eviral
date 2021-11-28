@@ -7,9 +7,11 @@ import mmLogo from '../../img/metamask.png';
 import wcLogo from '../../img/walletconnect.png';
 import '../../components/NavbarConnectMenu.css';
 import Alert from '../../components/Alert';
-import Logo from '../../img/newlogo2.png';
-import LogoBSC from '../../img/newlogoBSC2.png';
+// import Logo from '../../img/newlogo2.png';
+// import LogoBSC from '../../img/newlogoBSC2.png';
 import DesktopLogo from '../../img/headerfulllogo.svg';
+import Logo from '../../img/vceth.png';
+import LogoBSC from '../../img/vcbsc.png';
 
 import MenuBars from '../../img/menubars.svg';
 import MenuExit from '../../img/menuexit.svg';

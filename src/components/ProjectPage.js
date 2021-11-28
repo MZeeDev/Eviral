@@ -255,27 +255,27 @@ window.addEventListener('resize', resize);
               <p id="projectPage-summary">{props.summary}</p>
               <div id="socialShares">
                   <p>Socials:</p>
-                  { twitterActive &&
+                  { props.twitter &&
                       <Link className='profile-social-icon twitter' to={{ pathname: (`https://twitter.com/${(props.twitter)}`) }} target="_blank" aria-label='Twitter'>
                           <img id="socialShareIcon" src={shareTwitter}/>
                       </Link>
                   }
-                  { telegramActive &&
+                  { props.telegram &&
                       <Link className='profile-social-icon telegram' to={{ pathname: (`https://t.me/${(props.telegram)}`) }} target="_blank" aria-label='Telegram'>
                           <img id="socialShareIcon" src={shareTelegram}/>
                       </Link>
                   }
-                  { linkedInActive &&
+                  { props.linkedIn &&
                       <Link className='profile-social-icon linkedIn' to={{ pathname: (`https://linkedin.com/in/${(props.linkedIn)}`) }} target="_blank" aria-label='LinkedIn'>
                           <img id="socialShareIcon" src={shareLinkedIn}/>
                       </Link>
                   }
-                  { youtubeActive &&
+                  { props.youtube &&
                       <Link className='profile-social-icon youtube' to={{ pathname: (`https://youtube.com/c/${(props.youtube)}`) }} target="_blank" aria-label='Youtube'>
                           <img id="socialShareIcon" src={shareYoutube}/>
                       </Link>
                   }
-                  { twitchActive &&
+                  { props.twitch &&
                       <Link className='profile-social-icon twitch' to={{ pathname: (`https://twitch.tv/${(props.twitch)}`) }} target="_blank" aria-label='Twitch'>
                           <img id="socialShareIcon" src={shareTwitch}/>
                       </Link>

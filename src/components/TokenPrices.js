@@ -4,8 +4,9 @@ import eViralLogo from "../img/eViralLogo2.png";
 import beViralLogo from "../img/beviral.png";
 import { Moralis } from 'moralis';
 import { useMoralis } from 'react-moralis';
-import Logo from '../img/newlogo2.png';
-import LogoBSC from '../img/newlogoBSC2.png';
+
+import Logo from '../img/vceth.png';
+import LogoBSC from '../img/vcbsc.png';
 
 function TokenPrices() {
     const { isInitialized } = useMoralis();

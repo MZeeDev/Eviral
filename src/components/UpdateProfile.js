@@ -171,6 +171,7 @@ function UpdateProfile(props) {
                             <label id="createProject-formInput-title">Skillset</label>
                             <input id="createProject-formInput-text" placeholder="List key skills (Artist, Programmer, Model etc.)" maxLength={50} value={skills} onChange={(event) =>setSkills(event.currentTarget.value)}/>
                         </div>
+
                         <div id="createProject-formInput-description">
                             <label id="createProject-formInput-title-description">Story<span style={{color:"red"}}> *</span></label>  
                             {/* <textarea rows={3} className="form-control" placeholder="Please describe your project in more detail, up to 550 characters" maxLength={550} value={description} required onChange={(event) =>setDescription(event.currentTarget.value)}/> */}
