@@ -6,6 +6,7 @@ import './ProfileCard.css';
 function ProfileGridBox(props) {
     const { url } = useRouteMatch();
     const [ratesLive, setRatesLive] = useState(false);
+    const skillSet = props.skillSet;
 
     useEffect(() => {
         if (props.startRate || props.contactForPricing) {
@@ -30,9 +31,18 @@ function ProfileGridBox(props) {
                             <h4 className="profilecard-username">{props.username}</h4>
                             <p className="profilecard-bio">{props.bio}</p>
                         </div>
+                        
                         <div className="profilecard-footer">
                             <div className="profilecard-footer-tags">
-                                
+                                <div id="profilecard-skillTags">
+                                { props.skillSet &&
+                                    <>
+                                        {props.skillSet.map(element => (
+                                            <div id="profile-skillTags">{element}</div>
+                                        ))}
+                                    </>
+                                }
+                            </div>
                             </div>
                             <div className="profilecard-footer-rates-and-save">
                                 {ratesLive &&

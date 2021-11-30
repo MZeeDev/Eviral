@@ -183,6 +183,7 @@
   align-items: center;
   color: #9E9E9F; 
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  flex-wrap: wrap;
 }
 
 #createProject-socialInput{

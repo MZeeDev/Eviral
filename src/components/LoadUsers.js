@@ -126,7 +126,8 @@ function LoadUsers() {
                       startRate={userProfile.startRate}    
                       payCurrency={userProfile.payCurrency}                      
                       rate={userProfile.rate}                      
-                      contactForPricing={userProfile.contactForPricing}                      
+                      contactForPricing={userProfile.contactForPricing}    
+                      skillSet={userProfile.skillSet}                   
                     />
                 </div>
                 ))}
@@ -145,7 +146,8 @@ function LoadUsers() {
                   startRate={userProfile.startRate}    
                   payCurrency={userProfile.payCurrency}  
                   rate={userProfile.rate}                      
-                  contactForPricing={userProfile.contactForPricing}                        
+                  contactForPricing={userProfile.contactForPricing} 
+                  skillSet={userProfile.skillSet}                       
                 />
             </div>
             ))}

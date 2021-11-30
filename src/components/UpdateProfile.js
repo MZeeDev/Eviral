@@ -11,6 +11,7 @@ import Alert from './Alert';
 
 
 import Exit from '../img/exit.svg';
+import ExitWhite from '../img/exitWhite.svg';
 import shareTelegram from '../img/shareIcons/telegram.svg';
 import shareTwitter from '../img/shareIcons/twitter.svg';
 import shareLinkedIn from '../img/shareIcons/linkedin.svg';
@@ -23,6 +24,7 @@ function UpdateProfile(props) {
     const { user, setUserData, Moralis } = useMoralis();
     const { error, isUploading, moralisFile, saveFile, } = useMoralisFile();
 
+    const [currentTag, setCurrentTag] = useState("skillTag");
     const [alertVisible, setAlertVisible] = useState(false);
     const [alertContents, setAlertContents] = useState();    
     
@@ -34,6 +36,7 @@ function UpdateProfile(props) {
     const [userLocation, setUserLocation] = useState();
     const [story, setStory] = useState();
     const [skills, setSkills] = useState();
+    const [skillTags, setSkillTags] = useState([]);
     const [bio, setBio] = useState();
     const [website, setWebsite] = useState();
     const [twitter, setTwitter] = useState();
@@ -48,6 +51,28 @@ function UpdateProfile(props) {
     const [contactForPricing, setContactForPricing] = useState(false);
     const init = 0;
 
+    const addSkill = async() => {
+        if(skillTags.length >= 3){
+            alert("Please choose less than 3 skill tags");
+        } else if(skillTags.includes(currentTag)){
+            alert("Please choose a different tag.");
+        } else {            
+            setSkillTags(skillTags => [...skillTags, currentTag]);      
+            setSkills(skillTags => [...skillTags, currentTag]);
+            console.log(skills);
+            console.log(skillTags);
+        }     
+    }
+
+
+    const removeSkill = async(value) => {        
+        const index = skillTags.indexOf(value);
+        console.log(value, index);
+        skillTags.splice(index, 1);
+        setSkillTags(skillTags => [...skillTags]);
+        setSkills(skillTags);        
+    }
+
     const checkProfileCreated = () => {
         const profileCreated = (user.attributes?.profileCreated);
         if(profileCreated){
@@ -56,6 +81,7 @@ function UpdateProfile(props) {
             setUserLocation(user.attributes?.userLocation);
             setStory(user.attributes?.story);
             setSkills(user.attributes?.skills);
+            setSkillTags(user.attributes?.skillSet);
             setBio(user.attributes?.bio);
             setWebsite(user.attributes?.website);
             setTwitter(user.attributes?.twitter);
@@ -101,6 +127,8 @@ function UpdateProfile(props) {
             rate: rate === "" ? undefined : rate,  
             profileCreated: true   
         });
+        user.set("skillSet", skillTags);
+        await user.save(); 
         setAlertContents("Profile Updated!");
         setAlertVisible(true);        
     };
@@ -129,6 +157,11 @@ function UpdateProfile(props) {
             console.log(error)
         }
       };
+
+      const skillReveal = () => {
+          console.log(skills);
+          console.log(skillTags);
+      }
 
     return (
         <> 
@@ -167,11 +200,52 @@ function UpdateProfile(props) {
                             <label id="createProject-formInput-title">Website</label>
                             <input id="createProject-formInput-text" placeholder="www.yourwebsite.com" value={website} onChange={(event) =>setWebsite(event.currentTarget.value)}/>
                         </div>
-                        <div id="createProject-formInput">
+                        {/* <div id="createProject-formInput">
                             <label id="createProject-formInput-title">Skillset</label>
                             <input id="createProject-formInput-text" placeholder="List key skills (Artist, Programmer, Model etc.)" maxLength={50} value={skills} onChange={(event) =>setSkills(event.currentTarget.value)}/>
-                        </div>
+                        </div> */}
 
+                        <button id="createProject-button-submit" onClick={skillReveal}>Check Skills and Skill Tags</button>
+                        <div id="createProject-formInput">
+                            <label id="createProject-formInput-title">Skillset</label>
+                            <div id="createProject-formInput-text" value={skills} onChange={(event) =>setSkills(event.currentTarget.value)} > 
+                                {!skillTags && 
+                                    <p>Skill Tags</p>
+                                } 
+                                {skillTags && 
+                                    <>                            
+                                    {skillTags.map(element => (
+                                        <button id="createProject-skillTagAdded-button">{element}<img id="exitSkillTagButton" onClick={()=> removeSkill(element)} src={ExitWhite}/></button>
+                                    ))} 
+                                    </>  
+                                }                             
+                            </div>
+                            <div  id="createProject-skillTags">
+                                <select id="createProject-tagList" onChange={(e) => setCurrentTag(e.currentTarget.value)}>                            
+                                    <option selected disabled>Choose Up to 3 Skill Tags</option>
+                                    <option id="skill-option" value="Admin">Admin</option>
+                                    <option id="skill-option" value="Artist">Artist</option>
+                                    <option id="skill-option" value="Advisor">Advisor</option>
+                                    <option id="skill-option" value="Blogger">Blogger</option>
+                                    <option id="skill-option" value="Broker">Broker</option>
+                                    <option id="skill-option" value="Developer">Developer</option>
+                                    <option id="skill-option" value="Gamer">Gamer</option>
+                                    <option id="skill-option" value="Graphic Design">Graphic Design</option>
+                                    <option id="skill-option" value="Influencer">Influencer</option>
+                                    <option id="skill-option" value="IT">IT</option>
+                                    <option id="skill-option" value="Lawyer">Lawyer</option>
+                                    <option id="skill-option" value="Marketing">Marketing</option>
+                                    <option id="skill-option" value="Miner">Miner</option>
+                                    <option id="skill-option" value="Musician">Musician</option>
+                                    <option id="skill-option" value="Streamer">Streamer</option>
+                                    <option id="skill-option" value="Trader">Trader</option>
+                                    <option id="skill-option" value="Translator">Translator</option>
+                                    <option id="skill-option" value="Writer">Writer</option>
+                                </select>                            
+                                <button id="createProject-addSkill-button" type="button" onClick={()=> addSkill()}>Add</button>
+                            </div>
+                            
+                        </div>
                         <div id="createProject-formInput-description">
                             <label id="createProject-formInput-title-description">Story<span style={{color:"red"}}> *</span></label>  
                             {/* <textarea rows={3} className="form-control" placeholder="Please describe your project in more detail, up to 550 characters" maxLength={550} value={description} required onChange={(event) =>setDescription(event.currentTarget.value)}/> */}

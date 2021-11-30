@@ -165,7 +165,6 @@ function Profile(props) {
     }
       }, [isInitialized]);
 
-
     return (
         <>
             <div id="profilePage-profile">
@@ -209,23 +208,30 @@ function Profile(props) {
                         </div>
                         <p>{ReactHtmlParser(user?.attributes?.story)}</p>
                         <div id="skillTags">
-                            <p>Skillset:</p> {user?.attributes?.skills}
+                            <p>Skillset:</p> 
+                            { user.attributes?.skillSet &&
+                                <>
+                                    {user.attributes?.skillSet.map(element => (
+                                        <div id="profile-skillTags">{element}</div>
+                                    ))}
+                                </>
+                            }
                         </div>
                         <div id="mysocialShares">
                             <p>Socials:</p>                  
-                                <Link className='profile-social-icon twitter' to={{ pathname: (`https://twitter.com/${(user?.attributes?.twitter)}`) }} target="_blank" aria-label='Twitter'>
+                                <Link id='myprofile-social-icon twitter' to={{ pathname: (`https://twitter.com/${(user?.attributes?.twitter)}`) }} target="_blank" aria-label='Twitter'>
                                     <img id="socialShareIcon" src={shareTwitter}/>
                                 </Link>
-                                <Link className='profile-social-icon telegram' to={{ pathname: (`https://t.me/${(user?.attributes?.telegram)}`) }} target="_blank" aria-label='Telegram'>
+                                <Link id='myprofile-social-icon telegram' to={{ pathname: (`https://t.me/${(user?.attributes?.telegram)}`) }} target="_blank" aria-label='Telegram'>
                                     <img id="socialShareIcon" src={shareTelegram}/>
                                 </Link>
-                                <Link className='profile-social-icon linkedIn' to={{ pathname: (`https://linkedin.com/in/${(user?.attributes?.linkedIn)}`) }} target="_blank" aria-label='LinkedIn'>
+                                <Link id='myprofile-social-icon linkedIn' to={{ pathname: (`https://linkedin.com/in/${(user?.attributes?.linkedIn)}`) }} target="_blank" aria-label='LinkedIn'>
                                     <img id="socialShareIcon" src={shareLinkedIn}/>
                                 </Link>
-                                <Link className='profile-social-icon youtube' to={{ pathname: (`https://youtube.com/c/${(user?.attributes?.youtube)}`) }} target="_blank" aria-label='Youtube'>
+                                <Link id='myprofile-social-icon youtube' to={{ pathname: (`https://youtube.com/c/${(user?.attributes?.youtube)}`) }} target="_blank" aria-label='Youtube'>
                                     <img id="socialShareIcon" src={shareYoutube}/>
                                 </Link>
-                                <Link className='profile-social-icon twitch' to={{ pathname: (`https://twitch.tv/${(user?.attributes?.twitch)}`) }} target="_blank" aria-label='Twitch'>
+                                <Link id='myprofile-social-icon twitch' to={{ pathname: (`https://twitch.tv/${(user?.attributes?.twitch)}`) }} target="_blank" aria-label='Twitch'>
                                     <img id="socialShareIcon" src={shareTwitch}/>
                                 </Link>
                         </div>

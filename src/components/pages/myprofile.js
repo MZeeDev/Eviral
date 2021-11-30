@@ -172,11 +172,16 @@ function MyProfile() {
                 <button className="pagination-next" ><img id="rightarrow" src={Right}/></button>
             </div>     
             <div className="projects">
-                {createProjectMenu && <CreateProject closeCreateProjectMenu={setOpenCreateProjectMenu}/>}
+                {createProjectMenu && 
+                    <CreateProject 
+                        closeCreateProjectMenu={setOpenCreateProjectMenu}
+                    />
+                }
                 {editProfileMenu && 
-                <UpdateProfile 
-                closeEditProfileMenu={setOpenEditProfileMenu}
-                />}
+                    <UpdateProfile 
+                        closeEditProfileMenu={setOpenEditProfileMenu}
+                    />
+                }
             </div>
         </div>        
     )

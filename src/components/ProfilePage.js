@@ -198,8 +198,15 @@ const sendReport = async() => {
             </div>
             <p id="profilePage-story">{ReactHtmlParser(profileLoaded[0].story)}</p>
             <div id="skillTags">
-              <p>Skillset:</p> {profileLoaded[0].skills}
-            </div>
+              <p>Skillset:</p> 
+              { profileLoaded[0].skillSet &&
+                  <>
+                      {profileLoaded[0].skillSet.map(element => (
+                          <div id="profile-skillTags">{element}</div>
+                      ))}
+                  </>
+              }
+          </div>
             <div id="profile-socialShares">
                   <p>Socials:</p>
                   { profileLoaded[0].twitter &&
