@@ -13,6 +13,7 @@ import shareLinkedIn from '../img/shareIcons/linkedin.svg';
 import shareDiscord from '../img/shareIcons/discord.svg';
 import shareTwitch from '../img/shareIcons/twitch.svg';
 import shareYoutube from '../img/shareIcons/youtube.svg';
+import addImage from '../img/addImage.svg';
 
 function EditProject(props) {  ///set input variables as required, add other attributes to be stored like tags, etc, allow for editing/updating?
 
@@ -40,7 +41,15 @@ function EditProject(props) {  ///set input variables as required, add other att
 
     const [photoFile, setPhotoFile] = useState();    
     const [photoFileName, setPhotoFileName] = useState();  
+    const [photoFile1, setPhotoFile1] = useState();    
+    const [photoFileName1, setPhotoFileName1] = useState();  
+    const [photoFile2, setPhotoFile2] = useState();    
+    const [photoFileName2, setPhotoFileName2] = useState();  
     const [ projectPhotoPreview, setProjectPhotoPreview] = useState(props.projectPhoto);
+    const [photo1, setPhoto1] = useState(props.projectPhoto);
+    const [photo2, setPhoto2] = useState(props.projectPhoto1);
+    const [photo3, setPhoto3] = useState(props.projectPhoto2);
+    const [activePhoto, setActivePhoto] = useState();
 
     const handleDescriptionOnChange = (e, editor) =>{
         const data = editor.getData();
@@ -74,16 +83,20 @@ function EditProject(props) {  ///set input variables as required, add other att
 
     const editProject = async () => {
         try {            
-            console.log(props.title);
             const params = { projectTitle: (props.title) }; 
-            console.log(params);
             const project = await Moralis.Cloud.run("getProjectByName", params);
-            console.log(project);
-            console.log(project);
             const file = photoFile;
             const name = photoFileName;
+            const file1 = photoFile1;
+            const name1 = photoFileName1;
+            const file2 = photoFile2;
+            const name2 = photoFileName2;
             let fileIpfs = await saveFile(name, file, { saveIPFS: true });
+            let fileIpfs1 = await saveFile(name1, file1, { saveIPFS: true });
+            let fileIpfs2 = await saveFile(name2, file2, { saveIPFS: true });
             project.set('projectPhoto', fileIpfs);
+            project.set('projectPhoto1', fileIpfs1);
+            project.set('projectPhoto2', fileIpfs2);
             project.set("isLive", isLive);
             project.set('title', title);
             project.set('summary', summary);
@@ -104,12 +117,30 @@ function EditProject(props) {  ///set input variables as required, add other att
     }
 
     const onChangePhoto = e => {
-        setPhotoFile(e.target.files[0]);
-        setPhotoFileName(e.target.files[0].name);
+        if(activePhoto == 1){
+            setPhotoFile(e.target.files[0]);
+            setPhotoFileName(e.target.files[0].name);
+            setPhoto1(URL.createObjectURL(e.target.files[0]));
+        }
+        else if(activePhoto == 2){
+            setPhotoFile1(e.target.files[0]);
+            setPhotoFileName1(e.target.files[0].name);
+            setPhoto2(URL.createObjectURL(e.target.files[0]));
+        }
+        else if (activePhoto == 3){
+            setPhoto3(URL.createObjectURL(e.target.files[0]));
+            setPhotoFile2(e.target.files[0]);
+            setPhotoFileName2(e.target.files[0].name);
+        }
         setProjectPhotoPreview(URL.createObjectURL(e.target.files[0]));
         setAlertContents("Uploaded!");
         setAlertVisible(true);
     };
+
+    const setActive = (src, num) =>{
+        setProjectPhotoPreview(src);
+        setActivePhoto(num);
+    }
    
 
     return (
@@ -124,9 +155,25 @@ function EditProject(props) {  ///set input variables as required, add other att
                         <div id="project-pic-container">
                             <img className="project-pic" src={projectPhotoPreview} alt="" />
                         </div>                        
+                        <div id="project-pic-thumnail-container">
+                            <img id="project-pic-thumnail" src={photo1} alt="" onClick={(e)=>setActive(e.currentTarget.src, 1)}/>
+                            {photo2
+                                ?
+                                <img id="project-pic-thumnail" src={photo2} alt="" onClick={(e)=>setActive(e.currentTarget.src, 2)}/>
+                                :
+                                <img id="project-pic-thumnail" src={addImage} alt="" onClick={(e)=>setActive(e.currentTarget.src, 2)}/>
+                            }
+                            {photo3
+                                ?
+                                <img id="project-pic-thumnail" src={photo3} alt="" onClick={(e)=>setActive(e.currentTarget.src, 3)}/>
+                                :
+                                <img id="project-pic-thumnail" src={addImage} alt="" onClick={(e)=>setActive(e.currentTarget.src, 3)} />
+                            }
+                        </div>    
+                        <p id="editproject-thumbnailprompt">Select a thumbnail to change it</p>                    
                         <div className="form-photo-wrapper">  
-                            <label htmlFor="projectPhoto" className="form-label">Upload a cover photo*</label>
-                            <input className="form-control" type="file" accept="image/png, image/jpg, image/jpeg" multiple="false" id="projectPhoto" required onChange={onChangePhoto}/>
+                            <label htmlFor="projectPhoto" className="form-label">Upload a image (jpg, jpeg, png, gif)</label>
+                            <input className="form-control" type="file" accept="image/*" multiple="false" id="projectPhoto" required onChange={onChangePhoto}/>
                         </div>
                         <div id="createProject-launchStatus">
                             <p>Has your project already launched or is it still in development?</p>

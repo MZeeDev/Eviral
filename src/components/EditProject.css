@@ -6,7 +6,8 @@
   justify-content: center;
   align-items: flex-start;
   height: 1900px;
-  width: 1440px;
+  width: 100%;
+  min-width: 1440px;
   background-color: rgba(21, 21, 21, 0.4);
   backdrop-filter: blur(12px);
   z-index: 1;
@@ -22,7 +23,7 @@
   margin: 0;
   padding: 40px;
   width: 560px;
-  height: 1600px;
+  height: 1715px;
   background-color: #FDFDFD;
   transform: translateY(7rem);
   box-shadow: 0px 5px 10px rgba(2, 2, 2, 0.2);
@@ -85,18 +86,48 @@
   object-fit: contain;
   overflow: hidden;
   margin-top: 20px;
+  box-shadow: 0px 5px 7px rgb(2 2 2 / 20%);
+}
+
+#project-pic-thumnail-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 480px;
+  height: 80px;
+  margin-top: 10px;
+}
+#project-pic-thumnail-container>img{
+  height: 80px;
+  width: 150px;
+  border-radius: 8px;
+  object-fit: contain;
+  background-color: #F4F4F5;
+  box-shadow: 0px 5px 7px rgb(2 2 2 / 20%);
+  overflow: hidden;
+}
+#project-pic-thumnail-container>img:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+  outline: 4px solid #5ded9b4e;
+}
+
+#editproject-thumbnailprompt{
+  text-align: center;
+  width: 100%;
+  margin-top: 5px;
 }
 
 .project-pic {
   object-fit: contain;
-  background-color: rgb(204, 204, 204);
+  background-color: #F4F4F5;
   border-radius: 20px;
   width: 480px;
   height: 240px;
 }
 .project-pic2 {
   object-fit: none;
-  background-color: rgb(204, 204, 204);
+  background-color: #F4F4F5;
   border-radius: 20px;
   width: 480px;
   height: 240px;
@@ -352,7 +383,8 @@
     justify-content: center;
     align-items: flex-start;
     height: 1900px;
-    width: 375px;
+    width: 100%;
+    min-width: 375px;
     background-color: rgba(21, 21, 21, 0.4);
     backdrop-filter: blur(12px);
     z-index: 1;
@@ -368,7 +400,7 @@
     margin: 0;
     padding: 40px;
     width: 365px;
-    height: 1600px;
+    height: 1690px;
     background-color: #FDFDFD;
     transform: translateY(7rem);
     box-shadow: 0px 5px 10px rgba(2, 2, 2, 0.2);
@@ -432,10 +464,39 @@
     overflow: hidden;
     margin-top: 20px;
   }
+
+  #project-pic-thumnail-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 335px;
+    height: 80px;
+    margin-top: 10px;
+  }
+  #project-pic-thumnail-container>img{
+    height: 70px;
+    width: 100px;
+    border-radius: 8px;
+    object-fit: contain;
+    background-color: #F4F4F5;
+    box-shadow: 0px 5px 7px rgb(2 2 2 / 20%);
+    overflow: hidden;
+  }
+  #project-pic-thumnail-container>img:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    outline: 4px solid #5ded9b4e;
+  }
+  
+  #editproject-thumbnailprompt{
+    text-align: center;
+    width: 100%;
+    margin-top: 5px;
+  }
   
   .project-pic {
     object-fit: contain;
-    background-color: rgb(204, 204, 204);
+    background-color: #F4F4F5;
     border-radius: 20px;
     width: 335px;
     height: 200px;

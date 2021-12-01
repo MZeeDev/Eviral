@@ -321,52 +321,7 @@ window.addEventListener('resize', resize);
               {/* <img  className="project-page-photo-img" src={activePhoto} /> */}
               <img id="projectPage-photo" src={activePhoto}/>
             </div>
-            <div id="projectPage-thumbnails">
-              { owner 
-                ?
-                <>
-                  {props.photo1
-                    ? 
-                    <div id="myprojectPage-thumbnail">
-                      <img id="myprojectPage-thumbnail" src={props.photo1} onClick={(e) => {setActivePhotos(e.currentTarget.src, 0);openChangePhotoMenu(0) }}/>
-                      <div id="middleOf-myprojectPage-thumbnail">                                
-                        <img src={addImage}/>                              
-                      </div> 
-                    </div>
-                    :
-                    <>
-                      <img id="myprojectPage-thumbnail" src={addImage} onClick={(e) => {setActivePhotos(e.currentTarget.src, 0);openChangePhotoMenu(0) }}/>
-                    </>
-                  }
-                  {props.photo2
-                    ? 
-                    <div id="myprojectPage-thumbnail">
-                      <img id="myprojectPage-thumbnail" src={props.photo2} onClick={(e) => {setActivePhotos(e.currentTarget.src, 1); openChangePhotoMenu(1) }}/>
-                      <div id="middleOf-myprojectPage-thumbnail">                                
-                        <img src={addImage}/>                              
-                      </div> 
-                    </div>
-                    :
-                    <>
-                      <img id="myprojectPage-thumbnail" src={addImage} onClick={(e) => {setActivePhotos(e.currentTarget.src, 1); openChangePhotoMenu(1) }}/>
-                    </>
-                  }
-                  {props.photo3
-                    ? 
-                    <div id="myprojectPage-thumbnail" onClick={() => openChangePhotoMenu(2)}>
-                      <img id="myprojectPage-thumbnail" src={props.photo3}  src={props.photo2} onClick={(e) => {setActivePhotos(e.currentTarget.src, 2); openChangePhotoMenu(2) }}/>
-                      <div id="middleOf-myprojectPage-thumbnail">                                
-                        <img src={addImage}/>                              
-                      </div> 
-                    </div>
-                    :
-                    <>
-                      <img id="myprojectPage-thumbnail" src={addImage} onClick={(e) => {setActivePhotos(e.currentTarget.src, 2); openChangePhotoMenu(2) }}/>                      
-                  </>
-                }                
-                </>
-                :
-                <>
+            <div id="projectPage-thumbnails">              
                   {props.photo1 && 
                     <img id="projectPage-thumbnail" src={props.photo1} onClick={(e) => setActivePhotos(e.currentTarget.src, 0)}/>
                   }
@@ -375,9 +330,7 @@ window.addEventListener('resize', resize);
                   }
                   {props.photo3 && 
                     <img id="projectPage-thumbnail" src={props.photo3} onClick={(e) => setActivePhotos(e.currentTarget.src, 2)}/>
-                  } 
-                </>        
-              }                      
+                  }                                  
             </div>
             {owner &&
               <div id="myProject-buttons">
@@ -442,51 +395,7 @@ window.addEventListener('resize', resize);
                 <img id="projectPage-photo" src={activePhoto}/>
               </div>
               <div id="projectPage-thumbnails">      
-              { owner 
-                ?
-                <>
-                  {props.photo1
-                    ? 
-                    <div id="myprojectPage-thumbnail">
-                      <img id="myprojectPage-thumbnail" src={props.photo1} onClick={(e) => {setActivePhotos(e.currentTarget.src, 0);openChangePhotoMenu(0) }}/>
-                      <div id="middleOf-myprojectPage-thumbnail">                                
-                        <img src={addImage}/>                              
-                      </div> 
-                    </div>
-                    :
-                    <>
-                      <img id="myprojectPage-thumbnail" src={addImage} onClick={(e) => {setActivePhotos(e.currentTarget.src, 0);openChangePhotoMenu(0) }}/>
-                    </>
-                  }
-                  {props.photo2
-                    ? 
-                    <div id="myprojectPage-thumbnail">
-                      <img id="myprojectPage-thumbnail" src={props.photo2} onClick={(e) => {setActivePhotos(e.currentTarget.src, 1); openChangePhotoMenu(1) }}/>
-                      <div id="middleOf-myprojectPage-thumbnail">                                
-                        <img src={addImage}/>                              
-                      </div> 
-                    </div>
-                    :
-                    <>
-                      <img id="myprojectPage-thumbnail" src={addImage} onClick={(e) => {setActivePhotos(e.currentTarget.src, 1); openChangePhotoMenu(1) }}/>
-                    </>
-                  }
-                  {props.photo3
-                    ? 
-                    <div id="myprojectPage-thumbnail" onClick={() => openChangePhotoMenu(2)}>
-                      <img id="myprojectPage-thumbnail" src={props.photo3}  src={props.photo2} onClick={(e) => {setActivePhotos(e.currentTarget.src, 2); openChangePhotoMenu(2) }}/>
-                      <div id="middleOf-myprojectPage-thumbnail">                                
-                        <img src={addImage}/>                              
-                      </div> 
-                    </div>
-                    :
-                    <>
-                      <img id="myprojectPage-thumbnail" src={addImage} onClick={(e) => {setActivePhotos(e.currentTarget.src, 2); openChangePhotoMenu(2) }}/>                      
-                  </>
-                }                
-                </>
-                :
-                <>
+              <div id="projectPage-thumbnails">              
                   {props.photo1 && 
                     <img id="projectPage-thumbnail" src={props.photo1} onClick={(e) => setActivePhotos(e.currentTarget.src, 0)}/>
                   }
@@ -495,9 +404,8 @@ window.addEventListener('resize', resize);
                   }
                   {props.photo3 && 
                     <img id="projectPage-thumbnail" src={props.photo3} onClick={(e) => setActivePhotos(e.currentTarget.src, 2)}/>
-                  } 
-                </>        
-              }                       
+                  }                                  
+            </div>                 
               </div>
               {owner &&
               <div id="myProject-buttons">
@@ -614,11 +522,7 @@ window.addEventListener('resize', resize);
 
 
           
-          {/* <div className="project-page-container">              
-            <div className="project-page-body">
-              <div className="project-page-project-container">
-
-
+{/* 
               ************** add photo changes to edit project menu!!!!!!**************
                 
                 <div className={ owner ? "project-page-photo-owner" : "project-page-photo"} onClick={ owner ? () => openChangePhotoMenu(photoNumber) : ""}>
@@ -655,25 +559,13 @@ window.addEventListener('resize', resize);
                   </div>
                   }
                 </div>                  
-                { (owner ) && <p id="change-photo-project-text">Click/Tap a thumbnail to change it</p>}
+                { (owner ) && <p id="change-photo-project-text">Click/Tap a thumbnail to change it</p>} */}
 
 
 
-                  <Link className="website-link" to={{ pathname: `https://${props.website}` }} target="_blank" aria-label='Website'><i class="fas fa-link"></i>{props.website}</Link>
-                    <SocialIconBar
-                      twitter={props.twitter}
-                      telegram={props.telegram}
-                      discord={props.discord}
-                      linkedIn={props.linkedIn}
-                      youtube={props.youtube}
-                      twitch={props.twitch}
-                    />
                   
-    
-              
-            </div>
            
-          </div> */}
+          
           {openChangePhoto && 
           <div className="update-profile-background">
               <div className="update-projectPhoto-container">
@@ -686,7 +578,8 @@ window.addEventListener('resize', resize);
                       <img className="project-page-photo-img" src={activePhoto} alt="" />
                   </div>
                       <form className="form-input-container">
-                          <form onSubmit={onSubmitPhoto}>
+                          <div>
+                          {/* <form onSubmit={onSubmitPhoto}> */}
                               <div className="mb-3">
                                   <label htmlFor="profilePhoto" className="form-label">Select Image File</label>
                                   <input className="form-control" type="file" accept="image/*" multiple="false" id="profilePhoto" onChange={onChangePhoto} />
@@ -695,7 +588,7 @@ window.addEventListener('resize', resize);
                                   <button id="updateProjectPhoto-submit" onClick={() =>onSubmitPhoto()}>Change Photo</button>
                                   <button id="updateProjectPhoto-close" onClick={()=>{setOpenChangePhoto(false)}}>Close</button>
                               </div>
-                          </form>
+                          </div>
                       </form>
                   </div>
               </div>
@@ -725,6 +618,8 @@ window.addEventListener('resize', resize);
         description={props.description}
         website={props.website}
         projectPhoto={props.photo1}
+        projectPhoto1={props.photo2}
+        projectPhoto2={props.photo3}
         twitter={props.twitter}
         telegram={props.telegram}
         discord={props.discord}
