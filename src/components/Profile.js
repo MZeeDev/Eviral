@@ -29,7 +29,7 @@ import Exit from '../img/exit.svg';
 
 function Profile(props) {
 
-    const { user, Moralis, isInitialized } = useMoralis();   
+    const { user, Moralis, isInitialized, refetchUserData } = useMoralis();   
     const { error, isUploading, moralisFile, saveFile } = useMoralisFile();
 
     const [profilePic, setProfilePic] = useState("");
@@ -161,6 +161,7 @@ function Profile(props) {
             }                    
             setPreviewPic(profilePic);
           renderBalance();
+          refetchUserData();
           const skillSetData = user.attributes?.skillSet;
           console.log("skillSetData");
           console.log(skillSetData);

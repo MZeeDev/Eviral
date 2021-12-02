@@ -556,10 +556,10 @@ color: #151515;
         width: 351px;
     }
 
-    #projectPage-description>img{
-        width: 351px;
-    }
-    #projectPage-description>p>img{
+    #projectPage-description>img, 
+    #projectPage-description>p>img, 
+    #projectPage-description>ul>img,
+    #projectPage-description>ul>li>img{
         width: 351px;
     }
     
