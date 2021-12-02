@@ -159,8 +159,11 @@ function UpdateProfile(props) {
       };
 
       const skillReveal = () => {
-          console.log(skills);
-          console.log(skillTags);
+        //   console.log(skills);
+        //   console.log(skillTags);
+          console.log(user.attributes.rate);
+          console.log(user.attributes.contactForPricing);
+          console.log(user.attributes.skillSet);
       }
 
     return (
@@ -205,7 +208,7 @@ function UpdateProfile(props) {
                             <input id="createProject-formInput-text" placeholder="List key skills (Artist, Programmer, Model etc.)" maxLength={50} value={skills} onChange={(event) =>setSkills(event.currentTarget.value)}/>
                         </div> */}
 
-                        <button id="createProject-button-submit" onClick={skillReveal}>Check Skills and Skill Tags</button>
+                        {/* <button id="createProject-button-submit" onClick={skillReveal}>Check Skills and Skill Tags</button> */}
                         <div id="createProject-formInput">
                             <label id="createProject-formInput-title">Skillset</label>
                             <div id="createProject-formInput-text" value={skills} onChange={(event) =>setSkills(event.currentTarget.value)} > 

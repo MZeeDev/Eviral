@@ -51,10 +51,10 @@
     margin: 20px 20px 20px 0;
     width: 600px;
 }
-#projectPage-description>img{
-    width: 600px;
-}
-#projectPage-description>p>img{
+#projectPage-description>img, 
+#projectPage-description>p>img, 
+#projectPage-description>ul>img,
+#projectPage-description>ul>li>img{
     width: 600px;
 }
 

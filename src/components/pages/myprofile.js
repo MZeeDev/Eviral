@@ -98,7 +98,10 @@ function MyProfile() {
 
     return (
         <div id="myProfilePage">                               
-            <Profile openCreateProjectMenu={setOpenCreateProjectMenu} openEditProfileMenu={setOpenEditProfileMenu}/> 
+            <Profile 
+                openCreateProjectMenu={setOpenCreateProjectMenu} 
+                openEditProfileMenu={setOpenEditProfileMenu}
+            /> 
             <div id="profilePage-projects">
                 My Projects      
             </div>
@@ -152,7 +155,7 @@ function MyProfile() {
                 <button className="pagination-next" ><img id="rightarrow" src={Right}/></button>
             </div>     
             <div id="profilePage-projects">
-                Saved Profiles      
+                Following      
             </div>
             <div className="profile-grid-wrapper">
                 {usersSaved.map(userProfile => (

@@ -161,6 +161,9 @@ function Profile(props) {
             }                    
             setPreviewPic(profilePic);
           renderBalance();
+          const skillSetData = user.attributes?.skillSet;
+          console.log("skillSetData");
+          console.log(skillSetData);
         }
     }
       }, [isInitialized]);
@@ -209,9 +212,9 @@ function Profile(props) {
                         <p>{ReactHtmlParser(user?.attributes?.story)}</p>
                         <div id="skillTags">
                             <p>Skillset:</p> 
-                            { user.attributes?.skillSet &&
+                            { user?.attributes?.skillSet &&
                                 <>
-                                    {user.attributes?.skillSet.map(element => (
+                                    {user.attributes.skillSet.map(element => (
                                         <div id="profile-skillTags">{element}</div>
                                     ))}
                                 </>

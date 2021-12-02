@@ -20,7 +20,7 @@ function ProfileGridBox(props) {
             <div className="profilecard-background">
                 <div className="profilecard-contents">
                     <div className="profilecard-top">
-                        <Link className="profilecard-link" to={`${url}/${props.username}`}>
+                        <Link className="profilecard-link" to={`/profiles/${props.username}`}>
                             <div className="profilecard-photo-container">
                                 <img className="profilecard-photo" src={props.profilePic}/>   
                             </div>
