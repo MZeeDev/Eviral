@@ -82,7 +82,7 @@ function Homepage() {
         setProject2(projectLoaded[0]);
     }  
     const project3Loaded = async() => {
-        const params = { title: "Kyubi World BSC"};
+        const params = { title: "SHIBNOBI"};
         const projectLoaded = await Moralis.Cloud.run("loadProjectByName", params);
         setProject3(projectLoaded[0]);
     }  

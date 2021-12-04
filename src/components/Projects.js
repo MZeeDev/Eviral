@@ -11,6 +11,21 @@ import './Pagination.css';
 import SearchGlass from '../img/searchglass.svg';
 import Left from '../img/leftpagination.png';
 import Right from '../img/rightpagination.png';
+import ArrowUp from '../img/arrowUp.svg';
+import ArrowDown from '../img/arrowDown.svg';
+import ETH from '../img/BlockChains/eth.png';
+import BSC from '../img/BlockChains/bsc.png';
+// import AVAX from '../img/BlockChains/avalanche.png';
+import ADA from '../img/BlockChains/cardano.png';
+import ATOM from '../img/BlockChains/cosmos.png';
+import FTM from '../img/BlockChains/fantom.png';
+import ONE from '../img/BlockChains/harmony.png';
+import HECO from '../img/BlockChains/heco.png';
+import DOT from '../img/BlockChains/polkadot.png';
+import MATIC from '../img/BlockChains/polygon.png';
+import PULS from '../img/BlockChains/pulsechain.png';
+import SOL from '../img/BlockChains/solana.png';
+import TRON from '../img/BlockChains/tron.png';
 
 
 function ProjectsList({match}) {
@@ -24,6 +39,8 @@ function ProjectsList({match}) {
   const [ searchResults, setSearchResults] = useState();
   const [ noneFound, setNoneFound] = useState(false);
   const [pageNumber, setPageNumber] = useState(0);
+  const [skillTagDropDown, setSkillTagDropDown] = useState(false);
+  const [blockchainDropDown, setBlockChainDropDown] = useState(false);
   let initLoad = 0; // change later to accomodate refresh/sorting data
 
   const LoadProjects = async() => {
@@ -85,6 +102,11 @@ function ProjectsList({match}) {
     });
   }
 
+  
+  const filterFeature = () => {
+
+  }
+
     return (          
       <div id="loadProjects-container">
           <div className="project-section-title">
@@ -102,6 +124,60 @@ function ProjectsList({match}) {
                   />
                 <button className="searchbar-button" onClick={SearchProjects} >Search<img id="searchbarglass" src={SearchGlass}/></button>
             </div>
+          </div>
+          <div id="narrowByTagsConatiner">
+            <div id="narrowByTagHeader">
+                <h5 id="narrowByTagHeaderLabel">BlockChains</h5>
+                <button id="narrowByTagDropDownButton" onClick={()=> setBlockChainDropDown(!blockchainDropDown)}><img src={blockchainDropDown ? ArrowUp : ArrowDown}/></button>
+            </div>
+            {blockchainDropDown &&
+              <div id="blockchain-logo-container">
+                <img id="blockchain-logo" src={ETH}/>
+                <img id="blockchain-logo" src={BSC}/>
+                <img id="blockchain-logo" src={MATIC}/>
+                <img id="blockchain-logo" src={ETH}/>
+                <img id="blockchain-logo" src={FTM}/>
+                <img id="blockchain-logo" src={ATOM}/>
+                <img id="blockchain-logo" src={ONE}/>
+                <img id="blockchain-logo" src={PULS}/>
+                <img id="blockchain-logo" src={DOT}/>
+                <img id="blockchain-logo" src={ADA}/>
+                <img id="blockchain-logo" src={TRON}/>
+                <img id="blockchain-logo" src={HECO}/>
+                <img id="blockchain-logo" src={SOL}/>
+              </div>
+            }
+          </div>
+          <div id="narrowByTagsConatiner">
+            <div id="narrowByTagHeader">
+              <h5 id="narrowByTagHeaderLabel">Project Features</h5>
+              <button id="narrowByTagDropDownButton" onClick={()=> setSkillTagDropDown(!skillTagDropDown)}><img src={skillTagDropDown ? ArrowUp : ArrowDown}/></button>
+            </div>
+            { skillTagDropDown && 
+              <div id="narrowBySkillList">
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="AMM">AMM</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Bridge">Bridge</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Coin">Coin</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="DAO">DAO</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="DEFI">DEFI</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Gaming">Gaming</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Fan Project">Fan Project</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Launchpad">Launchpad</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Lending">Lending</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Metaverse">Metaverse</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="NFTs">NFTs</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Payment">Payment</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Privacy">Privacy</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Rebase">Rebase</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Smart Contracts">Smart Contracts</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="StableCoin">StableCoin</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Staking">Staking</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Synthetics">Synthetics</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Token">Token</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Wallet">Wallet</button>
+                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Yield Farming">Yield Farming</button>
+              </div>
+            }
           </div>
             {noneFound &&
               <>
