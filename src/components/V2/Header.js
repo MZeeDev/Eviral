@@ -180,20 +180,20 @@ function Navbar() {
                                         </div>                                     
                                     </li>                                
                                     <Link to="/myprofile" className="dropdown-item" >
-                                        <h4 id="dropDown-text">My&nbsp;Profile</h4>
+                                        <h4 id="dropDown-text" onClick={() => {setDropdown(!dropdown)}}>My&nbsp;Profile</h4>
                                     </Link>
                                     <Link to='/projects' className="dropdown-item">
-                                        <h4 id="dropDown-text">Projects</h4>
+                                        <h4 id="dropDown-text" onClick={() => {setDropdown(!dropdown)}}>Projects</h4>
                                     </Link>                                
                                     <Link to='/profiles' className="dropdown-item">
-                                        <h4 id="dropDown-text">Profiles</h4>
+                                        <h4 id="dropDown-text" onClick={() => {setDropdown(!dropdown)}}>Profiles</h4>
                                     </Link>
                                     
                                     <Link to="/chat" className="dropdown-item">
-                                        <h4 id="dropDown-text">Messages</h4>
+                                        <h4 id="dropDown-text" onClick={() => {setDropdown(!dropdown)}}>Messages</h4>
                                     </Link>
                                     <Link to="/wallet" className="dropdown-item">                                        
-                                        <h4 id="dropDown-text">Wallet</h4>
+                                        <h4 id="dropDown-text" onClick={() => {setDropdown(!dropdown)}}>Wallet</h4>
                                     </Link>
                                     
                                     <li className="dropdown-logout">
