@@ -76,6 +76,76 @@
   height: 32px;
 }
 
+#narrowByTagsConatiner{
+ width: 1336px;
+ height: min-content;
+ display: flex;
+ flex-direction: column;
+ margin: 20px 0 20px 80px;
+ transition: height 3s ease-in-out;
+}
+#narrowByTagHeader{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 1200px;
+  
+}
+#narrowByTagDropDownButton{
+  border: none;
+  background: transparent;
+  width: 28px;
+  height: 28px;
+}
+#narrowByTagDropDownButton>img{
+  height: 100%;
+}
+
+
+#narrowByTagHeaderLabel{
+  font-family: ProximaNova-bold;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 20px;
+  margin-bottom: 15px;
+  width: 70%;
+}
+
+#narrowBySkillList{
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
+  height: min-content;
+  transition: height 3s ease-in-out;
+}
+
+#narrowBySkill{
+  height: 42px;
+  border-radius: 8px;
+  width: min-content;
+  min-width: 80px;
+  font-family: ProximaNova;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #FDFDFD;
+  border: none;
+  background: linear-gradient(152.95deg, #5DED9C 32.2%, #0EBD91 93.13%);
+  margin: 5px 10px;
+  padding: 5px 10px;
+  white-space: nowrap;
+}
+#narrowBySkill:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 1300px) {
   .searchbar-container{
     width: 330px;
@@ -103,4 +173,59 @@
     font-size: 14px;
     padding-left: 10px;
   }
+  #narrowByTagsConatiner{
+    width: 336px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 20px 20px;  
+   }
+   #narrowByTagHeader{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     width: 300px;
+   }
+   #narrowByTagDropDownButton{
+     border: none;
+     background: transparent;
+     width: 24px;
+     height: 24px;
+   }
+   #narrowByTagHeaderLabel{
+     font-family: ProximaNova-bold;
+     font-style: normal;
+     font-weight: normal;
+     font-size: 24px;
+     line-height: 20px;
+     margin-bottom: 15px;
+   }
+   
+   #narrowBySkillList{
+     display: flex;
+     flex-wrap: wrap;
+     width: 336px;
+   }
+   
+   #narrowBySkill{
+     height: 36px;
+     border-radius: 8px;
+     width: min-content;
+     min-width: 80px;
+     font-family: ProximaNova;
+     font-style: normal;
+     font-weight: normal;
+     font-size: 16px;
+     line-height: 20px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     color: #FDFDFD;
+     border: none;
+     background: linear-gradient(152.95deg, #5DED9C 32.2%, #0EBD91 93.13%);
+     margin: 5px 10px;
+     padding: 5px 10px;
+     white-space: nowrap;
+   }
 }
+

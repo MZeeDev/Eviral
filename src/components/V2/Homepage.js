@@ -311,7 +311,7 @@ function Homepage() {
                     <div id="section10-box1">
                         <div id="section10-box1-contents">
                             <img id="vclabs1" src={VCLabs1}/>
-                            <p>Empowering the most drive and talented innovators in blockchain, VC Labs rewards collaborators the improve the platform for all users.</p>
+                            <p>Empowering the most driven and talented innovators in blockchain, VC Labs rewards collaborators that improve the platform for all users.</p>
                         </div>
                     </div>
                     <div id="section10-box2">
