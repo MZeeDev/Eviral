@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  height: 1900px;
+  height: 3200px;
   width: 100%;
   min-width: 1440px;
   background-color: rgba(21, 21, 21, 0.4);
@@ -23,7 +23,7 @@
   margin: 0;
   padding: 40px;
   width: 560px;
-  height: 1715px;
+  height: 2065px;
   background-color: #FDFDFD;
   transform: translateY(7rem);
   box-shadow: 0px 5px 10px rgba(2, 2, 2, 0.2);
@@ -172,6 +172,35 @@
   margin: 0;
   margin-right: 16px;
 
+}
+
+#editProject-blockchainlist{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 480px;
+  height: min-content;
+  margin-bottom: 25px;
+}
+#editProject-blockchainlist>label>img{
+  height: 64px;
+  margin: 20px 20px 0 0;
+}
+
+#editProject-blockchain-logo{
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0px 5px 7px rgb(2 2 2 / 15%);
+  transform: scale(1.2);
+  background: linear-gradient(152.95deg, #5DED9C 32.2%, #0EBD91 93.13%);
+}
+#editProject-blockchainlist>label>img:hover{
+  transform: scale(1.1);
+  cursor: pointer;
+}
+#editProject-blockchainlist > label > input {
+  display: none;
 }
 
 #createProject-aboutProject{
@@ -382,7 +411,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 1900px;
+    height: 3000px;
     width: 100%;
     min-width: 375px;
     background-color: rgba(21, 21, 21, 0.4);
@@ -400,7 +429,7 @@
     margin: 0;
     padding: 40px;
     width: 365px;
-    height: 1690px;
+    height: 1990px;
     background-color: #FDFDFD;
     transform: translateY(7rem);
     box-shadow: 0px 5px 10px rgba(2, 2, 2, 0.2);
@@ -541,6 +570,20 @@
     margin: 0;
     margin-right: 16px;
   
+  }
+
+  #editProject-blockchainlist{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: min-content;
+    margin-bottom: 25px;
+  }
+  #editProject-blockchainlist>label>img{
+    height: 48px;
+    margin: 20px 20px 0 0;
   }
   
   #createProject-aboutProject{

@@ -42,6 +42,22 @@ import shareYoutube from '../img/shareIcons/youtube.svg';
 import shareTwitch from '../img/shareIcons/twitch.svg';
 
 
+import AVAX from '../img/BlockChains/avalanche.png';
+import ADA from '../img/BlockChains/cardano.png';
+import ATOM from '../img/BlockChains/cosmos.png';
+import FTM from '../img/BlockChains/fantom.png';
+import ONE from '../img/BlockChains/harmony.png';
+import HECO from '../img/BlockChains/heco.png';
+import DOT from '../img/BlockChains/polkadot.png';
+import MATIC from '../img/BlockChains/polygon.png';
+import PULS from '../img/BlockChains/pulsechain.png';
+import SOL from '../img/BlockChains/solana.png';
+import TRON from '../img/BlockChains/tron.png';
+import ETH from '../img/BlockChains/eth.png';
+import BSC from '../img/BlockChains/bsc.png';
+
+
+
 function ProjectDisplay(props) {
   const { url } = useRouteMatch();
   const { user, Moralis, isInitialized } = useMoralis();  
@@ -57,6 +73,8 @@ function ProjectDisplay(props) {
   const [photoFileName, setPhotoFileName] = useState();
   const [previewPic, setPreviewPic] = useState(construction);
   const [ photoNumber, setPhotoNum] = useState();
+  const [chains, setChains] = useState(props.blockchains);
+  const [features, setFeatures] = useState(props.featureTags);
 
   const [ twitterActive, setTwitterActive] = useState(true);
   const [ youtubeActive, setYoutubeActive] = useState(true);
@@ -253,6 +271,45 @@ window.addEventListener('resize', resize);
               </div>
               <h1 id="projectPage-title">{props.title}</h1>
               <p id="projectPage-summary">{props.summary}</p>
+              <div id="profilecard-skillTags">
+                {props.featureTags &&
+                  <>
+                    { props.featureTags &&
+                        <>
+                            {props.featureTags.map(element => (
+                                <div id="profile-skillTags">{element}</div>
+                            ))}
+                        </>
+                    }
+                  </>
+                }
+                </div>
+                { props.blockchains &&
+                  <>
+                    { props.blockchains &&
+                      <div id="projectPage-blockChains">
+                        {props.blockchains.map(element => {
+                          return   <img src={
+                                      element == "ETH" ? ETH : 
+                                      element == "BSC" ? BSC : 
+                                      element == "MATIC" ? MATIC : 
+                                      element == "AVAX" ? AVAX : 
+                                      element == "FTM" ? FTM : 
+                                      element == "ATOM" ? ATOM : 
+                                      element == "ONE" ? ONE : 
+                                      element == "PULS" ? PULS : 
+                                      element == "DOT" ? DOT : 
+                                      element == "ADA" ? ADA : 
+                                      element == "TRON" ? TRON : 
+                                      element == "HECO" ? HECO : 
+                                      element == "SOL" ? SOL : ""}
+                                    />
+                                
+                        })}
+                      </div>
+                    }
+                  </>
+                }
               <div id="socialShares">
                   <p>Socials:</p>
                   { props.twitter &&
@@ -392,9 +449,9 @@ window.addEventListener('resize', resize);
           <>
           <div id="projectPage-information">
             <div id="projectPage-photo-container">                
-                <img id="projectPage-photo" src={activePhoto}/>
-              </div>
-              <div id="projectPage-thumbnails">      
+              <img id="projectPage-photo" src={activePhoto}/>
+            </div>
+            <div id="projectPage-thumbnails">      
               <div id="projectPage-thumbnails">              
                   {props.photo1 && 
                     <img id="projectPage-thumbnail" src={props.photo1} onClick={(e) => setActivePhotos(e.currentTarget.src, 0)}/>
@@ -405,8 +462,8 @@ window.addEventListener('resize', resize);
                   {props.photo3 && 
                     <img id="projectPage-thumbnail" src={props.photo3} onClick={(e) => setActivePhotos(e.currentTarget.src, 2)}/>
                   }                                  
-            </div>                 
-              </div>
+              </div>                 
+            </div>
               {owner &&
               <div id="myProject-buttons">
                 {owner &&  
@@ -437,6 +494,45 @@ window.addEventListener('resize', resize);
               </div>
               <h1 id="projectPage-title">{props.title}</h1>
               <p id="projectPage-summary">{props.summary}</p>
+              <div id="profilecard-skillTags">
+                {props.featureTags &&
+                  <>
+                    { props.featureTags &&
+                        <>
+                            {props.featureTags.map(element => (
+                                <div id="profile-skillTags">{element}</div>
+                            ))}
+                        </>
+                    }
+                  </>
+                }
+                </div>
+                { props.blockchains &&
+                  <>
+                    { props.blockchains &&
+                      <div id="projectPage-blockChains">
+                        {props.blockchains.map(element => {
+                          return   <img src={
+                                      element == "ETH" ? ETH : 
+                                      element == "BSC" ? BSC : 
+                                      element == "MATIC" ? MATIC : 
+                                      element == "AVAX" ? AVAX : 
+                                      element == "FTM" ? FTM : 
+                                      element == "ATOM" ? ATOM : 
+                                      element == "ONE" ? ONE : 
+                                      element == "PULS" ? PULS : 
+                                      element == "DOT" ? DOT : 
+                                      element == "ADA" ? ADA : 
+                                      element == "TRON" ? TRON : 
+                                      element == "HECO" ? HECO : 
+                                      element == "SOL" ? SOL : ""}
+                                    />
+                                
+                        })}
+                      </div>
+                    }
+                  </>
+                }
               <div id="saveProject">
                 <Bookmark projectTitle = {props.projectTitle}/> 
                 <p>Add to favorites</p>
@@ -626,7 +722,9 @@ window.addEventListener('resize', resize);
         linkedIn={props.linkedIn}
         youtube={props.youtube}
         twitch={props.twitch}
-        isOwner={owner}        
+        isOwner={owner}      
+        blockchains = {props.blockchains} 
+        featureTags = {props.featureTags}   
         />
         }
           

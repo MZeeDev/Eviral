@@ -16,6 +16,7 @@ import Header from './components/V2/Header';
 import Footer from './components/V2/Footer';
 import Homepage from './components/V2/Homepage';
 import TokenPrices from './components/TokenPrices';
+import TotalSupply from './components/pages/TotalSupply';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route path='/wallet' exact component={Wallet} />
           <Route path='/swap' exact component={TokenSwap} />
           <Route path='/homepage' exact component={Homepage} />
+          <Route path='/totalsupply' exact component={TotalSupply}/>
           
         </Switch>  
         <Footer />    

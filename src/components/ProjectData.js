@@ -53,7 +53,9 @@ const ProjectData = ({ data }) => {
                   twitch={project.twitch}
                   objectId = {project.objectId}  
                   isVerified = {project.isVerified}
-                  isLive = {project.isLive}              
+                  isLive = {project.isLive}    
+                  blockchains = {project.blockchains}
+                  featureTags = {project.featureTags}          
                 />                
             </div>
           ))}        

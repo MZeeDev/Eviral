@@ -52,6 +52,12 @@
   margin: 25px 80px;
 }
 
+#imagebutton{  
+  border: none;
+  outline: none;
+  background: none;
+}
+
 
 /* Projects (profiles are below) */
 
@@ -106,7 +112,7 @@
 .project-grid-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 400px);
-  grid-template-rows: repeat(auto-fill, 450px);
+  grid-template-rows: repeat(auto-fill, 495px);
   width: 1440px;
   gap: 24px;
   padding: 2rem 0;
@@ -436,6 +442,7 @@
     width: 375px;
     grid-template-columns: repeat(1, 400px);
     grid-template-rows: repeat(auto-fill, 400px);
+    gap: 30px;
     
   }
   .profile-grid-wrapper {

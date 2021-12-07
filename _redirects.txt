@@ -2,3 +2,4 @@
 /chat    /index.html   
 /projects    /index.html   
 /myprofile    /index.html   
+/totalsupply /index.html

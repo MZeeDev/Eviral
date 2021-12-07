@@ -15,7 +15,7 @@ import ArrowUp from '../img/arrowUp.svg';
 import ArrowDown from '../img/arrowDown.svg';
 import ETH from '../img/BlockChains/eth.png';
 import BSC from '../img/BlockChains/bsc.png';
-// import AVAX from '../img/BlockChains/avalanche.png';
+import AVAX from '../img/BlockChains/avalanche.png';
 import ADA from '../img/BlockChains/cardano.png';
 import ATOM from '../img/BlockChains/cosmos.png';
 import FTM from '../img/BlockChains/fantom.png';
@@ -41,6 +41,10 @@ function ProjectsList({match}) {
   const [pageNumber, setPageNumber] = useState(0);
   const [skillTagDropDown, setSkillTagDropDown] = useState(false);
   const [blockchainDropDown, setBlockChainDropDown] = useState(false);
+  const [typeSearch, setTypeSearch] = useState();
+  const [searchPageNumber, setSearchPageNumber] = useState(0);
+  const [currentChain, setCurrentChain] = useState();
+  const [currentFeature, setCurrentFeature] = useState();
   let initLoad = 0; // change later to accomodate refresh/sorting data
 
   const LoadProjects = async() => {
@@ -62,6 +66,18 @@ function ProjectsList({match}) {
     setPageNumber(nextPageNumber);
   }
 
+  const searchPagPrev = async() => {
+    if(searchPageNumber == 0) {
+      return;
+    }
+    let prevPageNumber = searchPageNumber - 1;
+    await setSearchPageNumber(prevPageNumber);
+  }
+
+  const searchPagNext = async() => {
+    let nextPageNumber = searchPageNumber + 1;    
+    await setSearchPageNumber(nextPageNumber);
+  }
 
   const LoadSavedProjects = async() => {
     const savedProjectsList = await Moralis.Cloud.run("renderSavedProjects");
@@ -70,6 +86,7 @@ function ProjectsList({match}) {
 
   const SearchProjects = async() => {
     setNoneFound(false);
+    setTypeSearch("byName");
     const params = { title: queryName};
     const projectsFound = await Moralis.Cloud.run("searchProjectsByName", params);
     if(projectsFound != ''){
@@ -80,13 +97,49 @@ function ProjectsList({match}) {
     }
   }
 
+  const filterProjectsByChain = async(chain) => {
+    setNoneFound(false);
+    setTypeSearch("byChain");
+    setCurrentChain(chain);
+    console.log(chain);
+    console.log("chain to search for");
+    const params = { blockchain: chain, skipAmount: searchPageNumber};
+    const projectsFound = await Moralis.Cloud.run("filterProjectsByChain", params);
+    if(projectsFound != ''){
+      setSearchResults(projectsFound);
+      setShowSearchResults(true);     
+    } else {
+      setNoneFound(true);
+    }
+  }
+
+  const filterProjectsByFeature = async(feature) => {    
+    setNoneFound(false);
+    setTypeSearch("byFeature");
+    setCurrentFeature(feature)
+    console.log(feature);
+    console.log("chain to feature for");
+    console.log(searchPageNumber);
+    const Feature = feature;
+    const params = { feature: Feature, skipAmount: searchPageNumber};
+    const projectsFound = await Moralis.Cloud.run("filterProjectsByFeature", params);
+    if(projectsFound != ''){
+      setSearchResults(projectsFound);
+      setShowSearchResults(true);     
+    } else {
+      setNoneFound(true);
+    }
+  }
+
   useEffect(() => {
     if(isInitialized){
-    LoadProjects();
+      LoadProjects();
     }
     },
     [pageNumber, isInitialized],
   );  
+
+
   useEffect(() => {
     if(user){
       LoadSavedProjects();
@@ -95,6 +148,18 @@ function ProjectsList({match}) {
     [initLoad],
   );  
 
+  useEffect(() => {
+    if(isInitialized){
+      if(typeSearch == "byChain"){
+        filterProjectsByChain(currentChain);
+      } else if (typeSearch == "byFeature"){
+        filterProjectsByFeature(currentFeature);
+      } 
+    }
+    },
+    [searchPageNumber]
+  )
+
   const scrollToTop = () => {
     window.scrollTo({
       top:0,
@@ -102,10 +167,6 @@ function ProjectsList({match}) {
     });
   }
 
-  
-  const filterFeature = () => {
-
-  }
 
     return (          
       <div id="loadProjects-container">
@@ -132,19 +193,19 @@ function ProjectsList({match}) {
             </div>
             {blockchainDropDown &&
               <div id="blockchain-logo-container">
-                <img id="blockchain-logo" src={ETH}/>
-                <img id="blockchain-logo" src={BSC}/>
-                <img id="blockchain-logo" src={MATIC}/>
-                <img id="blockchain-logo" src={ETH}/>
-                <img id="blockchain-logo" src={FTM}/>
-                <img id="blockchain-logo" src={ATOM}/>
-                <img id="blockchain-logo" src={ONE}/>
-                <img id="blockchain-logo" src={PULS}/>
-                <img id="blockchain-logo" src={DOT}/>
-                <img id="blockchain-logo" src={ADA}/>
-                <img id="blockchain-logo" src={TRON}/>
-                <img id="blockchain-logo" src={HECO}/>
-                <img id="blockchain-logo" src={SOL}/>
+                <button id="imagebutton" onClick={(e)=> filterProjectsByChain(e.currentTarget.value)} value="ETH"><img id="blockchain-logo" src={ETH}/></button>
+                <button id="imagebutton" onClick={(e)=> filterProjectsByChain(e.currentTarget.value)} value="BSC" ><img id="blockchain-logo"src={BSC}/></button>
+                <button id="imagebutton" onClick={(e)=> filterProjectsByChain(e.currentTarget.value)} value="MATIC" ><img id="blockchain-logo"src={MATIC}/></button>
+                <button id="imagebutton" onClick={(e)=> filterProjectsByChain(e.currentTarget.value)} value="AVAX" ><img id="blockchain-logo"src={AVAX}/></button>
+                <button id="imagebutton" onClick={(e)=> filterProjectsByChain(e.currentTarget.value)} value="FTM" ><img id="blockchain-logo"src={FTM}/></button>
+                <button id="imagebutton" onClick={(e)=> filterProjectsByChain(e.currentTarget.value)} value="ATOM" ><img id="blockchain-logo"src={ATOM}/></button>
+                <button id="imagebutton" onClick={(e)=> filterProjectsByChain(e.currentTarget.value)} value="ONE" ><img id="blockchain-logo"src={ONE}/></button>
+                <button id="imagebutton" onClick={(e)=> filterProjectsByChain(e.currentTarget.value)} value="PULS" ><img id="blockchain-logo"src={PULS}/></button>
+                <button id="imagebutton" onClick={(e)=> filterProjectsByChain(e.currentTarget.value)} value="DOT" ><img id="blockchain-logo"src={DOT}/></button>
+                <button id="imagebutton" onClick={(e)=> filterProjectsByChain(e.currentTarget.value)} value="ADA" ><img id="blockchain-logo"src={ADA}/></button>
+                <button id="imagebutton" onClick={(e)=> filterProjectsByChain(e.currentTarget.value)} value="TRON" ><img id="blockchain-logo"src={TRON}/></button>
+                <button id="imagebutton" onClick={(e)=> filterProjectsByChain(e.currentTarget.value)} value="HECO" ><img id="blockchain-logo"src={HECO}/></button>
+                <button id="imagebutton" onClick={(e)=> filterProjectsByChain(e.currentTarget.value)} value="SOL" ><img id="blockchain-logo"src={SOL}/></button>
               </div>
             }
           </div>
@@ -155,27 +216,27 @@ function ProjectsList({match}) {
             </div>
             { skillTagDropDown && 
               <div id="narrowBySkillList">
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="AMM">AMM</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Bridge">Bridge</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Coin">Coin</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="DAO">DAO</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="DEFI">DEFI</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Gaming">Gaming</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Fan Project">Fan Project</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Launchpad">Launchpad</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Lending">Lending</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Metaverse">Metaverse</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="NFTs">NFTs</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Payment">Payment</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Privacy">Privacy</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Rebase">Rebase</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Smart Contracts">Smart Contracts</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="StableCoin">StableCoin</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Staking">Staking</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Synthetics">Synthetics</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Token">Token</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Wallet">Wallet</button>
-                <button id="narrowBySkill" onClick={(e)=> filterFeature(e.currentTarget.value)} value="Yield Farming">Yield Farming</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="AMM">AMM</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="Bridge">Bridge</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="Coin">Coin</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="DAO">DAO</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="DEFI">DEFI</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="Gaming">Gaming</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="Fan Project">Fan Project</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="Launchpad">Launchpad</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="Lending">Lending</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="Metaverse">Metaverse</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="NFTs">NFTs</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="Payment">Payment</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="Privacy">Privacy</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="Rebase">Rebase</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="Smart Contracts">Smart Contracts</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="StableCoin">StableCoin</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="Staking">Staking</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="Synthetics">Synthetics</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="Token">Token</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="Wallet">Wallet</button>
+                <button id="narrowBySkill" onClick={(e)=> filterProjectsByFeature(e.currentTarget.value)} value="Yield Farming">Yield Farming</button>
               </div>
             }
           </div>
@@ -206,7 +267,9 @@ function ProjectsList({match}) {
                         createdOn = {project.createdOn}
                         path={project.title}
                         isVerified = {project.isVerified}
-                        isLive={project.isLive}                            
+                        isLive={project.isLive}   
+                        blockchains={project.blockchains}
+                        featureTags={project.featureTags}                         
                         />
                       </div>
                     ))}
@@ -226,16 +289,18 @@ function ProjectsList({match}) {
                       createdOn = {project.createdOn}
                       path={project.title}
                       isVerified = {project.isVerified}
-                      isLive={project.isLive}                          
+                      isLive={project.isLive}  
+                      blockchains={project.blockchains}
+                      featureTags={project.featureTags}                           
                       />
                   </div>
                 ))}
               </div>
             }
-            <div className="pagination">
-                  <button className="pagination-prev" onClick={() => {scrollToTop(); PagPrev()}}><img id="leftarrow" src={Left}/></button>              
-                  <button className="pagination-next" onClick={() => {scrollToTop();PagNext()}}><img id="rightarrow" src={Right}/></button>
-            </div>              
+           <div className="pagination">
+            <button className="pagination-prev" onClick={ showSearchResults ? () => {scrollToTop(); searchPagPrev()} : () => {scrollToTop(); PagPrev()}}><img id="leftarrow" src={Left}/></button>              
+            <button className="pagination-next" onClick={ showSearchResults ? () => {scrollToTop(); searchPagNext()} : () => {scrollToTop(); PagNext()}}><img id="rightarrow" src={Right}/></button>
+          </div>          
       </div>      
     )
 };

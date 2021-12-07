@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -15,9 +15,26 @@ import shareTwitch from '../img/shareIcons/twitch.svg';
 import shareYoutube from '../img/shareIcons/youtube.svg';
 import addImage from '../img/addImage.svg';
 
+
+import AVAX from '../img/BlockChains/avalanche.png';
+import ADA from '../img/BlockChains/cardano.png';
+import ATOM from '../img/BlockChains/cosmos.png';
+import FTM from '../img/BlockChains/fantom.png';
+import ONE from '../img/BlockChains/harmony.png';
+import HECO from '../img/BlockChains/heco.png';
+import DOT from '../img/BlockChains/polkadot.png';
+import MATIC from '../img/BlockChains/polygon.png';
+import PULS from '../img/BlockChains/pulsechain.png';
+import SOL from '../img/BlockChains/solana.png';
+import TRON from '../img/BlockChains/tron.png';
+import ETH from '../img/BlockChains/eth.png';
+import BSC from '../img/BlockChains/bsc.png';
+import ExitWhite from '../img/exitWhite.svg';
+
+
 function EditProject(props) {  ///set input variables as required, add other attributes to be stored like tags, etc, allow for editing/updating?
 
-    const { user, Moralis } = useMoralis();
+    const { user, Moralis, isInitialized } = useMoralis();
     const { saveFile } = useMoralisFile();
 
     const [title, setTitle] = useState((props.title));
@@ -50,6 +67,9 @@ function EditProject(props) {  ///set input variables as required, add other att
     const [photo2, setPhoto2] = useState(props.projectPhoto1);
     const [photo3, setPhoto3] = useState(props.projectPhoto2);
     const [activePhoto, setActivePhoto] = useState();
+    const [activeBlockChains, setActiveBlockChains] = useState(props.blockchains);
+    const [featureTags, setFeatureTags] = useState([]);
+    const [activeFeature, setActiveFeature] = useState();
 
     const handleDescriptionOnChange = (e, editor) =>{
         const data = editor.getData();
@@ -82,6 +102,7 @@ function EditProject(props) {  ///set input variables as required, add other att
 
 
     const editProject = async () => {
+
         try {            
             const params = { projectTitle: (props.title) }; 
             const project = await Moralis.Cloud.run("getProjectByName", params);
@@ -94,13 +115,15 @@ function EditProject(props) {  ///set input variables as required, add other att
             let fileIpfs = await saveFile(name, file, { saveIPFS: true });
             let fileIpfs1 = await saveFile(name1, file1, { saveIPFS: true });
             let fileIpfs2 = await saveFile(name2, file2, { saveIPFS: true });
+            project.set('blockchains', activeBlockChains); 
+            project.set('featureTags', featureTags);                  
             project.set('projectPhoto', fileIpfs);
             project.set('projectPhoto1', fileIpfs1);
             project.set('projectPhoto2', fileIpfs2);
             project.set("isLive", isLive);
             project.set('title', title);
             project.set('summary', summary);
-            project.set('description', description);
+            project.set('description', description === "" ? undefined : description);
             project.set("website", website === "" ? undefined : website);
             project.set("twitter", twitter === "" ? undefined : twitter);
             project.set("telegram", telegram === "" ? undefined : telegram);
@@ -115,6 +138,7 @@ function EditProject(props) {  ///set input variables as required, add other att
             alert(error)
         }
     }
+
 
     const onChangePhoto = e => {
         if(activePhoto == 1){
@@ -141,6 +165,39 @@ function EditProject(props) {  ///set input variables as required, add other att
         setProjectPhotoPreview(src);
         setActivePhoto(num);
     }
+
+    const handleBlockChain = async(blockChainSybmol) => {
+        if(activeBlockChains.includes(blockChainSybmol)){
+            const index = activeBlockChains.indexOf(blockChainSybmol);
+            activeBlockChains.splice(index, 1);
+            setActiveBlockChains(activeBlockChains => [...activeBlockChains]);            
+        } else {
+            setActiveBlockChains(activeBlockChains => [...activeBlockChains, blockChainSybmol]);
+        }
+    }
+
+    const handleFeatureTags = async(tag) => {
+        
+        if(featureTags.includes(tag)){
+            const index = featureTags.indexOf(tag);
+            featureTags.splice(index, 1);
+            setFeatureTags(featureTags => [...featureTags]);            
+        } 
+         else {
+            if(featureTags.length >= 3){
+                alert("Please choose less than 3 features");
+            } else {
+                setFeatureTags(featureTags => [...featureTags, tag]);
+            }
+        }
+    }
+
+    useEffect(() => {
+        if(isInitialized)
+        if (typeof props.featureTags !== 'undefined') {
+            setFeatureTags(props.featureTags);
+        }
+      }, [isInitialized]);
    
 
     return (
@@ -186,7 +243,104 @@ function EditProject(props) {  ///set input variables as required, add other att
                                 <p>Launched</p>
                             </div>              
                         </div>
-                        <h4 id="createProject-aboutProject">About Project</h4>
+                        <h4 id="createProject-aboutProject">BlockChains Available On:</h4>
+                        <div id="editProject-blockchainlist">
+                            <label>
+                                <input type="checkbox" name="rating-radio" value={"ETH"} onClick={(e) => handleBlockChain(e.currentTarget.value)}/>
+                                <img id={activeBlockChains.includes("ETH") && "editProject-blockchain-logo"} src={ETH}/>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="rating-radio" value={"BSC"} onClick={(e) => handleBlockChain(e.currentTarget.value)}/>
+                                <img id={activeBlockChains.includes("BSC") && "editProject-blockchain-logo"} src={BSC}/>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="rating-radio" value={"MATIC"} onClick={(e) => handleBlockChain(e.currentTarget.value)}/>
+                                <img id={activeBlockChains.includes("MATIC") && "editProject-blockchain-logo"} src={MATIC}/>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="rating-radio" value={"AVAX"} onClick={(e) => handleBlockChain(e.currentTarget.value)}/>
+                                <img id={activeBlockChains.includes("AVAX") && "editProject-blockchain-logo"} src={AVAX}/>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="rating-radio" value={"FTM"} onClick={(e) => handleBlockChain(e.currentTarget.value)}/>
+                                <img id={activeBlockChains.includes("FTM") && "editProject-blockchain-logo"} src={FTM}/>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="rating-radio" value={"ATOM"} onClick={(e) => handleBlockChain(e.currentTarget.value)}/>
+                                <img id={activeBlockChains.includes("ATOM") && "editProject-blockchain-logo"} src={ATOM}/>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="rating-radio" value={"ONE"} onClick={(e) => handleBlockChain(e.currentTarget.value)}/>
+                                <img id={activeBlockChains.includes("ONE") && "editProject-blockchain-logo"} src={ONE}/>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="rating-radio" value={"PULS"} onClick={(e) => handleBlockChain(e.currentTarget.value)}/>
+                                <img id={activeBlockChains.includes("PULS") && "editProject-blockchain-logo"} src={PULS}/>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="rating-radio" value={"DOT"} onClick={(e) => handleBlockChain(e.currentTarget.value)}/>
+                                <img id={activeBlockChains.includes("DOT") && "editProject-blockchain-logo"} src={DOT}/>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="rating-radio" value={"ADA"} onClick={(e) => handleBlockChain(e.currentTarget.value)}/>
+                                <img id={activeBlockChains.includes("ADA") && "editProject-blockchain-logo"} src={ADA}/>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="rating-radio" value={"TRON"} onClick={(e) => handleBlockChain(e.currentTarget.value)}/>
+                                <img id={activeBlockChains.includes("TRON") && "editProject-blockchain-logo"} src={TRON}/>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="rating-radio" value={"HECO"} onClick={(e) => handleBlockChain(e.currentTarget.value)}/>
+                                <img id={activeBlockChains.includes("HECO") && "editProject-blockchain-logo"} src={HECO}/>
+                            </label>
+                            <label>
+                                <input type="checkbox" name="rating-radio" value={"SOL"} onClick={(e) => handleBlockChain(e.currentTarget.value)}/>
+                                <img id={activeBlockChains.includes("SOL") && "editProject-blockchain-logo"} src={SOL}/>
+                            </label>                            
+                        </div>
+                        <h4 id="createProject-aboutProject">Project Features</h4>
+                        <div id="createProject-formInput">
+                            <label id="createProject-formInput-title">Current Selected</label>
+                            <div id="createProject-formInput-text" value={featureTags} onChange={(event) =>setFeatureTags(event.currentTarget.value)} > 
+                                {(!featureTags || featureTags.length==0) && 
+                                    <p>Feature Tags</p>
+                                } 
+                                {featureTags && 
+                                    <>                            
+                                    {featureTags.map(element => (
+                                        <button id="createProject-skillTagAdded-button">{element}<img id="exitSkillTagButton" onClick={()=> handleFeatureTags(element)} src={ExitWhite}/></button>
+                                    ))} 
+                                    </>  
+                                }                             
+                            </div>
+                            <div  id="createProject-skillTags">
+                                <select id="createProject-tagList" onChange={(e) => setActiveFeature(e.currentTarget.value)}>                            
+                                    <option selected disabled>Select up to 3 Features</option>
+                                    <option id="skill-option" value="AMM">AMM</option>
+                                    <option id="skill-option" value="Bridge">Bridge</option>
+                                    <option id="skill-option" value="Coin">Coin</option>
+                                    <option id="skill-option" value="DEFI">DEFI</option>
+                                    <option id="skill-option" value="Gaming">Gaming</option>
+                                    <option id="skill-option" value="Fan Project">Fan Project</option>
+                                    <option id="skill-option" value="Launchpad">Launchpad</option>
+                                    <option id="skill-option" value="Lending">Lending</option>
+                                    <option id="skill-option" value="Metaverse">Metaverse</option>
+                                    <option id="skill-option" value="NFTs">NFTs</option>
+                                    <option id="skill-option" value="Payment">Payment</option>
+                                    <option id="skill-option" value="Privacy">Privacy</option>
+                                    <option id="skill-option" value="Rebase">Rebase</option>
+                                    <option id="skill-option" value="Smart Contracts">Smart Contracts</option>
+                                    <option id="skill-option" value="StableCoin">StableCoin</option>
+                                    <option id="skill-option" value="Staking">Staking</option>
+                                    <option id="skill-option" value="Synthetics">Synthetics</option>
+                                    <option id="skill-option" value="Token">Token</option>
+                                    <option id="skill-option" value="Wallet">Wallet</option>
+                                    <option id="skill-option" value="Yield Farming">Yield Farming</option>
+                                </select>                            
+                                <button id="createProject-addSkill-button" type="button" onClick={()=> handleFeatureTags(activeFeature)}>Add</button>
+                            </div>                            
+                        </div>
+                        <h4 id="createProject-aboutProject">Project Details</h4>
                         <div id="createProject-formInput">
                             <label id="createProject-formInput-title">Enter Project Name<span style={{color:"red"}}> *</span></label>
                             <input id="createProject-formInput-text" placeholder={title} value={title} required onChange={(event) =>setTitle(event.currentTarget.value)}/>

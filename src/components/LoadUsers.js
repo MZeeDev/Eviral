@@ -22,6 +22,7 @@ function LoadUsers() {
   const [ noneFound, setNoneFound] = useState(false);
   const [skillTagDropDown, setSkillTagDropDown] = useState(false);
   const [searchPageNumber, setSearchPageNumber] = useState(0);
+  const [currentTag, setCurrentTag] = useState();
   const [pageNumber, setPageNumber] = useState(0);
   const [typeSearch, setTypeSearch] = useState();
   const initLoad = 0; // change later to accomodate refresh/sorting data
@@ -40,15 +41,15 @@ function LoadUsers() {
     await setPageNumber(nextPageNumber);
   }
   const searchPagPrev = async() => {
-    if(pageNumber == 0) {
+    if(searchPageNumber == 0) {
       return;
     }
-    let prevPageNumber = pageNumber - 1;
+    let prevPageNumber = searchPageNumber - 1;
     await setSearchPageNumber(prevPageNumber);
   }
 
   const searchPagNext = async() => {
-    let nextPageNumber = pageNumber + 1;    
+    let nextPageNumber = searchPageNumber + 1;    
     await setSearchPageNumber(nextPageNumber);
   }
 
@@ -99,8 +100,8 @@ function LoadUsers() {
       if(typeSearch == "byName"){
         SearchProfiles();
       } else if (typeSearch == "byTag"){
-        narrowByTag();
-      }      
+        narrowByTag(currentTag);
+      } 
     }
     },
     [searchPageNumber, isInitialized]
@@ -114,11 +115,12 @@ function LoadUsers() {
   }
 
   const narrowByTag = async(tag) => {
-    setPageNumber(0);
+    setSearchPageNumber(0);
     setNoneFound(false);
+    setCurrentTag(tag);
     setTypeSearch("byTag");
     const Tag = [tag];
-    const params = { skillTag: Tag, pageNum: pageNumber};
+    const params = { skillTag: Tag, pageNum: searchPageNumber};
     const usersFound = await Moralis.Cloud.run("searchUsersByTag", params);
     if(usersFound != ''){
       setSearchResults(usersFound);
@@ -229,8 +231,8 @@ function LoadUsers() {
         </>
         } 
         <div className="pagination">
-          <button className="pagination-prev" onClick={ showSearchResults ? () => {scrollToTop(); PagPrev()} : () => {scrollToTop(); searchPagPrev()}}><img id="leftarrow" src={Left}/></button>              
-          <button className="pagination-next" onClick={showSearchResults ? () => {scrollToTop();PagNext()} : () => {scrollToTop();searchPagNext()}}><img id="rightarrow" src={Right}/></button>
+          <button className="pagination-prev" onClick={ showSearchResults ? () => {scrollToTop(); searchPagPrev()} : () => {scrollToTop(); PagPrev()}}><img id="leftarrow" src={Left}/></button>              
+          <button className="pagination-next" onClick={ showSearchResults ? () => {scrollToTop(); searchPagNext()} : () => {scrollToTop(); PagNext()}}><img id="rightarrow" src={Right}/></button>
         </div>                 
       </div>      
     )
