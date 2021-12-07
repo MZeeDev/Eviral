@@ -63,13 +63,14 @@ function EditProject(props) {  ///set input variables as required, add other att
     const [photoFile2, setPhotoFile2] = useState();    
     const [photoFileName2, setPhotoFileName2] = useState();  
     const [ projectPhotoPreview, setProjectPhotoPreview] = useState(props.projectPhoto);
-    const [photo1, setPhoto1] = useState(props.projectPhoto);
-    const [photo2, setPhoto2] = useState(props.projectPhoto1);
-    const [photo3, setPhoto3] = useState(props.projectPhoto2);
+    const [photo1, setPhoto1] = useState(props.projectPhoto ? props.projectPhoto : "");
+    const [photo2, setPhoto2] = useState(props.projectPhoto1 ? props.projectPhoto1 : "");
+    const [photo3, setPhoto3] = useState(props.projectPhoto2 ? props.projectPhoto2 : "");
     const [activePhoto, setActivePhoto] = useState();
-    const [activeBlockChains, setActiveBlockChains] = useState(props.blockchains);
+    const [activeBlockChains, setActiveBlockChains] = useState([]);
     const [featureTags, setFeatureTags] = useState([]);
     const [activeFeature, setActiveFeature] = useState();
+
 
     const handleDescriptionOnChange = (e, editor) =>{
         const data = editor.getData();
@@ -196,6 +197,9 @@ function EditProject(props) {  ///set input variables as required, add other att
         if(isInitialized)
         if (typeof props.featureTags !== 'undefined') {
             setFeatureTags(props.featureTags);
+        }
+        if (typeof props.blockchains !== 'undefined') {
+            setActiveBlockChains(props.blockchains);
         }
       }, [isInitialized]);
    
