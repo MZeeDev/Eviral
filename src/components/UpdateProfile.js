@@ -35,7 +35,7 @@ function UpdateProfile(props) {
     const [username, setUsername] = useState();
     const [userLocation, setUserLocation] = useState();
     const [story, setStory] = useState();
-    const [skills, setSkills] = useState();
+    // const [skills, setSkills] = useState();
     const [skillTags, setSkillTags] = useState([]);
     const [bio, setBio] = useState();
     const [website, setWebsite] = useState();
@@ -58,8 +58,8 @@ function UpdateProfile(props) {
             alert("Please choose a different tag.");
         } else {            
             setSkillTags(skillTags => [...skillTags, currentTag]);      
-            setSkills(skillTags => [...skillTags, currentTag]);
-            console.log(skills);
+            // setSkills(skillTags => [...skillTags, currentTag]);
+            // console.log(skills);
             console.log(skillTags);
         }     
     }
@@ -70,7 +70,7 @@ function UpdateProfile(props) {
         console.log(value, index);
         skillTags.splice(index, 1);
         setSkillTags(skillTags => [...skillTags]);
-        setSkills(skillTags);        
+        // setSkills(skillTags);        
     }
 
     const checkProfileCreated = () => {
@@ -80,7 +80,7 @@ function UpdateProfile(props) {
             setLandscapePic(user.attributes?.landscapePic?._url);
             setUserLocation(user.attributes?.userLocation);
             setStory(user.attributes?.story);
-            setSkills(user.attributes?.skills);
+            // setSkills(user.attributes?.skills);
             setSkillTags(user.attributes?.skillSet);
             setBio(user.attributes?.bio);
             setWebsite(user.attributes?.website);
@@ -112,7 +112,7 @@ function UpdateProfile(props) {
             username: username === "" ? undefined : username,            
             userLocation: userLocation === "" ? undefined : userLocation, 
             story: story === "" ? undefined : story ,
-            skills: skills === "" ? undefined : skills ,
+            // skills: skills === "" ? undefined : skills ,
             bio: bio === "" ? undefined : bio,     
             website: website === "" ? undefined : website,     
             twitter: twitter === "" ? undefined : twitter,     
@@ -211,7 +211,8 @@ function UpdateProfile(props) {
                         {/* <button id="createProject-button-submit" onClick={skillReveal}>Check Skills and Skill Tags</button> */}
                         <div id="createProject-formInput">
                             <label id="createProject-formInput-title">Skillset</label>
-                            <div id="createProject-formInput-text" value={skills} onChange={(event) =>setSkills(event.currentTarget.value)} > 
+                            <div id="createProject-formInput-text"> 
+                            {/* <div id="createProject-formInput-text" value={skillTags} onChange={(event) =>setSkills(event.currentTarget.value)} >  */}
                                 {!skillTags && 
                                     <p>Skill Tags</p>
                                 } 
