@@ -226,7 +226,7 @@ function ProjectsList({match}) {
                 <button className="searchbar-button" onClick={SearchProjects} >Search<img id="searchbarglass" src={SearchGlass}/></button>
             </div>
           </div>
-          <div id="narrowByTagsConatiner">
+          <div id="narrowByTagsContainer">
             <div id="narrowByTagHeader">
                 <h5 id="narrowByTagHeaderLabel">BlockChains</h5>
                 <button id="narrowByTagDropDownButton" onClick={()=> setBlockChainDropDown(!blockchainDropDown)}><img src={blockchainDropDown ? ArrowUp : ArrowDown}/></button>
@@ -249,7 +249,7 @@ function ProjectsList({match}) {
               </div>
             }
           </div>
-          <div id="narrowByTagsConatiner">
+          <div id="narrowByTagsContainer">
             <div id="narrowByTagHeader">
               <h5 id="narrowByTagHeaderLabel">Project Features</h5>
               <button id="narrowByTagDropDownButton" onClick={()=> setSkillTagDropDown(!skillTagDropDown)}><img src={skillTagDropDown ? ArrowUp : ArrowDown}/></button>

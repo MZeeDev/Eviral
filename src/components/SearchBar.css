@@ -84,7 +84,7 @@
   height: 24px;
 }
 
-#narrowByTagsConatiner{
+#narrowByTagsContainer{
  width: 1300px;
  height: min-content;
  display: flex;
@@ -99,7 +99,7 @@
  
 }
 
-#narrowByTagsConatiner>#narrowBySkillList{
+#narrowByTagsContainer>#narrowBySkillList{
   border-top: 1px solid #cbcbcc85;
   margin-top: 15px;
   padding-top: 15px;
@@ -178,9 +178,9 @@
 
 @media only screen and (max-width: 1300px) {
   .searchbar-container{
-    width: 330px;
+    width: 350px;
     height: 56px;
-    margin: 25px 25px;
+    margin: 25px 0px;
   }
   .searchbar-button{
     width: 80px;
@@ -192,7 +192,7 @@
     margin-left: 5px;
   }
   .searchbar-wrapper {
-    width: 330px;
+    width: 350px;
     height: 48px;
     padding: 12px 0;
   }
@@ -203,11 +203,11 @@
     font-size: 14px;
     padding-left: 10px;
   }
-  #narrowByTagsConatiner{
-    width: 336px;
+  #narrowByTagsContainer{
+    width: 350px;
     display: flex;
     flex-direction: column;
-    margin: 20px 0 20px 20px;  
+    margin: 20px 0 20px 0px;  
    }
    #narrowByTagHeader{
      display: flex;
@@ -225,15 +225,16 @@
      font-family: ProximaNova-bold;
      font-style: normal;
      font-weight: normal;
-     font-size: 24px;
+     font-size: 22px;
      line-height: 20px;
      margin-bottom: 15px;
+     width: 300px;
    }
    
-   #narrowBySkillList{
+   #narrowByTagsContainer>#narrowBySkillList{
      display: flex;
      flex-wrap: wrap;
-     width: 336px;
+     width: 335px;
    }
    
    #narrowBySkill{
