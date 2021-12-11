@@ -49,6 +49,7 @@ function CreateNewProject(props) {  ///set input variables as required, add othe
     const [youtube, setYoutube] = useState();
     const [twitch, setTwitch] = useState();
     const [isLive, setIsLive] = useState(false);
+    const [isHiring, setIsHiring] = useState(props.isHiring);
     const [activeBlockChains, setActiveBlockChains] = useState([]);
     const [featureTags, setFeatureTags] = useState([]);
     const [activeFeature, setActiveFeature] = useState();
@@ -83,6 +84,7 @@ function CreateNewProject(props) {  ///set input variables as required, add othe
             project.set('featureTags', featureTags); 
             project.set('projectPhoto', fileIpfs);
             project.set("isLive", isLive);
+            project.set('isHiring', isHiring);
             project.set('title', title);
             project.set('creator', currentUser);
             project.set("createdBy", username);
@@ -169,7 +171,18 @@ function CreateNewProject(props) {  ///set input variables as required, add othe
                             <div id="createProject-launchStatus-option">
                                 <input type="radio" id="indevelopment" name="flexRadioDefault" onClick={() => setIsLive(true)}/>
                                 <p>Launched</p>
-                            </div>    
+                            </div>
+                            <div id="createProject-launchStatus">
+                            <p>Are you looking to hire freelancers or collaborate with other projects?</p>
+                            <div id="createProject-launchStatus-option">
+                                <input type="radio" id="indevelopment" name="flexRadioDefault" onClick={() => setIsHiring(true)}/>
+                                <p>Yes</p>
+                            </div>
+                            <div id="createProject-launchStatus-option">
+                                <input type="radio" id="indevelopment" name="flexRadioDefault" onClick={() => setIsHiring(false)}/>
+                                <p>No</p>
+                            </div>              
+                        </div>    
                             <h4 id="createProject-aboutProject">BlockChains Available On:</h4>
                         <div id="editProject-blockchainlist">
                             <label>

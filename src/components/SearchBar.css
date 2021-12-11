@@ -1,39 +1,44 @@
 .searchbar-container {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   padding: 0px;
   width: 1440px;
   height: 80px;  
   border-radius: 20px;
   position: relative;
-  margin: 50px 0 25px 0;
+  margin: 25px 0 10px 0;
 }
 .searchbar-wrapper {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  width: 1336px;
-  height: 80px;
+  width: 1300px;
+  height: 60px;
   position: relative;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
   }
 
 .searchbar-text {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  padding: 24px 20px 24px 32px;
+  padding: 18px 20px 18px 32px;
   width: 1036px;
-  height: 80px;
-  border: 1px solid #CBCBCC;
+  height: 60px;
+  border: 1px solid #cbcbcc85;
   box-sizing: border-box;
   border-radius: 8px 0px 0px 8px;
   font-family:ProximaNova;
   font-style: normal;
   font-weight: 800;
-  font-size: 24px;
+  font-size: 18px;
   line-height: 32px;
-  margin-left: 80px;
+}
+.searchbar-text:focus {
+  border: none;
+  outline: 1px solid #cbcbcc85;
 }
 
 .searchbar-button {
@@ -41,26 +46,25 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 12px 16px;  
-  position: absolute;
+  padding: 12px 16px;    
   width: 300px;
-  height: 80px;
+  height: 60px;
   right: 00px;
   top: 0;  
   /* Gradients/1 */  
   background: linear-gradient(152.95deg, #5DED9C 32.2%, #0EBD91 93.13%);
-  border-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
   border: none;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-style: normal;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 32px;
 /* identical to box height, or 133% */
   display: flex;
   align-items: center;
   text-align: center;
-
   /* Black / White */
 
   color: #FDFDFD;
@@ -70,32 +74,57 @@
   flex-grow: 0;
   margin: 0px;
 }
+.searchbar-button:hover{
+  background: linear-gradient(152.95deg, #31e67f 45.2%, #0ca47e 93.13%);
+  cursor: pointer;
+}
 
 #searchbarglass {
   margin-left: 12px;
-  height: 32px;
+  height: 24px;
 }
 
 #narrowByTagsConatiner{
- width: 1336px;
+ width: 1300px;
  height: min-content;
  display: flex;
  flex-direction: column;
- margin: 20px 0 20px 80px;
+ align-items: center;
+ justify-content: center;
+ margin: 20px 0 20px 0px;
  transition: height 3s ease-in-out;
+ box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+ padding: 15px 0;
+ border-radius: 8px;
+ 
+}
+
+#narrowByTagsConatiner>#narrowBySkillList{
+  border-top: 1px solid #cbcbcc85;
+  margin-top: 15px;
+  padding-top: 15px;
+  width: 1300px;
+  display: flex;
+  justify-content: center;
 }
 #narrowByTagHeader{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 1200px;
+  width: 1300px;    
+  padding: 0px 30px 0px;
   
 }
+#narrowByTagHeader>h5{
+  margin-bottom: 0;
+}
+
 #narrowByTagDropDownButton{
   border: none;
   background: transparent;
   width: 28px;
   height: 28px;
+  margin-right: 25px;
 }
 #narrowByTagDropDownButton>img{
   height: 100%;
@@ -107,9 +136,10 @@
   font-style: normal;
   font-weight: normal;
   font-size: 32px;
-  line-height: 20px;
-  margin-bottom: 15px;
+  line-height: 20px;  
   width: 70%;
+  display: flex;
+  align-items: center;
 }
 
 #narrowBySkillList{
@@ -154,7 +184,7 @@
   }
   .searchbar-button{
     width: 80px;
-    height: 56px;
+    height: 48px;
     font-size: 14px;
   }
   #searchbarglass{
@@ -163,12 +193,12 @@
   }
   .searchbar-wrapper {
     width: 330px;
-    height: 56px;
+    height: 48px;
     padding: 12px 0;
   }
   .searchbar-text {
     width: 300px;
-    height: 56px;
+    height: 48px;
     margin: 0;
     font-size: 14px;
     padding-left: 10px;

@@ -87,11 +87,13 @@
 }
 
 #blockchain-logo-container{
-  width: 1200px;
-  height: 56px;
+  width: 1300px;
+  height: 75px;
   display: flex;
   justify-content: space-between;
-  margin: 15px 0;
+  margin-top:  10px;
+  border-top: 1px solid #cbcbcc85;
+  padding: 15px 30px 0;
 }
 #blockchain-logo{
   height: 100%;
@@ -114,7 +116,7 @@
   grid-template-columns: repeat(3, 400px);
   grid-template-rows: repeat(auto-fill, 495px);
   width: 1440px;
-  gap: 24px;
+  gap: 50px;
   padding: 2rem 0;
   justify-content: center;
   justify-items: center;
@@ -402,6 +404,33 @@
   align-items: center;
   justify-content: space-between;
   margin: 0 0rem;
+}
+
+#projects-class-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  width: 100%;
+  max-width: 1300px;
+}
+#projects-class{
+  height: 200px;
+  width: 370px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  text-align: center;
+  padding: 25px;
+  background: linear-gradient(152.95deg, #5DED9C 32.2%, #0EBD91 93.13%);
+  color: white;
+}
+#projects-class:hover{
+  cursor: pointer;
+  transform: scale(1.025);
+  background: linear-gradient(152.95deg, #31e67f 45.2%, #0ca47e 93.13%);
+  color: white;
 }
 
 

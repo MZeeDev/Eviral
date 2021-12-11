@@ -38,6 +38,7 @@ function ProjectsList({match}) {
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [ searchResults, setSearchResults] = useState();
   const [ noneFound, setNoneFound] = useState(false);
+  const [ searchFor, setSearchFor] = useState("All");
   const [pageNumber, setPageNumber] = useState(0);
   const [skillTagDropDown, setSkillTagDropDown] = useState(false);
   const [blockchainDropDown, setBlockChainDropDown] = useState(false);
@@ -48,7 +49,27 @@ function ProjectsList({match}) {
   let initLoad = 0; // change later to accomodate refresh/sorting data
 
   const LoadProjects = async() => {
+    if(searchFor != "All"){
+      setSearchFor("Init");
+      setPageNumber(0);
+      console.log(pageNumber);
+    }
+    setSearchFor("All");    
     const params = { skipAmount: pageNumber};
+    const projectsList = await Moralis.Cloud.run("renderProjects", params);
+    setProjects(projectsList);  
+    console.log(projectsList);
+  };
+  const LoadProjectsPro = async() => {
+    setSearchFor("Pro");
+    const params = { skipAmount: pageNumber, pro: true};
+    const projectsList = await Moralis.Cloud.run("renderProjects", params);
+    setProjects(projectsList);  
+    console.log(projectsList);
+  };
+  const LoadProjectsHiring = async() => {
+    setSearchFor("Hiring");
+    const params = { skipAmount: pageNumber, hiring: true};
     const projectsList = await Moralis.Cloud.run("renderProjects", params);
     setProjects(projectsList);  
     console.log(projectsList);
@@ -133,7 +154,15 @@ function ProjectsList({match}) {
 
   useEffect(() => {
     if(isInitialized){
+      if(searchFor == "All"){
       LoadProjects();
+      }
+      else if (searchFor == "Pro"){
+        LoadProjectsPro();
+      }
+      else if (searchFor == "Hiring"){
+        LoadProjectsHiring();
+      }
     }
     },
     [pageNumber, isInitialized],
@@ -158,7 +187,7 @@ function ProjectsList({match}) {
     }
     },
     [searchPageNumber]
-  )
+  );
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -172,7 +201,18 @@ function ProjectsList({match}) {
       <div id="loadProjects-container">
           <div className="project-section-title">
             Projects               
-          </div>          
+          </div>      
+          <div id="projects-class-container">
+            <div id="projects-class" onClick={()=>LoadProjectsPro()}>
+              <h3>Pro-Verified</h3>
+            </div>
+            <div id="projects-class" onClick={()=>LoadProjectsHiring()}>
+              <h3>Hiring FreeLancers /<br/>Looking to Collaborate</h3>
+            </div>
+            <div id="projects-class" onClick={()=>LoadProjects()}>
+            <h3>All Projects</h3>
+            </div>
+          </div>    
           <div className="searchbar-container">
             <div className="searchbar-wrapper">          
                 <input 
@@ -268,6 +308,7 @@ function ProjectsList({match}) {
                         path={project.title}
                         isVerified = {project.isVerified}
                         isLive={project.isLive}   
+                        isHiring={project.isHiring}
                         blockchains={project.blockchains}
                         featureTags={project.featureTags}                         
                         />
@@ -290,6 +331,7 @@ function ProjectsList({match}) {
                       path={project.title}
                       isVerified = {project.isVerified}
                       isLive={project.isLive}  
+                      isHiring={project.isHiring}
                       blockchains={project.blockchains}
                       featureTags={project.featureTags}                           
                       />

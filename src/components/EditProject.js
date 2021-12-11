@@ -50,6 +50,7 @@ function EditProject(props) {  ///set input variables as required, add other att
     const [twitch, setTwitch] = useState(props.twitch);
     const [isOwner, setIsOwner] = useState(props.isOwner);
     const [isLive, setIsLive] = useState(props.isLive);
+    const [isHiring, setIsHiring] = useState(props.isHiring);
 
 
     const [alertVisible, setAlertVisible] = useState(false);
@@ -103,7 +104,6 @@ function EditProject(props) {  ///set input variables as required, add other att
 
 
     const editProject = async () => {
-
         try {            
             const params = { projectTitle: (props.title) }; 
             const project = await Moralis.Cloud.run("getProjectByName", params);
@@ -121,7 +121,8 @@ function EditProject(props) {  ///set input variables as required, add other att
             project.set('projectPhoto', fileIpfs);
             project.set('projectPhoto1', fileIpfs1);
             project.set('projectPhoto2', fileIpfs2);
-            project.set("isLive", isLive);
+            project.set("isLive", isLive === "" ? undefined : isLive);
+            project.set('isHiring', isHiring === "" ? undefined : isHiring);
             project.set('title', title);
             project.set('summary', summary);
             project.set('description', description === "" ? undefined : description);
@@ -245,6 +246,17 @@ function EditProject(props) {  ///set input variables as required, add other att
                             <div id="createProject-launchStatus-option">
                                 <input type="radio" id="indevelopment" name="flexRadioDefault" onClick={() => setIsLive(true)}/>
                                 <p>Launched</p>
+                            </div>              
+                        </div>
+                        <div id="createProject-launchStatus">
+                            <p>Are you looking to hire freelancers or collaborate with other projects?</p>
+                            <div id="createProject-launchStatus-option">
+                                <input type="radio" id="indevelopment" name="flexRadioDefault" onClick={() => setIsHiring(true)}/>
+                                <p>Yes</p>
+                            </div>
+                            <div id="createProject-launchStatus-option">
+                                <input type="radio" id="indevelopment" name="flexRadioDefault" onClick={() => setIsHiring(false)}/>
+                                <p>No</p>
                             </div>              
                         </div>
                         <h4 id="createProject-aboutProject">BlockChains Available On:</h4>
