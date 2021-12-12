@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.89ed5799.chunk.css",
-    "main.js": "/static/js/main.6c4dc6f0.chunk.js",
-    "main.js.map": "/static/js/main.6c4dc6f0.chunk.js.map",
+    "main.css": "/static/css/main.2e6190f3.chunk.css",
+    "main.js": "/static/js/main.0d4ea240.chunk.js",
+    "main.js.map": "/static/js/main.0d4ea240.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e01d658d.js",
     "runtime-main.js.map": "/static/js/runtime-main.e01d658d.js.map",
     "static/js/2.59026746.chunk.js": "/static/js/2.59026746.chunk.js",
     "static/js/2.59026746.chunk.js.map": "/static/js/2.59026746.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.89ed5799.chunk.css.map": "/static/css/main.89ed5799.chunk.css.map",
+    "static/css/main.2e6190f3.chunk.css.map": "/static/css/main.2e6190f3.chunk.css.map",
     "static/js/2.59026746.chunk.js.LICENSE.txt": "/static/js/2.59026746.chunk.js.LICENSE.txt",
     "static/media/index.css": "/static/media/ProximaNova-Regular.b078618b.ttf",
     "static/media/add.e984d697.svg": "/static/media/add.e984d697.svg",
@@ -78,7 +78,7 @@
     "static/media/shareBanner.b8c30aa7.png": "/static/media/shareBanner.b8c30aa7.png",
     "static/media/solana.1c88f6d7.png": "/static/media/solana.1c88f6d7.png",
     "static/media/tagINDEV.a88c856f.svg": "/static/media/tagINDEV.a88c856f.svg",
-    "static/media/tagLive.3f3f36e7.svg": "/static/media/tagLive.3f3f36e7.svg",
+    "static/media/tagLive.e8751a2a.svg": "/static/media/tagLive.e8751a2a.svg",
     "static/media/tagPro.aa4fa4cb.svg": "/static/media/tagPro.aa4fa4cb.svg",
     "static/media/telegram.f3378b1c.svg": "/static/media/telegram.f3378b1c.svg",
     "static/media/tron.bf37bf2b.png": "/static/media/tron.bf37bf2b.png",
@@ -94,7 +94,7 @@
   "entrypoints": [
     "static/js/runtime-main.e01d658d.js",
     "static/js/2.59026746.chunk.js",
-    "static/css/main.89ed5799.chunk.css",
-    "static/js/main.6c4dc6f0.chunk.js"
+    "static/css/main.2e6190f3.chunk.css",
+    "static/js/main.0d4ea240.chunk.js"
   ]
 }

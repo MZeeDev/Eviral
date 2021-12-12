@@ -31,16 +31,13 @@
     height: 490px;
     left: 0px;
     top: 0px;
-   
-
     box-shadow: 0px 8px 12px rgba(66, 27, 27, 0.3);
     border-radius: 20px;
     flex: none;
     order: 0;
     flex-grow: 0;
     margin: 0px 40px;
-    outline: 5px solid  #0072FF ;
-    /* animation-duration: 5s;
+    animation-duration: 5s;
     animation-fill-mode:forwards;
     animation-iteration-count: infinite;
     animation-name: placeHolderShimmer;
@@ -49,15 +46,14 @@
     -webkit-animation-fill-mode: forwards;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-name: placeHolderShimmer;
-    -webkit-animation-timing-function: linear;    
- 
-    outline: 5px solid  #0072FF ;
-    background-image: linear-gradient(125deg, #ffffff 50%,#0073ff50 60%, #ffffff 70%); 
+    -webkit-animation-timing-function: linear;     
+    outline: 7px solid  #0EBD91 ;
+    background: #5DED9C;
+    background-image: linear-gradient(125deg, #5DED9C 50%,#ffffff 60%, #5DED9C 70%); 
     background-size:700px;  
     background-repeat: no-repeat;
-    background-blend-mode: multiply; */
 }
-/* @keyframes placeHolderShimmer {
+@keyframes placeHolderShimmer {
     0% {
       background-position: -768px 0
     }
@@ -79,7 +75,7 @@
       100% {
         background-position: 968px 0;
       }
-  } */
+  }
 
 .projectcard-contents {
     display: flex;
