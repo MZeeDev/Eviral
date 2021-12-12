@@ -33,7 +33,7 @@ function ProjectCard(props) {
 
     return (
         <>        
-            <div className="projectcard-background">
+            <div className={ verified ? "projectcard-background-pro": "projectcard-background"}>
                 <div className="projectcard-contents">
                     <div className="projectcard-top">
                         <Link className="projectcard-link" to={`/projects/${props.path}`}>

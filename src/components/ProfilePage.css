@@ -126,7 +126,10 @@
     right: 0px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
 }
-
+#myprofile-header-buttons{
+    display: flex;
+    flex-direction: row;
+}
 
 #profilePage-payrate{
     font-family: ProximaNova-bold;
@@ -290,7 +293,7 @@
 }
 
 #subProfile-button{
-    width: 200px;
+    width: 180px;
     height: 44px;
     background: linear-gradient(152.95deg, #5DED9C 32.2%, #0EBD91 93.13%);
     border-radius: 8px;
@@ -306,6 +309,10 @@
     color: #FDFDFD;
     border: none;
     margin: 0 10px;
+}
+#subProfile-button:hover{
+    background: linear-gradient(152.95deg, #31e67f 45.2%, #0ca47e 93.13%);
+
 }
 
 #createAProject{
@@ -449,6 +456,10 @@
         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
         width: 325px;
         font-weight: normal;
+    }
+    #myprofile-header-buttons{
+        display: flex;
+        flex-direction: column;
     }
 
     #profilePage-payrate{

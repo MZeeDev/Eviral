@@ -90,6 +90,19 @@ function Profile(props) {
         }
     }
 
+    
+  const verificationEmail = async() => {
+    const name = user?.attributes?.username
+    const params = { profileName: name};
+    console.log(params);
+    try{
+    await Moralis.Cloud.run("sendProfileVerifyEmail", params);
+    console.log("emailSent")
+    } catch (error) {
+      alert(error);
+    }
+  }
+
     const createProjectCheck = () => {
         if( (balanceETH == 0) && (balanceBSC == 0) ) {
             setAlertContents(
@@ -186,11 +199,12 @@ function Profile(props) {
                                 <h2>{user?.attributes?.username}</h2>
                                 <p>{user?.attributes?.bio}</p>
                             </div>
-                            <div className="profile-header-btns">                            
-                            <button id="subProfile-button" onClick={editProfileCheck}>
-                            <i class="fas fa-pen"></i>Edit&nbsp;Profile
-                            </button>
-                        </div>        
+                            <div id="myprofile-header-buttons">                            
+                                <button id="subProfile-button" onClick={editProfileCheck}>
+                                   Edit&nbsp;Profile
+                                </button>
+                                <button id="subProfile-button" onClick={() =>verificationEmail()}>Get&nbsp;Verified</button>
+                            </div>        
                         </div>
                         <div id="profilePage-payrate">
                             {user?.attributes?.contactForPricing 
