@@ -385,6 +385,15 @@
         height: 422px;
         margin: 0px 20px;
     }
+
+    
+.projectcard-background-pro {
+
+    padding: 12px 12px 20px;
+    width: 335px;
+    height: 422px;
+    margin: 0px 20px;
+}
     
     .projectcard-contents {
         width: 311px;
