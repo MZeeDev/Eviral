@@ -51,6 +51,7 @@ const ProjectData = ({ data }) => {
                   linkedIn={project.linkedIn}
                   youtube={project.youtube}
                   twitch={project.twitch}
+                  medium={project.medium}
                   objectId = {project.objectId}  
                   isVerified = {project.isVerified}
                   isLive = {project.isLive}    

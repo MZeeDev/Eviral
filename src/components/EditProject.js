@@ -13,6 +13,7 @@ import shareLinkedIn from '../img/shareIcons/linkedin.svg';
 import shareDiscord from '../img/shareIcons/discord.svg';
 import shareTwitch from '../img/shareIcons/twitch.svg';
 import shareYoutube from '../img/shareIcons/youtube.svg';
+import shareMedium from '../img/shareIcons/medium.svg';
 import addImage from '../img/addImage.svg';
 
 
@@ -48,6 +49,7 @@ function EditProject(props) {  ///set input variables as required, add other att
     const [linkedIn, setLinkedIn] = useState(props.linkedIn);
     const [youtube, setYoutube] = useState(props.youtube);
     const [twitch, setTwitch] = useState(props.twitch);
+    const [medium, setMedium] = useState(props.medium);
     const [isOwner, setIsOwner] = useState(props.isOwner);
     const [isLive, setIsLive] = useState(props.isLive);
     const [isHiring, setIsHiring] = useState(props.isHiring);
@@ -133,6 +135,7 @@ function EditProject(props) {  ///set input variables as required, add other att
             project.set("linkedIn", linkedIn === "" ? undefined : linkedIn);
             project.set("youtube", youtube === "" ? undefined : youtube);
             project.set("twitch", twitch === "" ? undefined : twitch);
+            project.set("medium", medium === "" ? undefined : medium);
             await project.save();
             setAlertContents("Updates Sumbitted!");
             setAlertVisible(true);
@@ -401,6 +404,10 @@ function EditProject(props) {  ///set input variables as required, add other att
                         <div id="createProject-social">                            
                                 <span id="createProject-social-icon"><img src={shareTwitch}/></span>
                                 <input id="createProject-social-text" value={twitch} placeholder=" twitch.tv/ channel URL" onChange={(event) =>setTwitch(event.currentTarget.value)}/>
+                        </div>                            
+                        <div id="createProject-social">                            
+                                <span id="createProject-social-icon"><img src={shareMedium}/></span>
+                                <input id="createProject-social-text" value={medium} placeholder=" yourproject.medium.com" onChange={(event) =>setMedium(event.currentTarget.value)}/>
                         </div>                            
                             
                         <div className="form-button-wrapper">

@@ -156,12 +156,13 @@ const onSubmitPhoto = async (e) => {
           <meta property="og:url" content={`https://viralcrypto.app/profiles/${props.title}`} />
           <meta property="og:title" content={props.title} />
           <meta property="og:description" content={props.summary} />
-          <meta property="og:image" content={mainPhoto} />
+          <meta property="og:image" content={props.photo1} />
+          <meta property="og:site_name" content="Viracl Crypto" />
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:site" content={props.twitter} />
           <meta name="twitter:title" content={props.title} />
           <meta name="twitter:description" content={props.summary}/>
-          <meta name="twitter:image" content={mainPhoto} />
+          <meta name="twitter:image" content={props.photo1} />
       </Helmet>
         <div className="project-page"> 
         <div id="projectPage-description">

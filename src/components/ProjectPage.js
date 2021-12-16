@@ -40,6 +40,7 @@ import addImage from '../img/addImage.svg';
 import Exit from '../img/exit.svg';
 import shareYoutube from '../img/shareIcons/youtube.svg';
 import shareTwitch from '../img/shareIcons/twitch.svg';
+import shareMedium from '../img/shareIcons/medium.svg';
 
 
 import AVAX from '../img/BlockChains/avalanche.png';
@@ -335,6 +336,11 @@ window.addEventListener('resize', resize);
                   { props.twitch &&
                       <Link className='profile-social-icon twitch' to={{ pathname: (`https://twitch.tv/${(props.twitch)}`) }} target="_blank" aria-label='Twitch'>
                           <img id="socialShareIcon" src={shareTwitch}/>
+                      </Link>
+                  }
+                  { props.medium &&
+                      <Link className='profile-social-icon twitch' to={{ pathname: (`https://twitch.tv/${(props.medium)}`) }} target="_blank" aria-label='Twitch'>
+                          <img id="socialShareIcon" src={shareMedium}/>
                       </Link>
                   }
               </div>

@@ -13,6 +13,8 @@ import shareLinkedIn from '../img/shareIcons/linkedin.svg';
 import shareDiscord from '../img/shareIcons/discord.svg';
 import shareTwitch from '../img/shareIcons/twitch.svg';
 import shareYoutube from '../img/shareIcons/youtube.svg';
+import shareMedium from '../img/shareIcons/medium.svg';
+
 import AddImage from '../img/addImage.svg';
 
 import AVAX from '../img/BlockChains/avalanche.png';
@@ -48,6 +50,8 @@ function CreateNewProject(props) {  ///set input variables as required, add othe
     const [linkedIn, setLinkedIn] = useState();
     const [youtube, setYoutube] = useState();
     const [twitch, setTwitch] = useState();
+    const [medium, setMedium] = useState();
+
     const [isLive, setIsLive] = useState(false);
     const [isHiring, setIsHiring] = useState(props.isHiring);
     const [activeBlockChains, setActiveBlockChains] = useState([]);
@@ -100,6 +104,7 @@ function CreateNewProject(props) {  ///set input variables as required, add othe
             project.set("linkedIn", linkedIn === "" ? undefined : linkedIn);
             project.set("youtube", youtube === "" ? undefined : youtube);
             project.set("twitch", twitch === "" ? undefined : twitch);
+            project.set("medium", medium === "" ? undefined : medium);
             await project.save();
             const relation = currentUser.relation("projects");
             relation.add(project);
@@ -327,6 +332,10 @@ function CreateNewProject(props) {  ///set input variables as required, add othe
                                 <span id="createProject-social-icon"><img src={shareTwitch}/></span>
                                 <input id="createProject-social-text" value={twitch} placeholder=" twitch.tv/ channel URL" onChange={(event) =>setTwitch(event.currentTarget.value)}/>
                         </div>
+                        <div id="createProject-social">                            
+                                <span id="createProject-social-icon"><img src={shareMedium}/></span>
+                                <input id="createProject-social-text" value={medium} placeholder=" yourproject.medium.com" onChange={(event) =>setMedium(event.currentTarget.value)}/>
+                        </div>     
                             
                         <div className="form-button-wrapper">
                             <button id="createProject-button-submit" onClick={createNewProject}>Create New Project</button>                            
