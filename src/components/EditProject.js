@@ -137,7 +137,7 @@ function EditProject(props) {  ///set input variables as required, add other att
             project.set("twitch", twitch === "" ? undefined : twitch);
             project.set("medium", medium === "" ? undefined : medium);
             await project.save();
-            setAlertContents("Updates Sumbitted!");
+            setAlertContents("Updates Submitted!");
             setAlertVisible(true);
         } catch (error) {
             alert(error)
@@ -254,11 +254,11 @@ function EditProject(props) {  ///set input variables as required, add other att
                         <div id="createProject-launchStatus">
                             <p>Are you looking to hire freelancers or collaborate with other projects?</p>
                             <div id="createProject-launchStatus-option">
-                                <input type="radio" id="indevelopment" name="flexRadioDefault" onClick={() => setIsHiring(true)}/>
+                                <input type="radio" id="indevelopment" name="flexRadioDefault1" onClick={() => setIsHiring(true)}/>
                                 <p>Yes</p>
                             </div>
                             <div id="createProject-launchStatus-option">
-                                <input type="radio" id="indevelopment" name="flexRadioDefault" onClick={() => setIsHiring(false)}/>
+                                <input type="radio" id="indevelopment" name="flexRadioDefault1" onClick={() => setIsHiring(false)}/>
                                 <p>No</p>
                             </div>              
                         </div>

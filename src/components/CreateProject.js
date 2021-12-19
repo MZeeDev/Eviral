@@ -180,11 +180,11 @@ function CreateNewProject(props) {  ///set input variables as required, add othe
                             <div id="createProject-launchStatus">
                             <p>Are you looking to hire freelancers or collaborate with other projects?</p>
                             <div id="createProject-launchStatus-option">
-                                <input type="radio" id="indevelopment" name="flexRadioDefault" onClick={() => setIsHiring(true)}/>
+                                <input type="radio" id="indevelopment" name="flexRadioDefault1" onClick={() => setIsHiring(true)}/>
                                 <p>Yes</p>
                             </div>
                             <div id="createProject-launchStatus-option">
-                                <input type="radio" id="indevelopment" name="flexRadioDefault" onClick={() => setIsHiring(false)}/>
+                                <input type="radio" id="indevelopment" name="flexRadioDefault1" onClick={() => setIsHiring(false)}/>
                                 <p>No</p>
                             </div>              
                         </div>    

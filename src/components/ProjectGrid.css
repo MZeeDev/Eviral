@@ -414,7 +414,7 @@
   max-width: 1300px;
 }
 #projects-class{
-  height: 120px;
+  height: 90px;
   width: 400px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
   display: flex;
@@ -425,6 +425,10 @@
   padding: 25px;
   background: linear-gradient(152.95deg, #5DED9C 32.2%, #0EBD91 93.13%);
   color: white;
+}
+#projects-class>h3{
+  font-size: 28px;
+  margin-bottom: 0;  
 }
 #projects-class:hover{
   cursor: pointer;
@@ -491,7 +495,7 @@
     min-width: 375px;
   }
   #projects-class{
-    height: 100px;
+    height: 70px;
     width: 350px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
     display: flex;
@@ -503,5 +507,9 @@
     background: linear-gradient(152.95deg, #5DED9C 32.2%, #0EBD91 93.13%);
     color: white;
     margin-bottom: 10px;
+  }
+  #projects-class>h3{
+    font-size: 24px;
+    margin-bottom: 0;  
   }
 }

@@ -137,10 +137,11 @@ const onSubmitPhoto = async (e) => {
     console.log(params);
     try{
     await Moralis.Cloud.run("sendVerifyEmail", params);
-    console.log("emailSent")
     } catch (error) {
       alert(error);
     }
+    setAlertContents("Sent verification request.");
+    setAlertVisible(true);
   }
   
   const sendReport = async() => {
@@ -152,6 +153,8 @@ const onSubmitPhoto = async (e) => {
     } catch (error) {
       alert(error);
     }
+    setAlertContents("Report sent.");
+    setAlertVisible(true);
   }
 
   const userCheck = async() => {

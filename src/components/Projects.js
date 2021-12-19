@@ -207,7 +207,7 @@ function ProjectsList({match}) {
               <h3>Pro-Verified</h3>
             </div>
             <div id="projects-class" onClick={()=>LoadProjectsHiring()}>
-              <h3>Hiring FreeLancers /<br/>Open to Collaborate</h3>
+              <h3>Hiring or Collaborate</h3>
             </div>
             <div id="projects-class" onClick={()=>LoadProjects()}>
             <h3>All Projects</h3>
