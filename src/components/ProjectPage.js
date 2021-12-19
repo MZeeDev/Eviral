@@ -339,7 +339,7 @@ window.addEventListener('resize', resize);
                       </Link>
                   }
                   { props.medium &&
-                      <Link className='profile-social-icon twitch' to={{ pathname: (`https://twitch.tv/${(props.medium)}`) }} target="_blank" aria-label='Twitch'>
+                      <Link className='profile-social-icon twitch' to={{ pathname: (`https://${(props.medium)}`) }} target="_blank" aria-label='Twitch'>
                           <img id="socialShareIcon" src={shareMedium}/>
                       </Link>
                   }
