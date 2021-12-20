@@ -40,8 +40,8 @@ function ProjectsList({match}) {
   const [ noneFound, setNoneFound] = useState(false);
   const [ searchFor, setSearchFor] = useState("All");
   const [pageNumber, setPageNumber] = useState(0);
-  const [skillTagDropDown, setSkillTagDropDown] = useState(false);
-  const [blockchainDropDown, setBlockChainDropDown] = useState(false);
+  const [skillTagDropDown, setSkillTagDropDown] = useState(true);
+  const [blockchainDropDown, setBlockChainDropDown] = useState(true);
   const [typeSearch, setTypeSearch] = useState();
   const [searchPageNumber, setSearchPageNumber] = useState(0);
   const [currentChain, setCurrentChain] = useState();

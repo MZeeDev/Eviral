@@ -20,7 +20,7 @@ function LoadUsers() {
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [ searchResults, setSearchResults] = useState();
   const [ noneFound, setNoneFound] = useState(false);
-  const [skillTagDropDown, setSkillTagDropDown] = useState(false);
+  const [skillTagDropDown, setSkillTagDropDown] = useState(true);
   const [searchPageNumber, setSearchPageNumber] = useState(0);
   const [currentTag, setCurrentTag] = useState();
   const [pageNumber, setPageNumber] = useState(0);

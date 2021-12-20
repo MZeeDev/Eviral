@@ -76,7 +76,7 @@ function ProjectDisplay(props) {
   const [ photoNumber, setPhotoNum] = useState();
   const [chains, setChains] = useState(props.blockchains);
   const [features, setFeatures] = useState(props.featureTags);
-
+  
   const [ twitterActive, setTwitterActive] = useState(true);
   const [ youtubeActive, setYoutubeActive] = useState(true);
   const [ telegramActive, setTelegramActive] = useState(true);
@@ -84,7 +84,11 @@ function ProjectDisplay(props) {
   const [ linkedInActive, setLinkedInActive] = useState(true);
   const [ twitchActive, setTwitchActive] = useState(true);
 
-
+  
+  const [reviews, setReviews] = useState([]);
+  const [teamMembers, setTeamMembers] = useState([]);
+  const [seeReviews, setSeeReviews] = useState(false);
+  const [mobile, setMobile] = useState(false);
 
   const mainPhoto = props.photo1;
 
@@ -197,9 +201,6 @@ const onSubmitPhoto = async (e) => {
     setActivePhoto(file);
   }
 
-  const [reviews, setReviews] = useState([]);
-  const [seeReviews, setSeeReviews] = useState(false);
-  const [mobile, setMobile] = useState(false);
   
   const loadReviews = async() => {
       const params = { projectTitle: props.title};
@@ -207,11 +208,17 @@ const onSubmitPhoto = async (e) => {
       setReviews(reviewList);     
       setSeeReviews(!seeReviews)
   }
+  const loadTeam = async() => {
+      const params = { projectTitle: props.title};
+      const team = await Moralis.Cloud.run("loadTeamMembers", params);
+      setTeamMembers(team);   
+  }
 
   useEffect(() => {
     if(isInitialized){
     checkOwnership(); 
     loadReviews();
+    loadTeam();
     }
   }, [isInitialized])
 
@@ -425,7 +432,19 @@ window.addEventListener('resize', resize);
                     <button id="sendMessage-button" onClick={() => sendReport()}>Report</button>
                   </div>    
                 }                
-            </div>                            
+            </div> 
+            {/* <div id="projectPage-creator">
+                {teamMembers.map(member => (
+                  <div key={member.username}>
+                     <Link to={`/profiles/${props.creator}`}>
+                      <img id="projectPage-creator-profilePic" src={member.profilePic}/>
+                    </Link>
+                  </div>
+                ))}
+                {owner &&
+                  <button id="myProject-button" > Edit Team Members</button>        
+                }
+            </div>                            */}
             {!owner &&
               <RatingProject 
               projectName={props.title}
