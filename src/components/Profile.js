@@ -76,7 +76,7 @@ function Profile(props) {
 
     const renderBalance = async () => {
         const eViralBalance = await Moralis.Web3.getERC20({tokenAddress: '0x410b428bdb85cbf32ddea8c329ed5f73b560a51b'});
-        const eBalance = eViralBalance.balance/(10**9);
+        const eBalance = eViralBalance.balance/(10**18);
         const balance = (eBalance.toFixed(0));
         setBalanceETH(balance);
     }
