@@ -278,6 +278,64 @@ color: #151515;
     box-shadow: 0px 5px 10px rgba(2, 2, 2, 0.15);
 }
 
+#projectPage-team{
+    width: 660px;
+    height: min-content;
+    padding-bottom: 10px;
+    background: #F4F4F5;
+    border-radius: 20px;    
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 15px 0;
+    box-shadow: 0px 5px 10px rgba(2, 2, 2, 0.15);
+    overflow: hidden;
+}
+
+#teamPanel{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+#teamMember{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    margin-bottom: 10px;
+    width: 145px;
+    height: 145px;
+    overflow: hidden;
+}
+
+#teamMember>p{  
+    margin-bottom: 5px;
+    font-family: ProximaNova-bold;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 14px;    
+    color: #151515;
+    width: 125px;
+    height: 25px;
+    word-wrap: break-word;
+    text-align:center;
+}
+
+#projectPage-team-profilePic{
+    height: 100px;
+    width: 100px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    object-fit: cover;
+    margin: 12px 12px 5px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #projectPage-creator-profilePic{
     height: 120px;
     width: 120px;

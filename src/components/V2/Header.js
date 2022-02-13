@@ -38,7 +38,9 @@ function Navbar() {
         console.log(1);
         if(!isAuthenticated){
             try{
-                await authenticate();
+                await authenticate({
+                    signingMessage:"Welcome to Viral Crypto. Please Authenticate your address."
+                });
             } catch (error) {
                 alert(error);
             }
@@ -80,14 +82,14 @@ function Navbar() {
     }
     
     const renderBalance = async () => {
-        const eViralBalance = await Moralis.Web3.getERC20({tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
-        const beViralBalance = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
-        const eBalance = eViralBalance.balance/(10**9);
-        const bBalance = beViralBalance.balance/(10**9);
+        const eViralBalance = await Moralis.Web3.getERC20({tokenAddress: '0x410b428bdb85cbf32ddea8c329ed5f73b560a51b'});
+        // const beViralBalance = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
+        const eBalance = eViralBalance.balance/(10**18);
+        // const bBalance = beViralBalance.balance/(10**9);
         const balance = (eBalance.toFixed(0));
-        const bvBalance = (bBalance.toFixed(0));
+        // const bvBalance = (bBalance.toFixed(0));
         setBalance(balance);
-        setBalanceBSC(bvBalance);
+        // setBalanceBSC(bvBalance);
     }
 
     const showButton = () => {
@@ -119,6 +121,11 @@ function Navbar() {
                                           
                     <ul className="navbar-links-container">
                         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+                            <li className='nav-item'>
+                                <Link className='nav-links' to={{ pathname: (`https://vcmint.netlify.app/`) }} target="_blank">
+                                    Mint    
+                                </Link>
+                            </li>
                             <li className='nav-item'>
                                 <Link to='/projects' className='nav-links' onClick={closeMobileMenu}>
                                     Projects
@@ -173,14 +180,17 @@ function Navbar() {
                                                 <img className="eViralLogo-Dropdown" src={Logo} alt="" ></img>
                                                 {balance}
                                             </div>
-                                            <div className="showBalanceBSC">
+                                            {/* <div className="showBalanceBSC">
                                                 <img className="eViralLogo-Dropdown" src={LogoBSC} alt="" ></img>
                                                 {balanceBSC}
-                                            </div>
+                                            </div> */}
                                         </div>                                     
                                     </li>                                
                                     <Link to="/myprofile" onClick={() => {setDropdown(!dropdown)}} className="dropdown-item" >
                                         <h4 id="dropDown-text" >My&nbsp;Profile</h4>
+                                    </Link>
+                                    <Link to={{ pathname: (`https://vcmint.netlify.app/`) }} target="_blank" onClick={() => {setDropdown(!dropdown)}} className="dropdown-item" >
+                                        <h4 id="dropDown-text" >Mint</h4>
                                     </Link>
                                     <Link to='/projects' onClick={() => {setDropdown(!dropdown)}} className="dropdown-item">
                                         <h4 id="dropDown-text" >Projects</h4>

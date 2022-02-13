@@ -163,11 +163,11 @@ const onSubmitPhoto = async (e) => {
 
   const userCheck = async() => {
     console.log(user);
-    const eViral = await Moralis.Web3.getERC20({tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
-    const beViral = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
+    const eViral = await Moralis.Web3.getERC20({tokenAddress: '0x410b428bdb85cbf32ddea8c329ed5f73b560a51b'});
+    // const beViral = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
     const balanceETH = eViral.balance;
-    const balanceBSC = beViral.balance;
-    if( (balanceETH == 0) && (balanceBSC == 0) ) {
+    // const balanceBSC = beViral.balance;
+    if( (balanceETH == 0)) {
       setAlertContents(
           <>
           <div className="alert-popup-contents">
@@ -433,18 +433,28 @@ window.addEventListener('resize', resize);
                   </div>    
                 }                
             </div> 
-            {/* <div id="projectPage-creator">
-                {teamMembers.map(member => (
-                  <div key={member.username}>
-                     <Link to={`/profiles/${props.creator}`}>
-                      <img id="projectPage-creator-profilePic" src={member.profilePic}/>
-                    </Link>
+            { teamMembers.length >= 1 &&
+              <div id="projectPage-team">
+                <div id="teamPanel">
+                    {teamMembers.map(member => (
+                      <div key={member.username} id="teamMember">
+                        <Link to={`/profiles/${props.creator}`}>
+                          <img id="projectPage-team-profilePic" src={member.profilePic}/>
+                        </Link>
+                          <p>{member.username}</p>
+                      </div>
+                    ))}
                   </div>
-                ))}
-                {owner &&
-                  <button id="myProject-button" > Edit Team Members</button>        
-                }
-            </div>                            */}
+                  {owner &&
+                    <button id="myProject-button" > Edit Team Members</button>        
+                  }                  
+              </div> 
+            }   
+            { (teamMembers.length == 0 && owner) &&
+              <div id="projectPage-team">      
+                  <button id="myProject-button"> Add Team Members</button>  
+              </div> 
+            }                       
             {!owner &&
               <RatingProject 
               projectName={props.title}

@@ -77,7 +77,7 @@ function Homepage() {
         console.log(project1);
     }  
     const project2Loaded = async() => {
-        const params = { title: "Fluffy Inu"};
+        const params = { title: "Shiba Samurai"};
         const projectLoaded = await Moralis.Cloud.run("loadProjectByName", params);
         setProject2(projectLoaded[0]);
     }  

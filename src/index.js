@@ -3,15 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { MoralisProvider } from "react-moralis";
 import './index.css';
-// import './fonts/ProximaNova/ProximaNova-Regular.tff';
-// import './fonts/ProximaNova/ProximaNova-Bold.tff';
 
-
-const appId='TTxOqOgA9vSsj2z84WeDRi4i1iDgbo9kruLWqfxd';
-const serverUrl='https://siixq6taugjh.moralis.io:2053/server';
+const APP_ID = process.env.REACT_APP_MORALIS_APPLICATION_ID;
+const SERVER_URL = process.env.REACT_APP_MORALIS_SERVER_URL;
 
 ReactDOM.render(
-  <MoralisProvider appId={appId} serverUrl={serverUrl}>    
+  <MoralisProvider appId={APP_ID} serverUrl={SERVER_URL}>    
     <App />
   </MoralisProvider>,
   document.getElementById('root')

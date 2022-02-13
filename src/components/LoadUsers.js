@@ -149,7 +149,7 @@ function LoadUsers() {
                 <button className="searchbar-button" onClick={SearchProfiles}>Search<img id="searchbarglass" src={SearchGlass}/></button>
             </div>
           </div>
-          <div id="narrowByTagsConatiner">
+          <div id="narrowByTagsContainer">
             <div id="narrowByTagHeader">
               <h5 id="narrowByTagHeaderLabel">Narrow by Skills</h5>
               <button id="narrowByTagDropDownButton" onClick={()=> setSkillTagDropDown(!skillTagDropDown)}><img src={skillTagDropDown ? ArrowUp : ArrowDown}/></button>

@@ -46,6 +46,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
     position: relative;
     padding: 40px;
     width: 1400px;
@@ -56,6 +57,15 @@
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.12);
     bottom: 15px;
     
+}
+
+#myProfilePage-rewardsInfo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#myProfilePage-rewardsInfo>h5{
+    margin: 0 10px;
 }
 
 #profilePage-profilePic{
@@ -262,7 +272,7 @@
     align-items: center;
     justify-content: space-evenly;
     flex-direction: row;
-    width: 100%;
+    width: fit-content;
     font-size: 1rem;
     height: 3.3rem;
     margin: 0.2rem 0;
@@ -396,21 +406,38 @@
         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.12);
         height: min-content;
     }
+    #myProfilePage-rewardsInfo{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #myProfilePage-rewardsInfo>h5{
+        margin: 5px 0;
+        font-weight: 600;
+    }
+    #myProfilePage-rewardsInfo>h5>span{
+        margin-left: 5px;
+        font-size: 18px;
+        font-weight: 400;
+
+    }
     
     #myProfilePage-subProfileMenu{
         display: flex;
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
         position: relative;
-        padding: 40px;
+        padding: 12px;
+        height: fit-content;
         width: 365px;
-        height: 75px;
         background: #F4F4F5;
         border-radius: 20px;
         margin: 0px 0px 0 0px;
         box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.12);
-        bottom: 15px;
-        
+        bottom: 15px;        
+    }
+
+    #myProfilePage-subProfileMenu>button{
+        margin-left: 0;
     }
     
     #profilePage-profilePic{
@@ -566,23 +593,25 @@
     #profile-balances-wrapper {
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         flex-direction: row;
         width: 325px;
         font-size: 1rem;
-        height: 25px;
-        margin: 0.2rem 0;
+        height: 30px;
+        margin: 10px 0;
     }
     
     #tokenBalanceSymbol{
-        height: 25px;
+        height: 35px;
+        width: 37px;
         margin-right: 5px;
+        object-fit: contain;
     }
     
     #showProfileBalance>p, #showProfileBalanceBSC>p {
         margin-bottom: 0;
         font-family: ProximaNova;
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 700;
     }
     #showProfileBalance, #showProfileBalanceBSC {

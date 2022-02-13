@@ -12,6 +12,7 @@ import Alert from '../Alert';
 import ProjectCard from '../../components/V2/ProjectCard';
 import ProfileCard from '../../components/V2/ProfileCard';
 import ProjectGridBox from '../ProjectGridBox';
+import NFTABI from '../NFTABI';
 
 import '../../components/ProfilePage.css';
 import ReactHtmlParser from 'react-html-parser';
@@ -45,7 +46,9 @@ function MyProfile() {
     const [editProfileMenu, setOpenEditProfileMenu] = useState(false);    
     const [ savedProjects, setSavedProjects ] = useState([""]);    
     const [ usersSaved, setUsersSaved ] = useState([""]);
-    let initLoad = 0;
+
+    const [alertVisible, setAlertVisible] = useState(false);
+    const [alertContents, setAlertContents] = useState();
 
     const LoadSavedProjects = async() => {
         const savedProjectsList = await Moralis.Cloud.run("renderSavedProjects");
@@ -67,6 +70,43 @@ function MyProfile() {
       console.log(pageNumber);
       console.log(results);
     };
+
+    const createProject = async() => {
+        const _nftBalance = await Moralis.Web3API.native.runContractFunction({
+            address: "0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
+            function_name: "balanceOf",
+            abi: NFTABI,
+            params: {
+                account: user.attributes.ethAddress,
+                id: "0",
+            },
+        });     
+        const eViralBalance = await Moralis.Web3.getERC20({tokenAddress: '0x410b428bdb85cbf32ddea8c329ed5f73b560a51b'});
+        const eBalance = eViralBalance.balance/(10**9);
+        const balance = (eBalance.toFixed(0));
+        if( (balance == 0) && (_nftBalance == 0)) {
+          setAlertContents(
+              <>
+              <div className="alert-popup-contents">
+              You'll need to own either VC tokens or The Sentinel NFT to access this feature.
+              <Link to='/'><button className="btn2">Buy from Home Page</button></Link>
+              </div>
+              </>
+              );
+          setAlertVisible(true);
+        }  else if (!user.attributes?.profileCreated) {
+          setAlertContents(
+              <>
+          <div className="alert-popup-contents">
+          You'll need to set up a Profile to access this feature.                
+          </div>
+          </>
+          ) 
+          setAlertVisible(true);
+        } else {
+            setOpenCreateProjectMenu(true);
+        }
+    }
   
     const PagPrev = () => {
       if(pageNumber == 0) {
@@ -106,7 +146,7 @@ function MyProfile() {
                 My Projects      
             </div>
             <div className="project-grid-wrapper">
-                <div id="createAProject" onClick={() => setOpenCreateProjectMenu(true)}>
+                <div id="createAProject" onClick={() => createProject()}>
                     <img id="addProjectIcon" src={Add}/>
                     <h4 id="addProjectText">Add Project</h4>
                 </div>
@@ -186,6 +226,12 @@ function MyProfile() {
                     />
                 }
             </div>
+            {alertVisible &&
+            <Alert 
+                visible={setAlertVisible}
+                content={alertContents}            
+            />
+            }
         </div>        
     )
 }

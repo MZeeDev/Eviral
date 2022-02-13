@@ -42,7 +42,7 @@
     min-width: 375px;
   }
   .tokenPrices-wrapper{
-    width: 375px;
+    width: 100%;
   }
   .token-price{
     font-size: 14px;

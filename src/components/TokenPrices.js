@@ -18,17 +18,17 @@ function TokenPrices() {
 
     const getPrices = async() => {
 
-        const options1 = {
-            address: "0x7cec018ceef82339ee583fd95446334f2685d24f",
-            chain: "bsc",
-            exchange: "pancakeswap-v2"
-        };
-        const bscPrice = await Moralis.Web3API.token.getTokenPrice(options1);
-        const beViral = bscPrice.usdPrice.toFixed(10);
-        console.log(`beViral: ${beViral}`)
-        setBEViralPrice(beViral);
+        // const options1 = {
+        //     address: "0x7cec018ceef82339ee583fd95446334f2685d24f",
+        //     chain: "bsc",
+        //     exchange: "pancakeswap-v2"
+        // };
+        // const bscPrice = await Moralis.Web3API.token.getTokenPrice(options1);
+        // const beViral = bscPrice.usdPrice.toFixed(10);
+        // console.log(`beViral: ${beViral}`)
+        // setBEViralPrice(beViral);
         const options2 = {
-            address: "0x7cec018ceef82339ee583fd95446334f2685d24f",
+            address: "0x410b428bdb85cbf32ddea8c329ed5f73b560a51b",
             chain: "eth",
             exchange: "uniswap-v2"
         };
@@ -53,9 +53,9 @@ function TokenPrices() {
                     <div className="token-price">
                         <img id="viralToken" src={Logo}/>${eViralPrice}
                     </div>
-                    <div className="token-price">
+                    {/* <div className="token-price">
                         <img id="viralToken" src={LogoBSC}/>${beViralPrice}
-                    </div>
+                    </div> */}
                 </div>
             </div>     
         

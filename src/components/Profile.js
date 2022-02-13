@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import './User.css';
-import { useMoralis, useMoralisFile } from "react-moralis";
+import { useMoralis, useMoralisFile, useMoralisWeb3Api, useWeb3ExecuteFunction, useApiContract  } from "react-moralis";
 import Logo from '../img/vceth.png';
 import LogoBSC from '../img/vcbsc.png';
 import defaultProfile from "../img/defaultProfile.png";
@@ -24,19 +24,24 @@ import websiteIcon from '../img/projectpage/websiteicon.svg';
 import location from '../img/location.svg';
 import addImage from '../img/addImage.svg';
 import Exit from '../img/exit.svg';
+import ABI from "./TokenRewards-ABI";
+import NFTABI from "./NFTABI";
+const Moralis = require("moralis");
 
 
 
 function Profile(props) {
-
+ 
     const { user, Moralis, isInitialized, refetchUserData } = useMoralis();   
     const { error, isUploading, moralisFile, saveFile } = useMoralisFile();
+    const { data, fetch, isFetching, isLoading } = useWeb3ExecuteFunction();
+
+
 
     const [profilePic, setProfilePic] = useState("");
     const [landscape, setLandscape] = useState("");
     
     const [balanceETH, setBalanceETH] = useState(0);
-    const [balanceBSC, setBalanceBSC] = useState(0);
     
     const [changeProfilePicMenu, setOpenChangeProfilePicMenu] = useState(false);
     const [photoFile, setPhotoFile] = useState();    
@@ -45,7 +50,12 @@ function Profile(props) {
 
     const [alertVisible, setAlertVisible] = useState(false);
     const [alertContents, setAlertContents] = useState();
-    
+    const [rewardData, setRewardData] = useState([,,]);
+    const [functionABI, setFunctionABI] = useState();
+
+    // const {native: { runContractFunction },} = useMoralisWeb3Api();
+
+
     const onChangePhoto = e => {
         setPhotoFile(e.target.files[0]);
         setPhotoFileName(e.target.files[0].name);
@@ -65,22 +75,28 @@ function Profile(props) {
     };
 
     const renderBalance = async () => {
-        const eViralBalance = await Moralis.Web3.getERC20({tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
-        const beViralBalance = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
+        const eViralBalance = await Moralis.Web3.getERC20({tokenAddress: '0x410b428bdb85cbf32ddea8c329ed5f73b560a51b'});
         const eBalance = eViralBalance.balance/(10**9);
-        const bBalance = beViralBalance.balance/(10**9);
         const balance = (eBalance.toFixed(0));
-        const bvBalance = (bBalance.toFixed(0));
         setBalanceETH(balance);
-        setBalanceBSC(bvBalance);
     }
 
     const editProfileCheck = async() => {
-        if( (balanceETH == 0) && (balanceBSC == 0) ) {
+        const _nftBalance = await Moralis.Web3API.native.runContractFunction({
+            address: "0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
+            function_name: "balanceOf",
+            abi: NFTABI,
+            params: {
+                account: user.attributes.ethAddress,
+                id: "0",
+            },
+        });     
+        console.log("NFTBALANCE", _nftBalance)
+        if( (balanceETH == 0) && (_nftBalance == 0)) {
             setAlertContents( 
                 <>
                 <div className="alert-popup-contents">
-                You'll need to own either eViral or beViral to access this feature.
+                You'll need to own either VC tokens or The Sentinel NFT to access this feature.
                 <Link to='/'><button className="btn2">Buy from Home Page</button></Link>
                 </div>
                 </>);
@@ -94,52 +110,28 @@ function Profile(props) {
   const verificationEmail = async() => {
     const name = user?.attributes?.username
     const params = { profileName: name};
-    console.log(params);
     try{
     await Moralis.Cloud.run("sendProfileVerifyEmail", params);
-    console.log("emailSent")
     } catch (error) {
       alert(error);
     }
   }
 
-    const createProjectCheck = () => {
-        if( (balanceETH == 0) && (balanceBSC == 0) ) {
-            setAlertContents(
-                <>
-                <div className="alert-popup-contents">
-                You'll need to own either eViral or beViral to access this feature.
-                <Link to='/'><button className="btn2">Buy from Home Page</button></Link>
-                </div>
-                </>
-                );
-            setAlertVisible(true);
-        }  else 
-        if (!user.attributes?.profileCreated) {
-                setAlertContents(
-                    <>
-                <div className="alert-popup-contents">
-                You'll need to set up a Profile to access this feature.                
-                </div>
-                </>
-                ) 
-                setAlertVisible(true);
-        } else {
-            props.openCreateProjectMenu(true);
-        }
-    }
-
     const userCheck = async() => {
-        console.log(user);
-        const eViral = await Moralis.Web3.getERC20({tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
-        const beViral = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
-        const balanceETH = eViral.balance;
-        const balanceBSC = beViral.balance;
-        if( (balanceETH == 0) && (balanceBSC == 0) ) {
+        const _nftBalance = await Moralis.Web3API.native.runContractFunction({
+            address: "0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
+            function_name: "balanceOf",
+            abi: NFTABI,
+            params: {
+                account: user.attributes.ethAddress,
+                id: "0",
+            },
+        });     
+        if( (balanceETH == 0) && (_nftBalance == 0)) {
           setAlertContents(
               <>
               <div className="alert-popup-contents">
-              You'll need to own either eViral or beViral to access this feature.
+              You'll need to own either VC tokens or The Sentinel NFT to access this feature.
               <Link to='/'><button className="btn2">Buy from Home Page</button></Link>
               </div>
               </>
@@ -157,7 +149,37 @@ function Profile(props) {
         } else {
             setOpenChangeProfilePicMenu(true);
         }
-      }
+    }
+
+    const claimRewardsData = {
+        contractAddress: "0x410B428BDB85cBF32ddea8c329eD5f73B560A51b",
+        functionName: "claim",
+        abi: ABI
+    } 
+
+    const LoadRewardsForUser = async() => { 
+        const _rewardData = await Moralis.Web3API.native.runContractFunction({
+        address: "0x410B428BDB85cBF32ddea8c329eD5f73B560A51b",
+        function_name: "getAccountDividendsInfo",
+        abi: ABI,
+        params: {
+            _account: user.attributes.ethAddress,
+        },});      
+        const totalDividends =  (Moralis.Units.FromWei(_rewardData.totalDividends, 18));
+        const withdrawableDividends =  parseInt(_rewardData.withdrawableDividends);
+        const secondsUntilAutoClaimAvailable =  parseInt(_rewardData.secondsUntilAutoClaimAvailable);
+        setRewardData([totalDividends, withdrawableDividends, secondsUntilAutoClaimAvailable]);    
+    } 
+
+    const claim = async() => {
+        await Moralis.enableWeb3();
+        await fetch({params: claimRewardsData});
+        
+    }
+
+    useEffect (()=>{
+        LoadRewardsForUser();
+    }, [isInitialized]);
 
     useEffect(() => {
         if(isInitialized){
@@ -175,9 +197,7 @@ function Profile(props) {
             setPreviewPic(profilePic);
           renderBalance();
           refetchUserData();
-          const skillSetData = user.attributes?.skillSet;
-          console.log("skillSetData");
-          console.log(skillSetData);
+          
         }
     }
       }, [isInitialized]);
@@ -276,51 +296,16 @@ function Profile(props) {
                             <img id="tokenBalanceSymbol" src={Logo} alt="" ></img>
                             <p>{balanceETH}</p>
                         </div>
-                        <div id="showProfileBalanceBSC">
-                            <img id="tokenBalanceSymbol" src={LogoBSC} alt="" ></img>
-                            <p>{balanceBSC}</p>
-                        </div>
-                    </div>      
+                    </div>  
+                    <div id="myProfilePage-rewardsInfo">
+                        <h5>Total&nbsp;Rewards:{" "}<span>{rewardData[0]}</span></h5>
+                        <h5>Claimable:{" "}<span>{rewardData[1]}</span></h5>
+                        <h5>Time&nbsp;Left&nbsp;to&nbsp;Claim:{" "}<span>{rewardData[2]}{" "}sec</span></h5>
+                    </div>
+                    <button id="subProfile-button" onClick={()=> claim()}>Claim</button>  
                 </div>
             </div>
         
-            {/* <div className="profile-container-wrapper">
-                <div className="profile-wrapper"> 
-                    <div className="profile-header">
-                        <div className="profile-pic-container"onClick={() => userCheck()}>
-                            <img className="profile-pic" src={profilePic} alt="" id="profilePic" />
-                            <div className="middle-of-profilePic">                                
-                                    <i class="fas fa-camera-retro"></i>                                
-                            </div>
-                        </div>
-                
-                    </div>
-                 <div className="edit-profile-wrapper">
-                    <div className="profile-page-balances">
-                        <div className="profile-balances-wrapper">
-                            <div className="showProfileBalance">
-                                <p>{balanceETH}</p>
-                                <img className="logo-balance-display" src={Logo} alt="" ></img>
-                            </div>
-                            <div className="showProfileBalanceBSC">
-                                <p>{balanceBSC}</p>
-                                <img className="logo-balance-display" src={LogoBSC} alt="" ></img>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="profile-header-btns">
-                        <button className="create-project-button btn1" onClick={createProjectCheck}>
-                        <i class="fas fa-puzzle-piece"></i>
-                            <span>Create&nbsp;Project</span>
-                        </button>
-                        <button className="edit-profile-button btn2" onClick={editProfileCheck}>
-                        <i class="fas fa-pen"></i>
-                            <span>Edit&nbsp;Profile</span>
-                        </button>
-                    </div>                    
-                </div>
-                </div>
-            </div> */}
             {changeProfilePicMenu &&
             <div className="update-profile-background">
                 <div className="update-profilePic-container">
