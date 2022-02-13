@@ -8,6 +8,7 @@ function Profiles () {
     return (
         <>
             <LoadUsers />
+            
         </>
     );    
 }
