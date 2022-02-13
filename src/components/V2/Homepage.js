@@ -37,6 +37,7 @@ import Section10Background from "../../img/homepage/section10background.svg";
 import VCLabs1 from "../../img/homepage/section10vclabs1.svg";
 import VCLabs2 from "../../img/homepage/section10vclabs2.svg";
 import VCLabs3 from "../../img/homepage/section10vclabs3.svg";
+import Sentinel from "../../img/thesentinel.gif";
 
 import './Homepage.css';
 import ProjectCard from './ProjectCard';
@@ -115,6 +116,15 @@ function Homepage() {
     return (        
         <div className="homepage-container">   
             <div id="section1">
+                <div id="section1-homepage-mint">
+                    <img id="sentinel" src={Sentinel}/>
+                    <div id="section1-homepage-mint-text">
+                        <h2>The&nbsp;Sentinel</h2>
+                        <Link id="button-1" to={{ pathname: (`https://vcmint.netlify.app`) }} target="_blank">
+                            Mint                            
+                        </Link>
+                    </div>
+                </div>
                 <div id="section1-homepage-motto">
                     <div id="section1-homepage-motto-text">
                         <h1>Connecting Innovators and Freelancers in DeFI</h1>
@@ -127,6 +137,7 @@ function Homepage() {
                 </div>
                 <img id="homepagecoinstack" src={HomepageCoinStack}/>
             </div>
+
             <div id="section2">
                 <img id="section2background" src={Section2Background}/>
                 <h2>How it Works</h2>
