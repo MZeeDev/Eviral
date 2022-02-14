@@ -146,7 +146,7 @@ function Homepage() {
                         <div id="getviraltokens-text">
                         <img id="getviraltokens" src={GetViralTokens}/>
                             <h4>Get Viral Tokens</h4>
-                            <p>Viral Tokens exists across many blockchains, including Ethereum and BSC. Just by owning any of the tokens, you gain access to the platform.</p>
+                            <p>Viral Crypto tokens exist across many blockchains, including Ethereum and BSC. Just by owning any of the tokens, you gain access to the platform.</p>
                         </div>
                     </div>
                     <div id="section2-box2">
