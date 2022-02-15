@@ -356,7 +356,7 @@
         justify-content: flex-start;
         align-items: center;
         flex-direction: column;
-        width: 176px;
+        width: 315px;
         margin-bottom: 16px;
         position: relative;
         bottom: -12px;
@@ -365,6 +365,8 @@
         position: absolute;
         display: flex;
         bottom: 0;
+        width: 335px;
+        justify-content: center;
         left: 15px;
        flex-direction: row;
     }
@@ -406,7 +408,7 @@
         border: 3px solid  #0EBD91 ;
     }
     #tokenSwap-button2{        
-        width:  156px;
+        width:  275px;
         height: 42px;
         background: linear-gradient(152.95deg, #5DED9C 32.2%, #0EBD91 93.13%);
         border-radius: 8px;

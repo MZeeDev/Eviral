@@ -128,7 +128,7 @@ function Homepage() {
                 <div id="section1-homepage-motto">
                     <div id="section1-homepage-motto-text">
                         <h1>Connecting Innovators and Freelancers in DeFI</h1>
-                        <p>Own eViral or beViral and join the network of independent blockchain creators</p>
+                        <p>Join the network of independent blockchain creators and get started with VC tokens</p>
                     </div>
                     <div id="section1-homepage-motto-buttons">
                         <Link to='/profiles' id="button-1">Find&nbsp;Pros</Link>
@@ -301,7 +301,7 @@ function Homepage() {
                 </div>
                 <Link to='/profiles' id="showall-button2">Show&nbsp;all&nbsp;Profiles</Link>
             </div>
-            <div id="section9">
+            {/* <div id="section9">
                 <img id="section9background" src={Section9Background}/>
                 <h2>Front&minus;end&nbsp;Dev&nbsp;Hackathon</h2>
                 <div id="section9contents">
@@ -313,10 +313,10 @@ function Homepage() {
                         Oct 1st through Jan 1 2022, VC Labs is running its first HACKATHON and will select: 4 innovative, community driven features to add, and 1 innovative improvement on search capability.
                     </h3>
                 </div>                
-            </div>
+            </div> */}
             <div id="section10">
                 <img id="section10background" src={Section10Background}/>
-                <h2>VC&nbsp;Lab</h2>
+                <h2>VC&nbsp;Labs</h2>
                 <h3>Do you deserve to stand out? Should you be featured on the VC Homepage?</h3>
                 <div id="section10-boxes">
                     <div id="section10-box1">
@@ -328,13 +328,13 @@ function Homepage() {
                     <div id="section10-box2">
                         <div id="section10-box2-contents">
                             <img id="vclabs2" src={VCLabs2}/>
-                            <p>Oct 1st through Jan 1st 2022, VC Labs is running its first multi-discipline platform update challenge for artists, marketers, and developers.</p>
+                            <p>VC Labs is constantly on the look out for for artists, marketers, and developers with opporunities to collaborate and join the team.</p>
                         </div>
                     </div>
                     <div id="section10-box3">
                         <div id="section10-box3-contents">
                             <img id="vclabs3" src={VCLabs3}/>
-                            <p>Winners will be featured on the homepage in addition to search results and be given credit on the team page for the platform.</p>
+                            <p>Projects and profiles that accel are featured on the homepage in addition to search results and be given credit on the team page for the platform.</p>
                         </div>
                     </div>
                 </div>
