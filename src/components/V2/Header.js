@@ -35,40 +35,45 @@ function Navbar() {
     const closeMobileMenu = () => setClick(false);
 
     const authenticateUserMM = async () =>{ 
-        console.log(1);
-        if(!isAuthenticated){
-            try{
-                await authenticate({
-                    signingMessage:"Welcome to Viral Crypto. Please Authenticate your address."
-                });
-            } catch (error) {
-                alert(error);
-            }
-            finally {
-                if(isAuthenticated){
-                    renderBalance();               
-                    setProfilePic(user.attributes?.profilePic?._url);
-                    setUsername(user.attributes?.username);  
+        let user = Moralis.User.current();
+        if(!user){
+            if(!isAuthenticated){
+                try{
+                    await authenticate({
+                        signingMessage:"Welcome to Viral Crypto. Please Authenticate your address."
+                    });
+                } catch (error) {
+                    alert(error);
                 }
-            }                  
+                finally {
+                    if(isAuthenticated){
+                        renderBalance();               
+                        setProfilePic(user.attributes?.profilePic?._url);
+                        setUsername(user.attributes?.username);  
+                    }
+                }                  
+            }
         }
         setOpenConnectMenu(false);
     }
 
     const authenticateUserWC = async () =>{
-        if(!isAuthenticated){
-            try{
-                await authenticate({ provider: "walletconnect" });                
-            } catch (error) {
-                alert(error);
-            }
-            finally {
-                if(isAuthenticated){
-                    renderBalance();               
-                    setProfilePic(user.attributes?.profilePic?._url);
-                    setUsername(user.attributes?.username);  
+        let user = Moralis.User.current();
+        if(!user){
+            if(!isAuthenticated){
+                try{
+                    await authenticate({ provider: "walletconnect" });                
+                } catch (error) {
+                    alert(error);
                 }
-            }                  
+                finally {
+                    if(isAuthenticated){
+                        renderBalance();               
+                        setProfilePic(user.attributes?.profilePic?._url);
+                        setUsername(user.attributes?.username);  
+                    }
+                }                  
+            }
         }
         setOpenConnectMenu(false);
     }
