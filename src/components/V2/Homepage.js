@@ -8,7 +8,7 @@ import Footer from './Footer';
 
 import OnRamper from '../OnRamper';
 // import FortmaticWallet from './FortmaticWallet';
-import { Moralis } from 'moralis';
+//import { Moralis } from 'moralis';
 import { useMoralis } from 'react-moralis';
 
 import Logo from '../../img/newlogo2.png';
@@ -46,7 +46,7 @@ import SwapContainer from './SwapContainer';
 
 function Homepage() {
     
-    const { isInitialized, user } = useMoralis();
+    const { isInitialized, user, Moralis } = useMoralis();
     const [ chain, setChain] = useState();
     const [ nativeToken, setNativeToken] = useState();
     const [ amount, setAmount] = useState(0);

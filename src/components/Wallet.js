@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Moralis } from 'moralis';
+//import { Moralis } from 'moralis';
 import ETH from '../img/ethlogo.png';
 import BSC from '../img/bsclogo.png';
 import MATIC from '../img/maticlogo.png';
@@ -10,7 +10,7 @@ import NFTCard from './NFTCard';
 
 function Wallet() {
 
-    const { isInitialized } = useMoralis();
+    const { isInitialized, Moralis } = useMoralis();
 
 
     const [ currentChain, setCurrentChain] = useState("eth");

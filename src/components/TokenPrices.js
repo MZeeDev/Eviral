@@ -2,14 +2,14 @@ import React, {useState, useEffect} from 'react';
 import './TokenPrices.css';
 import eViralLogo from "../img/eViralLogo2.png";
 import beViralLogo from "../img/beviral.png";
-import { Moralis } from 'moralis';
+//import { Moralis } from 'moralis';
 import { useMoralis } from 'react-moralis';
 
 import Logo from '../img/vceth.png';
 import LogoBSC from '../img/vcbsc.png';
 
 function TokenPrices() {
-    const { isInitialized } = useMoralis();
+    const { isInitialized, Moralis } = useMoralis();
 
 
     const [eViralPrice, setEViralPrice] = useState(0);

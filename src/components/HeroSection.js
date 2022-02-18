@@ -9,7 +9,7 @@ import Cards from './Cards';
 import OnRamper from './OnRamper';
 import TokenPrices from './TokenPrices';
 import FortmaticWallet from './FortmaticWallet';
-import { Moralis } from 'moralis';
+//import { Moralis } from 'moralis';
 import { useMoralis } from 'react-moralis';
 
 import Logo from '../img/newlogo2.png';
@@ -22,7 +22,7 @@ import BSCScan from "../img/bscscan-logo.png";
 
 function HeroSection() {
     
-    const { isInitialized, user } = useMoralis();
+    const { isInitialized, user, Moralis } = useMoralis();
     const [ chain, setChain] = useState();
     const [ nativeToken, setNativeToken] = useState();
     const [ amount, setAmount] = useState(0);

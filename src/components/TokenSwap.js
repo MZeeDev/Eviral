@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Moralis } from 'moralis';
+//import { Moralis } from 'moralis';
 import ETH from '../img/ethlogo.png';
 import BSC from '../img/bsclogo.png';
 import MATIC from '../img/maticlogo.png';
@@ -15,7 +15,7 @@ import LogoMATIC from '../img/newlogoMATIC.png';
 
 function TokenSwap() {
 
-    const { user, isInitialized } = useMoralis();
+    const { user, isInitialized, Moralis } = useMoralis();
 
     const [ theme, setTheme] = useState("ETH");
     const [ currentChain, setCurrentChain] = useState("eth");    
