@@ -1,0 +1,4 @@
+/profiles    /index.html
+/chat    /index.html   
+/projects    /index.html   
+/myprofile    /index.html   
