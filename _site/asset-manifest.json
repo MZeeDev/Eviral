@@ -1,5 +1,6 @@
 {
   "files": {
+<<<<<<< HEAD
     "static/js/0.8c9922c2.chunk.js": "/static/js/0.8c9922c2.chunk.js",
     "static/js/0.8c9922c2.chunk.js.map": "/static/js/0.8c9922c2.chunk.js.map",
     "static/js/1.fcd68bf8.chunk.js": "/static/js/1.fcd68bf8.chunk.js",
@@ -44,6 +45,52 @@
     "static/js/4.1b4a6bc3.chunk.js.LICENSE.txt": "/static/js/4.1b4a6bc3.chunk.js.LICENSE.txt",
     "static/js/7.97d7843c.chunk.js.LICENSE.txt": "/static/js/7.97d7843c.chunk.js.LICENSE.txt",
     "static/js/8.a2f31caa.chunk.js.LICENSE.txt": "/static/js/8.a2f31caa.chunk.js.LICENSE.txt",
+=======
+    "static/js/0.d8661dc9.chunk.js": "/static/js/0.d8661dc9.chunk.js",
+    "static/js/0.d8661dc9.chunk.js.map": "/static/js/0.d8661dc9.chunk.js.map",
+    "static/js/1.44e6d907.chunk.js": "/static/js/1.44e6d907.chunk.js",
+    "static/js/1.44e6d907.chunk.js.map": "/static/js/1.44e6d907.chunk.js.map",
+    "static/js/2.a965724b.chunk.js": "/static/js/2.a965724b.chunk.js",
+    "static/js/2.a965724b.chunk.js.map": "/static/js/2.a965724b.chunk.js.map",
+    "static/js/3.b2396f34.chunk.js": "/static/js/3.b2396f34.chunk.js",
+    "static/js/3.b2396f34.chunk.js.map": "/static/js/3.b2396f34.chunk.js.map",
+    "main.css": "/static/css/main.84d0fad6.chunk.css",
+    "main.js": "/static/js/main.d388de91.chunk.js",
+    "main.js.map": "/static/js/main.d388de91.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.57398dc5.js",
+    "runtime-main.js.map": "/static/js/runtime-main.57398dc5.js.map",
+    "static/js/6.e897e0c2.chunk.js": "/static/js/6.e897e0c2.chunk.js",
+    "static/js/6.e897e0c2.chunk.js.map": "/static/js/6.e897e0c2.chunk.js.map",
+    "static/js/7.1257c264.chunk.js": "/static/js/7.1257c264.chunk.js",
+    "static/js/7.1257c264.chunk.js.map": "/static/js/7.1257c264.chunk.js.map",
+    "static/js/8.cc921836.chunk.js": "/static/js/8.cc921836.chunk.js",
+    "static/js/8.cc921836.chunk.js.map": "/static/js/8.cc921836.chunk.js.map",
+    "static/js/9.5bb86fbe.chunk.js": "/static/js/9.5bb86fbe.chunk.js",
+    "static/js/9.5bb86fbe.chunk.js.map": "/static/js/9.5bb86fbe.chunk.js.map",
+    "static/js/10.9ca52645.chunk.js": "/static/js/10.9ca52645.chunk.js",
+    "static/js/10.9ca52645.chunk.js.map": "/static/js/10.9ca52645.chunk.js.map",
+    "static/js/11.741894f8.chunk.js": "/static/js/11.741894f8.chunk.js",
+    "static/js/11.741894f8.chunk.js.map": "/static/js/11.741894f8.chunk.js.map",
+    "static/js/12.b81a6233.chunk.js": "/static/js/12.b81a6233.chunk.js",
+    "static/js/12.b81a6233.chunk.js.map": "/static/js/12.b81a6233.chunk.js.map",
+    "static/js/13.661f6b5c.chunk.js": "/static/js/13.661f6b5c.chunk.js",
+    "static/js/13.661f6b5c.chunk.js.map": "/static/js/13.661f6b5c.chunk.js.map",
+    "static/js/14.cae0ab28.chunk.js": "/static/js/14.cae0ab28.chunk.js",
+    "static/js/14.cae0ab28.chunk.js.map": "/static/js/14.cae0ab28.chunk.js.map",
+    "static/js/15.bcbbbc38.chunk.js": "/static/js/15.bcbbbc38.chunk.js",
+    "static/js/15.bcbbbc38.chunk.js.map": "/static/js/15.bcbbbc38.chunk.js.map",
+    "static/js/16.82ae2a63.chunk.js": "/static/js/16.82ae2a63.chunk.js",
+    "static/js/16.82ae2a63.chunk.js.map": "/static/js/16.82ae2a63.chunk.js.map",
+    "static/js/17.8ccc7a71.chunk.js": "/static/js/17.8ccc7a71.chunk.js",
+    "static/js/17.8ccc7a71.chunk.js.map": "/static/js/17.8ccc7a71.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.84d0fad6.chunk.css.map": "/static/css/main.84d0fad6.chunk.css.map",
+    "static/js/0.d8661dc9.chunk.js.LICENSE.txt": "/static/js/0.d8661dc9.chunk.js.LICENSE.txt",
+    "static/js/2.a965724b.chunk.js.LICENSE.txt": "/static/js/2.a965724b.chunk.js.LICENSE.txt",
+    "static/js/3.b2396f34.chunk.js.LICENSE.txt": "/static/js/3.b2396f34.chunk.js.LICENSE.txt",
+    "static/js/6.e897e0c2.chunk.js.LICENSE.txt": "/static/js/6.e897e0c2.chunk.js.LICENSE.txt",
+    "static/js/7.1257c264.chunk.js.LICENSE.txt": "/static/js/7.1257c264.chunk.js.LICENSE.txt",
+>>>>>>> parent of f6a2ffb (reinstall dependencies)
     "static/media/index.css": "/static/media/ProximaNova-Regular.b078618b.ttf",
     "static/media/add.e984d697.svg": "/static/media/add.e984d697.svg",
     "static/media/addImage.374e7db4.svg": "/static/media/addImage.374e7db4.svg",
@@ -128,9 +175,16 @@
     "static/media/youtube.2fba2bfa.svg": "/static/media/youtube.2fba2bfa.svg"
   },
   "entrypoints": [
+<<<<<<< HEAD
     "static/js/runtime-main.00fd866e.js",
     "static/js/7.97d7843c.chunk.js",
     "static/css/main.751b5900.chunk.css",
     "static/js/main.68526ff3.chunk.js"
+=======
+    "static/js/runtime-main.57398dc5.js",
+    "static/js/6.e897e0c2.chunk.js",
+    "static/css/main.84d0fad6.chunk.css",
+    "static/js/main.d388de91.chunk.js"
+>>>>>>> parent of f6a2ffb (reinstall dependencies)
   ]
 }

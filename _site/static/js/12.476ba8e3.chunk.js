@@ -1,2 +1,0 @@
-(this["webpackJsonpviral-crypto"]=this["webpackJsonpviral-crypto"]||[]).push([[12],{1356:function(n,c){},1422:function(n,c){},1433:function(n,c){},1450:function(n,c){},1459:function(n,c){},1461:function(n,c){}}]);
-//# sourceMappingURL=12.476ba8e3.chunk.js.map
