@@ -72,15 +72,15 @@ function MyProfile() {
     };
 
     const createProject = async() => {
-        // const _nftBalance = await Moralis.Web3API.native.runContractFunction({
-        //     address: "0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
-        //     function_name: "balanceOf",
-        //     abi: NFTABI,
-        //     params: {
-        //         account: user.attributes.ethAddress,
-        //         id: "0",
-        //     },
-        // });     
+        const _nftBalance = await Moralis.Web3API.native.runContractFunction({
+            address: "" , //"0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
+            function_name: "balanceOf",
+            abi: NFTABI,
+            params: {
+                account: user.attributes.ethAddress,
+                id: "0",
+            },
+        });     
         const eViralBalance = await Moralis.Web3.getERC20({tokenAddress: '0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A'});
         const eBalance = eViralBalance.balance/(10**18);
         const balance = (eBalance.toFixed(0));

@@ -82,28 +82,28 @@ function Profile(props) {
     }
 
     const editProfileCheck = async() => {
-        // const _nftBalance = await Moralis.Web3API.native.runContractFunction({
-        //     address: "0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
-        //     function_name: "balanceOf",
-        //     abi: NFTABI,
-        //     params: {
-        //         account: user.attributes.ethAddress,
-        //         id: "0",
-        //     },
-        // });     
-        // console.log("NFTBALANCE", _nftBalance)
-        // if( (balanceETH == 0) && (_nftBalance == 0)) {
-        //     setAlertContents( 
-        //         <>
-        //         <div className="alert-popup-contents">
-        //         You'll need to own either VC tokens or The Sentinel NFT to access this feature.
-        //         <Link to='/'><button className="btn2">Buy from Home Page</button></Link>
-        //         </div>
-        //         </>);
-        //     setAlertVisible(true);
-        // } else {
-        //     props.openEditProfileMenu(true);
-        // }
+        const _nftBalance = await Moralis.Web3API.native.runContractFunction({
+            address: "", //"0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
+            function_name: "balanceOf",
+            abi: NFTABI,
+            params: {
+                account: user.attributes.ethAddress,
+                id: "0",
+            },
+        });     
+        console.log("NFTBALANCE", _nftBalance)
+        if( (balanceETH == 0) && (_nftBalance == 0)) {
+            setAlertContents( 
+                <>
+                <div className="alert-popup-contents">
+                You'll need to own either VC tokens or The Sentinel NFT to access this feature.
+                <Link to='/'><button className="btn2">Buy from Home Page</button></Link>
+                </div>
+                </>);
+            setAlertVisible(true);
+        } else {
+            props.openEditProfileMenu(true);
+        }
     }
 
     
@@ -118,15 +118,15 @@ function Profile(props) {
   }
 
     const userCheck = async() => {
-        // const _nftBalance = await Moralis.Web3API.native.runContractFunction({
-        //     address: "0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
-        //     function_name: "balanceOf",
-        //     abi: NFTABI,
-        //     params: {
-        //         account: user.attributes.ethAddress,
-        //         id: "0",
-        //     },
-        // });     
+        const _nftBalance = await Moralis.Web3API.native.runContractFunction({
+            address: "" , //"0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
+            function_name: "balanceOf",
+            abi: NFTABI,
+            params: {
+                account: user.attributes.ethAddress,
+                id: "0",
+            },
+        });     
         if( balanceETH == 0 ) { //&& (_nftBalance == 0)) {
           setAlertContents(
               <>
