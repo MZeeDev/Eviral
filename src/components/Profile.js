@@ -83,7 +83,7 @@ function Profile(props) {
 
     const editProfileCheck = async() => {
         const _nftBalance = await Moralis.Web3API.native.runContractFunction({
-            address: "", //"0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
+            address: "0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
             function_name: "balanceOf",
             abi: NFTABI,
             params: {
@@ -119,7 +119,7 @@ function Profile(props) {
 
     const userCheck = async() => {
         const _nftBalance = await Moralis.Web3API.native.runContractFunction({
-            address: "" , //"0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
+            address: "0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
             function_name: "balanceOf",
             abi: NFTABI,
             params: {
