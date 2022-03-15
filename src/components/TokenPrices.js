@@ -19,7 +19,7 @@ function TokenPrices() {
     const getPrices = async() => {
 
         // const options1 = {
-        //     address: "0x7cec018ceef82339ee583fd95446334f2685d24f",
+        //     address: "0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A",
         //     chain: "bsc",
         //     exchange: "pancakeswap-v2"
         // };
@@ -28,7 +28,7 @@ function TokenPrices() {
         // console.log(`beViral: ${beViral}`)
         // setBEViralPrice(beViral);
         const options2 = {
-            address: "0x410b428bdb85cbf32ddea8c329ed5f73b560a51b",
+            address: "0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A",
             chain: "eth",
             exchange: "uniswap-v2"
         };

@@ -27,7 +27,7 @@ function TokenSwap() {
     const [tokens, setTokens] = useState([]);
 
     const NATIVE_ADDRESS = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
-    const VIRAL_ADDRESS = "0x7CeC018CEEF82339ee583Fd95446334f2685d24f";
+    const VIRAL_ADDRESS = "0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A";
 
     const changeChain = (chain, logo, theme) => {
         setNativeAmount(0);
@@ -66,13 +66,13 @@ function TokenSwap() {
         const chainBalance = await Moralis.Web3API.account.getNativeBalance(options);
         let viralBalance;
         try{
-            viralBalance = await Moralis.Web3.getERC20({chain:currentChain, tokenAddress: '0x7CeC018CEEF82339ee583Fd95446334f2685d24f'});
+            viralBalance = await Moralis.Web3.getERC20({chain:currentChain, tokenAddress: '0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A'});
             console.log(viralBalance);
         } catch (error) {
             viralBalance = 0;
         }
         const nativeBalance = (chainBalance.balance/(10**18)).toFixed(3);
-        const viralTokenBalance = (viralBalance.balance/(10**9)).toFixed(0);
+        const viralTokenBalance = (viralBalance.balance/(10**18)).toFixed(0);
         setNativeBalance(nativeBalance);
         setViralBalance(viralTokenBalance);
         } catch {
@@ -88,7 +88,7 @@ function TokenSwap() {
           toTokenAddress: VIRAL_ADDRESS, // The token you want to receive
           amount: number,
         });
-        setViralTokenAmount(((quote.toTokenAmount)/(10**9)).toFixed(0));
+        setViralTokenAmount(((quote.toTokenAmount)/(10**18)).toFixed(0));
     }
 
      const swap = async() => {
@@ -101,7 +101,7 @@ function TokenSwap() {
         const receipt = await Moralis.Plugins.oneInch.swap({
           chain: currentChain, // The blockchain you want to use (eth/bsc/polygon)
           fromTokenAddress: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", // The token you want to swap
-          toTokenAddress: "0x7cec018ceef82339ee583fd95446334f2685d24f", // The token you want to receive
+          toTokenAddress: "0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A", // The token you want to receive
           amount: number,
           fromAddress: userAddress, // Your wallet address
           protocols: "uniswapv2",

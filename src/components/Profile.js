@@ -75,35 +75,35 @@ function Profile(props) {
     };
 
     const renderBalance = async () => {
-        const eViralBalance = await Moralis.Web3.getERC20({tokenAddress: '0x410b428bdb85cbf32ddea8c329ed5f73b560a51b'});
+        const eViralBalance = await Moralis.Web3.getERC20({tokenAddress: '0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A'});
         const eBalance = eViralBalance.balance/(10**18);
         const balance = (eBalance.toFixed(0));
         setBalanceETH(balance);
     }
 
     const editProfileCheck = async() => {
-        const _nftBalance = await Moralis.Web3API.native.runContractFunction({
-            address: "0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
-            function_name: "balanceOf",
-            abi: NFTABI,
-            params: {
-                account: user.attributes.ethAddress,
-                id: "0",
-            },
-        });     
-        console.log("NFTBALANCE", _nftBalance)
-        if( (balanceETH == 0) && (_nftBalance == 0)) {
-            setAlertContents( 
-                <>
-                <div className="alert-popup-contents">
-                You'll need to own either VC tokens or The Sentinel NFT to access this feature.
-                <Link to='/'><button className="btn2">Buy from Home Page</button></Link>
-                </div>
-                </>);
-            setAlertVisible(true);
-        } else {
-            props.openEditProfileMenu(true);
-        }
+        // const _nftBalance = await Moralis.Web3API.native.runContractFunction({
+        //     address: "0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
+        //     function_name: "balanceOf",
+        //     abi: NFTABI,
+        //     params: {
+        //         account: user.attributes.ethAddress,
+        //         id: "0",
+        //     },
+        // });     
+        // console.log("NFTBALANCE", _nftBalance)
+        // if( (balanceETH == 0) && (_nftBalance == 0)) {
+        //     setAlertContents( 
+        //         <>
+        //         <div className="alert-popup-contents">
+        //         You'll need to own either VC tokens or The Sentinel NFT to access this feature.
+        //         <Link to='/'><button className="btn2">Buy from Home Page</button></Link>
+        //         </div>
+        //         </>);
+        //     setAlertVisible(true);
+        // } else {
+        //     props.openEditProfileMenu(true);
+        // }
     }
 
     
@@ -118,16 +118,16 @@ function Profile(props) {
   }
 
     const userCheck = async() => {
-        const _nftBalance = await Moralis.Web3API.native.runContractFunction({
-            address: "0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
-            function_name: "balanceOf",
-            abi: NFTABI,
-            params: {
-                account: user.attributes.ethAddress,
-                id: "0",
-            },
-        });     
-        if( (balanceETH == 0) && (_nftBalance == 0)) {
+        // const _nftBalance = await Moralis.Web3API.native.runContractFunction({
+        //     address: "0x9dd13E8Fce9e6dE73D2Df9e3411C93F04E28AF2B",
+        //     function_name: "balanceOf",
+        //     abi: NFTABI,
+        //     params: {
+        //         account: user.attributes.ethAddress,
+        //         id: "0",
+        //     },
+        // });     
+        if( balanceETH == 0 ) { //&& (_nftBalance == 0)) {
           setAlertContents(
               <>
               <div className="alert-popup-contents">
@@ -152,14 +152,14 @@ function Profile(props) {
     }
 
     const claimRewardsData = {
-        contractAddress: "0x410B428BDB85cBF32ddea8c329eD5f73B560A51b",
+        contractAddress: "0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A",
         functionName: "claim",
         abi: ABI
     } 
 
     const LoadRewardsForUser = async() => { 
         const _rewardData = await Moralis.Web3API.native.runContractFunction({
-        address: "0x410B428BDB85cBF32ddea8c329eD5f73B560A51b",
+        address: "0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A",
         function_name: "getAccountDividendsInfo",
         abi: ABI,
         params: {
