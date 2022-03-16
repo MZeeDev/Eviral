@@ -127,7 +127,7 @@ function Profile(props) {
                 id: "0",
             },
         });     
-        if( balanceETH == 0 ) { //&& (_nftBalance == 0)) {
+        if( (balanceETH == 0) && (_nftBalance == 0)) {
           setAlertContents(
               <>
               <div className="alert-popup-contents">

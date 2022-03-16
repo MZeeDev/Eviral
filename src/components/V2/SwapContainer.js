@@ -50,13 +50,13 @@ function SwapContainer() {
                 <p>More Information</p>
                 <div id="tokenSwap-tokenlinks">
                     <img id="tokenSwap-tokenlogo-info" src={EViral}/> 
-                    <Link to={{ pathname: (`https://app.uniswap.org/#/swap?use=V2&chain=mainnet&outputCurrency=0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A`) }} target="_blank">
+                    <Link to={{ pathname: (`https://app.uniswap.org/#/swap?inputCurrency=0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A&chain=mainnet`) }} target="_blank">
                         <button id="tokenSwap-button2">Uniswap</button>
                     </Link>
                     <Link to={{ pathname: (`https://www.dextools.io/app/ether/pair-explorer/0x2b31bf290c7d8138ab10842fc4e85e2d2dc18654`) }} target="_blank">
                         <button id="tokenSwap-button2">Charts</button>
                     </Link>
-                    <Link to={{ pathname: (`https://etherscan.io/address/0x77a2f05cb71e2da093764dc83d7a59c1fe09f43a`) }} target="_blank">
+                    <Link to={{ pathname: (`https://etherscan.io/token/0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A`) }} target="_blank">
                         <button id="tokenSwap-button2">
                             <img id="etherscanlogo" src={Etherscan}/>  
                             Etherscan                      

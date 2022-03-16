@@ -1,51 +1,5 @@
 {
   "files": {
-<<<<<<< HEAD
-    "static/js/0.8c9922c2.chunk.js": "/static/js/0.8c9922c2.chunk.js",
-    "static/js/0.8c9922c2.chunk.js.map": "/static/js/0.8c9922c2.chunk.js.map",
-    "static/js/1.fcd68bf8.chunk.js": "/static/js/1.fcd68bf8.chunk.js",
-    "static/js/1.fcd68bf8.chunk.js.map": "/static/js/1.fcd68bf8.chunk.js.map",
-    "static/js/2.2f35d825.chunk.js": "/static/js/2.2f35d825.chunk.js",
-    "static/js/2.2f35d825.chunk.js.map": "/static/js/2.2f35d825.chunk.js.map",
-    "static/js/3.d34bb975.chunk.js": "/static/js/3.d34bb975.chunk.js",
-    "static/js/3.d34bb975.chunk.js.map": "/static/js/3.d34bb975.chunk.js.map",
-    "static/js/4.1b4a6bc3.chunk.js": "/static/js/4.1b4a6bc3.chunk.js",
-    "static/js/4.1b4a6bc3.chunk.js.map": "/static/js/4.1b4a6bc3.chunk.js.map",
-    "main.css": "/static/css/main.751b5900.chunk.css",
-    "main.js": "/static/js/main.68526ff3.chunk.js",
-    "main.js.map": "/static/js/main.68526ff3.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.00fd866e.js",
-    "runtime-main.js.map": "/static/js/runtime-main.00fd866e.js.map",
-    "static/js/7.97d7843c.chunk.js": "/static/js/7.97d7843c.chunk.js",
-    "static/js/7.97d7843c.chunk.js.map": "/static/js/7.97d7843c.chunk.js.map",
-    "static/js/8.a2f31caa.chunk.js": "/static/js/8.a2f31caa.chunk.js",
-    "static/js/8.a2f31caa.chunk.js.map": "/static/js/8.a2f31caa.chunk.js.map",
-    "static/js/9.c4388763.chunk.js": "/static/js/9.c4388763.chunk.js",
-    "static/js/9.c4388763.chunk.js.map": "/static/js/9.c4388763.chunk.js.map",
-    "static/js/10.7796f12f.chunk.js": "/static/js/10.7796f12f.chunk.js",
-    "static/js/10.7796f12f.chunk.js.map": "/static/js/10.7796f12f.chunk.js.map",
-    "static/js/11.2a4780b4.chunk.js": "/static/js/11.2a4780b4.chunk.js",
-    "static/js/11.2a4780b4.chunk.js.map": "/static/js/11.2a4780b4.chunk.js.map",
-    "static/js/12.476ba8e3.chunk.js": "/static/js/12.476ba8e3.chunk.js",
-    "static/js/12.476ba8e3.chunk.js.map": "/static/js/12.476ba8e3.chunk.js.map",
-    "static/js/13.e216a7af.chunk.js": "/static/js/13.e216a7af.chunk.js",
-    "static/js/13.e216a7af.chunk.js.map": "/static/js/13.e216a7af.chunk.js.map",
-    "static/js/14.0118e4e5.chunk.js": "/static/js/14.0118e4e5.chunk.js",
-    "static/js/14.0118e4e5.chunk.js.map": "/static/js/14.0118e4e5.chunk.js.map",
-    "static/js/15.dbf3972a.chunk.js": "/static/js/15.dbf3972a.chunk.js",
-    "static/js/15.dbf3972a.chunk.js.map": "/static/js/15.dbf3972a.chunk.js.map",
-    "static/js/16.ed8b5f4b.chunk.js": "/static/js/16.ed8b5f4b.chunk.js",
-    "static/js/16.ed8b5f4b.chunk.js.map": "/static/js/16.ed8b5f4b.chunk.js.map",
-    "static/js/17.9709a7df.chunk.js": "/static/js/17.9709a7df.chunk.js",
-    "static/js/17.9709a7df.chunk.js.map": "/static/js/17.9709a7df.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.751b5900.chunk.css.map": "/static/css/main.751b5900.chunk.css.map",
-    "static/js/1.fcd68bf8.chunk.js.LICENSE.txt": "/static/js/1.fcd68bf8.chunk.js.LICENSE.txt",
-    "static/js/3.d34bb975.chunk.js.LICENSE.txt": "/static/js/3.d34bb975.chunk.js.LICENSE.txt",
-    "static/js/4.1b4a6bc3.chunk.js.LICENSE.txt": "/static/js/4.1b4a6bc3.chunk.js.LICENSE.txt",
-    "static/js/7.97d7843c.chunk.js.LICENSE.txt": "/static/js/7.97d7843c.chunk.js.LICENSE.txt",
-    "static/js/8.a2f31caa.chunk.js.LICENSE.txt": "/static/js/8.a2f31caa.chunk.js.LICENSE.txt",
-=======
     "static/js/0.d8661dc9.chunk.js": "/static/js/0.d8661dc9.chunk.js",
     "static/js/0.d8661dc9.chunk.js.map": "/static/js/0.d8661dc9.chunk.js.map",
     "static/js/1.44e6d907.chunk.js": "/static/js/1.44e6d907.chunk.js",
@@ -90,7 +44,6 @@
     "static/js/3.b2396f34.chunk.js.LICENSE.txt": "/static/js/3.b2396f34.chunk.js.LICENSE.txt",
     "static/js/6.e897e0c2.chunk.js.LICENSE.txt": "/static/js/6.e897e0c2.chunk.js.LICENSE.txt",
     "static/js/7.1257c264.chunk.js.LICENSE.txt": "/static/js/7.1257c264.chunk.js.LICENSE.txt",
->>>>>>> parent of f6a2ffb (reinstall dependencies)
     "static/media/index.css": "/static/media/ProximaNova-Regular.b078618b.ttf",
     "static/media/add.e984d697.svg": "/static/media/add.e984d697.svg",
     "static/media/addImage.374e7db4.svg": "/static/media/addImage.374e7db4.svg",
@@ -101,7 +54,7 @@
     "static/media/beviral.83bfabd5.png": "/static/media/beviral.83bfabd5.png",
     "static/media/bsc.582fc765.png": "/static/media/bsc.582fc765.png",
     "static/media/bsclogo.582fc765.png": "/static/media/bsclogo.582fc765.png",
-    "static/media/bscscan-logo-circle.64f8f3ab.svg": "/static/media/bscscan-logo-circle.64f8f3ab.svg",
+    "static/media/bscscan-logo-circle.e70ce408.svg": "/static/media/bscscan-logo-circle.e70ce408.svg",
     "static/media/bscscan-logo.e7dce3c0.png": "/static/media/bscscan-logo.e7dce3c0.png",
     "static/media/cardano.119a960a.png": "/static/media/cardano.119a960a.png",
     "static/media/collaborate.86ead215.svg": "/static/media/collaborate.86ead215.svg",
@@ -114,7 +67,7 @@
     "static/media/eViralLogo2.5c4556ad.png": "/static/media/eViralLogo2.5c4556ad.png",
     "static/media/email.c34bf030.svg": "/static/media/email.c34bf030.svg",
     "static/media/eth.97ee4148.png": "/static/media/eth.97ee4148.png",
-    "static/media/etherscan-logo-circle.c49ca24b.svg": "/static/media/etherscan-logo-circle.c49ca24b.svg",
+    "static/media/etherscan-logo-circle.4fa0af1d.svg": "/static/media/etherscan-logo-circle.4fa0af1d.svg",
     "static/media/etherscan-logo.910113c1.png": "/static/media/etherscan-logo.910113c1.png",
     "static/media/ethlogo.97ee4148.png": "/static/media/ethlogo.97ee4148.png",
     "static/media/exit.5658a49b.svg": "/static/media/exit.5658a49b.svg",
@@ -175,16 +128,9 @@
     "static/media/youtube.2fba2bfa.svg": "/static/media/youtube.2fba2bfa.svg"
   },
   "entrypoints": [
-<<<<<<< HEAD
-    "static/js/runtime-main.00fd866e.js",
-    "static/js/7.97d7843c.chunk.js",
-    "static/css/main.751b5900.chunk.css",
-    "static/js/main.68526ff3.chunk.js"
-=======
     "static/js/runtime-main.57398dc5.js",
     "static/js/6.e897e0c2.chunk.js",
     "static/css/main.84d0fad6.chunk.css",
     "static/js/main.d388de91.chunk.js"
->>>>>>> parent of f6a2ffb (reinstall dependencies)
   ]
 }

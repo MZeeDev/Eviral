@@ -72,7 +72,7 @@ function TokenSwap() {
             viralBalance = 0;
         }
         const nativeBalance = (chainBalance.balance/(10**18)).toFixed(3);
-        const viralTokenBalance = (viralBalance.balance/(10**18)).toFixed(0);
+        const viralTokenBalance = (viralBalance.balance/(10**9)).toFixed(0);
         setNativeBalance(nativeBalance);
         setViralBalance(viralTokenBalance);
         } catch {
@@ -88,7 +88,7 @@ function TokenSwap() {
           toTokenAddress: VIRAL_ADDRESS, // The token you want to receive
           amount: number,
         });
-        setViralTokenAmount(((quote.toTokenAmount)/(10**18)).toFixed(0));
+        setViralTokenAmount(((quote.toTokenAmount)/(10**9)).toFixed(0));
     }
 
      const swap = async() => {
