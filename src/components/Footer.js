@@ -19,7 +19,7 @@ function Footer() {
                     <div className='footer-link-items'>
                         <h2>Token Links</h2>
                         <Link to={{ pathname: "https://www.dextools.io/app/uniswap/pair-explorer/0xf38424fb7da8603e331aca2acb6cef8aed469fe2" }} target="_blank">Chart Tracker</Link>
-                        <Link to={{ pathname: 'https://app.uniswap.org/#/swap?outputCurrency=0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A&use=V2' }} target="_blank">Swap Page</Link>
+                        <Link to={{ pathname: 'https://app.uniswap.org/#/swap?outputCurrency=0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60&use=V2' }} target="_blank">Swap Page</Link>
                     </div>
                 </div>
                 <div className='footer-links-wrapper'>

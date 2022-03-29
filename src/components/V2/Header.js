@@ -87,8 +87,8 @@ function Navbar() {
     }
     
     const renderBalance = async () => {
-        const eViralBalance = await Moralis.Web3.getERC20({tokenAddress: '0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A'});
-        // const beViralBalance = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A'});
+        const eViralBalance = await Moralis.Web3.getERC20({tokenAddress: '0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60'});
+        // const beViralBalance = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60'});
         const eBalance = eViralBalance.balance/(10**18);
         // const bBalance = beViralBalance.balance/(10**9);
         const balance = (eBalance.toFixed(0));

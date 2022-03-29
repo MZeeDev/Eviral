@@ -132,19 +132,19 @@ function HeroSection() {
                         <div className="eViralIframe">
                             <h3 className="iframe-title">Buy <img className="eViralLogo" src={Logo}/>Viral Ethereum</h3>
                             <Link to={{ pathname: (`https://www.dextools.io/app/ether/pair-explorer/0xf38424fb7da8603e331aca2acb6cef8aed469fe2`) }} target="_blank" className="homepage-token-button ">Chart</Link>
-                            <Link to={{ pathname: (`https://team.finance/view-coin/0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A?name=Viral%20Ethereum&symbol=eViral%20%F0%9F%A7%AC`) }} target="_blank" className="homepage-token-button btn2"><i class="fas fa-lock"></i> Liquidity</Link>
-                            <Link to={{ pathname: (`https://etherscan.io/token/0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A`) }} target="_blank" className="homepage-token-button btn2"><img id="etherscan" src={Etherscan}/></Link>
+                            <Link to={{ pathname: (`https://team.finance/view-coin/0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60?name=Viral%20Ethereum&symbol=eViral%20%F0%9F%A7%AC`) }} target="_blank" className="homepage-token-button btn2"><i class="fas fa-lock"></i> Liquidity</Link>
+                            <Link to={{ pathname: (`https://etherscan.io/token/0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60`) }} target="_blank" className="homepage-token-button btn2"><img id="etherscan" src={Etherscan}/></Link>
                             <iframe
-                                src="https://app.uniswap.org/#/swap?outputCurrency=0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A&use=V2"
+                                src="https://app.uniswap.org/#/swap?outputCurrency=0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60&use=V2"
                             />
                         </div>
                         <div className="beViralIframe">
                             <h3 className="iframe-title">Buy <img className="eViralLogo" src={LogoBSC}/>Viral Binance</h3>
                             <Link to={{ pathname: (`https://www.dextools.io/app/bsc/pair-explorer/0xb76b40213d618a9099ba14bd859596904828aff5`) }} target="_blank" className="homepage-token-button btn2">Chart</Link>
-                            <Link to={{ pathname: (`https://team.finance/view-coin/0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A?name=Viral%20Ethereum&symbol=eViral%20%F0%9F%A7%AC`) }} target="_blank" className="homepage-token-button btn2"><i class="fas fa-lock"></i> Liquidity</Link>
-                            <Link to={{ pathname: (`https://bscscan.com/token/0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A`) }} target="_blank" className="homepage-token-button btn2"><img id="bscscan" src={BSCScan}/></Link>
+                            <Link to={{ pathname: (`https://team.finance/view-coin/0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60?name=Viral%20Ethereum&symbol=eViral%20%F0%9F%A7%AC`) }} target="_blank" className="homepage-token-button btn2"><i class="fas fa-lock"></i> Liquidity</Link>
+                            <Link to={{ pathname: (`https://bscscan.com/token/0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60`) }} target="_blank" className="homepage-token-button btn2"><img id="bscscan" src={BSCScan}/></Link>
                             <iframe
-                                src="https://pancakeswap.finance/swap?outputCurrency=0x77a2F05cb71e2DA093764DC83D7a59C1Fe09f43A"
+                                src="https://pancakeswap.finance/swap?outputCurrency=0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60"
                             />
                         </div>
                     </div>
