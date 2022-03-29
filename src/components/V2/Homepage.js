@@ -160,7 +160,7 @@ function Homepage() {
                     <div id="collaborate-text">
                         <img id="collaborate" src={Collaborate}/>
                             <h4>Collaborate</h4>
-                            <p>Connect and message other DeFi enthusiasts to work together, learn new skills, share interests, and evalute projects.</p>
+                            <p>Connect and message other DeFi enthusiasts to work together, learn new skills, share interests, and evaluate projects.</p>
                         </div>
                     </div>
                 </div>
@@ -184,7 +184,7 @@ function Homepage() {
                 <div id="whyviralcrypto-section2">
                     <div id="whyviralcrypto-section2-box1">
                         <div id="whyviralcrypto-box-title2">Reputation Building</div>
-                        <p>Users can create verified project pages for established projects that are administered by their appropriate resprentatives.</p>
+                        <p>Users can create verified project pages for established projects that are administered by their appropriate representatives.</p>
                     </div>
                     <div id="whyviralcrypto-section2-box2">
                         <div id="whyviralcrypto-box-title1">Growing Together</div>
@@ -207,7 +207,7 @@ function Homepage() {
                         <h2>Buy Crypto</h2>
                         <br/>
                         <h3>
-                            New to Crypto? No problem.<br/>You'll need ETH to buy eViral, or BNB to buy beViral.</h3>
+                            New to Crypto? No problem.<br/>You'll need eth to buy Viral Crypto.</h3>
                     </div>
                     <div id="onramper">
                         <OnRamper />
@@ -328,13 +328,13 @@ function Homepage() {
                     <div id="section10-box2">
                         <div id="section10-box2-contents">
                             <img id="vclabs2" src={VCLabs2}/>
-                            <p>VC Labs is constantly on the look out for for artists, marketers, and developers with opporunities to collaborate and join the team.</p>
+                            <p>VC Labs is constantly on the look out for for artists, marketers, and developers with opportunities to collaborate and join the team.</p>
                         </div>
                     </div>
                     <div id="section10-box3">
                         <div id="section10-box3-contents">
                             <img id="vclabs3" src={VCLabs3}/>
-                            <p>Projects and profiles that accel are featured on the homepage in addition to search results and be given credit on the team page for the platform.</p>
+                            <p>Projects and profiles that excel are featured on the homepage in addition to search results and be given credit on the team page for the platform.</p>
                         </div>
                     </div>
                 </div>
