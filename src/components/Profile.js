@@ -167,7 +167,7 @@ function Profile(props) {
         },});      
         const totalDividends =  (Moralis.Units.FromWei(_rewardData.totalDividends, 18));
          let withdrawableDividends =  parseInt(_rewardData.withdrawableDividends);
-withdrawableDividends = withdrawableDividends/(10**18)
+             withdrawableDividends = withdrawableDividends/(10**18);
         const secondsUntilAutoClaimAvailable =  parseInt(_rewardData.secondsUntilAutoClaimAvailable);
         setRewardData([totalDividends, withdrawableDividends, secondsUntilAutoClaimAvailable]);    
     } 
