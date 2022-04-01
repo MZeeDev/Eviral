@@ -166,7 +166,8 @@ function Profile(props) {
             _account: user.attributes.ethAddress,
         },});      
         const totalDividends =  (Moralis.Units.FromWei(_rewardData.totalDividends, 18));
-        const withdrawableDividends =  (Moralis.Units.FromWei(_rewardData.withdrawableDividends, 18));
+        let withdrawableDividends =  parseInt(_rewardData.withdrawableDividends);
+withdrawableDividends = (Moralis.Units.FromWei(withdrawableDividends, 18));
         const secondsUntilAutoClaimAvailable =  parseInt(_rewardData.secondsUntilAutoClaimAvailable);
         setRewardData([totalDividends, withdrawableDividends, secondsUntilAutoClaimAvailable]);    
     } 
