@@ -300,7 +300,7 @@ function Profile(props) {
                     </div>  
                     <div id="myProfilePage-rewardsInfo">
                         <h5>Total&nbsp;Rewards:{" "}<span>{rewardData[0]}</span></h5>
-                        <h5>Claimable:{" "}<span>{rewardData[1]}</span></h5>
+                        <h5>Claimable:<span>{rewardData[1] &&  rewardData[1]/10**18}</span></h5>
                         <h5>Time&nbsp;Left&nbsp;to&nbsp;Claim:{" "}<span>{rewardData[2]}{" "}sec</span></h5>
                     </div>
                     <button id="subProfile-button" onClick={()=> claim()}>Claim</button>  
