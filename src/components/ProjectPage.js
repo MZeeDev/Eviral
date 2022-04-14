@@ -163,8 +163,8 @@ const onSubmitPhoto = async (e) => {
 
   const userCheck = async() => {
     console.log(user);
-    const eViral = await Moralis.Web3.getERC20({tokenAddress: '0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60'});
-    // const beViral = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60'});
+    const eViral = await Moralis.Web3.getERC20({tokenAddress: '0x33a6b5AC6dF354b98189B5BeF7D57653fB7e265B'});
+    // const beViral = await Moralis.Web3.getERC20({chain:'bsc', tokenAddress: '0x33a6b5AC6dF354b98189B5BeF7D57653fB7e265B'});
     const balanceETH = eViral.balance;
     // const balanceBSC = beViral.balance;
     if( (balanceETH == 0)) {

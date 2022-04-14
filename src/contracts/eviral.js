@@ -1,4 +1,4 @@
-let eViralContractAddress = '0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60';
+let eViralContractAddress = '0x33a6b5AC6dF354b98189B5BeF7D57653fB7e265B';
 let eViralABI =  [
     {
         "inputs": [

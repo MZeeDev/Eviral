@@ -75,7 +75,7 @@ function Profile(props) {
     };
 
     const renderBalance = async () => {
-        const eViralBalance = await Moralis.Web3.getERC20({tokenAddress: '0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60'});
+        const eViralBalance = await Moralis.Web3.getERC20({tokenAddress: '0x33a6b5AC6dF354b98189B5BeF7D57653fB7e265B'});
         const eBalance = eViralBalance.balance/(10**18);
         const balance = (eBalance.toFixed(0));
         setBalanceETH(balance);
@@ -152,14 +152,14 @@ function Profile(props) {
     }
 
     const claimRewardsData = {
-        contractAddress: "0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60",
+        contractAddress: "0x33a6b5AC6dF354b98189B5BeF7D57653fB7e265B",
         functionName: "claim",
         abi: ABI
     } 
 
     const LoadRewardsForUser = async() => { 
         const _rewardData = await Moralis.Web3API.native.runContractFunction({
-        address: "0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60",
+        address: "0x33a6b5AC6dF354b98189B5BeF7D57653fB7e265B",
         function_name: "getAccountDividendsInfo",
         abi: ABI,
         params: {

@@ -27,7 +27,7 @@ function TokenSwap() {
     const [tokens, setTokens] = useState([]);
 
     const NATIVE_ADDRESS = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE";
-    const VIRAL_ADDRESS = "0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60";
+    const VIRAL_ADDRESS = "0x33a6b5AC6dF354b98189B5BeF7D57653fB7e265B";
 
     const changeChain = (chain, logo, theme) => {
         setNativeAmount(0);
@@ -66,7 +66,7 @@ function TokenSwap() {
         const chainBalance = await Moralis.Web3API.account.getNativeBalance(options);
         let viralBalance;
         try{
-            viralBalance = await Moralis.Web3.getERC20({chain:currentChain, tokenAddress: '0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60'});
+            viralBalance = await Moralis.Web3.getERC20({chain:currentChain, tokenAddress: '0x33a6b5AC6dF354b98189B5BeF7D57653fB7e265B'});
             console.log(viralBalance);
         } catch (error) {
             viralBalance = 0;
@@ -101,7 +101,7 @@ function TokenSwap() {
         const receipt = await Moralis.Plugins.oneInch.swap({
           chain: currentChain, // The blockchain you want to use (eth/bsc/polygon)
           fromTokenAddress: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE", // The token you want to swap
-          toTokenAddress: "0x56A5D6a4a78af419ae83c2a58D9a2cAaB28C5E60", // The token you want to receive
+          toTokenAddress: "0x33a6b5AC6dF354b98189B5BeF7D57653fB7e265B", // The token you want to receive
           amount: number,
           fromAddress: userAddress, // Your wallet address
           protocols: "uniswapv2",
