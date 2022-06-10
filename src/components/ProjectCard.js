@@ -15,7 +15,7 @@ function ProjectCard(props) {
 
     return (
         <>
-            <div className="card-container">                
+            <div key={props.objectId} className="card-container">                
                     <Link className="cards-link" to={`${url}/${props.path}`}>
                         <figure className='card-pic-wrap' category={props.label}>
                             <img className="project-img" src={props.src}></img>
@@ -40,7 +40,7 @@ function ProjectCard(props) {
                     <div className="hl"></div>
                     <div className="card-footer">
                         <Rating
-                         title = {props.title}          
+                        key={props.title} title = {props.title}          
                         />
                         <Bookmark 
                         projectTitle = {props.projectTitle}  

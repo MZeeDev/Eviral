@@ -187,7 +187,7 @@ const onSubmitPhoto = async (e) => {
                     }
                   <h2>{props.title}</h2>
                   <Rating
-                    title = {props.title}
+                   key={props.title} title = {props.title}
                   />
                   <Bookmark
                   projectTitle = {props.projectTitle}
@@ -304,7 +304,7 @@ const onSubmitPhoto = async (e) => {
                 
                 {!owner &&
                   <RatingProject 
-                  projectName={props.title}
+                  key={props.title} projectName={props.title}
                   />
                 }
                 </div>

@@ -350,7 +350,7 @@ window.addEventListener('resize', resize);
                   }
                   { props.medium &&
                       <Link className='profile-social-icon twitch' to={{ pathname: (`https://${(props.medium)}`) }} target="_blank" aria-label='Twitch'>
-                          <img id="socialShareIcon" src={shareMedium}/>
+                          <img alt="" id="socialShareIcon" src={shareMedium}/>
                       </Link>
                   }
               </div>
@@ -359,7 +359,7 @@ window.addEventListener('resize', resize);
                 <p>Add to favorites</p>
               </div>
               <div id="projectWebsite">
-                <img id="websiteIcon" src={websiteIcon}/>
+                <img alt="" id="websiteIcon" src={websiteIcon}/>
                 <Link className="website-link" 
                     to={{ pathname: `https://${props.website}` }} 
                     target="_blank">
@@ -369,22 +369,22 @@ window.addEventListener('resize', resize);
               <div id="socialShares">
                 <p>Share:</p>
                 <EmailShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
-                <img id="socialShareIcon" src={shareEmail}/>
+                <img alt="" id="socialShareIcon" src={shareEmail}/>
                 </EmailShareButton>
                 <FacebookShareButton quote={props.summary} url={`https://viralcrypto.app/projects/${props.title}`} id="socialShareLink">
-                <img id="socialShareIcon" src={shareFacebook}/>
+                <img alt="" id="socialShareIcon" src={shareFacebook}/>
                 </FacebookShareButton>
                 <TwitterShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
-                  <img id="socialShareIcon" src={shareTwitter}/>
+                  <img alt="" id="socialShareIcon" src={shareTwitter}/>
                 </TwitterShareButton>
                 <PinterestShareButton  description={`${props.title} "-" ${props.summary}`} media={props.photo1} url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
-                <img id="socialShareIcon" src={sharePinterest}/>
+                <img alt="" id="socialShareIcon" src={sharePinterest}/>
                 </PinterestShareButton>
                 <TelegramShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
-                  <img id="socialShareIcon" src={shareTelegram}/>
+                  <img alt="" id="socialShareIcon" src={shareTelegram}/>
                 </TelegramShareButton>
                 <LinkedinShareButton  url={`https://viralcrypto.app/projects/${props.title}`}id="socialShareLink">
-                  <img id="socialShareIcon" src={shareLinkedIn}/>
+                  <img alt="" id="socialShareIcon" src={shareLinkedIn}/>
                 </LinkedinShareButton>
               </div>
               <p id="projectPage-description">{ReactHtmlParser(props.description)}</p>              
@@ -392,17 +392,17 @@ window.addEventListener('resize', resize);
           <div id="projectPage-photo-creator-review">
             <div id="projectPage-photo-container">
               {/* <img  className="project-page-photo-img" src={activePhoto} /> */}
-              <img id="projectPage-photo" src={activePhoto}/>
+              <img alt="" id="projectPage-photo" src={activePhoto}/>
             </div>
             <div id="projectPage-thumbnails">              
                   {props.photo1 && 
-                    <img id="projectPage-thumbnail" src={props.photo1} onClick={(e) => setActivePhotos(e.currentTarget.src, 0)}/>
+                    <img alt="" id="projectPage-thumbnail" src={props.photo1} onClick={(e) => setActivePhotos(e.currentTarget.src, 0)}/>
                   }
                   {props.photo2 && 
-                    <img id="projectPage-thumbnail" src={props.photo2} onClick={(e) => setActivePhotos(e.currentTarget.src, 1)}/>
+                    <img alt="" id="projectPage-thumbnail" src={props.photo2} onClick={(e) => setActivePhotos(e.currentTarget.src, 1)}/>
                   }
                   {props.photo3 && 
-                    <img id="projectPage-thumbnail" src={props.photo3} onClick={(e) => setActivePhotos(e.currentTarget.src, 2)}/>
+                    <img alt="" id="projectPage-thumbnail" src={props.photo3} onClick={(e) => setActivePhotos(e.currentTarget.src, 2)}/>
                   }                                  
             </div>
             {owner &&
@@ -419,7 +419,7 @@ window.addEventListener('resize', resize);
               }
             <div id="projectPage-creator">
               <Link to={`/profiles/${props.creator}`}>
-                <img id="projectPage-creator-profilePic" src={props.creatorProfilePic}/>
+                <img alt="" id="projectPage-creator-profilePic" src={props.creatorProfilePic}/>
               </Link>                
                 <div id="projectPage-creator-info">
                   <h4>{props.creator}</h4>
@@ -457,7 +457,7 @@ window.addEventListener('resize', resize);
             }                       
             {!owner &&
               <RatingProject 
-              projectName={props.title}
+              key={props.objectId} projectName={props.title}
               />
             }
             <button id="showReviews-button" onClick={() => loadReviews()}>Show&nbsp;Reviews</button>
@@ -527,7 +527,7 @@ window.addEventListener('resize', resize);
                       }
                   </div>
                   <div id="projectPage-description-rating">
-                      <Rating title = {props.title}/>
+                      <Rating key={props.title} title = {props.title}/>
                   </div>
               </div>
               <h1 id="projectPage-title">{props.title}</h1>
@@ -550,7 +550,7 @@ window.addEventListener('resize', resize);
                     { props.blockchains &&
                       <div id="projectPage-blockChains">
                         {props.blockchains.map(element => {
-                          return   <img src={
+                          return   <img alt="" src={
                                       element == "ETH" ? ETH : 
                                       element == "BSC" ? BSC : 
                                       element == "MATIC" ? MATIC : 
@@ -646,7 +646,7 @@ window.addEventListener('resize', resize);
             }
             {!owner &&
               <RatingProject 
-              projectName={props.title}
+              key={props.objectId} projectName={props.title}
               />
             }
           

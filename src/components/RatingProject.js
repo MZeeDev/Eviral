@@ -156,7 +156,7 @@ function RatingProject(props) {
                     {[...Array(5)].map( (star, i) => {
                         const ratingValue = i + 1;
                         return (
-                            <label>
+                            <label key={ratingValue}>
                                 <input type="radio" name="rating-radio" value={ratingValue} onClick={() => setStars(ratingValue)}/>
                                 {ratingValue  <= stars ? <i class="fas fa-star gold"></i> : <i class="fas fa-star grey"></i>}
                             </label>
