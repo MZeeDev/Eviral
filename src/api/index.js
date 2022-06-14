@@ -64,6 +64,7 @@ export const allPosts = async () => {
     }
 }
 
+// wallet id
 export const postsByWallet = async (walletid) => {
     try {
         let res;
