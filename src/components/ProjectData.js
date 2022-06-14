@@ -29,9 +29,10 @@ const ProjectData = ({ data }) => {
     
   return (
       <>
-          {projectLoaded.map(project => (            
-            <div key={project.title} className="background">
+          {projectLoaded.map((project,index) => (            
+            <div key={(project.objectId+index).toString()} className="background">
                 <ProjectDisplay
+                  key={(project.objectId+index).toString()}
                   title={project.title}
                   summary={project.summary}
                   photo1={project.projectPhoto}

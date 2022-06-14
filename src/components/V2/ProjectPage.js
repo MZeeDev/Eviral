@@ -182,13 +182,13 @@ const onSubmitPhoto = async (e) => {
                     }
                 </div>
                 <div id="projectPage-description-rating">
-                    <Rating title = {props.title}/>
+                    <Rating key={props.title} title = {props.title}/>
                 </div>
             </div>
             <h1>{props.title}</h1>
             <p>{props.summary}</p>
             <Bookmark projectTitle = {props.projectTitle}><span>Add to favorties</span></Bookmark>
-                    <img id="websiteIcon" src={websiteIcon}/>
+                    <img alt="" id="websiteIcon" src={websiteIcon}/>
                         <Link className="website-link" 
                             to={{ pathname: `https://${props.website}` }} 
                             target="_blank">
@@ -212,7 +212,7 @@ const onSubmitPhoto = async (e) => {
                     }
                   <h2>{props.title}</h2>
                   <Rating
-                    title = {props.title}
+                    key={props.title} title = {props.title}
                   />
                   <Bookmark
                   projectTitle = {props.projectTitle}
@@ -223,14 +223,14 @@ const onSubmitPhoto = async (e) => {
                   {props.summary}
                 </h2>
                 <div className={ owner ? "project-page-photo-owner" : "project-page-photo"} onClick={ owner ? () => openChangePhotoMenu(photoNumber) : ""}>
-                  <img  className="project-page-photo-img" src={activePhoto} />   
+                  <img alt="" className="project-page-photo-img" src={activePhoto} />   
                   <div className="middle-of-projectPic">                                
                       <i class="fas fa-camera-retro"></i>                                
                   </div>         
                 </div>
                 <div className="project-page-photo-thumbnails">
                   <div className="project-page-photo-thumbnail">
-                    <img  className="project-page-photo-img" src={props.photo1}  onClick={(e) => setActivePhotos(e.currentTarget.src, 0)}/>
+                    <img  alt="" className="project-page-photo-img" src={props.photo1}  onClick={(e) => setActivePhotos(e.currentTarget.src, 0)}/>
                   </div>
                   {(props.photo2 || owner) &&
                   <div className="project-page-photo-thumbnail">
@@ -239,7 +239,7 @@ const onSubmitPhoto = async (e) => {
                       <i class="fas fa-plus" ></i>
                     </div>
                     }
-                    {props.photo2 && <img  className="project-page-photo-img" src={props.photo2}  onClick={(e) => setActivePhotos(e.currentTarget.src, 1)}/>}
+                    {props.photo2 && <img alt="" className="project-page-photo-img" src={props.photo2}  onClick={(e) => setActivePhotos(e.currentTarget.src, 1)}/>}
                   </div>
                   }
                   {(props.photo3 || owner) &&
@@ -249,7 +249,7 @@ const onSubmitPhoto = async (e) => {
                         <i class="fas fa-plus" ></i>
                       </div>
                     }
-                    {props.photo3 && <img  className="project-page-photo-img" src={props.photo3} onClick={(e) => setActivePhotos(e.currentTarget.src, 2)}/>}
+                    {props.photo3 && <img alt="" className="project-page-photo-img" src={props.photo3} onClick={(e) => setActivePhotos(e.currentTarget.src, 2)}/>}
                   </div>
                   }
                 </div>                  
@@ -288,13 +288,13 @@ const onSubmitPhoto = async (e) => {
                     />
                   </div>
           
-                  <h5><img className="profileThumb"src={props.creatorProfilePic} />{" "} {props.creator}{" "} {props.createdOn}</h5>
+                  <h5><img alt="" className="profileThumb"src={props.creatorProfilePic} />{" "} {props.creator}{" "} {props.createdOn}</h5>
                   <p>{ReactHtmlParser(props.description)}</p>
                   
                 </div>
                 <div className="ratingReviews">
                   <Reviews 
-                  title = {props.title}
+                  key={props.objectId} title = {props.title}
                   />
                   { !owner &&
                     <button className="report-button btn1" onClick={() => sendReport()}>Report</button>
@@ -328,7 +328,7 @@ const onSubmitPhoto = async (e) => {
                   </div>
                 
                 {!owner &&
-                  <RatingProject 
+                  <RatingProject key={props.objectId}
                   projectName={props.title}
                   />
                 }

@@ -32,9 +32,10 @@ const MyProjectData = ({ data }) => {
     
   return (
       <>
-          {projectLoaded.map(project => (            
-            <div key={project.title} className="project-page">                            
+          {projectLoaded.map((project,index) => (            
+            <div key={(project.objectId+index).toString()} className="project-page">                            
                 <ProjectDisplay
+                  key={(project.objectId+index).toString()}
                   title={project.title}
                   summary={project.summary}
                   src={project.projectPhoto}

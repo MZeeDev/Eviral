@@ -38,7 +38,7 @@ function ProjectCard(props) {
                     <div className="projectcard-top">
                         <Link className="projectcard-link" to={`/projects/${props.path}`}>
                             <div className="projectcard-photo-container">
-                                <img className="projectcard-photo" src={props.src}/>                                        
+                                <img alt="" className="projectcard-photo" src={props.src}/>                                        
                                 <div id="overlayprojectcard">
                                     <div id="projectcard-blockchains-container">
                                         { props.blockchains &&
@@ -46,7 +46,7 @@ function ProjectCard(props) {
                                                 { props.blockchains &&
                                                 <div id="projectcard-blockchains">
                                                     {props.blockchains.map(element => {
-                                                    return   <img src={
+                                                    return   <img alt="" src={
                                                                 element == "ETH" ? ETH : 
                                                                 element == "BSC" ? BSC : 
                                                                 element == "MATIC" ? MATIC : 
@@ -70,7 +70,7 @@ function ProjectCard(props) {
                                     </div>
                                 </div>
                                 <div className="projectcard-creator-info">
-                                    <img className="projectcard-creator-profilepic" src={props.creatorProfilePic}/>
+                                    <img alt="" className="projectcard-creator-profilepic" src={props.creatorProfilePic}/>
                                     <div className="projectcard-creator-nameanddate">
                                         <p className="projectcard-creator-username">{props.username}</p>
                                         <p className="projectcard-created-on-date">{props.createdOn}</p>
@@ -99,16 +99,16 @@ function ProjectCard(props) {
                         </div>
                     </div>
                     <div className="projectcard-footer">
-                        <Rating title={props.title}/>
+                        <Rating key={props.title} title={props.title}/>
                         <div className="project-card-badges">
                             { verified &&                      
-                                <img id="project-card-badge" src={tagPro}/>                      
+                                <img alt="" id="project-card-badge" src={tagPro}/>                      
                             }
                             {isLive &&
-                                <img id="project-card-badge" src={tagLive}/>                
+                                <img alt="" id="project-card-badge" src={tagLive}/>                
                             }
                             {!isLive &&
-                                <img id="project-card-badge" src={tagIndev}/>              
+                                <img alt="" id="project-card-badge" src={tagIndev}/>              
                             }
                         </div>
                         <Bookmark projectTitle={props.title}/>    

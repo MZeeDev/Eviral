@@ -15,17 +15,19 @@ import Header from './components/V2/Header';
 import Footer from './components/V2/Footer';
 import Homepage from './components/V2/Homepage';
 import TokenPrices from './components/TokenPrices';
+import Feed from './components/feed/index';
+import MyFeed from './components/feed/myFeed';
 
 
 function App() {
   const history = useHistory();
-  
+
   return (
     <>
-    <HelmetMetaData></HelmetMetaData>
-      <Router history= {history}>
-      <Header />
-      <TokenPrices />
+      <HelmetMetaData></HelmetMetaData>
+      <Router history={history}>
+        <Header />
+        <TokenPrices />
         <Switch id="website-contents">
           <Route path='/' exact component={Home} />
           <Route path='/projects' exact component={Projects} />
@@ -44,12 +46,15 @@ function App() {
           <Route path='/wallet' exact component={Wallet} />
           <Route path='/swap' exact component={TokenSwap} />
           <Route path='/homepage' exact component={Homepage} />
-          
-        </Switch>  
-        <Footer />    
+          <Route path='/feed' exact component={Feed} />
+          <Route path='/myfeed' exact component={MyFeed} />
+
+
+        </Switch>
+        <Footer />
       </Router>
-      
-    </>    
+
+    </>
   );
 }
 

@@ -30,8 +30,8 @@ function Rating(props) {
     return (
         <div className="rating" >
             <div id="ratingStars">
-            {[...Array(1)].map( star => {
-                return <i class="fas fa-star"></i>
+            {[...Array(1)].map( (star,index) => {
+                return <i key={index} class="fas fa-star"></i>
             })}
             </div>
             <span id="rating">{rating}</span>

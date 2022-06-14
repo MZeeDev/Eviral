@@ -296,9 +296,10 @@ function ProjectsList({match}) {
                 </div>
                 <button className="searchbar-close" onClick={()=>setShowSearchResults(false)}>Return</button>
                 <div className="project-grid-wrapper">
-                  {searchResults.map(project => (
-                    <div key={project.title} >
+                  {searchResults.map((project,index) => (
+                    <div key={(project.objectId+index).toString()}  >
                         <ProjectCard
+                        key={(project.objectId+index).toString()}  
                         title={project.title}
                         summary={project.summary}
                         src={project.projectPhoto}
@@ -319,9 +320,10 @@ function ProjectsList({match}) {
             }       
             {!showSearchResults &&       
               <div className="project-grid-wrapper">
-                { (projects).map(project => (
-                  <div key={project.title} >
+                { (projects).map((project,index) => (
+                  <div key={(project.objectId+index).toString()} >
                       <ProjectCard
+                      key={(project.objectId+index).toString()}  
                       title={project.title}
                       summary={project.summary}
                       src={project.projectPhoto}
