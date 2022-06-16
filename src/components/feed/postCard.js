@@ -18,7 +18,9 @@ function PostCard({ post, walletid, postid, created, media }) {
                     <p className="text-justify">{post}</p>
                     <hr />
                     <div className="d-flex justify-content-between align-items-center">
-                        <div className="d-flex flex-row icons d-flex align-items-center"> <i className="fa fa-heart" />  </div>
+                        <div className="d-flex flex-row icons d-flex align-items-center"> <i className="fa fa-heart" />
+                            <i style={{ color: "grey" }} className="fa fa-heart-o" aria-hidden="true"></i>
+                        </div>
                         <div className="d-flex flex-row muted-color"> <span>2 comments</span> <span className="ml-2">Share</span> </div>
                     </div>
                     <hr />
