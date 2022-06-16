@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useMoralis } from 'react-moralis';
-import { addPost, addMedia } from './../../api/index.js';
+import { addPost } from './../../api/index.js';
 import axios from 'axios';
 import Alert from './../Alert';
 function FeedPost() {
@@ -15,21 +15,15 @@ function FeedPost() {
     const postThePost = async () => {
         const formData = new FormData();
         formData.append("file", selectedImage)
-        const result = await axios.post(`${process.env.REACT_APP_MEDIA_SERVER_URL}/api/file/upload`, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
-        console.log(result.data.key)
+        const result = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/file/upload`, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+        // console.log(result.data.key)
         let media = result.data.key
         let response = await addPost(user?.attributes?.accounts[0], post, media);
         console.log(response)
         setPost("")
         alert("Your Post is published!!!")
         return
-        let media_response = await addMedia(selectedImage);
-        console.log('media_response', media_response);
-        if (media_response.status === 200) {
-            let media = media_response.data.url;
-            let response = await addPost(user?.attributes?.username, post, media);
-            console.log(response);
-        }
+
     };
 
     // This function will be triggered when the file field change

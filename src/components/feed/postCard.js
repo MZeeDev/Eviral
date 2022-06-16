@@ -12,8 +12,8 @@ function PostCard({ post, walletid, postid, created, media }) {
                             {/* <small className="text-primary">Collegues</small> */}
                         </div>
                     </div>
-                    <div className="d-flex flex-row mt-1 ellipsis"> <small className="mr-2">{moment.unix(created).fromNow()}</small> <i className="fa fa-ellipsis-h" /> </div>
-                </div> <img src={`${process.env.REACT_APP_MEDIA_SERVER_URL}/api/file/${media}`} className="img-fluid" />
+                    <div className="d-flex flex-row mt-1 ellipsis"> <small className="mr-2">{moment(created).fromNow()}</small> <i className="fa fa-ellipsis-h" /> </div>
+                </div> <img src={`${process.env.REACT_APP_SERVER_URL}/api/file/${media}`} className="img-fluid" />
                 <div className="p-2">
                     <p className="text-justify">{post}</p>
                     <hr />
