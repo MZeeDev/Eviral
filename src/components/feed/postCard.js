@@ -1,8 +1,47 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import "./postCard.css"
 import CommentCard from "./commentCard"
 import moment from 'moment'
+import { addLike, getUserLikes, getPostLikes, unlike } from "./../../api/index.js"
 function PostCard({ post, walletid, postid, created, media }) {
+
+    const [likes, setLikes] = useState([])
+    const [amILiked, setamILiked] = useState(false)
+
+
+    useEffect(async () => {
+        await getAllPostLikes();
+    }, [])
+
+    const like = async () => {
+        try {
+            let response = await addLike(postid, walletid)
+            console.log(response)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const getAllPostLikes = async () => {
+        try {
+            let response = await getPostLikes(postid)
+            console.log(response)
+            // setLikes(response.data.posts)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const disLike = async (likeid) => {
+        try {
+            let response = await unlike(likeid)
+            console.log(response)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
     return (
         <div key={postid}>
             <div className="card">
