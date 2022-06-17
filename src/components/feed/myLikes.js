@@ -2,32 +2,62 @@ import React, { useState, useEffect } from 'react'
 import PostCard from './postCard'
 import CommentCard from './commentCard'
 import { allPosts } from "./../../api/index.js"
-import { addLike, getUserLikes, getPostLikes, unlike } from "./../../api/index.js"
+import { addLike, getUserLikes, getPostLikes, unlike, postsByPostId } from "./../../api/index.js"
 import { useMoralis } from 'react-moralis';
-function Feed() {
+function MyLikes() {
     const { user, Moralis, isInitialized } = useMoralis();
 
     console.log('user', user);
     console.log('user', user?.attributes?.username);
-    console.log('userwalletid', user?.attributes?.accounts[0]);
+    let walletid = user?.attributes?.accounts[0];
     const [posts, setPosts] = useState([])
     const [isLoading, setIsloading] = useState(false)
+
     useEffect(() => {
-        getAllPosts()
-    }, [])
-    const getAllPosts = async () => {
+        getAllLikes()
+    }, [walletid])
+
+    const postByPId = async (postid) => {
+        try {
+            let response = await postsByPostId(postid)
+            return response
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const getAllPostLikes = async (postid) => {
+        try {
+            let response = await getPostLikes(postid)
+            console.log(response.data.likes)
+            return response.data.likes
+            // setLikes(response.data.posts)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    const getAllLikes = async () => {
         try {
             setIsloading(true)
-            let res = await allPosts();
+            let res = await getUserLikes(walletid);
+            console.log("RES", res)
+            // console.log("REs", res)
+            // return
             if (res.status === 200) {
                 let arr = []
-                for (let index = 0; index < res.data.posts.length; index++) {
-                    const element = res.data.posts[index];
+                for (let index = 0; index < res.data.likes.length; index++) {
+                    const element = res.data.likes[index];
                     console.log(element.postid)
-                    let likes = await getAllPostLikes(element.postid)
+
+                    let posts = await postByPId(element.postid)
+                    console.log("POSTS", posts.data.post)
+
+                    let response = await getAllPostLikes(posts.data.post.postid)
+                    console.log("RESPONSE", response)
+                    // arr.push(obj)
                     arr.push({
-                        ...res.data.posts[index],
-                        likes: likes
+                        ...posts.data.post,
+                        likes: response
                     })
                 }
                 setPosts(arr)
@@ -42,10 +72,6 @@ function Feed() {
     const [likes, setLikes] = useState([])
     const [amILiked, setamILiked] = useState(false)
 
-    useEffect(async () => {
-        await getAllPostLikes();
-    }, [])
-
     // const like = async () => {
     //     try {
     //         let response = await addLike(postid, walletid)
@@ -55,16 +81,7 @@ function Feed() {
     //     }
     // }
 
-    const getAllPostLikes = async (postid) => {
-        try {
-            let response = await getPostLikes(postid)
-            console.log(response.data.likes)
-            return response.data.likes
-            // setLikes(response.data.posts)
-        } catch (error) {
-            console.log(error)
-        }
-    }
+
 
     const disLike = async (likeid) => {
         try {
@@ -105,4 +122,4 @@ function Feed() {
     )
 }
 
-export default Feed
+export default MyLikes

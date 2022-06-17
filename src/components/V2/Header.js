@@ -163,6 +163,12 @@ function Navbar() {
                                         My&nbsp;Feed
                                     </Link>
                                 </li>
+                                <li className='nav-item'>
+                                    <Link to='/mylikes' className='nav-links' onClick={closeMobileMenu}>
+                                        My&nbsp;Likes
+                                    </Link>
+                                </li>
+
                             </>
                         }
                         <li className='nav-item'>

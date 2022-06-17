@@ -39,6 +39,19 @@ export const postsByWallet = async (walletid) => {
 };
 
 
+export const postsByPostId = async (postid) => {
+    try {
+        console.log(`${SERVER_URL}/api/feed/userpost?postid=${postid}`)
+        let res;
+        res = await axios.get(`${SERVER_URL}/api/feed/userpost?postid=${postid}`);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
+
 
 
 export const addLike = async (postid, walletid) => {
@@ -58,13 +71,16 @@ export const addLike = async (postid, walletid) => {
 
 export const getUserLikes = async (walletid) => {
     try {
+
+        console.log(`${SERVER_URL}/api/likes/user?walletid=${walletid}`)
         let res;
-        res = await axios.get(`${SERVER_URL}/api/likes?user?walletid=${walletid}`);
+        res = await axios.get(`${SERVER_URL}/api/likes/user?walletid=${walletid}`);
         return res;
     } catch (error) {
         console.log(error);
     }
 };
+
 
 
 
@@ -82,7 +98,7 @@ export const getPostLikes = async (postid) => {
 export const unlike = async (likeid) => {
     try {
         let res;
-        res = await axios.get(`${SERVER_URL}/api/likes/user?likeid=${likeid}`);
+        res = await axios.delete(`${SERVER_URL}/api/likes/user?likeid=${likeid}`);
         return res;
     } catch (error) {
         console.log(error);

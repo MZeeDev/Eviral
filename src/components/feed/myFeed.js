@@ -37,8 +37,6 @@ function MyFeed() {
                 <div className="col-md-6">
                     {
                         isLoading === true ? <b>Please wait...</b> :
-
-
                             posts.length > 0 ? posts.map((post, index) => {
                                 return (<div key={index}>
 
@@ -50,7 +48,6 @@ function MyFeed() {
                                 </div>
                                 )
                             }) : <p>Not Found</p>
-
                     }
 
                 </div>

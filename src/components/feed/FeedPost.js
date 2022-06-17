@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useMoralis } from 'react-moralis';
 import { addPost } from './../../api/index.js';
 import axios from 'axios';
+import { toast } from "react-toastify"
 import Alert from './../Alert';
 function FeedPost() {
     const [post, setPost] = useState('');
@@ -21,7 +22,15 @@ function FeedPost() {
         let response = await addPost(user?.attributes?.accounts[0], post, media);
         console.log(response)
         setPost("")
-        alert("Your Post is published!!!")
+        toast.success('WOW!!! Your Post is published!!!', {
+            position: 'top-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined
+        });
         return
 
     };

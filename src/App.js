@@ -1,6 +1,9 @@
 import React from 'react';
+import 'react-toastify/dist/ReactToastify.css'; // import first
+import { ToastContainer, toast } from 'react-toastify'; // then this
 import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
 import './App.css';
+
 import MyProfile from './components/pages/myprofile';
 import Projects from './components/pages/projects';
 import Wallet from './components/pages/wallet';
@@ -17,15 +20,21 @@ import Homepage from './components/V2/Homepage';
 import TokenPrices from './components/TokenPrices';
 import Feed from './components/feed/index';
 import MyFeed from './components/feed/myFeed';
+import MyLikes from './components/feed/myLikes';
 
 
 function App() {
   const history = useHistory();
 
   return (
-    <>
+    <div>
+
+
       <HelmetMetaData></HelmetMetaData>
+
+      <ToastContainer />
       <Router history={history}>
+
         <Header />
         <TokenPrices />
         <Switch id="website-contents">
@@ -48,13 +57,12 @@ function App() {
           <Route path='/homepage' exact component={Homepage} />
           <Route path='/feed' exact component={Feed} />
           <Route path='/myfeed' exact component={MyFeed} />
-
-
+          <Route path='/mylikes' exact component={MyLikes} />
         </Switch>
         <Footer />
       </Router>
 
-    </>
+    </div>
   );
 }
 
