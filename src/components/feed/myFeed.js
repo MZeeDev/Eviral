@@ -30,7 +30,6 @@ function MyFeed() {
         }
     }
 
-    console.log("res.data.posts", posts)
     return (
         <div className="container mt-5 mb-5">
             <div className="row d-flex align-items-center justify-content-center">

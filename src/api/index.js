@@ -28,8 +28,6 @@ export const allPosts = async () => {
 // wallet id by
 export const postsByWallet = async (walletid) => {
     try {
-
-        // console.log(`${SERVER_URL}/api/feed/userposts?walletid=${walletid}`)
         let res;
         res = await axios.get(`${SERVER_URL}/api/feed/userposts?walletid=${walletid}`);
         return res;
@@ -41,7 +39,6 @@ export const postsByWallet = async (walletid) => {
 
 export const postsByPostId = async (postid) => {
     try {
-        console.log(`${SERVER_URL}/api/feed/userpost?postid=${postid}`)
         let res;
         res = await axios.get(`${SERVER_URL}/api/feed/userpost?postid=${postid}`);
         return res;

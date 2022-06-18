@@ -21,16 +21,16 @@ function Feed() {
             let res = await allPosts();
             if (res.status === 200) {
                 let arr = []
-                for (let index = 0; index < res.data.posts.length; index++) {
-                    const element = res.data.posts[index];
-                    console.log(element.postid)
-                    let likes = await getAllPostLikes(element.postid)
-                    arr.push({
-                        ...res.data.posts[index],
-                        likes: likes
-                    })
-                }
-                setPosts(arr)
+                // for (let index = 0; index < res.data.posts.length; index++) {
+                //     const element = res.data.posts[index];
+                //     console.log(element.postid)
+                //     let likes = await getAllPostLikes(element.postid)
+                //     arr.push({
+                //         ...res.data.posts[index],
+                //         likes: likes
+                //     })
+                // }
+                setPosts(res.data.posts)
             }
             setIsloading(false)
         } catch (error) {
@@ -42,9 +42,9 @@ function Feed() {
     const [likes, setLikes] = useState([])
     const [amILiked, setamILiked] = useState(false)
 
-    useEffect(async () => {
-        await getAllPostLikes();
-    }, [])
+    // useEffect(async () => {
+    //     await getAllPostLikes();
+    // }, [])
 
     // const like = async () => {
     //     try {
@@ -55,27 +55,27 @@ function Feed() {
     //     }
     // }
 
-    const getAllPostLikes = async (postid) => {
-        try {
-            let response = await getPostLikes(postid)
-            console.log(response.data.likes)
-            return response.data.likes
-            // setLikes(response.data.posts)
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    // const getAllPostLikes = async (postid) => {
+    //     try {
+    //         let response = await getPostLikes(postid)
+    //         console.log(response.data.likes)
+    //         return response.data.likes
+    //         // setLikes(response.data.posts)
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
 
-    const disLike = async (likeid) => {
-        try {
-            let response = await unlike(likeid)
-            console.log(response)
-        } catch (error) {
-            console.log(error)
-        }
-    }
+    // const disLike = async (likeid) => {
+    //     try {
+    //         let response = await unlike(likeid)
+    //         console.log(response)
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
 
-    console.log("POSTS", posts)
+    // console.log("POSTS", posts)
 
     return (
         <div className="container mt-5 mb-5">
@@ -90,7 +90,7 @@ function Feed() {
                                     <PostCard post={post.post} walletid={post.walletid} postid={post.postid}
                                         created={post.created}
                                         media={post.media}
-                                        likes={post.likes}
+
                                     />
                                     <CommentCard />
                                 </div>
