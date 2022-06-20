@@ -12,7 +12,7 @@ function MyFeed() {
 
     useEffect(() => {
         getAllPosts()
-    }, [])
+    }, [user])
     const getAllPosts = async () => {
         try {
             setIsloading(true)

@@ -220,11 +220,29 @@ function Navbar() {
                                                     <h4 id="dropDown-text" >Profiles</h4>
                                                 </Link>
 
+
                                                 <Link to="/chat" onClick={() => { setDropdown(!dropdown) }} className="dropdown-item">
                                                     <h4 id="dropDown-text" >Messages</h4>
                                                 </Link>
                                                 <Link to="/wallet" onClick={() => { setDropdown(!dropdown) }} className="dropdown-item">
                                                     <h4 id="dropDown-text" >Wallet</h4>
+                                                </Link>
+
+                                                <Link to='/feed' onClick={() => { setDropdown(!dropdown) }} className="dropdown-item">
+                                                    <h4 id="dropDown-text" >Feed</h4>
+                                                </Link>
+
+
+                                                <Link to='/myfeed' onClick={() => { setDropdown(!dropdown) }} className="dropdown-item">
+
+
+                                                    <h4 id="dropDown-text" > My&nbsp;Feed</h4>
+                                                </Link>
+
+
+                                                <Link to='/mylikes' onClick={() => { setDropdown(!dropdown) }} className="dropdown-item">
+
+                                                    <h4 id="dropDown-text" > My&nbsp;Likes</h4>
                                                 </Link>
 
                                                 <li className="dropdown-logout">

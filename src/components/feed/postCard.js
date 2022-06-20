@@ -3,18 +3,44 @@ import "./postCard.css"
 import CommentCard from "./commentCard"
 import moment from 'moment'
 import Likes from './likes'
+// import Styled from "styled-components";
 function PostCard({ post, walletid, postid, created, media }) {
+
+    const [matches, setMatches] = useState(
+        window.matchMedia("(min-width: 768px)").matches
+    )
+
+    useEffect(() => {
+        window
+            .matchMedia("(min-width: 768px)")
+            .addEventListener('change', e => setMatches(e.matches));
+    }, []);
 
     return (
         <div key={postid}>
             <div className="card">
+                <div style={{ alignSelf: "end" }} className="d-flex flex-row mt-1 ellipsis"> <small style={{ alignSelf: "end" }} className="mr-2">{moment(created).fromNow()}</small> <i className="fa fa-ellipsis-h" /> </div>
                 <div className="d-flex justify-content-between p-2 px-3">
                     <div className="d-flex flex-row align-items-center"> <img src="https://i.imgur.com/UXdKE3o.jpg" width={50} className="rounded-circle" />
-                        <div className="d-flex flex-column ml-2"> <span className="font-weight-bold">{walletid}</span>
+                        <div className="d-flex flex-column ml-2">
+                            {matches && (<span className="font-weight-bold"  >
+                                {walletid}
+                            </span>)}
+                            {!matches && (<span
+                                style={{ width: "50%" }}
+                                className="font-weight-bold"  >
+                                {walletid}
+                            </span>)}
+                            {/* <span className="font-weight-bold walletSpan"> */}
+
+                            {/* {walletid} */}
+
+                            {/* </span> */}
                             {/* <small className="text-primary">Collegues</small> */}
+
                         </div>
                     </div>
-                    <div className="d-flex flex-row mt-1 ellipsis"> <small className="mr-2">{moment(created).fromNow()}</small> <i className="fa fa-ellipsis-h" /> </div>
+
                 </div> <img src={`${process.env.REACT_APP_SERVER_URL}/api/file/${media}`} className="img-fluid" />
                 <div className="p-2">
                     <p className="text-justify">{post}</p>

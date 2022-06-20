@@ -10,6 +10,16 @@ function FeedPost() {
 
     const { user, Moralis, isInitialized } = useMoralis();
 
+    const [matches, setMatches] = useState(
+        window.matchMedia("(min-width: 768px)").matches
+    )
+
+    useEffect(() => {
+        window
+            .matchMedia("(min-width: 768px)")
+            .addEventListener('change', e => setMatches(e.matches));
+    }, [matches]);
+
     // console.log('user', user);
     // console.log('user', user?.attributes?.username);
 
@@ -22,6 +32,7 @@ function FeedPost() {
         let response = await addPost(user?.attributes?.accounts[0], post, media);
         console.log(response)
         setPost("")
+        selectedImage("")
         toast.success('WOW!!! Your Post is published!!!', {
             position: 'top-center',
             autoClose: 5000,
@@ -50,8 +61,6 @@ function FeedPost() {
         setSelectedImage();
     };
 
-    useEffect(() => { }, []);
-
     const styles = {
         container: {
             display: 'flex',
@@ -77,13 +86,17 @@ function FeedPost() {
 
     return (
         <div
+
+
             style={{
-                marginLeft: '28vw',
+                marginLeft: matches ? '28vw' : "0vw",
                 paddingTop: 10,
                 paddingBottom: 0
             }}
             className="container"
         >
+
+            {matches}
             <div className="md:flex -mx-4">
                 {/* <img src="https://zia-ullah-test.s3.amazonaws.com/f356b81602f1e241a592c2e28fc2a50b"></img> */}
                 <div className="lg:w-2/4 px-4">
