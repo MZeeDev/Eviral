@@ -24,6 +24,15 @@ function FeedPost() {
     // console.log('user', user?.attributes?.username);
 
     const postThePost = async () => {
+        toast.success('Please wait....', {
+            position: 'top-center',
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined
+        });
         const formData = new FormData();
         formData.append("file", selectedImage)
         const result = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/file/upload`, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
@@ -32,7 +41,8 @@ function FeedPost() {
         let response = await addPost(user?.attributes?.accounts[0], post, media);
         console.log(response)
         setPost("")
-        selectedImage("")
+        removeSelectedImage()
+        // selectedImage("")
         toast.success('WOW!!! Your Post is published!!!', {
             position: 'top-center',
             autoClose: 5000,
@@ -88,18 +98,18 @@ function FeedPost() {
         <div
 
 
-            style={{
-                marginLeft: matches ? '28vw' : "0vw",
-                paddingTop: 10,
-                paddingBottom: 0
-            }}
+            // style={{
+            //     marginLeft: matches ? '28vw' : "0vw",
+            //     paddingTop: 10,
+            //     paddingBottom: 0
+            // }}
             className="container"
         >
 
             {matches}
             <div className="md:flex -mx-4">
                 {/* <img src="https://zia-ullah-test.s3.amazonaws.com/f356b81602f1e241a592c2e28fc2a50b"></img> */}
-                <div className="lg:w-2/4 px-4">
+                <div style={{ margin: "auto" }} className="lg:w-2/4 px-4">
                     <div className="bg-white rounded-lg shadow p-6 mb-8">
                         <div className="flex w-full">
                             <div className="flex-shrink-0 mr-5">

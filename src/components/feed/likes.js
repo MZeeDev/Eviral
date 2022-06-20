@@ -34,6 +34,7 @@ function Likes({ postid }) {
                 draggable: true,
                 progress: undefined
             });
+            getAllPostLikes()
         } catch (error) {
             console.log(error)
         }
@@ -47,6 +48,7 @@ function Likes({ postid }) {
             let likeid = myLikes[index].likeid
             let response = await unlike(likeid)
             setamILiked(false)
+            getAllPostLikes()
             toast.success('You disliked the post.', {
                 position: 'top-center',
                 autoClose: 5000,
