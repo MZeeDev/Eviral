@@ -27,7 +27,7 @@ function PostCard({ post, walletid, postid, created, media }) {
                                 {walletid}
                             </span>)}
                             {!matches && (<span
-                                style={{ width: "50%" }}
+                                style={{ width: "100%", wordBreak: "break-all" }}
                                 className="font-weight-bold"  >
                                 {walletid}
                             </span>)}
