@@ -41,7 +41,11 @@ function PostCard({ post, walletid, postid, created, media }) {
                         </div>
                     </div>
 
-                </div> <img src={`${process.env.REACT_APP_SERVER_URL}/api/file/${media}`} className="img-fluid" />
+                </div>
+                {
+                    media !== null ? <img src={`${process.env.REACT_APP_SERVER_URL}/api/file/${media}`} className="img-fluid" /> : null
+                }
+
                 <div className="p-2">
                     <p className="text-justify">{post}</p>
                     <hr />

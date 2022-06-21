@@ -58,8 +58,8 @@ function Feed() {
     // const getAllPostLikes = async (postid) => {
     //     try {
     //         let response = await getPostLikes(postid)
-    //         console.log(response.data.likes)
-    //         return response.data.likes
+    //         console.log(response?.data.likes)
+    //         return response?.data.likes
     //         // setLikes(response.data.posts)
     //     } catch (error) {
     //         console.log(error)

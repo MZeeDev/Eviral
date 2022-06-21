@@ -6,7 +6,7 @@ import { toast } from "react-toastify"
 import Alert from './../Alert';
 function FeedPost() {
     const [post, setPost] = useState('');
-    const [selectedImage, setSelectedImage] = useState();
+    const [selectedImage, setSelectedImage] = useState('');
 
     const { user, Moralis, isInitialized } = useMoralis();
 
@@ -24,36 +24,75 @@ function FeedPost() {
     // console.log('user', user?.attributes?.username);
 
     const postThePost = async () => {
-        toast.success('Please wait....', {
-            position: 'top-center',
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined
-        });
-        const formData = new FormData();
-        formData.append("file", selectedImage)
-        const result = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/file/upload`, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
-        // console.log(result.data.key)
-        let media = result.data.key
-        let response = await addPost(user?.attributes?.accounts[0], post, media);
-        console.log(response)
-        setPost("")
-        removeSelectedImage()
-        // selectedImage("")
-        toast.success('WOW!!! Your Post is published!!!', {
-            position: 'top-center',
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined
-        });
-        return
 
+        if (post === "") {
+            toast.error(`OOPS, you've written nothing!!!`, {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined
+            });
+            return
+        }
+        if (selectedImage === "") {
+            toast.success('Please wait...', {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined
+            });
+            let response = await addPost(user?.attributes?.accounts[0], post, null);
+            console.log(response)
+            setPost("")
+            // removeSelectedImage()
+            // selectedImage("")
+            toast.success('WOW!!! Your Post is published!!!', {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined
+            });
+            return
+        } else {
+            toast.success('Please wait...', {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined
+            });
+            const formData = new FormData();
+            formData.append("file", selectedImage)
+            const result = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/file/upload`, formData, { headers: { 'Content-Type': 'multipart/form-data' } })
+            // console.log(result.data.key)
+            let media = result.data.key
+            let response = await addPost(user?.attributes?.accounts[0], post, media);
+            console.log(response)
+            setPost("")
+            removeSelectedImage()
+            // selectedImage("")
+            toast.success('WOW!!! Your Post is published!!!', {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined
+            });
+            return
+        }
     };
 
     // This function will be triggered when the file field change
@@ -68,7 +107,7 @@ function FeedPost() {
 
     // This function will be triggered when the "Remove This Image" button is clicked
     const removeSelectedImage = () => {
-        setSelectedImage();
+        setSelectedImage('');
     };
 
     const styles = {
@@ -218,6 +257,7 @@ function FeedPost() {
                                     <div>
                                         <span className="mr-3 text-sm text-gray-600" />
                                         <button
+                                            // disabled={post === ""}
                                             onClick={() => {
                                                 postThePost();
                                             }}

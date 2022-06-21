@@ -83,9 +83,9 @@ function Likes({ postid }) {
     const getAllPostLikes = async () => {
         try {
             let response = await getPostLikes(postid)
-            console.log(response.data.likes)
-            setMyLikes(response.data.likes)
-            setLikes(response.data.likes.length)
+            console.log(response?.data.likes)
+            setMyLikes(response?.data.likes)
+            setLikes(response?.data.likes.length)
             // setLikes(response.data.posts)
             return
         } catch (error) {
