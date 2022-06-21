@@ -9,6 +9,7 @@ function MyLikes() {
     const [posts, setPosts] = useState([])
     const [isLoading, setIsloading] = useState(false)
 
+    console.log("WALLLLET ID", walletid)
     useEffect(() => {
         getAllLikes()
     }, [walletid])
@@ -31,9 +32,9 @@ function MyLikes() {
                 for (let index = 0; index < res.data.likes.length; index++) {
                     const element = res.data.likes[index];
                     let posts = await postByPId(element.postid)
-                    arr.push({
+                    arr.push(
                         ...posts.data.post
-                    })
+                    )
                 }
                 setPosts(arr)
             }
@@ -44,23 +45,28 @@ function MyLikes() {
         }
     }
 
+    console.log("POSTS", posts)
     return (
         <div className="container mt-5 mb-5">
             <div className="row d-flex align-items-center justify-content-center">
                 <div className="col-md-6">
                     {
                         isLoading === true ? <b>Please wait....</b> :
-                            posts.length > 0 ? posts.map((post, index) => {
+                            posts?.length > 0 ? posts.map((post, index) => {
                                 return (<div key={index}>
+
+                                    {/* <PostCard post={post[index].post} walletid={post[index].walletid} postid={post[index].postid}
+                                        created={post[index].created}
+                                      media={post[index].media}
+                                    /> */}
                                     <PostCard post={post.post} walletid={post.walletid} postid={post.postid}
                                         created={post.created}
                                         media={post.media}
-                                        likes={post.likes}
                                     />
                                     <CommentCard />
                                 </div>
                                 )
-                            }) : null
+                            }) : <p>You have not liked any post yet!</p>
                     }
 
                 </div>

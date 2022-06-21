@@ -30,13 +30,15 @@ function MyFeed() {
         }
     }
 
+
+    console.log("MY", posts)
     return (
         <div className="container mt-5 mb-5">
             <div className="row d-flex align-items-center justify-content-center">
                 <div className="col-md-6">
                     {
                         isLoading === true ? <b>Please wait...</b> :
-                            posts.length > 0 ? posts.map((post, index) => {
+                            posts?.length > 0 ? posts.map((post, index) => {
                                 return (<div key={index}>
 
                                     <PostCard post={post.post} walletid={post.walletid} postid={post.postid}

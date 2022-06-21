@@ -48,9 +48,6 @@ export const postsByPostId = async (postid) => {
 };
 
 
-
-
-
 export const addLike = async (postid, walletid) => {
     try {
 
@@ -78,9 +75,6 @@ export const getUserLikes = async (walletid) => {
     }
 };
 
-
-
-
 export const getPostLikes = async (postid) => {
     try {
         let res;
@@ -91,11 +85,67 @@ export const getPostLikes = async (postid) => {
     }
 };
 
-
 export const unlike = async (likeid) => {
     try {
         let res;
         res = await axios.delete(`${SERVER_URL}/api/likes/user?likeid=${likeid}`);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+export const addShare = async (postid, walletid) => {
+    try {
+        let res;
+        res = await axios.post(`${SERVER_URL}/api/shares`, {
+            postid: postid,
+            walletid: walletid
+        });
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
+export const getUserShares = async (walletid) => {
+    try {
+
+        console.log(`${SERVER_URL}/api/shares/user?walletid=${walletid}`)
+        let res;
+        res = await axios.get(`${SERVER_URL}/api/shares/user?walletid=${walletid}`);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getPostShares = async (postid) => {
+    try {
+        console.log(`${SERVER_URL}/api/shares?postid=${postid}`)
+        let res;
+        res = await axios.get(`${SERVER_URL}/api/shares?postid=${postid}`);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const undoShare = async (shareid) => {
+    try {
+        let res;
+        res = await axios.delete(`${SERVER_URL}/api/shares/user?shareid=${shareid}`);
         return res;
     } catch (error) {
         console.log(error);

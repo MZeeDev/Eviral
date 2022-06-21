@@ -169,6 +169,16 @@ function Navbar() {
                                     </Link>
                                 </li>
 
+
+
+                                <li className='nav-item'>
+                                    <Link to='/myshares' className='nav-links' onClick={closeMobileMenu}>
+                                        My&nbsp;Shares
+                                    </Link>
+                                </li>
+
+
+
                             </>
                         }
                         <li className='nav-item'>
@@ -244,6 +254,14 @@ function Navbar() {
 
                                                     <h4 id="dropDown-text" > My&nbsp;Likes</h4>
                                                 </Link>
+
+                                                <Link to='/myshares' onClick={() => { setDropdown(!dropdown) }} className="dropdown-item">
+
+                                                    <h4 id="dropDown-text" > My&nbsp;Shares</h4>
+                                                </Link>
+
+
+
 
                                                 <li className="dropdown-logout">
                                                     <button className="btn2 logout-btn" onClick={() => logoutUser()}>

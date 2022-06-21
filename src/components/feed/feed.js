@@ -21,7 +21,7 @@ function Feed() {
             let res = await allPosts();
             if (res.status === 200) {
                 let arr = []
-                // for (let index = 0; index < res.data.posts.length; index++) {
+                // for (let index = 0; index < res.data.posts?.length; index++) {
                 //     const element = res.data.posts[index];
                 //     console.log(element.postid)
                 //     let likes = await getAllPostLikes(element.postid)
@@ -83,7 +83,7 @@ function Feed() {
                 <div className="col-md-6">
                     {
                         isLoading === true ? <b>Please wait....</b> :
-                            posts.length > 0 ? posts.map((post, index) => {
+                            posts?.length > 0 ? posts.map((post, index) => {
                                 return (<div key={index}>
 
 
@@ -95,7 +95,7 @@ function Feed() {
                                     <CommentCard />
                                 </div>
                                 )
-                            }) : null
+                            }) : <p>No Posts were found!!!</p>
                     }
 
                 </div>

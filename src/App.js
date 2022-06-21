@@ -21,6 +21,7 @@ import TokenPrices from './components/TokenPrices';
 import Feed from './components/feed/index';
 import MyFeed from './components/feed/myFeed';
 import MyLikes from './components/feed/myLikes';
+import MyShares from './components/feed/myShares';
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
           <Route path='/feed' exact component={Feed} />
           <Route path='/myfeed' exact component={MyFeed} />
           <Route path='/mylikes' exact component={MyLikes} />
+          <Route path='/myshares' exact component={MyShares} />
         </Switch>
         <Footer />
       </Router>

@@ -3,9 +3,11 @@ import "./postCard.css"
 import CommentCard from "./commentCard"
 import moment from 'moment'
 import Likes from './likes'
+import Share from './share'
 // import Styled from "styled-components";
 function PostCard({ post, walletid, postid, created, media }) {
 
+    console.log(post, walletid, postid, created, media)
     const [matches, setMatches] = useState(
         window.matchMedia("(min-width: 768px)").matches
     )
@@ -51,7 +53,7 @@ function PostCard({ post, walletid, postid, created, media }) {
                     <hr />
                     <div className="d-flex justify-content-between align-items-center">
                         <Likes postid={postid} />
-                        <div className="d-flex flex-row muted-color"> <span>2 comments</span> <span className="ml-2">Share</span> </div>
+                        <div className="d-flex flex-row muted-color"> <span>2 comments</span> <Share postid={postid} /> </div>
                     </div>
                     <hr />
                     {/* <CommentCard /> */}
