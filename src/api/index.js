@@ -206,7 +206,7 @@ export const addReply = async (commentid, walletid, reply) => {
     try {
 
         let res;
-        res = await axios.post(`${SERVER_URL}/api/replies`, {
+        res = await axios.post(`${SERVER_URL}/api/reply`, {
             commentid: commentid,
             walletid: walletid,
             reply: reply

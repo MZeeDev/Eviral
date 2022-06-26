@@ -7,6 +7,7 @@ import Share from './share'
 // import Styled from "styled-components";
 function PostCard({ post, walletid, postid, created, media }) {
 
+    const [commentsLen, setCommentsLen] = useState(0)
     console.log(post, walletid, postid, created, media)
     const [matches, setMatches] = useState(
         window.matchMedia("(min-width: 768px)").matches
@@ -17,6 +18,9 @@ function PostCard({ post, walletid, postid, created, media }) {
             .matchMedia("(min-width: 768px)")
             .addEventListener('change', e => setMatches(e.matches));
     }, []);
+    const commentsLength = (data) => {
+        setCommentsLen(data)
+    }
 
     return (
         <div key={postid}>
@@ -53,10 +57,12 @@ function PostCard({ post, walletid, postid, created, media }) {
                     <hr />
                     <div className="d-flex justify-content-between align-items-center">
                         <Likes postid={postid} />
-                        <div className="d-flex flex-row muted-color"> <span>2 comments</span> <Share postid={postid} /> </div>
+                        <div className="d-flex flex-row muted-color"> <span>{commentsLen} comments</span> <Share postid={postid} /> </div>
                     </div>
                     <hr />
-                    <CommentCard postid={postid} />
+                    <CommentCard
+                        passCommentLengthParent={commentsLength}
+                        postid={postid} />
 
                 </div>
             </div>
