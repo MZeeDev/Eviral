@@ -56,7 +56,7 @@ function PostCard({ post, walletid, postid, created, media }) {
                         <div className="d-flex flex-row muted-color"> <span>2 comments</span> <Share postid={postid} /> </div>
                     </div>
                     <hr />
-                    {/* <CommentCard /> */}
+                    <CommentCard postid={postid} />
 
                 </div>
             </div>

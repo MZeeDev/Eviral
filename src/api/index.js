@@ -156,3 +156,83 @@ export const undoShare = async (shareid) => {
 
 
 
+
+//Comments
+
+export const addComments = async (postid, walletid, comment) => {
+    try {
+
+        let res;
+        res = await axios.post(`${SERVER_URL}/api/comments`, {
+            postid: postid,
+            walletid: walletid,
+            comment: comment
+        });
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getPostComments = async (postid) => {
+    try {
+        let res;
+        res = await axios.get(`${SERVER_URL}/api/comments?postid=${postid}`);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const deleteComment = async (commentid) => {
+    try {
+        let res;
+        res = await axios.delete(`${SERVER_URL}/api/comments/user?commentid=${commentid}`);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+
+
+// replies
+
+
+
+//Comments
+
+export const addReply = async (commentid, walletid, reply) => {
+    try {
+
+        let res;
+        res = await axios.post(`${SERVER_URL}/api/replies`, {
+            commentid: commentid,
+            walletid: walletid,
+            reply: reply
+        });
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getCommentReplies = async (commentid) => {
+    try {
+        let res;
+        res = await axios.get(`${SERVER_URL}/api/replies?commentid=${commentid}`);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const deleteReply = async (replyid) => {
+    try {
+        let res;
+        res = await axios.delete(`${SERVER_URL}/api/replies/user?replyid=${replyid}`);
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};

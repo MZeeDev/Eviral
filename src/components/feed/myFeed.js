@@ -45,7 +45,7 @@ function MyFeed() {
                                         created={post.created}
                                         media={post.media}
                                     />
-                                    <CommentCard />
+                                    {/* <CommentCard /> */}
                                 </div>
                                 )
                             }) : <p>Not Found</p>
