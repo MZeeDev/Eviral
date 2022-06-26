@@ -27,7 +27,10 @@ function CommentCard({ postid }) {
                             <div className="fonts">
                                 {/* <i className="fa fa-camera" />  */}
                             </div>
-                        </div></div>
+                        </div>
+                        {/* /// */}
+                    </div>
+
                 </div>
 
             </div>
