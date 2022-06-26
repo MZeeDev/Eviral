@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useMoralis } from 'react-moralis';
 import { addPost } from './../../api/index.js';
 import axios from 'axios';
 import { toast } from "react-toastify"
-import Alert from './../Alert';
-function FeedPost() {
+// import { io } from "socket.io-client";
+function FeedPost({ socket }) {
     const [post, setPost] = useState('');
     const [selectedImage, setSelectedImage] = useState('');
 
@@ -13,6 +13,18 @@ function FeedPost() {
     const [matches, setMatches] = useState(
         window.matchMedia("(min-width: 768px)").matches
     )
+
+    console.log("SOCKET", socket)
+    // const socket = useRef();
+
+    // let host = process.env.REACT_APP_SERVER_URL;
+
+    // useEffect(() => {
+    //     if (user) {
+    //         socket.current = io(host);
+    //         socket.current.emit("add-user", user?.attributes?.accounts[0]);
+    //     }
+    // }, [user]);
 
     useEffect(() => {
         window
@@ -24,7 +36,10 @@ function FeedPost() {
     // console.log('user', user?.attributes?.username);
 
     const postThePost = async () => {
-
+        socket.current.emit("add-post", {
+            data: "HELLO, new post was added, hurrah"
+        });
+        return
         if (post === "") {
             toast.error(`OOPS, you've written nothing!!!`, {
                 position: 'top-center',

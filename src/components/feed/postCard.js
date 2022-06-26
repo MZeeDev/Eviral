@@ -8,7 +8,7 @@ import Share from './share'
 function PostCard({ post, walletid, postid, created, media }) {
 
     const [commentsLen, setCommentsLen] = useState(0)
-    console.log(post, walletid, postid, created, media)
+    // console.log(post, walletid, postid, created, media)
     const [matches, setMatches] = useState(
         window.matchMedia("(min-width: 768px)").matches
     )

@@ -4,7 +4,7 @@ import CommentCard from './commentCard'
 import { allPosts } from "./../../api/index.js"
 import { addLike, getUserLikes, getPostLikes, unlike } from "./../../api/index.js"
 import { useMoralis } from 'react-moralis';
-function Feed() {
+function Feed({ socket }) {
     const { user, Moralis, isInitialized } = useMoralis();
 
     console.log('user', user);
@@ -15,6 +15,17 @@ function Feed() {
     useEffect(() => {
         getAllPosts()
     }, [])
+
+
+    useEffect(() => {
+
+        if (socket.current) {
+            socket.current.on("post", (data) => {
+                console.log("DATA from socket", data)
+            });
+        }
+    }, [socket]);
+
     const getAllPosts = async () => {
         try {
             setIsloading(true)

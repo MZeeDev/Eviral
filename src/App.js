@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css'; // import first
 import { ToastContainer, toast } from 'react-toastify'; // then this
 import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
 import './App.css';
-
+// import io from 'socket.io-client'
 import MyProfile from './components/pages/myprofile';
 import Projects from './components/pages/projects';
 import Wallet from './components/pages/wallet';

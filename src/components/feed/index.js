@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useMoralis } from 'react-moralis';
 import { Link, useHistory } from 'react-router-dom';
 import Alert from './../Alert';
-
+import { io } from "socket.io-client";
 import FeedPost from './FeedPost.js';
 
 import Feed from './feed.js';
@@ -13,10 +13,25 @@ function Index() {
     console.log('user', user?.attributes?.username);
     console.log('userwalletid', user?.attributes?.accounts[0]);
 
+    const socket = useRef();
+
+
+    // console.log("socket", socket)
+    let host = process.env.REACT_APP_SERVER_URL;
+
+    useEffect(() => {
+        if (user) {
+            socket.current = io(host);
+            // const socket = io(host)
+            socket.current.emit("add-user", user?.attributes?.accounts[0]);
+        }
+    }, [user]);
+
+
     return (
         <div>
-            <FeedPost />
-            <Feed />
+            <FeedPost socket={socket} />
+            <Feed socket={socket} />
         </div>
     );
 }
