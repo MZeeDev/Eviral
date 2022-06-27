@@ -18,14 +18,15 @@ function Index() {
 
     // console.log("socket", socket)
     let host = process.env.REACT_APP_SERVER_URL;
-
+    socket.current = io(host);
     useEffect(() => {
-        if (user) {
-            socket.current = io(host);
-            // const socket = io(host)
-            socket.current.emit("add-user", user?.attributes?.accounts[0]);
-        }
-    }, [user]);
+        // socket.current = io(host);
+        // if (user) {
+        //     socket.current = io(host);
+        //     // const socket = io(host)
+        //     // socket.current.emit("add-user", user?.attributes?.accounts[0]);
+        // }
+    }, []);
 
 
     return (

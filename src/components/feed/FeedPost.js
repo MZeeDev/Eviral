@@ -37,7 +37,7 @@ function FeedPost({ socket }) {
 
     const postThePost = async () => {
         socket.current.emit("add-post", {
-            data: "HELLO, new post was added, hurrah"
+            data: post
         });
         return
         if (post === "") {

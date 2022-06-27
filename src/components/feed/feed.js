@@ -21,6 +21,7 @@ function Feed({ socket }) {
 
         if (socket.current) {
             socket.current.on("post", (data) => {
+                console.log("HOLA")
                 console.log("DATA from socket", data)
             });
         }
