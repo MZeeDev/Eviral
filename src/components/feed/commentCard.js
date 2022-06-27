@@ -86,11 +86,15 @@ function CommentCard({ postid, passCommentLengthParent }) {
 
                                 ))
                             }
+
                         </div>
 
                         : null
                 }
+
                 {/* <img src="https://i.imgur.com/1YrCKa1.jpg" width={40} className="rounded-image" /> */}
+
+
             </div>
             <div className="comment-input"> <input type="text"
                 value={comment}

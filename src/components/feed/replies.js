@@ -62,7 +62,6 @@ function Replies({ commentId, passRepliesLengthParent }) {
     return (
 
         <div className="comments">
-
             <div className="d-flex flex-row mb-2">
                 {
                     replies.length > 0 ? replies?.map((comment, index) => (
