@@ -22,7 +22,37 @@ function Feed({ socket }) {
         if (socket.current) {
             socket.current.on("post", (data) => {
                 console.log("HOLA")
-                console.log("DATA from socket", data)
+                console.log("DATA from socket", Object.values(data)[0])
+
+                let data1 = Object.values(data)[0]
+
+
+                let { created,
+                    media,
+                    post,
+                    postid,
+                    status,
+                    walletid } = data
+                console.log(created,
+                    media,
+                    post,
+                    postid,
+                    status,
+                    walletid)
+
+                let myobject = {
+                    created,
+                    media,
+                    post,
+                    postid,
+                    status,
+                    walletid
+                }
+
+                let arr = posts.push(myobject).unshift()
+                console.log("arr", arr)
+
+                setPosts(arr)
             });
         }
     }, [socket]);
@@ -104,7 +134,7 @@ function Feed({ socket }) {
                                         media={post.media}
 
                                     />
-                                    <CommentCard />
+
                                 </div>
                                 )
                             }) : <p>No Posts were found!!!</p>
