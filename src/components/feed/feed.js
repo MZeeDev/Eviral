@@ -103,6 +103,7 @@ function Feed({ socket }) {
                                     <PostCard post={post.post} walletid={post.walletid} postid={post.postid}
                                         created={post.created}
                                         media={post.media}
+                                        socket={socket}
 
                                     />
 

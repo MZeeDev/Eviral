@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useMoralis } from 'react-moralis';
 import PostCard from './postCard'
-import CommentCard from './commentCard'
 import { postsByWallet } from "./../../api/index.js"
 
 function MyFeed() {
@@ -45,7 +44,6 @@ function MyFeed() {
                                         created={post.created}
                                         media={post.media}
                                     />
-                                    {/* <CommentCard /> */}
                                 </div>
                                 )
                             }) : <p>Not Found</p>

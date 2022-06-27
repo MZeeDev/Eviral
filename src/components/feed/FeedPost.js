@@ -62,7 +62,7 @@ function FeedPost({ socket }) {
                 progress: undefined
             });
             let response = await addPost(user?.attributes?.accounts[0], post, null);
-            // console.log(response)
+            console.log("response.data.post", response.data.post)
             socket.current.emit("add-post", response.data.post);
 
             setPost("")
@@ -95,6 +95,8 @@ function FeedPost({ socket }) {
             let media = result.data.key
             let response = await addPost(user?.attributes?.accounts[0], post, media);
             console.log(response)
+
+            socket.current.emit("add-post", response.data.post);
             setPost("")
             removeSelectedImage()
             // selectedImage("")

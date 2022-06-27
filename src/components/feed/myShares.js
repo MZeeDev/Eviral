@@ -68,7 +68,7 @@ function MyShares() {
                                         created={post.created}
                                         media={post.media}
                                     />
-                                    <CommentCard />
+                                    {/* <CommentCard /> */}
                                 </div>
                                 )
                             }) : <p>You have not liked any post yet!</p>

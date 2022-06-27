@@ -5,7 +5,7 @@ import moment from 'moment'
 import Likes from './likes'
 import Share from './share'
 // import Styled from "styled-components";
-function PostCard({ post, walletid, postid, created, media }) {
+function PostCard({ post, walletid, postid, created, media, socket }) {
 
     const [commentsLen, setCommentsLen] = useState(0)
     // console.log(post, walletid, postid, created, media)
@@ -21,6 +21,16 @@ function PostCard({ post, walletid, postid, created, media }) {
     const commentsLength = (data) => {
         setCommentsLen(data)
     }
+
+
+    // useEffect(() => {
+    //     if (socket.current) {
+    //         socket.current.on("commented-postid", (data) => {
+
+    //             return
+    //         });
+    //     }
+    // }, [socket]);
 
     return (
         <div key={postid}>
@@ -62,7 +72,9 @@ function PostCard({ post, walletid, postid, created, media }) {
                     <hr />
                     <CommentCard
                         passCommentLengthParent={commentsLength}
-                        postid={postid} />
+                        postid={postid}
+                        socket={socket}
+                    />
 
                 </div>
             </div>
