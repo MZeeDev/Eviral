@@ -18,45 +18,16 @@ function Feed({ socket }) {
 
 
     useEffect(() => {
-
         if (socket.current) {
             socket.current.on("post", (data) => {
-                console.log("HOLA")
-                console.log("DATA from socket", Object.values(data)[0])
-
-                let data1 = Object.values(data)[0]
-
-
-                let { created,
-                    media,
-                    post,
-                    postid,
-                    status,
-                    walletid } = data
-                console.log(created,
-                    media,
-                    post,
-                    postid,
-                    status,
-                    walletid)
-
-                let myobject = {
-                    created,
-                    media,
-                    post,
-                    postid,
-                    status,
-                    walletid
-                }
-
-                let arr = posts.push(myobject).unshift()
-                console.log("arr", arr)
-
-                setPosts(arr)
+                console.log("POST DATA", data)
+                setPosts(posts => [data, ...posts]);
+                return
             });
         }
     }, [socket]);
 
+    console.log("POSTS", posts)
     const getAllPosts = async () => {
         try {
             setIsloading(true)
@@ -125,7 +96,7 @@ function Feed({ socket }) {
                 <div className="col-md-6">
                     {
                         isLoading === true ? <b>Please wait....</b> :
-                            posts?.length > 0 ? posts.map((post, index) => {
+                            posts?.length > 0 ? posts.filter((value, index, self) => self.map(x => x.postid).indexOf(value.postid) == index).map((post, index) => {
                                 return (<div key={index}>
 
 

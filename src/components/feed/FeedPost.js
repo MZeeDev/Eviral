@@ -36,6 +36,9 @@ function FeedPost({ socket }) {
     // console.log('user', user?.attributes?.username);
 
     const postThePost = async () => {
+
+
+
         if (post === "") {
             toast.error(`OOPS, you've written nothing!!!`, {
                 position: 'top-center',
@@ -60,9 +63,7 @@ function FeedPost({ socket }) {
             });
             let response = await addPost(user?.attributes?.accounts[0], post, null);
             // console.log(response)
-            socket.current.emit("add-post", {
-                data: response.data.post
-            });
+            socket.current.emit("add-post", response.data.post);
 
             setPost("")
             // removeSelectedImage()
