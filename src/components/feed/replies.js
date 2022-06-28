@@ -4,11 +4,20 @@ import {
 } from "./../../api/index"
 import { useMoralis } from 'react-moralis';
 import { toast } from "react-toastify"
+import "./replies.css"
 import moment from 'moment'
 function Replies({ commentId, passRepliesLengthParent, socket }) {
     console.log("commentId", commentId)
 
+    const [matches, setMatches] = useState(
+        window.matchMedia("(min-width: 768px)").matches
+    )
 
+    useEffect(() => {
+        window
+            .matchMedia("(min-width: 768px)")
+            .addEventListener('change', e => setMatches(e.matches));
+    }, []);
     const { user, Moralis, isInitialized } = useMoralis();
     let walletid = user?.attributes?.accounts[0];
     const [replies, setReplies] = useState([])
@@ -23,7 +32,7 @@ function Replies({ commentId, passRepliesLengthParent, socket }) {
 
     useEffect(() => {
         if (socket.current) {
-            socket.current.on("get-replies", (data) => {
+            socket.current.on("replied-commentid", (data) => {
                 // getTheComments()
                 getTheReplies()
                 // console.log("DATA", data)
@@ -79,23 +88,45 @@ function Replies({ commentId, passRepliesLengthParent, socket }) {
     }
     return (
 
-        <div className="comments">
+        <div style={{
+
+            marginLeft: "2%"
+
+        }} className="comments myContainer">
+            {/* <div style={{ display: "flex" }} className="vertical-line">&nbsp;</div> */}
             <div
             // className="d-flex flex-row mb-2"
             >
                 {
                     replies.length > 0 ? replies?.map((comment, index) => (
                         <div
+                            key={index}
                             style={{
                                 display:
                                     'contents'
                             }}
                         // className="d-flex flex-column ml-2"
-                        > <span className="name">{comment.walletid}</span> <small className="comment-text">{comment.reply}</small>
+                        >
+                            {matches && (<span
+                                className="name">{comment.walletid}</span>)}
+                            {!matches && (<span
+
+                                style={{
+
+                                    wordBreak: "break-all",
+                                    width: "100%"
+
+                                }}
+                                className="name">{comment.walletid}</span>)}
+                            <small
+
+                                style={{ display: "flex" }}
+                                className="comment-text">{comment.reply}</small>
                             <div
-                            // className="d-flex flex-row align-items-center status"
+
+                                className="d-flex flex-row align-items-center status"
                             >
-                                {/* <small>Like</small> */}
+                                <small style={{ display: comment.walletid === walletid ? "default" : "none", cursor: "pointer" }}>Delete</small>
                                 {/* <small>Reply</small> */}
                                 {/* <small>Translate</small> */}
                                 <small>{moment(comment.created).fromNow()}</small>

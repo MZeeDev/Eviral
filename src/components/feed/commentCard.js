@@ -113,14 +113,17 @@ function CommentCard({ postid, passCommentLengthParent, socket }) {
                         <div className="d-flex flex-column ml-2">
                             {
                                 comments?.map((comment, index) => (
-                                    <div className="d-flex flex-column ml-2"> <span className="name">{comment.walletid}</span> <small className="comment-text">{comment.comment}</small>
+                                    <div className="d-flex flex-column ml-2"> <span
+
+                                        className="name">{comment.walletid}</span> <small className="comment-text">{comment.comment}</small>
                                         <div className="d-flex flex-row align-items-center status">
-                                            {/* <small>Like</small> */}
+                                            <small>Delete</small>
                                             <small>Reply</small>
                                             {/* <small>Translate</small> */}
                                             <small>{moment(comment.created).fromNow()}</small>
                                         </div>
 
+                                        <hr />
                                         <Reply commentId={comment.commentid} socket={socket} />
                                     </div>
 
