@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useMoralis } from 'react-moralis';
 import PostCard from './postCard'
 import { postsByWallet } from "./../../api/index.js"
-
+import { io } from "socket.io-client";
 function MyFeed() {
     const [posts, setPosts] = useState([])
     const [isLoading, setIsloading] = useState(false)
     const { user, Moralis, isInitialized } = useMoralis();
 
+
+    const socket = useRef();
+    let host = process.env.REACT_APP_SERVER_URL;
+    socket.current = io(host);
 
     useEffect(async () => {
         await getAllPosts()
@@ -43,6 +47,7 @@ function MyFeed() {
                                     <PostCard post={post.post} walletid={post.walletid} postid={post.postid}
                                         created={post.created}
                                         media={post.media}
+                                        socket={socket}
                                     />
                                 </div>
                                 )

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import PostCard from './postCard'
-import CommentCard from './commentCard'
+import { io } from "socket.io-client";
 import {
     getUserShares, getPostLikes, postsByPostId
 
@@ -18,6 +18,9 @@ function MyShares() {
     useEffect(async () => {
         await getAllLikes()
     }, [walletid])
+    const socket = useRef();
+    let host = process.env.REACT_APP_SERVER_URL;
+    socket.current = io(host);
 
     const postByPId = async (postid) => {
         try {
@@ -67,6 +70,7 @@ function MyShares() {
                                     <PostCard post={post.post} walletid={post.walletid} postid={post.postid}
                                         created={post.created}
                                         media={post.media}
+                                        socket={socket}
                                     />
                                     {/* <CommentCard /> */}
                                 </div>

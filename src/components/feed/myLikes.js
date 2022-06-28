@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import PostCard from './postCard'
 import CommentCard from './commentCard'
 import { getUserLikes, getPostLikes, postsByPostId } from "./../../api/index.js"
 import { useMoralis } from 'react-moralis';
+import { io } from "socket.io-client";
 function MyLikes() {
     const { user, Moralis, isInitialized } = useMoralis();
     let walletid = user?.attributes?.accounts[0];
@@ -45,6 +46,9 @@ function MyLikes() {
         }
     }
 
+    const socket = useRef();
+    let host = process.env.REACT_APP_SERVER_URL;
+    socket.current = io(host);
     console.log("POSTS", posts)
     return (
         <div className="container mt-5 mb-5">
@@ -62,6 +66,7 @@ function MyLikes() {
                                     <PostCard post={post.post} walletid={post.walletid} postid={post.postid}
                                         created={post.created}
                                         media={post.media}
+                                        socket={socket}
                                     />
                                     {/* <CommentCard /> */}
                                 </div>
