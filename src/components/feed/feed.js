@@ -12,8 +12,8 @@ function Feed({ socket }) {
     console.log('userwalletid', user?.attributes?.accounts[0]);
     const [posts, setPosts] = useState([])
     const [isLoading, setIsloading] = useState(false)
-    useEffect(() => {
-        getAllPosts()
+    useEffect(async () => {
+        await getAllPosts()
     }, [])
 
 

@@ -24,17 +24,17 @@ function Replies({ commentId, passRepliesLengthParent, socket }) {
     const [reply, setReply] = useState("")
     const [isLoading, setIsloading] = useState(false)
 
-    useEffect(() => {
-        getTheReplies()
+    useEffect(async () => {
+        await getTheReplies()
     }, [])
 
 
 
     useEffect(() => {
         if (socket.current) {
-            socket.current.on("replied-commentid", (data) => {
+            socket.current.on("replied-commentid", async (data) => {
                 // getTheComments()
-                getTheReplies()
+                await getTheReplies()
                 // console.log("DATA", data)
                 // getTheCommentsByPostId(data)
                 // setmyPostId(setmyPostId)
@@ -78,10 +78,21 @@ function Replies({ commentId, passRepliesLengthParent, socket }) {
         }
     }
 
-    const deleteTheComment = async (commentId) => {
+    const deleteTheComment = async (replyid) => {
         try {
-            let response = await deleteComment(commentId)
+            let response = await deleteReply(replyid)
             console.log(response)
+            toast.success('Reply deleted...', {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined
+            });
+            socket.current.emit("add-reply", commentId);
+            return
         } catch (error) {
             console.log(error)
         }
@@ -126,7 +137,7 @@ function Replies({ commentId, passRepliesLengthParent, socket }) {
 
                                 className="d-flex flex-row align-items-center status"
                             >
-                                <small style={{ display: comment.walletid === walletid ? "default" : "none", cursor: "pointer" }}>Delete</small>
+                                <small onClick={() => { deleteTheComment(comment.replyid) }} style={{ display: comment.walletid === walletid ? "default" : "none", cursor: "pointer" }}>Delete</small>
                                 {/* <small>Reply</small> */}
                                 {/* <small>Translate</small> */}
                                 <small>{moment(comment.created).fromNow()}</small>
@@ -141,7 +152,7 @@ function Replies({ commentId, passRepliesLengthParent, socket }) {
                 placeholder="Add reply"
                 onChange={(e) => { setReply(e.target.value) }}
                 className="form-control" />
-                <div onClick={() => { addTheReply() }} className="fonts">
+                <div style={{ cursor: "pointer" }} onClick={() => { addTheReply() }} className="fonts">
                     <i className="fa fa-rocket" />
                 </div>
             </div>

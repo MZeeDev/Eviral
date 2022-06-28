@@ -19,10 +19,10 @@ function CommentCard({ postid, passCommentLengthParent, socket }) {
     const [reRender, setReRender] = useState(false)
     const [myPostId, setmyPostId] = useState("")
 
-    useEffect(() => {
+    useEffect(async () => {
         // console.log("myPostId", myPostId)
         // if (myPostId === "") {
-        getTheComments()
+        await getTheComments()
         // }
         // else {
         //     getTheCommentsByPostId(myPostId)
@@ -31,9 +31,9 @@ function CommentCard({ postid, passCommentLengthParent, socket }) {
 
     useEffect(() => {
         if (socket.current) {
-            socket.current.on("commented-postid", (data) => {
-                // getTheComments()
-                getTheCommentsByPostId(data)
+            socket.current.on("commented-postid", async (data) => {
+                await getTheComments()
+                // getTheCommentsByPostId(data)
                 // console.log("DATA", data)
                 // getTheCommentsByPostId(data)
                 // setmyPostId(setmyPostId)
@@ -97,6 +97,17 @@ function CommentCard({ postid, passCommentLengthParent, socket }) {
         try {
             let response = await deleteComment(commentId)
             console.log(response)
+            toast.success('Comment deleted...', {
+                position: 'top-center',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined
+            });
+            socket.current.emit("add-comment", postid);
+            return
         } catch (error) {
             console.log(error)
         }
@@ -117,7 +128,7 @@ function CommentCard({ postid, passCommentLengthParent, socket }) {
 
                                         className="name">{comment.walletid}</span> <small className="comment-text">{comment.comment}</small>
                                         <div className="d-flex flex-row align-items-center status">
-                                            <small>Delete</small>
+                                            <small onClick={() => { deleteTheComment(comment.commentid) }} style={{ display: comment.walletid === walletid ? "default" : "none", cursor: "pointer" }} >Delete</small>
                                             <small>Reply</small>
                                             {/* <small>Translate</small> */}
                                             <small>{moment(comment.created).fromNow()}</small>
@@ -144,7 +155,7 @@ function CommentCard({ postid, passCommentLengthParent, socket }) {
                 placeholder="Add comment"
                 onChange={(e) => { setComment(e.target.value) }}
                 className="form-control" />
-                <div onClick={() => { addTheComment() }} className="fonts">
+                <div style={{ cursor: "pointer" }} onClick={() => { addTheComment() }} className="fonts">
                     <i className="fa fa-rocket" />
                 </div>
             </div>

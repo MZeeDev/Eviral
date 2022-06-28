@@ -14,19 +14,8 @@ function Index() {
     console.log('userwalletid', user?.attributes?.accounts[0]);
 
     const socket = useRef();
-
-
-    // console.log("socket", socket)
     let host = process.env.REACT_APP_SERVER_URL;
     socket.current = io(host);
-    useEffect(() => {
-        // socket.current = io(host);
-        // if (user) {
-        //     socket.current = io(host);
-        //     // const socket = io(host)
-        //     // socket.current.emit("add-user", user?.attributes?.accounts[0]);
-        // }
-    }, []);
 
 
     return (

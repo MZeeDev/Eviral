@@ -36,9 +36,6 @@ function FeedPost({ socket }) {
     // console.log('user', user?.attributes?.username);
 
     const postThePost = async () => {
-
-
-
         if (post === "") {
             toast.error(`OOPS, you've written nothing!!!`, {
                 position: 'top-center',

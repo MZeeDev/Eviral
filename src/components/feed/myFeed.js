@@ -9,8 +9,8 @@ function MyFeed() {
     const { user, Moralis, isInitialized } = useMoralis();
 
 
-    useEffect(() => {
-        getAllPosts()
+    useEffect(async () => {
+        await getAllPosts()
     }, [user])
     const getAllPosts = async () => {
         try {

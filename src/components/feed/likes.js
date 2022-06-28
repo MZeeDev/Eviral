@@ -77,8 +77,8 @@ function Likes({ postid }) {
         }
     }
 
-    useEffect(() => {
-        getAllPostLikes()
+    useEffect(async () => {
+        await getAllPostLikes()
     }, [likes])
     const getAllPostLikes = async () => {
         try {

@@ -15,8 +15,8 @@ function MyShares() {
     const [isLoading, setIsloading] = useState(false)
 
     console.log("WALLLLET ID", walletid)
-    useEffect(() => {
-        getAllLikes()
+    useEffect(async () => {
+        await getAllLikes()
     }, [walletid])
 
     const postByPId = async (postid) => {

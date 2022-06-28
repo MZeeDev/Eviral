@@ -90,8 +90,8 @@ export default function Share({ postid }) {
         }
     }
 
-    useEffect(() => {
-        getPostSharesByComponent()
+    useEffect(async () => {
+        await getPostSharesByComponent()
     }, [shares])
 
     const getPostSharesByComponent = async () => {
