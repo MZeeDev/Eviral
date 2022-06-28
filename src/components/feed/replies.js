@@ -5,7 +5,7 @@ import {
 import { useMoralis } from 'react-moralis';
 import { toast } from "react-toastify"
 import moment from 'moment'
-function Replies({ commentId, passRepliesLengthParent }) {
+function Replies({ commentId, passRepliesLengthParent, socket }) {
     console.log("commentId", commentId)
 
 
@@ -18,6 +18,23 @@ function Replies({ commentId, passRepliesLengthParent }) {
     useEffect(() => {
         getTheReplies()
     }, [])
+
+
+
+    useEffect(() => {
+        if (socket.current) {
+            socket.current.on("get-replies", (data) => {
+                // getTheComments()
+                getTheReplies()
+                // console.log("DATA", data)
+                // getTheCommentsByPostId(data)
+                // setmyPostId(setmyPostId)
+                // setReRender(!reRender)
+                return
+            });
+        }
+    }, [socket]);
+
     const getTheReplies = async () => {
         try {
             let response = await getCommentReplies(commentId)
@@ -44,6 +61,7 @@ function Replies({ commentId, passRepliesLengthParent }) {
                 draggable: true,
                 progress: undefined
             });
+            socket.current.emit("add-reply", commentId);
             setReply("")
             return
         } catch (error) {
@@ -62,11 +80,21 @@ function Replies({ commentId, passRepliesLengthParent }) {
     return (
 
         <div className="comments">
-            <div className="d-flex flex-row mb-2">
+            <div
+            // className="d-flex flex-row mb-2"
+            >
                 {
                     replies.length > 0 ? replies?.map((comment, index) => (
-                        <div className="d-flex flex-column ml-2"> <span className="name">{comment.walletid}</span> <small className="comment-text">{comment.reply}</small>
-                            <div className="d-flex flex-row align-items-center status">
+                        <div
+                            style={{
+                                display:
+                                    'contents'
+                            }}
+                        // className="d-flex flex-column ml-2"
+                        > <span className="name">{comment.walletid}</span> <small className="comment-text">{comment.reply}</small>
+                            <div
+                            // className="d-flex flex-row align-items-center status"
+                            >
                                 {/* <small>Like</small> */}
                                 {/* <small>Reply</small> */}
                                 {/* <small>Translate</small> */}

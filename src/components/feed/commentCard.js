@@ -16,13 +16,8 @@ function CommentCard({ postid, passCommentLengthParent, socket }) {
     const [commentsLen, setCommentsLen] = useState(0)
     const [comment, setComment] = useState("")
     const [isLoading, setIsloading] = useState(false)
-
-
     const [reRender, setReRender] = useState(false)
-
     const [myPostId, setmyPostId] = useState("")
-
-
 
     useEffect(() => {
         // console.log("myPostId", myPostId)
@@ -126,7 +121,7 @@ function CommentCard({ postid, passCommentLengthParent, socket }) {
                                             <small>{moment(comment.created).fromNow()}</small>
                                         </div>
 
-                                        <Reply commentId={comment.commentid} />
+                                        <Reply commentId={comment.commentid} socket={socket} />
                                     </div>
 
                                 ))
