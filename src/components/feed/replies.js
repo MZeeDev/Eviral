@@ -70,6 +70,7 @@ function Replies({ commentId, passRepliesLengthParent, socket }) {
                 draggable: true,
                 progress: undefined
             });
+            // socket.current.emit("add-comment", "234");
             socket.current.emit("add-reply", commentId);
             setReply("")
             return
@@ -91,6 +92,7 @@ function Replies({ commentId, passRepliesLengthParent, socket }) {
                 draggable: true,
                 progress: undefined
             });
+            // socket.current.emit("add-comment", "124");
             socket.current.emit("add-reply", commentId);
             return
         } catch (error) {
